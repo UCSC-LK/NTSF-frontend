@@ -6,6 +6,8 @@ National Traffic Spot Fine system is a system that will address various ineffici
 
 Group No: CS13
 
-Team Leader:  Suraif Muhammad
-
 Team Members:
+    Suraif Muhammad
+    Shanaka Fernando
+            
+
