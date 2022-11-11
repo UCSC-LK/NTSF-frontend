@@ -1,0 +1,54 @@
+/*Header*/
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    border: 5px solid black;
+    margin-bottom: 20px;
+    background-color: beige;
+
+}
+
+p
+{
+    border: 5px solid teal;
+    padding: 10px;
+}
+
+img
+{
+    width: 120px;
+    height: 80px;
+}
+
+.homeButtonImg
+{
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+
+}
+
+/*Sub Header*/
+.subHeader
+{
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid black;
+    margin-bottom: 40px;
+    background-color: beige
+}
+
+.subHeader1
+{
+    flex: 50%;
+    direction: flex;
+    text-align: center;
+}
+
+.subheader2
+{
+    flex: 50%;
+    border-left: 5px solid black;
+    text-align: center;
+}
