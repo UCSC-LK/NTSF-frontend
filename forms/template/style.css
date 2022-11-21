@@ -1,0 +1,28 @@
+/* Navigation bar */
+.top {
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    height: 70px;
+    font-family: Poppins, serif;
+}
+
+.top a {
+    float: left;
+    color: black;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.ntsf {
+    padding-top: 15px;
+}
+
+.logo {
+    float: left;
+    width: 95px;
+    max-height: max-content;
+}

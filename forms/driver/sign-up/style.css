@@ -1,0 +1,149 @@
+/* Navigation bar */
+.logo {
+    float: left;
+    width: 125px;
+    max-height: max-content;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 30px;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    justify-content: space-around;
+    /* align-content: center; */
+    background-color: white;
+}
+
+.flexbox-item {
+    width: 292.27px;
+    margin: 10px;
+    height: 70px;
+}
+
+.flexbox-item-1 {
+    color: black;
+    font-size: 28px;
+    position: relative;
+}
+
+.flexbox-item-2 {
+    font-size: 32px;
+    font-weight: bold;
+    float: right;
+}
+
+.flexbox-item-3 {
+    float: right;
+    padding-right: 30px;
+
+}
+
+/* Login form */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Poppins, serif;
+}
+
+.container {
+    margin-top: 50px;
+    width: 300px;
+    overflow: hidden;
+    margin: auto;
+    margin: auto;
+    padding: 50px;
+    background: #ffffff;
+    /* border-color: #068488;
+    border-radius: 15px; */
+}
+
+header {
+    text-align: center;
+    color: black;
+    font-size: 28px;
+}
+
+label {
+    font-size: 17px;
+    color: black;
+}
+
+#licenseNo {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border: 2px solid black;
+    /* border-radius: 3px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#nic {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#email {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#mobileNo {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#password {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#rePassword {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+    font-family: Poppins, serif;
+}
+
+#login-btn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    padding-left: 8px;
+    font-family: Poppins, serif;
+    font-size: 17px;
+    background-color: #00A11A;
+    font-weight: bold;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: Poppins, serif;
+    font-size: 15px;
+}
