@@ -52,3 +52,56 @@ img
     border-left: 5px solid black;
     text-align: center;
 }
+
+/*form*/
+.formContainer
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    position: sticky;
+    left: 25%;
+    border: 2px solid black;
+    width: 50%;
+}
+
+.FormHeading
+{
+    color: tomato;
+    text-align: center;
+}
+
+.Form
+{
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type=text], input[type=password], input[type=email], input[type = phone], input[type = file] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+input[type=text]:focus, input[type=password], input[type=email], input[type = phone], input[type = file]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+/*footer*/
+footer
+{
+    background-color: beige;
+    color: white;
+}
+
+
+label
+{
+    align-self: center;
+}
+
