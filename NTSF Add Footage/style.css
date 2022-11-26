@@ -1,9 +1,8 @@
 body 
 {
-    align-items:center;
+    align-items: center;
     background-position: absolute;
     background-image:url("Background.jpeg");
-
 }
 
 .header
@@ -42,7 +41,7 @@ body
     align-items: right;
     padding: 10px 20px;
     padding-left: 5px;
-    padding-right: 1px;
+    padding-right: 3px;
     padding-top: 10px;
 } 
 
@@ -70,7 +69,7 @@ body
 {
     text-align: center;
     font-style: bold;
-    padding-left: 35px;
+    padding-left: 25px;
 }  
 
 .option2 
@@ -83,74 +82,80 @@ body
 .footer
 {
     background-color:#C2C4C6;
-    background-position: absolute;
-    align-items: center;
+    background-position: center;
     border-radius: 20px;
-    height: 450px;
-    width:600px; 
-    margin-top: 3%;
-    margin-left: 25%;
+    height: 65vh;
+    width:90vh; 
+    padding-right: 30px;
+    margin-top: 5vh;
+    margin-left: 28%;
     font-family: sans-serif;
 }
 
 .head
 {
     text-align: center;
-    padding-left: 15px;
+    padding-left: 50px;
     font-family: sans-serif;
-    padding-top: 5px;
-}
-
-.filldetails
-{
-    padding-left: 60px;
-    font-size: 20px;
-    text-align: left;
-    padding-top: 10px;
-} 
-
-.namefill
-{   
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.nicfill
-{
-    padding-bottom: 5px;
-} 
-
-.contactnofill
-{
-    padding-bottom: 5px;
-} 
-
-.titlefill
-{
-    padding-bottom: 5px;
-} 
-
-.descriptionfill
-{
-    padding-bottom: 5px;
-    padding-bottom: 5px;
-}
-
-.uploadfootages
-{
     padding-top: 15px;
-    padding-left: 350px; 
-    position: relative;
-}   
+    padding-right: 25px;
+}
 
-.uploadfootages-btn 
-{   
-    height: 5vh;
-    width: 10vw;
-    border-radius:  70px;
-    background-color: #5C5D5E;
-    text-align: center;
-}  
+.logo3
+{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    padding-left:285px;
+    padding-top: 10px;
+}
+
+.cross 
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+} 
+
+.cross1
+{
+    width:15px;
+    height:15px; 
+    display: flex;
+    justify-content: left;
+    margin-left: 10%;
+} 
+
+.cross2
+{
+    width:15px;
+    height:15px; 
+    display: flex;
+    justify-content: right;
+    margin-right: 40%;
+}
+
+.pics
+{
+    display: flex;
+    justify-content:space-between;
+    width:20px;
+    height:20px;
+} 
+
+.pic1
+{
+    width:10px;
+    height:10px;
+} 
+
+.pic2 
+{
+    width:5%;
+    height:5%;
+}
 
 .buttens 
 {   
@@ -160,8 +165,7 @@ body
 
 .submit
 {
-    padding-top: 15px;
-    padding-right: 100px;
+    margin-top: 35%;
 }   
 
 .submit-btn 
@@ -170,14 +174,13 @@ body
     width: 10vw;
     border-radius:  70px;
     background-color: #4B6E8E;
-    text-align: center;
-    margin-left: 40px;
+    text-align: center; 
+    margin-left:60%;
 } 
 
 .cancel
 {
-    padding-top: 15px;
-    padding-right: 100px;
+    margin-top: 35%;
 }   
 
 .cancel-btn 
@@ -187,4 +190,5 @@ body
     border-radius:  70px;
     background-color: #467D53;
     text-align: center;
+    margin-left:-45%; 
 }

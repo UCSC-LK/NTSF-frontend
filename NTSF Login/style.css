@@ -1,5 +1,7 @@
 body 
 {
+    background-position: absolute;
+    align-items:center;
     background-image:url("Background.jpeg");
 }
 
