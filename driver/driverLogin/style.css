@@ -85,7 +85,7 @@ img
     justify-content: space-around;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=phone] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -94,11 +94,12 @@ input[type=text], input[type=password], input[type=email] {
     background: #f1f1f1;
   }
 
-input[type=text]:focus, input[type=password], input[type=email]:focus {
+input[type=text]:focus, input[type=password], input[type=email], input[type = phone]:focus {
     background-color: #ddd;
     outline: none;
   }
 
+/*footer*/
 footer
 {
     background-color: beige;
