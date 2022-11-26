@@ -80,7 +80,8 @@ body
     justify-content: space-between;
     width: 15vw;
     height:40%;
-    font-size: 1.4vw;
+    font-style: bold;
+    font-size: 20px;
     padding-left: 25%;
     padding-right: 20%;
     margin: 8vh;
@@ -97,7 +98,8 @@ body
     justify-content: space-between;
     width: 15vw;
     height:40%;
-    font-size: 1.4vw;
+    font-style: bold;
+    font-size: 20px;
     padding-left: 25%;
     padding-right: 20%;
     margin: 8vh;
@@ -113,8 +115,9 @@ body
     display: flex;
     justify-content: space-between;
     width: 15vw;
-    height:40%;
-    font-size: 1.4vw;
+    height:40%; 
+    font-style: bold;
+    font-size: 20px;
     padding-left: 20%;
     padding-right: 20%;
     margin: 8vh;

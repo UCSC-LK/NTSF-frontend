@@ -88,7 +88,7 @@ body
     width:90vh; 
     padding-right: 30px;
     margin-top: 5vh;
-    margin-left: 29%;
+    margin-left: 27%;
     font-family: sans-serif;
     
 }
@@ -176,8 +176,8 @@ body
 
 .cancel
 {
-    padding-right: 150px;
-    padding-top: 14.5px;
+    padding-top: 15px;
+    padding-right: 100px;
 }   
 
 .cancel-btn 
