@@ -1,0 +1,108 @@
+body 
+{
+    background-position: absolute;
+    align-items:center;
+    text-align: center;
+    font-family: sans-serif;
+    background-image:url("Background.jpeg");
+}
+
+.header
+{
+    height: 90px;
+    display: flex;
+    justify-content:first baseline;
+    background-color:rgb(173, 216, 230);
+    border-radius: 10px;
+}  
+
+.logo1
+{
+    position: left;
+    width:10vw; 
+    padding: 10px 40px;
+    display: flex; 
+    justify-content:left;
+} 
+
+.headline
+{
+    margin-top: 5px;
+    font-size:20px;
+    text-align: center;
+    width: 100vw;
+
+} 
+
+.footer
+{
+    position:absolute;
+    background-color:#C2C4C6; 
+    height:250px;
+    width:420px;
+    border-radius:15px;
+    text-align: center;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    
+}
+
+.filldetails
+{
+    padding-right: 80px;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 50px;
+} 
+
+.licensefill
+{   
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+} 
+
+.nicfill
+{
+    padding-bottom: 5px;
+}  
+
+.input 
+{
+    border-radius: 5px;
+    border: 2px solid black;
+} 
+
+.buttens 
+{   
+    display: flex;
+    justify-content: space-between;
+}  
+
+.submit-btn 
+{   
+    margin-top:40px;
+    width:80px;
+    height:30px; 
+    background-color: #4B6E8E;
+    align-items: left; 
+    cursor: pointer; 
+    margin-left:190px;
+    border-radius: 30px;
+    transform: translate(-100%);
+}  
+
+.cancel-btn 
+{   
+    margin-top:40px;
+    width: 80px;
+    height:30px; 
+    align-items: right; 
+    cursor: pointer; 
+    border-radius: 30px;
+    margin-right: -50px;
+    transform: translate(-100%);
+    background-color: #467D53;
+}
