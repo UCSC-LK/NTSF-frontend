@@ -1,7 +1,7 @@
 body {
     background-position: absolute;
     align-items: center;
-    background-image: url("Resources\Images\Background.jpeg");
+    background-image: url("../../All-Images/Background.jpeg");
 }
 
 .header {
