@@ -20,7 +20,7 @@
     <div class="header"
          align="left">
         <div class="logo1">
-            <img src="./logo_NTSF.png"
+            <img src="../../Resources/All-Images/logo_NTSF.png"
                  alt="logo1">
         </div>
         <div class="headline">
@@ -31,7 +31,7 @@
 
         <div class="logo2"
              align="right">
-            <img src="./home.png"
+            <img src="../../Resources/All-Images/home.png"
                  alt="logo2">
         </div>
     </div>
@@ -48,13 +48,15 @@
                 <div class="vehiclenofill">
                     <label for="vehicleno">Vehicle No:</label>
                     <input type="text"
+                           id="vehicleNo"
                            class="input"
                            maxlength="20"
                            size="20">
                 </div>
-                <div class="chasisnofill">
-                    <label for="chasisno">Chasis No:</label>
+                <!-- <div class="chasisnofill">
+                    <label for="chasisno">Chassis No:</label>
                     <input type="text"
+                           id="chassisNo"
                            class="input"
                            maxlength="20"
                            size="20">
@@ -62,21 +64,74 @@
                 <div class="modelnofill">
                     <label for="modelno">Model No:</label>
                     <input type="text"
+                           id="modelNo"
                            class="input"
                            maxlength="20"
                            size="20">
-                </div>
+                </div> -->
 
-                <button class="signup-btn">Sign Up</button>
-
-                <div class="option">
-                    <h5 align="center">
-                        Already have an account? <a href="#tologin"
-                           class="tologin"
-                           style="color:blue">Login</a>
-                    </h5>
+                <div class="nicnodfill">
+                    <label for="nicno">NIC No:</label>
+                    <input type="text"
+                           id="nic"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                    <br>
                 </div>
-            </div>
+                <!-- <div class="nicissuedatefill">
+                    <label for="nicissuedate">NIC Issue Date:</label>
+                    <input type="text"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                    <br>
+                </div> -->
+                <div class="emailfill">
+                    <label for="email">e-mail:</label>
+                    <input type="text"
+                           id="email"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                    <br>
+                </div>
+                <div class="mobilefill">
+                    <label for="mobileno">Mobile:</label>
+                    <input type="text"
+                           id="mobileNo"
+                           class="input"
+                           maxlength="15"
+                           size="20">
+                    <br>
+                </div>
+                <div class="passwordfill1">
+                    <label for="createpassword">Create Password:</label>
+                    <input type="text"
+                           id="password"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                    <br>
+                </div>
+                <div class="passwordfill2">
+                    <label for="reenterpassword"
+                           length="60">Re-enter Password:</label>
+                    <input type="text"
+                           id="retype-password"
+                           class="input">
+                    <br>
+
+                    <button class="signup-btn">Sign Up</button>
+
+                    <div class="option">
+                        <h5 align="center">
+                            Already have an account? <a href="#tologin"
+                               class="tologin"
+                               style="color:blue">Login</a>
+                        </h5>
+                    </div>
+                </div>
         </form>
     </div>
 
