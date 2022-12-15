@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["licence"]
+  "cSpell.words": ["licence"],
+  "files.watcherExclude": {
+    "**/target": true
+  }
 }

@@ -10,28 +10,59 @@ function submitSignup() {
   const mobileNo = document.getElementById("mobileNo").value;
   const password = document.getElementById("password").value;
 
-  // const name = document.getElementById("name").value;
-  // const address = document.getElementById("address").value;
+  // var query = $.param({
+  //   user_type: userType,
+  //   licence_no: licenceNo,
+  //   nic,
+  //   email,
+  //   mobile_no: mobileNo,
+  //   password,
+  // });
 
-  var query = $.param({
-    user_type: userType,
-    licence_no: licenceNo,
-    nic,
-    email,
-    mobile_no: mobileNo,
-    password,
-  });
+  // var settings = {
+  //   url: `http://localhost:8080/ntsf/signup?${query}`,
+  //   method: "POST",
+  //   timeout: 0,
+  // };
 
-  var settings = {
-    url: `http://localhost:8080/ntsf/signup?${query}`,
-    method: "POST",
-    timeout: 0,
-  };
+  // $.ajax(settings).done(function (response) {
+  //   console.log(response);
+  // });
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+  if (matchPassword() == TRUE) {
+    var query = $.param({
+      user_type: userType,
+      licence_no: licenceNo,
+      nic,
+      email,
+      mobile_no: mobileNo,
+      password,
+    });
 
-  alert("Sign Up Successful");
-  window.location.assign("#");
+    var settings = {
+      url: `http://localhost:8080/ntsf/signup?${query}`,
+      method: "POST",
+      timeout: 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+    alert("Sign Up Successful");
+  } else {
+    alert("Sign Up Unsuccessful");
+  }
+}
+
+function matchPassword() {
+  const password = document.getElementById("password").value;
+  const rePassword = document.getElementById("rePassword").value;
+
+  if (password == rePassword) {
+    return TRUE;
+    alert("Password created successfully");
+  } else {
+    return FALSE;
+    alert("Password did not match");
+  }
 }

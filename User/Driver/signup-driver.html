@@ -53,7 +53,8 @@
                            id="licenceNo"
                            class="input"
                            maxlength="20"
-                           size="20">
+                           size="20"
+                           required>
                     <br>
                 </div>
                 <div class="nicfill">
@@ -96,13 +97,13 @@
                     <label for="reenterpassword"
                            length="60">Re-enter Password:</label>
                     <input type="password"
-                           id="retype-password"
+                           id="rePassword"
                            class="input">
                     <br>
                 </div>
 
                 <button class="signup-btn"
-                        onclick="submitSignup()">Sign Up</button>
+                        onclick="matchPassword(), submitSignup()">Sign Up</button>
 
                 <div class="option">
                     <h5 align="center">

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,7 +68,9 @@
                 </div>
 
                 <button class="login-btn"
-                        onclick="submitLogin()">Login</button>
+                        onclick="submitLogin()"
+                        ,
+                        ondblclick="matchPassword()">Login</button>
 
                 <div class="forgotpassword">
                     <h5 align="center">
@@ -77,7 +80,8 @@
                 </div>
                 <div class="option">
                     <h5 align="center">
-                        Already have an account? <a href="#tologin"
+                        Already have an account? <a #login
+                           href="../../User/Driver/login-driver.html"
                            class="tologin">Login</a>
                     </h5>
                 </div>
