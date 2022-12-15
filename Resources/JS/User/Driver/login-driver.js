@@ -9,7 +9,7 @@ function submitLogin() {
 
   var query = $.param({
     user_type: userType,
-    licence_no: licenceNo,
+    login_id: licenceNo,
     password,
   });
 
@@ -20,7 +20,7 @@ function submitLogin() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log("Hello");
+    // console.log("Hello");
     console.log(response);
   });
 
