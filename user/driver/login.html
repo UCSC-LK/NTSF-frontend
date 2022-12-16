@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>
+        Login-Driver
+    </title>
+    <link rel="stylesheet"
+          href="../../resources/css/user/login.css">
+    <script src="../../resources/js/user/driver/login.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins">
+    <!-- <script src="https://kit.fontawesome.com/93d4ae8a6b.js"
+            crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+    <div class="header"
+         align="left">
+        <div class="logo1">
+            <img src="../../Resources/All-Images/logo_NTSF.png"
+                 alt="logo1">
+        </div>
+        <div class="headline">
+            <h2 align="center">
+                <b>Driver</b>
+            </h2>
+        </div>
+
+        <div class="logo2"
+             align="right">
+            <a href="#"><img src="../../Resources/All-Images/home.png"
+                     alt="logo1"></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <form>
+            <div class="heading">
+                <h2>
+                    <br>
+                    Login
+                </h2>
+            </div>
+            <div class="filldetails">
+                <div class="licensefill">
+                    <label for="licenseno">License No:</label>
+                    <input type="text"
+                           id="licenceNo"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                </div>
+
+                <div class="passwordfill">
+                    <label for="password">Password:</label>
+                    <input type="text"
+                           id="password"
+                           class="input"
+                           maxlength="20"
+                           size="20">
+                    <br>
+                </div>
+
+                <button class="login-btn"
+                        onclick="submitLogin()"
+                        ,
+                        ondblclick="matchPassword()">Login</button>
+
+                <div class="forgotpassword">
+                    <h5 align="center">
+                        <a href="../../User/Driver/signup-driver.html"
+                           class="toforgotpassword">Forgot Password?</a>
+                    </h5>
+                </div>
+                <div class="option">
+                    <h5 align="center">
+                        Do not have an account? <a href="../../User/Driver/signup-driver.html"
+                           class="tosignup">Sign Up</a>
+                    </h5>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
