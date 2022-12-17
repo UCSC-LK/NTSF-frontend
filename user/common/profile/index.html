@@ -12,6 +12,7 @@
     </title>
     <link rel="stylesheet"
           href="../../../resources/css/user/profile/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -51,15 +52,18 @@
         </table>
     </div>
 
-    <div class="footer">
-        <h4>Full Name : Avishka Rathnayaka</h4>
-        <h4>NIC No : 981383239V</h4>
-        <h4>Phone No : 077-28533954</h4>
-        <h4>e-mail : avishka276rath@gmail.com</h4>
-        <h4>Address : No 164C, Galwala Road, Peradeniya</h4>
+    <div id="user-info"
+         class="footer">
+        <h4 id="name"></h4>
+        <h4 id="nic"></h4>
+        <h4 id="mobile-no"></h4>
+        <h4 id="email"></h4>
+        <h4 id="address"></h4>
     </div>
 
     <button class="cancel-btn">Cancel</button>
+
+    <script src="../../../resources/js/user/common/profile/index.js"></script>
 
 </body>
 
