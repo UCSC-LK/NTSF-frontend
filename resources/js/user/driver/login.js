@@ -22,6 +22,8 @@ function submitLogin() {
   $.ajax(settings).done(function (response) {
     // console.log("Hello");
     console.log(response);
+    sessionStorage.setItem("user_type", "1");
+    sessionStorage.setItem("user_id", "68");
   });
 
   loginStatus();
