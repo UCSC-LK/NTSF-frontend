@@ -1,4 +1,3 @@
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,22 +9,22 @@
         <link rel="stylesheet" href="../../../resources/css/user/complain/add.css">
     </head>
     <body>
-        <div class="header" align="left">
-            <div class="logo1">
-                <img src="./logo_NTSF.png" alt="logo1">
+        <div class="header">
+            <div class="ntsflogo">
+                <img src="../../../resources/images/logo_NTSF.png" alt="ntsflogo">
             </div>  
-            <div class="headline">
-                <h2 align="center">
-                    <b>Driver</b>
+            <div class="title">
+                <h2>
+                    Driver
                 </h2>
             </div>
     
-            <div class="logo2" align="right">
-                <img src="./Account.png" alt="logo1">
+            <div class="accountlogo">
+                <img src="../../../resources/images/Account.png" alt="accountlogo">
             </div>
         </div> 
         <br>
-        <div class="menu" align="center">
+        <div class="optionbar">
             <div class="option1">
                 <h3>View Fines</h3>
             </div>
@@ -41,10 +40,10 @@
         
             
     
-        <div class="footer">
-            <div class="heading">
+        <div class="container">
+            <div class="headline">
                 <h3>
-                    <b>Add Complaint</b>
+                    Add Complaint
                 </h3>
             </div>
             <form action="http://localhost:8080/NTSF_backend_war/addcomplaint" method="post">
@@ -60,59 +59,39 @@
                             <br>
                         </div>  -->
                         
-                        <div class="titlefill">
-                            <label for="title">user_id:</label>
-                            <input type="text" name="user_id" class="input" maxlength="30" size="60">
+                        <div class="useridfillrow">
+                            <label for="title">User ID:</label>
+                            <input type="text" name="User ID" class="input" maxlength="30" size="60">
                             <br> 
                         </div> 
 
-
-                        
-                        <div class="titlefill">
+                        <div class="titlefillrow">
                             <label for="title">Title:</label>
                             <input type="text" name="title" class="input" maxlength="30" size="60">
                             <br> 
                         </div> 
     
-                        <div class="descriptionfill">
-                            <label for="description">Description:</label>
-                            <input type="text" class="input" name="description" maxlength="1000" size="70">
+                        <div class="descriptionfillrow">
+                            <div class="description">
+                                <label for="description">Description:</label>
+                            </div>
+                            <textarea class="textarea"></textarea>
                             <!--<textarea name="description" maxlength="1000" cols="25" rows="6"></textarea>-->
                             <br> 
                         </div>
 
-                        <div class="titlefill">
-                            <label for="title">complaint_no:</label>
-                            <input type="text" name="complaint_no" class="input" maxlength="30" size="60">
+                        <div class="complaintnofillrow">
+                            <label for="title">Complaint No:</label>
+                            <input type="text" name="Complaint No" class="input" maxlength="30" size="60">
                             <br> 
-                        </div> 
-    
-
-<!--     
-                        <div class="policestationselection">
-                            <label for="ploicestation"> Police Station:</label>
-                            <select id="ploicestation">
-                            <option value="policestation">Galle</option>
-                            <option value="policestation">Matara</option>
-                            <option value="policestation">Tangalle</option>
-                            <option value="policestation">Colombo</option>
-                            <option value="policestation">Kandy</option>
-                            <option value="policestation">Dehiwala</option>
-                            <option value="policestation">Poddala</option>
-                                                                        <!--etc..-->
-                            </select>
                         </div>
-     <!-- -->
-                        <!-- <button class="uploadfootages-btn">Upload Footages-2</button>  -->
-                        
                         
                         <dic class="buttens">
+                            <button  class="cancel-btn" type="button">Cancel</button>  
                             <button class="submit-btn" type="submit">Submit</button> 
-                            <button  class="cancel-btn" type="button">Cancel</button> 
                         </div>
             </form>
         </div>
-    
     </body>
     </html>
        

@@ -1,8 +1,8 @@
 body 
 {
-    background-position: absolute;
-    text-align: center;
-    background-image: url("Background.jpeg");
+    text-align: center; 
+    font-family:sans-serif;
+    background-image: url("../../../images/Background.jpeg");
 }
 
 .header
@@ -15,7 +15,7 @@ body
     font-family: sans-serif;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width: 90px;
@@ -24,14 +24,14 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     margin-right: 15px;
 } 
 
-.logo2
+.accountlogo
 {
     position: right;
     width: 50px;
@@ -43,7 +43,7 @@ body
     cursor: pointer;
 } 
 
-.menu
+.optionbar
 {
     height: 60px;
     display: flex;
@@ -62,6 +62,7 @@ body
     justify-content: left;
     padding-top: 5px; 
     padding-left: 25%;
+    cursor: pointer;
 }  
 
 .devider 
@@ -76,10 +77,10 @@ body
     text-align: center;
     padding-right: 25%;
     padding-top: 5px; 
-    font-family: sans-serif;
+    cursor: pointer;
 }
 
-.footer
+.container
 {
     position:absolute;
     background-color:#C2C4C6; 
@@ -87,13 +88,14 @@ body
     width:630px;
     border-radius:15px;
     text-align: center;
+    margin-top: 50%;
     left: 50%; 
     bottom: -20px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
 }   
 
-.footer table 
+.container table 
 {
     display:flex;
     justify-content:center;
@@ -120,8 +122,20 @@ body
     height:30px; 
     background-color: #4B6E8E; 
     cursor: pointer;  
-    margin-bottom: 20px;
+    margin-top: -20px;
     margin-left: 500px;
     border-radius: 30px;
+    border:none;
     transform: translate(-50%);
+    color:white;
+} 
+
+.addcomplaint-btn:hover 
+{
+    background-color: #587691;
+}
+
+b 
+{
+    font-weight: 32px;
 }

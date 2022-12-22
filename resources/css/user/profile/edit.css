@@ -2,8 +2,9 @@ body
 {
     align-items:center;
     background-position: absolute;
-    text-align: center;
-    background-image:url("Background.jpeg");
+    text-align: center; 
+    font-family: sans-serif;
+    background-image:url("../../../images/Background.jpeg");
 
 }
 
@@ -14,10 +15,9 @@ body
     justify-content: space-between;
     background-color:lightblue;
     border-radius: 10px;
-    font-family: sans-serif;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width: 90px;
@@ -26,14 +26,14 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     margin-right: 15px;
 } 
 
-.logo2
+.logoutlogo
 {
     position: right;
     width: 50px;
@@ -45,7 +45,7 @@ body
     cursor: pointer;
 } 
 
-.menu
+.optionbar
 {
     height: 60px;
     display: flex;
@@ -98,7 +98,7 @@ label
     width: 6rem; 
 }
 
-.footer
+.container
 {
     position:absolute;
     background-color:#C2C4C6; 
@@ -112,8 +112,6 @@ label
     box-sizing: border-box;
 }
 
-
-
 .filldetails
 {
     font-size: 20px;
@@ -126,24 +124,24 @@ label
 .input 
 {
     border-radius: 5px; 
-    border: 2px solid black;
+    border:none;
     align-items: center;
 } 
 
-.phonenofill
+.phonenofillrow
 {   
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: 30px;
 }
 
-.emailfill
+.emailfillrow
 {
     padding-bottom: 5px;
     margin-left: 30px;
 } 
 
-.addressfill
+.addressfillrow
 {
     padding-bottom: 5px;
     margin-left: 30px;
@@ -166,6 +164,8 @@ label
     margin-left: 270px;  
     border-radius: 30px;
     transform: translate(-100%);
+    border:none;
+    color:white;
 }  
 
 .cancel-btn 
@@ -178,7 +178,19 @@ label
     margin-right: 20px;  
     border-radius: 30px;
     transform: translate(-100%);
-    background-color: #467D53;
+    background-color: #467D53; 
+    border:none;
+    color:white;
+} 
+
+.cancel-btn:hover
+{
+    background-color: #527C5C;
+} 
+
+.submit-btn:hover 
+{
+    background-color: #587691;
 }
 
 

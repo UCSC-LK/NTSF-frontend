@@ -3,7 +3,8 @@ body
     align-items:center;
     background-position: absolute;
     text-align: center;
-    background-image:url("Background.jpeg");
+    background-image:url("../../../images/Background.jpeg"); 
+    font-family:sans-serif;
 
 }
 
@@ -17,7 +18,7 @@ body
     font-family: sans-serif;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width: 90px;
@@ -26,14 +27,14 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     margin-right: 15px;
 } 
 
-.logo2
+.logoutlogo
 {
     position: right;
     width: 50px;
@@ -45,7 +46,7 @@ body
     cursor: pointer;
 } 
 
-.menu
+.optionbar
 {
     height: 60px;
     display: flex;
@@ -66,8 +67,6 @@ body
     margin-right:16.66%;
     cursor: pointer;
 }  
-
-  
 
 table th 
 {
@@ -100,7 +99,7 @@ label
     width: 6rem; 
 } 
 
-.footer
+.container
 {
     position:absolute;
     background-color:#C2C4C6; 
@@ -129,32 +128,32 @@ a
 {
     font-size: 20px;
     text-align: left;
-    position: relative;
-    margin-left: 30px; 
+    position: absolute;
+    margin-left: 100px;
     margin-top: 10px;
 } 
 
 .input 
 {
     border-radius: 5px; 
-    border: 2px solid black;
+    border:none;
     align-items: center;
 } 
 
-.otpfill
+.otpfillrow
 {   
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: 40px;
 }
 
-.passwordfill1
+.enternewpasswordfillrow
 {
     padding-bottom: 5px;
     margin-left: 40px;
 } 
 
-.passwordfill2
+.confirmpasswordfillrow
 {
     padding-bottom: 5px;
     margin-left: 40px;
@@ -163,7 +162,9 @@ a
 .buttens 
 {   
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
+    margin-top: 195px; 
+    margin-left: 33px;
 }  
 
 .submit-btn 
@@ -176,7 +177,9 @@ a
     cursor: pointer;
     margin-left: 230px;  
     border-radius: 30px;
-    transform: translate(-100%);
+    transform: translate(-100%); 
+    border:none;
+    color:white;
 }  
 
 .cancel-btn 
@@ -189,5 +192,22 @@ a
     margin-left:20px; 
     border-radius: 30px;
     transform: translate(-100%);
-    background-color: #467D53;
+    background-color: #467D53; 
+    border:none;
+    color:white;
+} 
+
+.cancel-btn:hover
+{
+    background-color: #527C5C;
+} 
+
+.submit-btn:hover 
+{
+    background-color: #587691;
+} 
+
+a:hover 
+{
+    color:red;
 }

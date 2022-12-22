@@ -1,0 +1,197 @@
+body 
+{
+    background-position: absolute;
+    font-family: sans-serif;
+    background-image:url("../../images/Background.jpeg");
+}
+
+.header
+{
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    background-color:lightblue;
+    border-radius: 10px;
+}  
+
+.chooselanguage
+{
+    align-items:center;
+    display: flex;
+    text-align: center;
+    margin-right: 65px;
+    cursor: pointer;
+} 
+
+.sinhala 
+{
+    height: 35px;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 10px;
+    border:none;
+}
+
+.english
+{
+    background-color: #4B6E8E;
+    height: 35px;
+    width: 60px; 
+    cursor: pointer;
+    border-radius: 10px;
+    border:none;
+}  
+
+.tamil
+{
+    height: 35px;
+    width: 60px; 
+    cursor: pointer;
+    border-radius: 10px;
+    border:none;
+}
+
+.NTSFlogo
+{
+    position: left;
+    width:90px; 
+    padding: 10px 40px;
+    display: flex; 
+    justify-content:left;
+} 
+
+.title
+{
+    text-align: center;
+}
+
+.container
+{
+    background-color:#C2C4C6;
+    border-radius: 20px;
+    height: 420px;
+    width:450px; 
+    margin-left: 130px;
+}
+
+.heading 
+{
+    text-align: center;
+} 
+
+.headline
+{
+    text-align: center;
+}
+
+.filldetails
+{
+    padding-right: 80px;
+    font-size: 20px;
+    text-align: right;
+    margin-left: 15px;
+}  
+
+.input 
+{
+    border-radius: 5px;
+    border:none;
+}
+
+.policeidfillrow
+{
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-right: -5px;
+    margin-right: -10px;
+} 
+
+.nicfillrow
+{
+    padding-bottom: 5px;
+    margin-right: -10px;
+} 
+
+.emailfillrow
+{
+    padding-bottom: 5px;
+    margin-right: -10px;
+}
+
+.mobilefillrow
+{
+    padding-bottom: 5px;
+    margin-right: -10px;
+}
+
+.newpasswordfillrow
+{
+    padding-bottom: 5px;
+    margin-right: -10px;
+} 
+
+.reenterpasswordfillrow
+{
+    padding-bottom: 30px;
+    font-size:20px;
+    margin-right: -10px;
+}    
+
+.signup-button 
+{   
+    margin-top:10px;
+    width:80px;
+    height:30px; 
+    background-color: #4B6E8E;
+    align-items: center; 
+    cursor: pointer;
+    margin-left: 50%;  
+    margin-right: 25px;
+    border-radius: 30px;
+    transform: translate(-100%);
+    border:none;
+}  
+
+.option 
+{
+    padding-left: 70px;
+    padding-bottom: 10px;
+}
+
+.list
+{
+    display:flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-left: 30px;
+    font-family:sans-serif;
+    margin-right: 50px;
+} 
+
+span 
+{
+    color:blue;
+    cursor: pointer;
+} 
+
+table 
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.english:hover 
+{
+    background-color:  #648CAC;
+} 
+
+.signup-button:hover
+{
+    background-color:  #648CAC;
+}  
+
+span:hover 
+{
+    color:red;
+}
+
