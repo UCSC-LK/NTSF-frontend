@@ -4,7 +4,7 @@ body
     align-items:center;
     text-align: center;
     font-family: sans-serif;
-    background-image:url("Background.jpeg");
+    background-image:url("../../../images/Background.jpeg");
 }
 
 .header
@@ -12,11 +12,11 @@ body
     height: 90px;
     display: flex;
     justify-content:first baseline;
-    background-color:rgb(173, 216, 230);
+    background-color:lightblue;
     border-radius: 10px;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width:10vw; 
@@ -25,16 +25,16 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     text-align: center;
     width: 100vw;
-
+    margin-right: 185px;
 } 
 
-.footer
+.container
 {
     position:absolute;
     background-color:#C2C4C6; 
@@ -51,20 +51,20 @@ body
 
 .filldetails
 {
-    padding-right: 80px;
     font-size: 20px;
     text-align: right;
     margin-top: 50px;
+    margin-right: 75px;
 } 
 
-.licensefill
+.licensefillrow
 {   
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;
 } 
 
-.nicfill
+.nicfillrow
 {
     padding-bottom: 5px;
 }  
@@ -72,7 +72,7 @@ body
 .input 
 {
     border-radius: 5px;
-    border: 2px solid black;
+    border:none;
 } 
 
 .buttens 
@@ -84,7 +84,7 @@ body
 .submit-btn 
 {   
     margin-top:40px;
-    width:80px;
+    width:100px;
     height:30px; 
     background-color: #4B6E8E;
     align-items: left; 
@@ -92,17 +92,31 @@ body
     margin-left:190px;
     border-radius: 30px;
     transform: translate(-100%);
+    border:none;
+    color:white;
 }  
 
 .cancel-btn 
 {   
     margin-top:40px;
-    width: 80px;
+    width: 100px;
     height:30px; 
     align-items: right; 
     cursor: pointer; 
     border-radius: 30px;
-    margin-right: -50px;
+    margin-right: -80px;
     transform: translate(-100%);
     background-color: #467D53;
+    border:none;
+    color:white;
 }
+ 
+.cancel-btn:hover
+{
+    background-color: #527C5C;
+} 
+
+.submit-btn:hover 
+{
+    background-color: #587691;
+} 

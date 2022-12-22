@@ -4,7 +4,7 @@ body
     align-items:center;
     text-align: center;
     font-family: sans-serif;
-    background-image:url("Background.jpeg");
+    background-image:url("../../../images/Background.jpeg");
 }
 
 .header
@@ -16,7 +16,7 @@ body
     border-radius: 10px;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width:10vw; 
@@ -25,15 +25,16 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     text-align: center;
     width: 100vw;
+    margin-right:180px;
 } 
 
-.footer
+.container
 {
     position:absolute; 
     height:450px;
@@ -41,7 +42,7 @@ body
     border-radius:15px;
     text-align: center;
     align-items:center;
-    top: 65%;
+    top: 60%;
     left: 50%; 
     transform: translate(-50%, -50%);
     box-sizing: border-box;
@@ -53,7 +54,7 @@ h3
     text-align: center;
 }
 
-.pic 
+.correctlogo 
 {   
     width: 20px;
     height: 20px;
@@ -64,12 +65,12 @@ h3
 
 .midimg 
 {
-    width:40%;
+    width:1000%;
 }
 
 .ok-btn 
 {   
-    margin-top:5px;
+    margin-top:200px;
     width: 80px;
     height:30px; 
     align-items: right; 
@@ -77,5 +78,13 @@ h3
     border-radius: 30px;
     margin-right: -150px;
     transform: translate(-100%);
-    background-color: #467D53;
+    background-color: #467D53; 
+    border:none;
+    color:white;
+} 
+
+.ok-btn:hover
+{
+    background-color: #527C5C;
 }
+  

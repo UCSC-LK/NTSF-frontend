@@ -1,9 +1,8 @@
 body 
 {
-    align-items:center;
     background-position: absolute;
-    text-align: center;
-    background-image:url("Background.jpeg");
+    font-family:sans-serif;
+    background-image:url("../../../../resources/images/Background.jpeg");
 
 }
 
@@ -14,10 +13,9 @@ body
     justify-content: space-between;
     background-color:lightblue;
     border-radius: 10px;
-    font-family: sans-serif;
 }  
 
-.logo1
+.ntsflogo
 {
     position: left;
     width: 90px;
@@ -26,14 +24,14 @@ body
     justify-content:left;
 } 
 
-.headline
+.title
 {
     margin-top: 5px;
     font-size:20px;
     margin-right: 15px;
 } 
 
-.logo2
+.accountlogo
 {
     position: right;
     width: 50px;
@@ -45,7 +43,7 @@ body
     cursor: pointer;
 } 
 
-.menu
+.optionbar
 {
     height: 60px;
     display: flex;
@@ -84,7 +82,7 @@ body
     cursor: pointer;
 }
 
-.footer
+.container
 {
     position:absolute;
     background-color:#C2C4C6; 
@@ -98,7 +96,7 @@ body
     box-sizing: border-box;
 }
 
-.heading
+.headline
 {   
     margin-top: 10px;
     text-align: center;
@@ -108,49 +106,80 @@ body
 .filldetails
 {
     font-size: 20px;
-    text-align: left;
+    text-align: right;
     position: relative;
-    margin-left: 30px;
 } 
 
 .input 
-{
+{   
+    width:525px;
     border-radius: 5px; 
-    border: 2px solid black;
+    border:none;
     align-items: center;
 } 
 
 select 
 {
     border-radius: 5px; 
-    border: 2px solid black; 
+    border:none; 
+    align-items: right;
 }
 
-.namefill
+textarea
+{
+    width:525px;
+    height:150px;
+    border-radius: 5px;
+    border:none;
+    margin-left: 105px;
+    margin-top:-27px;
+    
+} 
+
+.useridfillrow 
 {   
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    margin-left: 40px;
 }
 
-.nicfill
+.namefillrow
+{   
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.nicfillrow
 {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 } 
 
-.contactnofill
+.contactnofillrow
 {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 } 
 
-.titlefill
-{
-    padding-bottom: 5px;
+.titlefillrow
+{   
+    padding-bottom: 10px;
+    margin-left: 65px;
 } 
 
-.descriptionfill
+.description 
+{ 
+    text-align:left;
+    margin-left: 40px;
+    margin-top: 10px;
+} 
+
+.descriptionfillrow
 {
-    padding-bottom: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+} 
+
+.complaintnofillrow
+{
+    padding-bottom: 10px;
 }
 
 .uploadfootages-btn 
@@ -165,42 +194,57 @@ select
     border-radius: 30px;
     transform: translate(-100%);
     background-color: #5C5D5E;
+    border:none;
+    color:white;
 }  
 
 .buttens 
 {   
     display: flex;
     justify-content: space-between;
-} 
-
-.submit
-{
-    padding-top: 15px;
-    padding-right: 100px;
-}   
-
-.submit-btn 
-{   
-    margin-top:20px;
-    width:150px;
-    height:30px; 
-    background-color: #4B6E8E;
-    align-items: center; 
-    cursor: pointer;
-    margin-left: 270px;  
-    border-radius: 30px;
-    transform: translate(-100%);
-}  
+}    
 
 .cancel-btn 
 {   
-    margin-top:20px;
-    width:150px;
+    margin-top:350px;
+    width:100px;
+    height:30px; 
+    background-color: #5B5C5E;
+    align-items: center; 
+    cursor: pointer;
+    margin-left: 900px;  
+    border-radius: 30px;
+    transform: translate(-100%);
+    border:none;
+    color:white;
+}  
+
+.submit-btn 
+{   
+    margin-top:350px;
+    width:100px;
     height:30px; 
     align-items: center; 
     cursor: pointer;
-    margin-right: 20px;  
+    border:none;
+    margin-right: 350px;  
     border-radius: 30px;
     transform: translate(-100%);
-    background-color: #467D53;
+    background-color: #4B6E8E;
+    color:white;
+} 
+
+.cancel-btn:hover
+{
+    background-color: #767778;
+} 
+
+.submit-btn:hover 
+{
+    background-color: #587691;
+} 
+
+.uploadfootages-btn:hover 
+{
+    background-color:#929393;
 }

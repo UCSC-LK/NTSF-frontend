@@ -1,7 +1,8 @@
 body 
 {
     background-position: absolute;
-    background-image:url("Background.jpeg");
+    font-family: sans-serif;
+    background-image:url("../../images/Background.jpeg");
 }
 
 .header
@@ -11,7 +12,6 @@ body
     justify-content: space-between;
     background-color:lightblue;
     border-radius: 10px;
-    font-family: sans-serif;
 }  
 
 .chooselanguage
@@ -29,6 +29,7 @@ body
     width: 60px;
     cursor: pointer;
     border-radius: 10px;
+    border:none;
 }
 
 .english
@@ -38,6 +39,7 @@ body
     width: 60px; 
     cursor: pointer;
     border-radius: 10px;
+    border:none;
 }  
 
 .tamil
@@ -46,9 +48,10 @@ body
     width: 60px; 
     cursor: pointer;
     border-radius: 10px;
+    border:none;
 }
 
-.logo
+.NTSFlogo
 {
     position: left;
     width:90px; 
@@ -57,26 +60,29 @@ body
     justify-content:left;
 } 
 
-.head
+.title
 {
-    font-family: sans-serif;
+    text-align: center;
 }
 
-.footer
+.container
 {
     background-color:#C2C4C6;
     border-radius: 20px;
-    height: 420px;
+    height: 350px;
     width:450px; 
-    margin-left: 100px;
-    font-family: sans-serif;
+    margin-right: 60px;
 }
 
 .heading 
 {
     text-align: center;
-    padding-left: 15px;
-    font-family: sans-serif;
+    margin-top: 10px;
+} 
+
+.headline
+{
+    text-align: center;
 }
 
 .filldetails
@@ -84,47 +90,36 @@ body
     padding-right: 80px;
     font-size: 20px;
     text-align: right;
-
+    margin-left: 15px;
 }  
 
 .input 
 {
     border-radius: 5px;
+    border:none;
 }
 
-.policeidfill
+.policeidfillrow
 {
     padding-bottom: 5px;
     padding-left: 20px;
+    margin-right: -5px;
+    margin-right: -10px;
 } 
 
-.nicfill
+.nicfillrow
 {
     padding-bottom: 5px;
+    margin-right: -10px;
 } 
 
-.emailfill
+.passwordfillrow
 {
     padding-bottom: 5px;
-}
+    margin-right: -10px;
+}     
 
-.mobilefill
-{
-    padding-bottom: 5px;
-}
-
-.passwordfill1
-{
-    padding-bottom: 5px;
-} 
-
-.policeidfill2
-{
-    padding-bottom: 30px;
-    font-size:20px;
-}    
-
-.signup-btn 
+.login-button
 {   
     margin-top:10px;
     width:80px;
@@ -133,9 +128,10 @@ body
     align-items: center; 
     cursor: pointer;
     margin-left: 50%;  
-    margin-right: 10px;
+    margin-right: 25px;
     border-radius: 30px;
     transform: translate(-100%);
+    border:none;
 }  
 
 .option 
@@ -149,13 +145,14 @@ body
     display:flex;
     justify-content: space-between;
     font-size: 20px;
-    margin-left: 30px;
-    font-family:sans-serif;
+    margin-left: 100px;
+    margin-right: 50px;
 } 
 
-a 
+span 
 {
     color:blue;
+    cursor: pointer;
 } 
 
 table 
@@ -163,3 +160,36 @@ table
     display: flex;
     justify-content: space-between;
 }
+
+.english:hover 
+{
+    background-color:  #648CAC;
+} 
+
+.login-button:hover
+{
+    background-color:  #648CAC;
+}  
+
+span:hover 
+{
+    color:red;
+} 
+
+p
+{
+    text-align:center;
+    margin-left: 60px;
+} 
+
+tr 
+{
+    justify-content: space-between;
+
+} 
+
+h5 
+{
+    text-align:center;
+}
+

@@ -1,19 +1,22 @@
-body {
+body 
+{
     background-position: absolute;
     align-items: center;
-    background-image: url("../../All-Images/Background.jpeg");
+    font-family: sans-serif;
+    background-image: url("../../../images/Background.jpeg");
 }
 
-.header {
+.header 
+{
     height: 90px;
     display: flex;
     justify-content: space-between;
     background-color: lightblue;
     border-radius: 10px;
-    font-family: Poppins, serif;
 }
 
-.logo1 {
+.ntsflogo 
+{
     position: left;
     width: 90px;
     padding: 10px 40px;
@@ -21,22 +24,26 @@ body {
     justify-content: left;
 }
 
-.headline {
+.title
+{
     margin-top: 5px;
     font-size: 20px;
     margin-right: 15px;
 }
 
-.logo2 {
+.homelogo 
+{
     position: right;
     width: 50px;
     padding: 20px 40px;
     display: flex;
     margin-right: 25px;
     justify-content: right;
+    cursor: pointer;
 }
 
-.footer {
+.container 
+{
     position: absolute;
     background-color: #C2C4C6;
     height: 400px;
@@ -49,50 +56,60 @@ body {
     box-sizing: border-box;
 }
 
-.heading {
+.headline
+{
     text-align: center;
-    font-family: Poppins, serif;
 }
 
-.filldetails {
+.filldetails 
+{
     padding-right: 80px;
     font-size: 20px;
     text-align: right;
-
-}
-
-.input {
-    border-radius: 5px;
-    border: 2px solid black;
-}
-
-.policeidfill {
-    padding-bottom: 5px;
-    padding-left: 20px;
-}
-
-.nicfill {
-    padding-bottom: 5px;
-}
-
-.emailfill {
-    padding-bottom: 5px;
-}
-
-.mobilefill {
-    padding-bottom: 5px;
-}
-
-.passwordfill1 {
-    padding-bottom: 5px;
-}
-
-.policeidfill2 {
-    padding-bottom: 30px;
+    margin-left: 20px;
+    margin-right:-25px;
     font-size: 20px;
 }
 
-.signup-btn {
+.input 
+{
+    border-radius: 5px;
+    border:none;
+}
+
+.policeidfillrow 
+{
+    padding-left: 20px;
+}
+
+.nicnofillrow 
+{
+    padding-top: 5px;
+}
+
+.emailfillrow 
+{
+    padding-top: 5px;
+}
+
+.mobilefillrow
+{
+    padding-top: 5px;
+}
+
+.createpasswordfillrow
+{
+    padding-top: 5px;
+}
+
+.reenterpasswordfillrow 
+{
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+
+.signup-btn 
+{
     margin-top: 10px;
     width: 80px;
     height: 30px;
@@ -100,16 +117,37 @@ body {
     align-items: center;
     cursor: pointer;
     margin-left: 50%;
-    margin-right: 20px;
+    margin-right: 45px;
     border-radius: 30px;
     transform: translate(-100%);
+    border:none;
+    color:white;
 }
 
-.option {
-    padding-left: 70px;
+.option 
+{
+    text-align: center;    
     padding-bottom: 10px;
+    margin-left:40px;
 }
 
-a {
+span
+{
     color: blue;
+    cursor: pointer;
+} 
+
+.signup-btn:hover 
+{
+    background-color: #587691;
+} 
+
+h5
+{
+    text-align: center;
+} 
+
+span:hover 
+{
+    color:red;
 }

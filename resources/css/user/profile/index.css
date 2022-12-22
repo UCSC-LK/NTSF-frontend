@@ -1,20 +1,22 @@
-body {
+body 
+{
     align-items: center;
     background-position: absolute;
     background-image: url("Background.jpeg");
-
+    font-family:sans-serif;
 }
 
-.header {
+.header 
+{
     height: 90px;
     display: flex;
     justify-content: space-between;
     background-color: lightblue;
     border-radius: 10px;
-    font-family: sans-serif;
 }
 
-.logo1 {
+.ntsflogo 
+{
     position: left;
     width: 90px;
     display: flex;
@@ -22,13 +24,15 @@ body {
     justify-content: left;
 }
 
-.headline {
+.title 
+{
     margin-top: 5px;
     font-size: 20px;
     margin-right: 15px;
 }
 
-.logo2 {
+.logoutlogo 
+{
     position: right;
     width: 50px;
     display: flex;
@@ -39,7 +43,8 @@ body {
     cursor: pointer;
 }
 
-.menu {
+.optionbar
+{
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -49,52 +54,81 @@ body {
     text-align: center;
 }
 
-.option1 {
-    position: absolute;
-    text-align: center;
-    display: flex;
-    justify-content: left;
-    padding-top: 5px;
-    margin-right: 16.66%;
-    cursor: pointer;
-}
-
-
-
-table tr {
+table tr 
+{
     display: flex;
     justify-content: space-between;
 
 }
 
-table th {
+table th 
+{
     display: flex;
     justify-content: center;
-    padding-left: 30px;
 }
 
-table p {
+table p 
+{
     margin-bottom: -5px;
     font-size: 20px;
+} 
+
+table th 
+{
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+    width: 33.3vw;
+    margin-top:1%;
+    margin-bottom: 1%;
+    padding-top: 15px;
+    cursor: pointer;
 }
 
-.footer {
+table th:first-child 
+{
+    border-left: none;
+    border-right: none;
+    margin-top: -15px;
+}
+
+table th:last-child 
+{
+    border-right: none;
+    border-left: none;
+    margin-top: -15px;
+} 
+
+table th:nth-child(2) 
+{
+    margin-top: -15px;
+}
+
+label 
+{ 
+    display: inline-block; 
+    width: 6rem; 
+}
+
+.container
+{
     position: absolute;
     background-color: #C2C4C6;
     height: 250px;
     width: 500px;
     border-radius: 15px;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
 }
 
-h4 {
+h4 
+{
     padding-left: 30px;
 }
 
-.cancel-btn {
+.cancel-btn 
+{
     background-position: center;
     margin-top: 330px;
     width: 100px;
@@ -105,5 +139,17 @@ h4 {
     margin-right: 60px;
     border-radius: 30px;
     transform: translate(-50%);
-    background-color: #467D53;
+    background-color: #467D53; 
+    border:none;
+    color:white;
+} 
+
+.cancel-btn:hover
+{
+    background-color: #527C5C;
+} 
+
+b 
+{
+    font-feature-settings: "blwf";
 }

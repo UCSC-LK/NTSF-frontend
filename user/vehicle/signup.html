@@ -9,49 +9,38 @@
     <title>
         Sign Up-Vehicle
     </title>
-    <link rel="stylesheet"
-          href="../../Resources/CSS/User/signup.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="../../resources/css/user/signup/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <script src="../../Resources/JS/User/Vehicle/signup-vehicle.js"></script>
 </head>
 
 <body>
-    <div class="header"
-         align="left">
-        <div class="logo1">
-            <img src="../../Resources/All-Images/logo_NTSF.png"
-                 alt="logo1">
+    <div class="header">
+        <div class="ntsflogo">
+            <img src="../../resources/images/logo_NTSF.png" alt="ntsflogo">
         </div>
-        <div class="headline">
-            <h2 align="center">
-                <b>Vehicle</b>
+        <div class="title">
+            <h2>
+                Vehicle
             </h2>
         </div>
 
-        <div class="logo2"
-             align="right">
-            <img src="../../Resources/All-Images/home.png"
-                 alt="logo2">
+        <div class="homelogo">
+            <img src="../../resources/images/home.png" alt="homelogo">
         </div>
     </div>
 
-    <div class="footer">
+    <div class="container">
         <form>
-            <div class="heading">
+            <div class="headline">
                 <h2>
-                    <br>
                     Sign Up
                 </h2>
             </div>
             <div class="filldetails">
-                <div class="vehiclenofill">
+                <div class="vehiclenofillrow">
                     <label for="vehicleno">Vehicle No:</label>
-                    <input type="text"
-                           id="vehicleNo"
-                           class="input"
-                           maxlength="20"
-                           size="20">
+                    <input type="text" id="vehicleNo" class="input" maxlength="20" size="20">
                 </div>
                 <!-- <div class="chasisnofill">
                     <label for="chasisno">Chassis No:</label>
@@ -70,7 +59,7 @@
                            size="20">
                 </div> -->
 
-                <div class="nicnodfill">
+                <div class="nicnofillrow">
                     <label for="nicno">NIC No:</label>
                     <input type="text"
                            id="nic"
@@ -87,7 +76,7 @@
                            size="20">
                     <br>
                 </div> -->
-                <div class="emailfill">
+                <div class="emailfillrow">
                     <label for="email">e-mail:</label>
                     <input type="text"
                            id="email"
@@ -96,7 +85,7 @@
                            size="20">
                     <br>
                 </div>
-                <div class="mobilefill">
+                <div class="mobilefillrow">
                     <label for="mobileno">Mobile:</label>
                     <input type="text"
                            id="mobileNo"
@@ -105,7 +94,7 @@
                            size="20">
                     <br>
                 </div>
-                <div class="passwordfill1">
+                <div class="createpasswordfillrow">
                     <label for="createpassword">Create Password:</label>
                     <input type="text"
                            id="password"
@@ -114,21 +103,16 @@
                            size="20">
                     <br>
                 </div>
-                <div class="passwordfill2">
-                    <label for="reenterpassword"
-                           length="60">Re-enter Password:</label>
-                    <input type="text"
-                           id="retype-password"
-                           class="input">
+                <div class="reenterpasswordfillrow">
+                    <label for="reenterpassword" length="60">Re-enter Password:</label>
+                    <input type="text" id="retype-password" class="input">
                     <br>
 
                     <button class="signup-btn">Sign Up</button>
 
                     <div class="option">
-                        <h5 align="center">
-                            Already have an account? <a href="#tologin"
-                               class="tologin"
-                               style="color:blue">Login</a>
+                        <h5>
+                            Already have an account? <a href="../vehicle/login.html"><span><u>Login</u></span></a>
                         </h5>
                     </div>
                 </div>

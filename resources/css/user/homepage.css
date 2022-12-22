@@ -1,6 +1,7 @@
 body 
 {   
     background-position: absolute;
+    font-family: sans-serif;
     background-image: url("Background.jpeg");
 }
 
@@ -14,12 +15,12 @@ body
     font-family: sans-serif;
 } 
 
-.head 
+.title
 {
-    font-family: sans-serif;
+    text-align: center;
 } 
 
-.footer
+.container
 {   
     background-color:lightblue;
     height: 200px;
@@ -27,7 +28,7 @@ body
     font-family: sans-serif;
 } 
 
-.logo
+.ntsflogo
 {
     position: left;
     width:90px; 
@@ -84,9 +85,10 @@ body
     background-color: #4B6E8E;
     align-items: left;
     cursor: pointer;  
-    margin-left:70px;
+    margin-left:170px;
     border-radius: 30px;
-    /*transform: translate(0%);*/
+    border:none;
+    color:white;
 } 
 
 .vehicle-button
@@ -98,8 +100,9 @@ body
     margin-top: 70px;
     cursor: pointer;  
     border-radius: 30px;
-    /*transform: translate(-50%);*/
-} 
+    border:none;
+    color:white;
+}
 
 .pedestrian-button
 {   
@@ -109,9 +112,10 @@ body
     align-items: right; 
     cursor: pointer;
     margin-top: 70px; 
-    margin-right: 70px;
+    margin-right: 170px;
     border-radius: 30px;
-    /*transform: translate(-100%);*/
+    border:none;
+    color:white;
 }
 
 .list
@@ -123,4 +127,24 @@ body
 button
 {
     text-align: center;
+} 
+
+.english:hover 
+{
+    background-color:  #648CAC;
+} 
+
+.driver-button:hover
+{
+    background-color:  #648CAC;
+}
+
+.vehicle-button:hover
+{
+    background-color:  #516F8A;
+}  
+
+.pedestrian-button:hover
+{
+    background-color:  #516F8A;
 }
