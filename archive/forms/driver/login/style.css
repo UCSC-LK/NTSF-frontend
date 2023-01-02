@@ -1,0 +1,91 @@
+/* Navigation bar */
+.top {
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    height: 70px;
+    font-family: Poppins, serif;
+}
+
+.top a {
+    float: left;
+    color: black;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.ntsf {
+    padding-top: 15px;
+}
+
+.logo {
+    float: left;
+    width: 95px;
+    max-height: max-content;
+}
+
+h1 {
+    color: black;
+}
+
+/* Login form */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Poppins, serif;
+}
+
+.login {
+    margin-top: 50px;
+    width: 300px;
+    overflow: hidden;
+    margin: auto;
+    /* margin: 20 0 0 450px; */
+    padding: 50px;
+    background: #ffffff;
+    /* border-color: #068488;
+    border-radius: 15px; */
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+label {
+    font-size: 17px;
+    color: black;
+}
+
+#licenseNo {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border: 2px solid black;
+    /* border-radius: 3px; */
+    padding-left: 8px;
+}
+
+#password {
+    width: 300px;
+    height: 30px;
+    border: 2px solid black;
+    /* border-radius: 1px; */
+    padding-left: 8px;
+}
+
+#login-btn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    padding-left: 8px;
+    font-family: Poppins, serif;
+    font-size: 17px;
+    background-color: #00A11A;
+    font-weight: bold;
+}
