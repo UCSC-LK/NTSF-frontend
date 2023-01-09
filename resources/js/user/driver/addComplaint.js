@@ -6,6 +6,7 @@ function submitLogin()
     const user_id = sessionStorage.user_id; 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
+    
 
     const query = $.param({
         user_id,
