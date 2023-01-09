@@ -1,3 +1,31 @@
+const rank = document.getElementById("rank");
+
+const rankData = {
+    "Policeman": "",
+    "OIC": ""
+}
+
+for (let key in rankData) {
+    let option = document.createElement("option");
+    option.setAttribute('value', rankData[key]);
+  
+    let optionText = document.createTextNode(key);
+    option.appendChild(optionText);
+  
+    rank.appendChild(option);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 //jquery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
@@ -27,3 +55,4 @@ function addPoliceman()
 
     $.ajax(settings).done(submitSuccessCallback).fail(submitUnsuccessCallback);
 }
+
