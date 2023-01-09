@@ -28,7 +28,7 @@ function loginSuccessCallback(data) {
     alert("Login successful");
     sessionStorage.setItem("user_type", "1");
     sessionStorage.setItem("user_id", data.userId);
-
+    module.exports = {sessionStorage};
     window.location.href = "../common/fine/view.html";
   } else {
     alert("Incorrect login id or password!");
@@ -38,3 +38,4 @@ function loginSuccessCallback(data) {
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
 }
+
