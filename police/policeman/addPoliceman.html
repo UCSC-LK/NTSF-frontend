@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,14 +14,14 @@
                     <label for="name">Name</label>
                 </td>
                 <td>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" maxlength="" required>
                 </td>
             </tr>
                 <td>
                     <label for="police_id">Police ID</label>
                 </td>
                 <td>
-                    <input type="text" name="police_id" id="police_id">
+                    <input type="text" name="police_id" id="police_id" maxlength="" required>
                 </td>
             </tr>
             <tr>
@@ -28,14 +29,14 @@
                     <label for="nic">NIC</label>
                 </td>
                 <td>
-                    <input type="text" name="nic" id="nic">
+                    <input type="text" name="nic" id="nic" maxlength="12" required>
                 </td>
             </tr>
                 <td>
                     <label for="rank">Rank</label>
                 </td>
                 <td>
-                    <input type="text" name="rank" id="rank">
+                   <select name="rank" id="rank"></select>
                 </td>
             </tr>
             <tr>
@@ -43,7 +44,7 @@
                     <label for="police_station">Police Station</label>
                 </td>
                 <td>
-                    <input type="text" name="police_station" id="police_station">
+                    <input type="text" name="police_station" id="police_station" required>
                 </td>
         </table>
     </form>
@@ -51,5 +52,6 @@
     <button onclick="addPoliceman()" type="submit">Add Policeman</button>
     
     <script src="../../resources/js/police/policeman/policeman.js"></script>
+    
 </body>
 </html>
