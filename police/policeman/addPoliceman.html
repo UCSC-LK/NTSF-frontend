@@ -7,7 +7,7 @@
     <title>Add policeman</title>
 </head>
 <body>
-    <form action="">
+    <form action="#">
         <table>
             <tr>
                 <td>
@@ -36,7 +36,7 @@
                     <label for="rank">Rank</label>
                 </td>
                 <td>
-                   <select name="rank" id="rank"></select>
+                   <input name="rank" id="rank"></input>
                 </td>
             </tr>
             <tr>
@@ -47,9 +47,9 @@
                     <input type="text" name="police_station" id="police_station" required>
                 </td>
         </table>
+        <button onclick="addPoliceman()" type="button" id="addPolicemanButton">Add Policeman</button>
     </form>
 
-    <button onclick="addPoliceman()" type="submit">Add Policeman</button>
     
     <script src="../../resources/js/police/policeman/policeman.js"></script>
     
