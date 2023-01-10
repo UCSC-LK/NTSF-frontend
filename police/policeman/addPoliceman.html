@@ -1,0 +1,57 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add policeman</title>
+</head>
+<body>
+    <form action="#">
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" name="name" id="name" maxlength="100" required>
+                </td>
+            </tr>
+                <td>
+                    <label for="police_id">Police ID</label>
+                </td>
+                <td>
+                    <input type="text" name="police_id" id="police_id" maxlength="10" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nic">NIC</label>
+                </td>
+                <td>
+                    <input type="text" name="nic" id="nic" maxlength="12" required>
+                </td>
+            </tr>
+                <td>
+                    <label for="rank">Rank</label>
+                </td>
+                <td>
+                   <input name="rank" id="rank"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="police_station">Police Station</label>
+                </td>
+                <td>
+                    <input type="text" name="police_station" id="police_station" required>
+                </td>
+        </table>
+        <button onclick="addPoliceman()" type="button" id="addPolicemanButton">Add Policeman</button>
+    </form>
+
+    
+    <script src="../../resources/js/police/policeman/policeman.js"></script>
+    
+</body>
+</html>
