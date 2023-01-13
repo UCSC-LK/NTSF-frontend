@@ -1,20 +1,45 @@
 //Dropdown options for police rank
-// const rank = document.getElementById("rank");
+const rank = document.getElementById("rank");
 
-// const rankData = {
-//     "Policeman": "",
-//     "OIC": ""
-// }
+const rankData = {
+    "Policeman": "",
+    "OIC": ""
+}
 
-// for (let key in rankData) {
-//     let option = document.createElement("option");
-//     option.setAttribute('value', rankData[key]);
+for (let key in rankData) {
+    let option = document.createElement("option");
+    option.setAttribute('value', rankData["option" + key]);
+
+    //remove later
+    console.log(key);
+    
+    let optionText = document.createTextNode(key); 
+    option.appendChild(optionText);
   
-//     let optionText = document.createTextNode(key);
-//     option.appendChild(optionText);
-  
-//     rank.appendChild(option);
-// }
+    rank.appendChild(option);
+}
+
+
+/*
+    // an array of options
+    var options = ["Option 1", "Option 2", "Option 3"];
+
+    // reference to the select element
+    var select = document.getElementById("mySelect");
+
+    // loop through the options and add each one to the select element
+    for (var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);    
+}
+ */
+
+
+
+
 const addPolicemanButton = document.getElementById("addPolicemanButton");
 
 const addPoliceman = function()
@@ -22,7 +47,7 @@ const addPoliceman = function()
     let name = document.getElementById("name").value;
     let police_id = document.getElementById("police_id").value;
     let nic = document.getElementById("nic").value;
-    let rank = document.getElementById("rank").value;
+    let rank = [document.getElementById("rank").option].value;
     let police_station = document.getElementById("police_station").value;
 
     console.log(name);
