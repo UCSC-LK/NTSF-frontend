@@ -2,11 +2,15 @@ const form = document.getElementById('form');
 const name = document.getElementById('name');
 const police_id = document.getElementById('police_id');
 const nic = document.getElementById('nic');
-const rank = document.getElementById('rank');
+let rankOptions = document.getElementById("rankOptions");
+let rankOptionList = ["OIC", "Policeman"];
 const police_station = document.getElementById('police_station');
+let police_stationList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
+	getMessage();
 	
 	checkInputs();
 });
@@ -16,8 +20,7 @@ function checkInputs() {
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
 	const nicValue = nic.value.trim();
-	const rankValue = rank.value.trim();
-    const police_stationValue = police_station.value.trim();
+	
     
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
@@ -39,17 +42,17 @@ function checkInputs() {
 		setSuccessFor(nic);
 	}
 
-    if(rankValue === '') {
-        setErrorFor(rank, 'Rank cannot be blank');
-    } else {
-        setSuccessFor(rank);
-    }
+    // if(rankValue === '') {
+    //     setErrorFor(rank, 'Rank cannot be blank');
+    // } else {
+    //     setSuccessFor(rank);
+    // }
 
-    if(police_stationValue === '') {
-        setErrorFor(police_station, 'Police Station cannot be blank');
-    } else {
-        setSuccessFor(police_station);
-    }
+    // if(police_stationValue === '') {
+    //     setErrorFor(police_station, 'Police Station cannot be blank');
+    // } else {
+    //     setSuccessFor(police_station);
+    // }
 	
 	// if(password2Value === '') {
 	// 	setErrorFor(password2, 'Password2 cannot be blank');
@@ -77,30 +80,87 @@ function setSuccessFor(input) {
 // }
 
 
-// const rank = document.getElementById("rank");
-
-// const rankData = {
-//     "Policeman": "",
-//     "OIC": ""
-// }
-
-// for (let key in rankData) {
-//     let option = document.createElement("option");
-//     option.setAttribute('value', rankData["option" + key]);
-
-//     //remove later
-//     console.log(key);
-    
-//     let optionText = document.createTextNode(key); 
-//     option.appendChild(optionText);
-  
-//     rank.appendChild(option);
-// }
-
-let rankOptions = document.getElementById("rank");
-let rankOptionsList = ["Policeman", "OIC"];
-
 let isOpen = false;
 
 
+rankOptions.addEventListener("click", addToUIOptions);
+
+function getMessage() {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (rankOptions.firstElementChild.classList.contains("hide-option")) {
+        message.classList.add("danger");
+        message.textContent = "Fill all required fields!!";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+    else {
+        message.classList.add("success");
+        message.textContent = "Policeman Added Successfully!)";
+
+        document.body.appendChild(message);
+        let selectedRank = rankOptions.firstElementChild.textContent;
+        console.log(selectedRank);
+
+        deleteMessage(message);
+    }
+
+}
+
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
+function addToUIOptions(e) {
+    if (e.target.classList.contains("hide-option")) {
+        controlOptions(e);
+    }
+    else {
+        const pickedOption = e.target;
+
+        if (rankOptions.firstElementChild.classList.contains("hide-option")) {
+            rankOptions.removeChild(rankOptions.firstElementChild);
+        }
+        rankOptions.insertAdjacentElement("afterbegin", pickedOption);
+
+        deleteOptions();
+        controlOptions(e);
+    }
+}
+
+function controlOptions(e) {
+    if (isOpen === false) {
+        createOptions();
+        rankOptions.classList.add("opened");
+        isOpen = true;
+    }
+    else {
+        deleteOptions();
+        rankOptions.classList.remove("opened");
+        isOpen = false;
+    }
+}
+
+function deleteOptions() {
+    while (rankOptions.childElementCount > 1) {
+        rankOptions.removeChild(rankOptions.lastElementChild);
+    }
+}
+
+function createOptions() {
+    rankOptionList.forEach(element => {
+        if (rankOptions.firstElementChild.textContent !== element) {
+            let rankOption = document.createElement("div");
+            rankOption.className = "option";
+            rankOption.textContent = element;
+
+            rankOptions.firstElementChild.insertAdjacentElement("afterend", rankOption);
+        }
+    });
+};
 
