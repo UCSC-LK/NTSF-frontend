@@ -50,30 +50,100 @@ const addPoliceman = function()
     let rank = [document.getElementById("rank").option].value;
     let police_station = document.getElementById("police_station").value;
 
-    console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(rank);
-    console.log(police_station);
+    if(validateForm(name, police_id, nic, rank, police_station))
+    { 
+        console.log(name);
+        console.log(police_id);
+        console.log(nic);
+        console.log(rank);
+        console.log(police_station);
 
-    let httpReq = new XMLHttpRequest();
-    httpReq.onreadystatechange = function()
-    {
-        if(this.readyState === 4 && this.status === 200)
+        let httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function()
         {
-            addPolicemanData(this);
+            if(this.readyState === 4 && this.status === 200)
+            {
+                addPolicemanData(this);
+            }
+        }
+        httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+        httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        httpReq.send("name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
+
+        function addPolicemanData(httpReq)
+        {
+            let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
+            console.log(jsonAddPolicemanResponse);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
 
-    function addPolicemanData(httpReq)
+}
+
+function validateForm(name, police_id, nic, rank, police_station)
+{
+    if(name == "" || name == null)
     {
-        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddPolicemanResponse);
+        // alert("Name must be filled out");
+        document.getElementById("name").style.border = "2px solid red";
+        document.getElementById("name").style.borderRadius = "5px";
+        document.getElementById("name").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+
+        document.getElementById("nameAlert").innerHTML = "*Name must be filled out";
+        document.getElementById("nameAlert").style.color = "red";
+
+        return false;
+    }
+    
+    else if(police_id == "" || police_id == null)
+    {
+        // alert("Police ID must be filled out");
+        document.getElementById("police_id").style.border = "2px solid red";
+        document.getElementById("police_id").style.borderRadius = "5px";
+        document.getElementById("police_id").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+
+        document.getElementById("police_idAlert").innerHTML = "*Police ID  must be filled out";
+        document.getElementById("police_idAlert").style.color = "red";
+        return false;
+    }
+
+    else if(nic == "" || nic == null)
+    {
+        // alert("NIC must be filled out");
+        document.getElementById("nic").style.border = "2px solid red";
+        document.getElementById("nic").style.borderRadius = "5px";
+        document.getElementById("nic").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+
+        document.getElementById("nicAlert").innerHTML = "*Nic number must be filled out";
+        document.getElementById("nicAlert").style.color = "red";
+        return false;
+    }
+
+    else if(rank == "" || rank == null)
+    {
+        // alert("Rank must be chosen");
+        document.getElementById("rank").style.border = "2px solid red";
+        document.getElementById("rank").style.borderRadius = "5px";
+        document.getElementById("rank").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+
+        document.getElementById("rankAlert").innerHTML = "*rank must be chosen";
+        document.getElementById("rankAlert").style.color = "red";
+        return false;
+    }
+
+    else if(police_station == "" || police_station == null)
+    {
+        // alert("Police Station must be chosen");
+        document.getElementById("police_station").style.border = "2px solid red";
+        document.getElementById("police_station").style.borderRadius = "5px";
+        document.getElementById("police_station").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+
+        document.getElementById("police_stationAlert").innerHTML = "*Police Station must be filled out";
+        document.getElementById("police_stationAlert").style.color = "red";
+        return false;
     }
 }
+
+
 
 
 

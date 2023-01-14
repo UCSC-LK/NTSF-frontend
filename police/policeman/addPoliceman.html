@@ -4,54 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../resources/css/police/policeman/addPoliceman.css">
     <title>Add policeman</title>
 </head>
 <body>
-    <form action="#">
-        <table>
-            <tr>
-                <td>
-                    <label for="name">Name</label>
-                </td>
-                <td>
-                    <input type="text" name="name" id="name" maxlength="100" required>
-                </td>
-            </tr>
-                <td>
-                    <label for="police_id">Police ID</label>
-                </td>
-                <td>
-                    <input type="text" name="police_id" id="police_id" maxlength="10" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="nic">NIC</label>
-                </td>
-                <td>
-                    <input type="text" name="nic" id="nic" maxlength="12" required>
-                </td>
-            </tr>
-                <td>
-                    <label for="rank">Rank</label>
-                </td>
-                <td>
-                   <select name="rank" id="rank" required></select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="police_station">Police Station</label>
-                </td>
-                <td>
-                    <input type="text" name="police_station" id="police_station" required>
-                </td>
-        </table>
-        <button onclick="addPoliceman()" type="button" id="addPolicemanButton">Add Policeman</button>
-    </form>
+    <div class="container">
+        <div class="header">
+            <h2>Add Policeman</h2>
+        </div>
+        <form action="#" id="form" class="form">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" placeholder="eg: Avishi Ganepola" id="name" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="police_id">Police_ID</label>
+                <input type="text" placeholder="eg: 7109827" id="police_id" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="nic">NIC</label>
+                <input type="text" placeholder="eg: 200019292837" id="nic"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="rank">Rank</label>
+                <input type="text" placeholder="eg: OIC" id="rank"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="police_station">Police Station</label>
+                <input type="text" placeholder="eg: Dehiwala" id="police_station"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <button>Submit</button>
+        </form>
+    
+    </div>
 
     
-    <script src="../../resources/js/police/policeman/policeman.js"></script>
+    
+    <script src="../../resources/js/police/policeman/addPoliceman.js"></script>
     
 </body>
 </html>
