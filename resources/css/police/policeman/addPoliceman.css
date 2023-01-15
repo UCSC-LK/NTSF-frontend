@@ -5,8 +5,40 @@
 	box-sizing: border-box;
 }
 
-body {
-	background-color: #9b59b6;
+/* Header */
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    border: 5px solid black;
+    margin-bottom: 20px;
+    background-color: #9FB4C7;
+
+}
+
+p
+{
+    border: 5px solid teal;
+    padding: 10px;
+}
+
+img
+{
+    width: 150px;
+    height: 100px;
+}
+
+.homeButtonImg
+{
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+
+}
+
+
+.formbody {
+	background-color: #bbbbbb;
 	font-family: 'Open Sans', sans-serif;
 	display: flex;
 	align-items: center;
@@ -24,13 +56,13 @@ body {
 	max-width: 100%;
 }
 
-.header {
+.formHeader {
 	border-bottom: 1px solid #f0f0f0;
 	background-color: #f7f7f7;
 	padding: 20px 40px;
 }
 
-.header h2 {
+.formHeader h2 {
 	margin: 0;
 }
 
