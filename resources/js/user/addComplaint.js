@@ -31,9 +31,6 @@ function addComplaintData(httpReq)
     let jsonAddComplaintResponse = JSON.parse(httpReq.responseText);
     console.log(jsonAddComplaintResponse);
 }
-    
-
-
 
 }
 

@@ -58,5 +58,5 @@ function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
     console.log(police_id);
     console.log(nic);
     console.log(rank);
-    console.log(police_station0);
+    console.log(police_station);
 }
