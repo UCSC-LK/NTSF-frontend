@@ -91,6 +91,16 @@ img
 	width: 100%;
 }
 
+.form-control textarea {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
 .form-control input:focus {
 	outline: 0;
 	border-color: #777;
