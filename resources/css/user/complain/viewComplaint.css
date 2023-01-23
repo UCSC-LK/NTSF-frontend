@@ -54,7 +54,6 @@ img
 
 .rwd-table tr:nth-child(odd):not(:first-child) {
   background-color: #ebf3f9;
-  
 }
 
 .rwd-table th {
