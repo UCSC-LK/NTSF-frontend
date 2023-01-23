@@ -37,6 +37,49 @@ img
 }
 
 
+/*Option bar*/
+.optionbar
+{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color:#C2C4C6;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-align: center;
+    font-style: bold;
+} 
+
+.option1
+{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: left;
+    padding-top: 5px; 
+    padding-left: 25%; 
+    cursor: pointer;
+    font-style: bold;
+}  
+
+.divider 
+{
+    text-align: center;
+    font-style: bold;
+    padding-left: 50%;
+}  
+
+.option2 
+{
+    text-align: center;
+    padding-right: 25%;
+    padding-top: 5px; 
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+
+
 .formbody {
 	background-color: #bbbbbb;
 	font-family: 'Open Sans', sans-serif;
