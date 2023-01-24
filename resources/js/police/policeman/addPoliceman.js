@@ -28,7 +28,7 @@ function checkInputs() {
 		setErrorFor(name, 'Name cannot be blank');
         flag = 1;
 	} 
-    else if(6(nameValue.match(/^[a-zA-Z]+$/)) == null){
+    else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
         setErrorFor(name, 'Name should contain only letters');
         flag = 1;
     }
@@ -60,7 +60,6 @@ function checkInputs() {
 	else {
 		setSuccessFor(police_id);
         flag = 0;
-        
 	}
 	
 	if(nicValue === '') {

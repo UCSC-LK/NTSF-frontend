@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../resources/css/police/policeman/viewPoliceman.css">
     <title>View Policeman</title>
 </head>
-<body>
+<body onload="loadPolicemanDetails()">
     <div class="header">
         <div class="logo">
             <img src="../../resources/images/logo_NTSF.png" alt="logo">
@@ -42,10 +42,11 @@
                 <td data-th="Invoice Date">
                   06/25/2016
                 </td>
-                <td data-th="Due Date">
+                <td data-th="Due Date"> 
                   12/25/2016
                 </td>
               </tr>
+              <div id="policemanData"></div>
             </tbody>
           </table>
         </div>
