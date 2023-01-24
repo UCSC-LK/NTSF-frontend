@@ -1,5 +1,7 @@
 const loadPolicemanDetails = function()
 {
+    var table = document.getElementById("table");
+
     console.log("I was called onload");
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
@@ -33,7 +35,7 @@ const loadPolicemanDetails = function()
             let count =  jsonPolicemanData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                policemanDataHTMLoutput(jsonPolicemanData.List[i].name.value, jsonPolicemanData.List[i].police_id,
+                policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
                 jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
             }
 
@@ -47,35 +49,25 @@ const loadPolicemanDetails = function()
 
 function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
 {
-    console.log(name.value);
-    console.log(police_id.value);
-    console.log(nic);
-    console.log(rank);
-    console.log(police_station);
-
-    const policemanData = document.getElementById("policemanData");
-    policemanData.innerHTML = "";
-
-
-    let htmlString = 
-    '<tr>' + 
-    '<td data-th="Supplier Code">' + name + '</td>' + 
-    '<td data-th="Supplier Name">' + police_id + '</td>' + 
-    '<td data-th="Invoice Number">' + nic + '</td>' + 
-    '<td data-th="Invoice Date">' + rank + '</td>' + 
-    '<td data-th="Due Date">' + police_station + '</td>' + 
-    '</tr>';
-
-
-    policemanData.innerHTML += htmlString;
-
-
-    console.log(htmlString);
-
     console.log(name);
     console.log(police_id);
     console.log(nic);
     console.log(rank);
     console.log(police_station);
+
+    // create table data row
+    var dataRow = table.insertRow();
+    var dataCell1 = dataRow.insertCell(0);
+    var dataCell2 = dataRow.insertCell(1);
+    var dataCell3 = dataRow.insertCell(2);
+    var dataCell4 = dataRow.insertCell(3);
+    var dataCell5 = dataRow.insertCell(4);
+
+    //Add content to the table data cells
+    dataCell1.innerHTML = name;
+    dataCell2.innerHTML = police_id;
+    dataCell3.innerHTML = nic;
+    dataCell4.innerHTML = rank;
+    dataCell5.innerHTML = police_station;
     
 }
