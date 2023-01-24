@@ -27,7 +27,20 @@ function checkInputs() {
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
         flag = 1;
-	} else {
+	} 
+    else if(6(nameValue.match(/^[a-zA-Z]+$/)) == null){
+        setErrorFor(name, 'Name should contain only letters');
+        flag = 1;
+    }
+    else if(nameValue.length < 3){
+        setErrorFor(name, 'Name should contain at least 3 letters');
+        flag = 1;
+    }
+    else if(nameValue.length > 20){
+        setErrorFor(name, 'Name should contain at most 20 letters');
+        flag = 1;
+    }
+    else {
 		setSuccessFor(name);
        flag = 0;
 	}
@@ -35,8 +48,16 @@ function checkInputs() {
 	if(police_idValue === '') {
 		setErrorFor(police_id, 'Police ID cannot be blank');
         flag = 1;
-        
-	} else {
+    }
+    else if((police_idValue.match(/^[0-9]+$/)) == null){
+        setErrorFor(police_id, 'Police ID should contain only numbers');
+        flag = 1;
+    }
+    else if(police_idValue.length !== 10){
+        setErrorFor(police_id, 'Police ID should contain 10 numbers');
+        flag = 1;
+    }   
+	else {
 		setSuccessFor(police_id);
         flag = 0;
         
@@ -50,18 +71,21 @@ function checkInputs() {
 		setSuccessFor(nic);
         flag = 0;
 	}
+
     let rank = checkRankFill();
     if(rank){
         setSuccessFor(rankOptions);
         var rankValue = rank;
         flag = 0;
-        } else {
+    }
+    else {
         setErrorFor(rankOptions, 'A Rank should be  selected');
         flag = 1;
         
     }
 
     let police_station = checkPolice_stationFill();
+
     if(police_station){
         setSuccessFor(police_stationOptions);
         var police_stationValue = police_station;
@@ -171,39 +195,6 @@ function createOptionsRank() {
     });
 };
 
-
-//Sending data to backend
-// const addPolicemanButton = document.getElementById("addPolicemanButton");
-
-const addPoliceman = function(name, police_id, nic, rank, police_station)
-{
-    console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(rank);
-    console.log(police_station);
-
-    let httpReq = new XMLHttpRequest();
-    httpReq.onreadystatechange = function()
-    {
-        if(this.readyState === 4 && this.status === 200)
-        {
-            addPolicemanData(this);
-        }
-    }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
-
-    function addPolicemanData(httpReq)
-    {
-        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddPolicemanResponse);
-    }
-    
-}
-
-
 //adding UI options to police_station
 function addToUIOptionspolice_station(e) {
     if (e.target.classList.contains("hide-option")) {
@@ -253,5 +244,38 @@ function createOptionspolice_station() {
         }
     });
 };
+
+
+//Sending data to backend
+// const addPolicemanButton = document.getElementById("addPolicemanButton");
+
+const addPoliceman = function(name, police_id, nic, rank, police_station)
+{
+    console.log(name);
+    console.log(police_id);
+    console.log(nic);
+    console.log(rank);
+    console.log(police_station);
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            addPolicemanData(this);
+        }
+    }
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
+
+    function addPolicemanData(httpReq)
+    {
+        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonAddPolicemanResponse);
+    }
+    
+}
+
 
 
