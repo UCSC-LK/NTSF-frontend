@@ -24,9 +24,10 @@ function submitLogin() {
 }
 
 function loginSuccessCallback(data) {
+  let user_id = null;
   if (data.loggedIn) {
     alert("Login successful");
-    sessionStorage.setItem("user_type", "1");
+    // sessionStorage.setItem("user_type", "1");
     sessionStorage.setItem("user_id", data.userId);
     module.exports = {sessionStorage};
     window.location.href = "../common/fine/view.html";

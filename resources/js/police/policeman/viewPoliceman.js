@@ -13,7 +13,7 @@ const loadPolicemanDetails = function()
     
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/viewPoliceman", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
-    httpreq.send();
+    httpreq.send("action=viewPoliceman");
 
     function completeLoad(httpreq)
     {
@@ -45,6 +45,7 @@ const loadPolicemanDetails = function()
             alert("Something went wrong");
         }
     }
+    return jsonPolicemanData;
 }
 
 function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
@@ -71,3 +72,4 @@ function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
     dataCell5.innerHTML = police_station;
     
 }
+
