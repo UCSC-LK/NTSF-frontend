@@ -14,7 +14,7 @@ function getUserFineData() {
   var settings = {
     url: `http://localhost:8080/ntsf/fine?&user_id=${userId}`,
     method: "GET",
-  }; 
+  };
 
   
 

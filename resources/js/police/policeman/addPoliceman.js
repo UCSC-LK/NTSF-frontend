@@ -57,6 +57,10 @@ function checkInputs() {
         setErrorFor(police_id, 'Police ID should contain 10 numbers');
         flag = 1;
     }   
+    else if(checkPolicemanPolice_ID(police_idValue)){
+        setErrorFor(police_id, 'Police ID already exists');
+        flag = 1;
+    }
 	else {
 		setSuccessFor(police_id);
         flag = 0;
@@ -266,12 +270,55 @@ const addPoliceman = function(name, police_id, nic, rank, police_station)
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
 
     function addPolicemanData(httpReq)
     {
         let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonAddPolicemanResponse);
+    }
+    
+}
+
+//Database data duplication error checking
+
+const checkPolicemanPolice_ID = function(police_id)
+{
+    console.log("checkPolicemanPolice_ID");
+    console.log(police_id);
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkPolicemanPolice_IDData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    httpReq.open("GET", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
+
+    function checkPolicemanPolice_IDData(httpReq)
+    {
+        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
+        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
+        if(jsonCheckPolicemanResponseAlert == true)
+        {
+            alert("Police_ID already exists");
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            return false;
+        }
     }
     
 }
