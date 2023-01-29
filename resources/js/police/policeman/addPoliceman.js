@@ -286,7 +286,7 @@ const checkPolicemanPolice_ID = function(police_id)
 {
     console.log("checkPolicemanPolice_ID");
     console.log(police_id);
-
+ 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function()
     {
