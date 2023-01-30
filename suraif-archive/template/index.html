@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="option">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <p>B</p>
+                <p>LO</p>
+            </div>
+            <!-- <p class="logo rog">NTSF</p> -->
+            <p class="logo">NTSF</p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>  <!--- <bold>HODL</bold> to the Moon!</p> -->
+        <button class="main">IGP Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="">
+                <i class="fa fa-dashboard"></i>
+                View Policeman
+            </a>
+            <br>
+            <a href="">
+                <i class="fa fa-tasks"></i>
+                Add Policeman
+            </a>
+            <a href="">
+                <i class="fa fa-book"></i>
+                View Reports
+            </a>
+            <a href="">
+                <i class="fa fa-newspaper-o"></i>
+                News
+            </a>
+            <a href="">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <i class="fa fa-bell">
+                <bold>1</bold>
+            </i>
+            <div ng-app="app" ng-controller="coin">
+                <p class="btc-price">Suraif Muhammad</p>
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="starter-stats">
+            <div class="blok">
+                <i class="fa fa-money"></i>
+                <div class="no">
+                    <p>Total Fines</p>
+                    <p>3</p>
+                </div>
+            </div>
+
+        <div class="blok">
+            <i class="fa fa-money kl"></i>
+            <div class="no">
+                <p>Total Amount Due</p>
+                <p>Rs. 10500</p>
+            </div>
+        </div>
+
+        <div class="blok">
+            <i class="fa fa-money pl"></i>
+            <div class="no">
+                <p>Total Points</p>
+                <p>8/15</p>
+            </div>
+        </div>
+        
+            <div class="clear"></div>
+                <!-- <div class="gains">
+                    <canvas id="myChart"></canvas>
+                </div> -->    
+                <div class="gains">
+                    <div class="formBody">
+            <div class="container">
+                <div class="formHeader">
+                    <h2>Add Policeman</h2>
+                </div>
+                <form action="#" id="form" class="form">
+                    <div class="form-control">
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="police_id">Police_ID</label>
+                        <input type="text" placeholder="eg: 7109827" id="police_id" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="nic">NIC</label>
+                        <input type="text" placeholder="eg: 200019292837" id="nic" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <!-- <div class="form-control">
+                        <label for="rank">Rank</label>
+                        <input type="text" placeholder="eg: OIC" id="rank"/>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div> -->
+                    <div class="form-control">
+                        <label for="rankOptions">Rank</label>
+                        <div class="options" id="rankOptions">
+                            <div class="hide-option option" id="hide-rankOption">Select the rank</div>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="police_stationOptions">Police Station</label>
+                        <div class="options" id="police_stationOptions">
+                            <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <button>Submit</button>
+                </form>
+            
+            </div>
+        </div>
+                </div>
+        
+            </div>
+    </div>
+    <script src="/resources/js/police/policeman/addPoliceman.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
