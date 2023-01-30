@@ -45,7 +45,7 @@ body {
   width: 100%;
   min-height: 100%;
   padding: 20px;
-  background: white;
+  background-image: url("/resources/images/Background.jpeg");
 }
 
 .login {
