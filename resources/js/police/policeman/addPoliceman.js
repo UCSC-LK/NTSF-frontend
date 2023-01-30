@@ -77,10 +77,6 @@ function checkInputs() {
         flag = 1;
     }   
 
-    // else if(checkPolicemanPolice_ID(police_idValue)){
-    //     setErrorFor(police_id, 'Police ID already exists');
-    //     flag = 1;
-    // }
 	else {
 		setSuccessFor(police_id);
         flag = 0;
