@@ -1,7 +1,6 @@
 body {
   font-family: "Open Sans", sans-serif;
-  height: 100vh;
-  background: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed;
+  /* height: 100vh; */
   background-size: cover;
 }
 @keyframes spinner {
@@ -23,7 +22,7 @@ body {
   width: 100%;
   min-height: 100%;
   padding: 20px;
-  background: rgba(4, 40, 68, 0.85);
+  background: white
 }
 .login {
   border-radius: 2px 2px 5px 5px;
