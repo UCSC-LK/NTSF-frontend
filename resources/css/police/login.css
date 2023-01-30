@@ -1,11 +1,5 @@
 body {
   font-family: "Open Sans", sans-serif;
-<<<<<<< HEAD
-  /* height: 100vh; */
-=======
-  height: 100vh;
-  background: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed;
->>>>>>> e462945fb8f908fdebc858ba2a7c4d9975b18a93
   background-size: cover;
 }
 @keyframes spinner {
