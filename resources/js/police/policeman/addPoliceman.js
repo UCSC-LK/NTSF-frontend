@@ -14,6 +14,25 @@ form.addEventListener('submit', e => {
     checkInputs();
 });
 
+//Checking whether data already exisiting
+
+document.getElementById('police_id').addEventListener('blur', function(){
+    console.log('came until js function for event listener');
+    let police_idValue = police_id.value.trim();
+    if(police_idValue !== ''){
+        checkPolicemanPolice_ID(police_idValue);
+    }
+});
+
+
+document.getElementById('nic').addEventListener('blur', function(){
+    console.log('came until js function for event listener');
+    let nicValue = nic.value.trim();
+    if(nicValue !== ''){
+        checkPolicemanNic(nicValue);
+    }
+});
+
 //Input validating
 function checkInputs() {
 	// trim to remove the whitespaces
@@ -57,10 +76,11 @@ function checkInputs() {
         setErrorFor(police_id, 'Police ID should contain 10 numbers');
         flag = 1;
     }   
-    else if(checkPolicemanPolice_ID(police_idValue)){
-        setErrorFor(police_id, 'Police ID already exists');
-        flag = 1;
-    }
+
+    // else if(checkPolicemanPolice_ID(police_idValue)){
+    //     setErrorFor(police_id, 'Police ID already exists');
+    //     flag = 1;
+    // }
 	else {
 		setSuccessFor(police_id);
         flag = 0;
@@ -282,12 +302,13 @@ const addPoliceman = function(name, police_id, nic, rank, police_station)
 
 //Database data duplication error checking
 
-const checkPolicemanPolice_ID = function(police_id)
+const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate data exists
 {
     console.log("checkPolicemanPolice_ID");
     console.log(police_id);
 
     let httpReq = new XMLHttpRequest();
+
     httpReq.onreadystatechange = function()
     {
         if(this.readyState === 4 && this.status === 200)
@@ -302,21 +323,77 @@ const checkPolicemanPolice_ID = function(police_id)
             }
         }
     }
-    httpReq.open("GET", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
 
     function checkPolicemanPolice_IDData(httpReq)
     {
+        console.log("checkPolicemanPolice_IDData");
         let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPolicemanResponse);
         let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
+        console.log(jsonCheckPolicemanResponseAlert);
+
         if(jsonCheckPolicemanResponseAlert == true)
         {
-            alert("Police_ID already exists");
+            console.log("Police_ID already exists");
+            setErrorFor(document.getElementById('police_id'), 'Police_ID already exists');
             return true; //returns true if duplicate entry exists
         }
         else
         {
+            
+            return false;
+        }
+    }
+    
+}
+
+const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
+{
+    console.log("checkPolicemanNic");
+    console.log(nic);
+
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkPolicemanNicData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("action=checkNIC" + "&nic=" + nic);
+
+    function checkPolicemanNicData(httpReq)
+    {
+        console.log("checkPolicemanNicData");
+        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPolicemanResponse);
+        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
+        console.log(jsonCheckPolicemanResponseAlert);
+
+        if(jsonCheckPolicemanResponseAlert == true)
+        {
+            console.log("NIC already exists");
+            setErrorFor(document.getElementById('nic'), 'NIC already exists');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
             return false;
         }
     }
