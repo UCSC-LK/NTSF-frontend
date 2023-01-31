@@ -253,8 +253,8 @@ button {
 }
 
 .form button {
-	background-color: #341bd1;
-	border: 2px solid #341bd1;
+	background-color: #12abf7;
+	border: 2px solid #12abf7;
 	border-radius: 4px;
 	color: #fff;
 	display: block;
@@ -292,7 +292,7 @@ button {
 }
 
 .option:hover {
-    background-color: brown;
+    background-color: 12abf7;
     color: white;
 }
 
