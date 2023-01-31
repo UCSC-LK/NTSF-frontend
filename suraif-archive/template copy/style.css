@@ -3,8 +3,8 @@
 body {
 	font-family: "Lato", sans-serif;
 	height: 100%;
-	width: 100%
-	/* position: fixed; */
+	width: 100%;
+	position: fixed;
 }
 
 .ntsflogo
@@ -256,7 +256,6 @@ button {
 
 /* Basic Styling */
 body {
-background: #bbbbbb;
 /* background: -webkit-linear-gradient(to left, #4B79A1 , #283E51);
 background: linear-gradient(to left, #4B79A1 , #283E51);         */
 }
@@ -306,11 +305,3 @@ h3:after {
 /* CSS for Form */
 
 
-.container {
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
-	width: 400px;
-	max-width: 100%;
-}
