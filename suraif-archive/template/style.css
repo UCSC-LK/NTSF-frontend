@@ -4,40 +4,10 @@ body {
 	font-family: "Lato", sans-serif;
 }
 
-
-
-.logo .logo {
-	display: inline-block;
-	color: #020202;
-	font-size: 1.4em;
-	font-weight: 700;
-	font-family: "Source Sans Pro", sans-serif;
-}
-
-
-
-.logo .rog {
-	color: #666666;
-	font-family: "Lato", sans-serif;
-	font-weight: 300;
-}
-
-.dashboto-logo {
-	margin-left: 6px;
-	background: #14abfa;
-	height: 25px;
-	width: 25px;
-	color: #ffffff;
-	font-family: "Source Sans Pro", sans-serif;
-	padding: 4px;
-	border-radius: 4px;
-	display: inline-block;
-}
-
-.dashboto-logo p {
-	display: inline-block;
-	letter-spacing: -2px;
-	margin-top: -2px;
+.ntsflogo
+{
+	height: 75px;
+	width: 125px;
 }
 
 .dashboto-logo p:nth-child(2) {
@@ -51,10 +21,6 @@ body {
 	margin-top: -5px;
 }
 
-.tagline bold {
-	color: #14abfa;
-	font-eright: 600;
-}
 
 .DashBoardOption {
 	width: 20%;
