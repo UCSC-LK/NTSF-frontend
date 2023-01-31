@@ -13,6 +13,7 @@ img
 {
     width: 120px;
     height: 80px;
+    padding: 5px;
 }
 
 .profileLogo
@@ -25,6 +26,9 @@ img
 body {
   font-family: "Lato", sans-serif;
   background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 @keyframes spinner {
   0% {
