@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body onload="loadPolicemanDetails()">
+    <div class="DashBoardOption">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+            </div>
+            <p class="logo"><b>NTSF</b></p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <button class="main">IGP Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="">
+                <i class="fa fa-dashboard"></i>
+                View Policeman
+            </a>
+            <br>
+            <a href="">
+                <i class="fa fa-tasks"></i>
+                Add Policeman
+            </a>
+            <a href="">
+                <i class="fa fa-book"></i>
+                View Reports
+            </a>
+            <a href="">
+                <i class="fa fa-newspaper-o"></i>
+                News
+            </a>
+            <a href="">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <div ng-app="app" ng-controller="coin">
+                <p class="btc-price">Suraif Muhammad</p>
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+        <div class="all">
+            <div class="container">
+                <h1>Policeman Information</h1>
+                  <table class="rwd-table" id="table">
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <th>Police_ID</th>
+                        <th>NIC</th>
+                        <th>Rank</th>
+                        <th>Police Station</th>
+                      </tr>
+                      <!-- <tr>
+                        <td data-th="Supplier Code">
+                          UPS5005
+                        </td>
+                        <td data-th="Supplier Name">
+                          UPS
+                        </td>
+                        <td data-th="Invoice Number">
+                          ASDF19218
+                        </td>
+                        <td data-th="Invoice Date">
+                          06/25/2016
+                        </td>
+                        <td data-th="Due Date"> 
+                          12/25/2016
+                        </td>
+                      </tr> -->
+                      <div id="policemanData"></div>
+                    </tbody>
+                  </table>
+                </div>
+           
+        </div>
+    <script src="/resources/js/police/policeman/viewPoliceman.js"></script>
+</body>
+</html>
