@@ -2,6 +2,9 @@
 
 body {
 	font-family: "Lato", sans-serif;
+	height: 100%;
+	width: 100%
+	/* position: fixed; */
 }
 
 .ntsflogo
@@ -385,4 +388,16 @@ button {
     0%, 100% {right: -255px}
     10% {right: 0}
     90% {right: 0;}
+}
+
+.formLeft
+{
+	float: left;
+    width: 50%;
+}
+
+.formRight
+{
+	float: left;
+    width: 50%;
 }

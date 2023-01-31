@@ -45,9 +45,6 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <i class="fa fa-bell">
-                <bold>1</bold>
-            </i>
             <div ng-app="app" ng-controller="coin">
                 <p class="btc-price">Suraif Muhammad</p>
             </div>
@@ -87,46 +84,50 @@
                         <h2>Add Policeman</h2>
                     </div>
                     <form action="#" id="form" class="form">
-                        <div class="form-control">
-                            <label for="name">Name</label>
-                            <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="police_id">Police_ID</label>
-                            <input type="text" placeholder="eg: 7109827" id="police_id" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="nic">NIC</label>
-                            <input type="text" placeholder="eg: 200019292837" id="nic" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="rankOptions">Rank</label>
-                            <div class="options" id="rankOptions">
-                                <div class="hide-option option" id="hide-rankOption">Select the rank</div>
+                        <div class="formLeft">
+                            <div class="form-control">
+                                <label for="name">Name</label>
+                                <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
                                 <i class="fas fa-check-circle"></i>
                                 <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
                             </div>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="police_stationOptions">Police Station</label>
-                            <div class="options" id="police_stationOptions">
-                                <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
+                            <div class="form-control">
+                                <label for="police_id">Police_ID</label>
+                                <input type="text" placeholder="eg: 7109827" id="police_id" />
                                 <i class="fas fa-check-circle"></i>
                                 <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
                             </div>
-                            <small>Error message</small>
+                            <div class="form-control">
+                                <label for="nic">NIC</label>
+                                <input type="text" placeholder="eg: 200019292837" id="nic" />
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <small>Error message</small>
+                            </div>
                         </div>
-                        <button>Submit</button>
+                        <div class="formRight">
+                            <div class="form-control">
+                                <label for="rankOptions">Rank</label>
+                                <div class="options" id="rankOptions">
+                                    <div class="hide-option option" id="hide-rankOption">Select the rank</div>
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <small>Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="police_stationOptions">Police Station</label>
+                                <div class="options" id="police_stationOptions">
+                                    <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <small>Error message</small>
+                            </div>
+                            <button>Submit</button>
+                        </div>
                     </form>
                 </div>
 
