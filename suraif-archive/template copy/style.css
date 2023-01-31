@@ -156,6 +156,23 @@ button {
 
 * {font-family: 'Open Sans', sans-serif;}
 
+.tableheading
+{
+	position: fixed;
+	width: 100%;
+}
+
+table
+{
+	width: 90%;
+	height: 80%;
+	overflow: auto;
+}
+
+
+
+
+
 .rwd-table {
   margin: auto;
   min-width: 300px;
