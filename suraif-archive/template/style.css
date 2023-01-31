@@ -389,15 +389,3 @@ button {
     10% {right: 0}
     90% {right: 0;}
 }
-
-.formLeft
-{
-	float: left;
-    width: 50%;
-}
-
-.formRight
-{
-	float: left;
-    width: 50%;
-}
