@@ -3,8 +3,8 @@
 body {
 	font-family: "Lato", sans-serif;
 	height: 100%;
-	width: 100%
-	/* position: fixed; */
+	width: 100%;
+	position: fixed;
 }
 
 .ntsflogo
@@ -65,7 +65,7 @@ button {
 	font-size: 1.2em;
 }
 
-.menu a:first-child {
+.menu a:nth-child(3) {
 	color: #14abfa;
 }
 
@@ -176,18 +176,24 @@ button {
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	width: 400px;
+	width: 500px;
 	max-width: 100%;
+	margin-top: -50px;
+	height: 500px;
+	overflow-y: auto;
+	
 }
 
 .formHeader {
 	border-bottom: 1px solid #f0f0f0;
 	background-color: #f7f7f7;
 	padding: 20px 40px;
+	position: sticky;
 }
 
 .formHeader h2 {
 	margin: 0;
+	position: sticky;
 }
 
 .form {
