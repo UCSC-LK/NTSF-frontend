@@ -26,12 +26,27 @@ document.getElementById('police_id').addEventListener('blur', function(){
     }
 });
 
-
 document.getElementById('nic').addEventListener('blur', function(){
     console.log('came until js function for event listener');
     let nicValue = nic.value.trim();
     if(nicValue !== ''){
         checkPolicemanNic(nicValue);
+    }
+});
+
+document.getElementById('mobile_number').addEventListener('blur', function(){
+    console.log('came until js function for event listener');
+    let mobile_numberValue = mobile_number.value.trim();
+    if(mobile_numberValue !== ''){
+        checkPolicemanMobile_Number(mobile_numberValue);
+    }
+});
+
+document.getElementById('email').addEventListener('blur', function(){
+    console.log('came until js function for event listener');
+    let emailValue = email.value.trim();
+    if(emailValue !== ''){
+        checkPolicemanEmail(emailValue);
     }
 });
 
@@ -429,7 +444,102 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
             return false;
         }
     }
-    
+}
+
+const checkPolicemanMobile_Number = function(mobile_number) //Returns true if duplicate data exists
+{
+    console.log("checkPolicemanMobile_Number");
+    console.log(mobile_number);
+
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkPolicemanMobile_NumberData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("action=checkMobile_Number" + "&mobile_number=" + mobile_number);
+
+    function checkPolicemanMobile_NumberData(httpReq)
+    {
+        console.log("checkPolicemanMobile_NumberData");
+        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPolicemanResponse);
+        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
+        console.log(jsonCheckPolicemanResponseAlert);
+
+        if(jsonCheckPolicemanResponseAlert == true)
+        {
+            console.log("Mobile_Number already exists");
+            setErrorFor(document.getElementById('mobile_number'), 'Mobile_Number already exists');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
+}
+
+const checkPolicemanEmail = function(email) //Returns true if duplicate data exists
+{
+    console.log("checkPolicemanEmail");
+    console.log(email);
+
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkPolicemanEmailData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("action=checkEmail" + "&email=" + email);
+
+    function checkPolicemanEmailData(httpReq)
+    {
+        console.log("checkPolicemanEmailData");
+        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPolicemanResponse);
+        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
+        console.log(jsonCheckPolicemanResponseAlert);
+
+        if(jsonCheckPolicemanResponseAlert == true)
+        {
+            console.log("Email already exists");
+            setErrorFor(document.getElementById('email'), 'Email already exists');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
 }
 
 
