@@ -2,6 +2,8 @@ const form = document.getElementById('form');
 const name = document.getElementById('name');
 const police_id = document.getElementById('police_id');
 const nic = document.getElementById('nic');
+const mobile_number = document.getElementById('mobile_number');
+const email = document.getElementById('email');
 
 let rankOptions = document.getElementById("rankOptions");
 let rankOptionList = ["OIC", "Policeman"];
@@ -39,6 +41,8 @@ function checkInputs() {
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
 	const nicValue = nic.value.trim();
+    const mobile_numberValue = mobile_number.value.trim();
+    const emailValue = email.value.trim();
 	
     let flag = 1 //error exists
 
@@ -91,6 +95,36 @@ function checkInputs() {
         flag = 0;
 	}
 
+    if(mobile_numberValue === '') {
+        setErrorFor(mobile_number, 'Mobile Number cannot be blank');
+        flag = 1;
+    }
+    else if((mobile_numberValue.match(/^[0-9]+$/)) == null){
+        setErrorFor(mobile_number, 'Mobile Number should contain only numbers');
+        flag = 1;
+    }
+    else if(mobile_numberValue.length !== 10){
+        setErrorFor(mobile_number, 'Mobile Number should contain 10 numbers');
+        flag = 1;
+    }
+    else {
+        setSuccessFor(mobile_number);
+        flag = 0;
+    }
+
+    if(emailValue === '') {
+        setErrorFor(email, 'Email cannot be blank');
+        flag = 1;
+    }
+    else if(!isEmail(emailValue)){
+        setErrorFor(email, 'Email is not valid');
+        flag = 1;
+    }
+    else {
+        setSuccessFor(email);
+        flag = 0;
+    }   
+
     let rank = checkRankFill();
     if(rank){
         setSuccessFor(rankOptions);
@@ -115,8 +149,8 @@ function checkInputs() {
     }
 
     if(flag == 0){
-        console.log(nameValue, police_idValue, nicValue, rankValue, police_stationValue);
-        addPoliceman(nameValue, police_idValue, nicValue, rankValue, police_stationValue)
+        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue)
     }
     else{
         return false;
@@ -268,11 +302,13 @@ function createOptionspolice_station() {
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const addPoliceman = function(name, police_id, nic, rank, police_station)
+const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
 {
     console.log(name);
     console.log(police_id);
     console.log(nic);
+    console.log(mobile_number);
+    console.log(email);
     console.log(rank);
     console.log(police_station);
 
@@ -286,7 +322,7 @@ const addPoliceman = function(name, police_id, nic, rank, police_station)
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
 
     function addPolicemanData(httpReq)
     {
