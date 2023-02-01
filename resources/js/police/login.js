@@ -44,7 +44,8 @@ function loginAuthorizingBackend(username, password) {
     if (checkloginAuthorizingBackendResponseAuthorization === 'true') {
       let checkloginAuthorizingBackendResponseRank = jsonCheckloginAuthorizingBackendResponse.rank;
       if (checkloginAuthorizingBackendResponseRank === 'igp') {
-        window.location.href = 'http://localhost:8080/ntsf_frontend_war/igp.html';
+        console.log('igp');
+        window.location.href = "../../../../../police/igp/viewPoliceman.html";
       } else if (checkloginAuthorizingBackendResponseRank === 'oic') {
         window.location.href = 'http://localhost:8080/ntsf_frontend_war/oic.html';
       } else if (checkloginAuthorizingBackendResponseRank === 'policeman') {
