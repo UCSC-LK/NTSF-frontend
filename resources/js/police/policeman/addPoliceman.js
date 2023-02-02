@@ -65,96 +65,100 @@ function checkInputs() {
     const mobile_numberValue = mobile_number.value.trim();
     const emailValue = email.value.trim();
 	
-    let flag = 1 //error exists
-
+    let flagName = 1 //error exists
+    let flagPolice_ID = 1 //error exists
+    let flagNic = 1 //error exists
+    let flagMobile_Number = 1 //error exists
+    let flagEmail = 1 //error exists
+    let flagRank = 1 //error exists
+    let flagPolice_Station = 1 //error exists
 
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
-        flag = 1;
+        flagName = 1;
 	} 
     else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
         setErrorFor(name, 'Name should contain only letters');
-        flag = 1;
+        flagName = 1;
     }
     else if(nameValue.length < 3){
         setErrorFor(name, 'Name should contain at least 3 letters');
-        flag = 1;
+        flagName = 1;
     }
     else if(nameValue.length > 20){
         setErrorFor(name, 'Name should contain at most 20 letters');
-        flag = 1;
+        flagName = 1;
     }
     else {
 		setSuccessFor(name);
-       flag = 0;
+       flagName = 0;
 	}
 	
 	if(police_idValue === '') {
 		setErrorFor(police_id, 'Police ID cannot be blank');
-        flag = 1;
+        flagPolice_ID = 1;
     }
     else if((police_idValue.match(/^[0-9]+$/)) == null){
         setErrorFor(police_id, 'Police ID should contain only numbers');
-        flag = 1;
+        flagPolice_ID = 1;
     }
     else if(police_idValue.length !== 10){
         setErrorFor(police_id, 'Police ID should contain 10 numbers');
-        flag = 1;
+        flagPolice_ID = 1;
     }   
-
 	else {
 		setSuccessFor(police_id);
-        flag = 0;
+        flagPolice_ID = 0;
 	}
 	
 	if(nicValue === '') {
 		setErrorFor(nic, 'NIC cannot be blank');
-        flag = 1;
+        flagNic = 1;
         
 	} else {
 		setSuccessFor(nic);
-        flag = 0;
+        flagNic = 0;
 	}
 
     if(mobile_numberValue === '') {
         setErrorFor(mobile_number, 'Mobile Number cannot be blank');
-        flag = 1;
+        flagMobile_Number = 1;
     }
     else if((mobile_numberValue.match(/^[0-9]+$/)) == null){
         setErrorFor(mobile_number, 'Mobile Number should contain only numbers');
-        flag = 1;
+        flagMobile_Number = 1;
     }
     else if(mobile_numberValue.length !== 10){
         setErrorFor(mobile_number, 'Mobile Number should contain 10 numbers');
-        flag = 1;
+        flagMobile_Number = 1;
     }
     else {
         setSuccessFor(mobile_number);
-        flag = 0;
+        flagMobile_Number = 0;
     }
 
     if(emailValue === '') {
         setErrorFor(email, 'Email cannot be blank');
-        flag = 1;
+        flagEmail = 1;
     }
     else if(!isEmail(emailValue)){
         setErrorFor(email, 'Email is not valid');
-        flag = 1;
+        flagEmail = 1;
     }
     else {
         setSuccessFor(email);
-        flag = 0;
+        flagEmail = 0;
     }   
 
     let rank = checkRankFill();
     if(rank){
         setSuccessFor(rankOptions);
         var rankValue = rank;
-        flag = 0;
+        flagRank = 0;
     }
     else {
         setErrorFor(rankOptions, 'A Rank should be  selected');
-        flag = 1;
+        flagRank = 1;
         
     }
 
@@ -163,13 +167,13 @@ function checkInputs() {
     if(police_station){
         setSuccessFor(police_stationOptions);
         var police_stationValue = police_station;
-        flag = 0;
+        flagPolice_Station = 0;
     } else {
         setErrorFor(police_stationOptions, 'A Police Station should be  selected');
-        flag = 1;
+        flagPolice_Station = 1;
     }
 
-    if(flag == 0){
+    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
         console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
         addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue)
     }
