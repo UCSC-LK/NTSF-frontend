@@ -4,10 +4,10 @@ const address = document.getElementById('address');
 const contact_number = document.getElementById('contact_number');
 
 let districtOptions = document.getElementById("districtOptions");
-let districtOptionList = ["OIC", "Policeman"];
+let districtOptionList = [  "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya"];
 
-const police_stationOptions = document.getElementById('police_stationOptions');
-let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+const provinceOptions = document.getElementById('provinceOptions');
+let provinceOptionList = [  "Central Province", "Eastern Province", "North Central Province", "North Western Province", "Northern Province", "Sabaragamuwa Province", "Southern Province", "Uva Province", "Western Province"];
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -16,7 +16,7 @@ form.addEventListener('submit', e => {
 
 //Checking whether data already exisiting
 
-document.getElementById('police_id').addEventListener('blur', function(){
+document.getElementById('branch_name').addEventListener('blur', function(){
     console.log('came until js function for event listener');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
