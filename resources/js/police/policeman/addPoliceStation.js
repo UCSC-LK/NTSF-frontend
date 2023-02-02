@@ -21,7 +21,7 @@ document.getElementById('branch_name').addEventListener('blur', function(){
     console.log('came until js function for event listener');
     let branch_nameValue = branch_name.value.trim();
     if(branch_nameValue !== ''){
-        checkPolicemanBranch_name(branch_nameValue);
+        checkPoliceStationBranch_Name(branch_nameValue);
     }
 });
 
@@ -30,7 +30,7 @@ document.getElementById('contact_number').addEventListener('blur', function(){
     console.log('came until js function for event listener');
     let contact_numberValue = contact_number.value.trim();
     if(contact_numberValue !== ''){
-        checkPolicemanContact_Number(contact_numberValue);
+        checkPoliceStationContact_Number(contact_numberValue);
     }
 });
 
@@ -38,7 +38,7 @@ document.getElementById('email').addEventListener('blur', function(){
     console.log('came until js function for event listener');
     let emailValue = email.value.trim();
     if(emailValue !== ''){
-        checkPolicemanEmail(emailValue);
+        checkPoliceStationEmail(emailValue);
     }
 });
 
@@ -47,11 +47,16 @@ function checkInputs() {
 	// trim to remove the whitespaces
 	const branch_nameValue = branch_name.value.trim();
 	const addressValue = address.value.trim();
-	const contact_numberValue = contact_number.value.trim();
+    const contact_numberValue = contact_number.value.trim();
+    const emailValue = email.value.trim();
+
 	
     let flagBranch_Name = 1 //error exists
     let flagAddress = 1 //error exists
     let flagContact_Number = 1 //error exists
+    let flagEmail = 1 //error exists
+    let flagDistrict = 1 //error exists
+    let flagProvince = 1 //error exists
 
 
 	if(branch_nameValue === '') {
@@ -77,57 +82,78 @@ function checkInputs() {
 	
 	if(addressValue === '') {
 		setErrorFor(address, 'Address cannot be blank');
-        flag = 1;
+        flagAddress = 1;
     }
-    else if((addressValue.match(/^[0-9]+$/)) == null){
-        setErrorFor(address, 'Address should contain only numbers');
-        flag = 1;
+    else if(addressValue.length < 3){
+        setErrorFor(address, 'Address should contain atleast 3 letters');
+        flagAddress = 1;
     }
-    else if(addressValue.length !== 10){
-        setErrorFor(address, 'Address should contain 10 numbers');
-        flag = 1;
-    }   
-
-	else {
+    else if(addressValue.length > 100){
+        setErrorFor(address, 'Address should contain at most 100 letters');
+        flagAddress = 1;
+    }
+	else{
 		setSuccessFor(address);
-        flag = 0;
+        flagAddress = 0;
 	}
 	
-	if(nicValue === '') {
-		setErrorFor(nic, 'NIC cannot be blank');
-        flag = 1;
-        
-	} else {
-		setSuccessFor(nic);
-        flag = 0;
-	}
 
-    let rank = checkRankFill();
-    if(rank){
-        setSuccessFor(rankOptions);
-        var rankValue = rank;
-        flag = 0;
+    let district = checkDistrictFill();
+    if(district){
+        setSuccessFor(districtOptions);
+        var districtValue = district;
+        flagDistrict = 0;
     }
     else {
-        setErrorFor(rankOptions, 'A Rank should be  selected');
-        flag = 1;
+        setErrorFor(districtOptions, 'A District should be selected');
+        flagDistrict = 1;
         
     }
 
-    let police_station = checkPolice_stationFill();
+    let province = checkProvinceFill();
 
-    if(police_station){
-        setSuccessFor(police_stationOptions);
-        var police_stationValue = police_station;
-        flag = 0;
+    if(province){
+        setSuccessFor(provinceOptions);
+        var provinceValue = province;
+        flagProvince = 0;
     } else {
-        setErrorFor(police_stationOptions, 'A Police Station should be  selected');
-        flag = 1;
+        setErrorFor(provinceOptions, 'A Province should be  selected');
+        flagProvince = 1;
     }
 
-    if(flag == 0){
-        console.log(nameValue, police_idValue, nicValue, rankValue, police_stationValue);
-        addPoliceman(nameValue, police_idValue, nicValue, rankValue, police_stationValue)
+    if(contact_numberValue === '') {
+        setErrorFor(contact_number, 'Contact Number cannot be blank');
+        flagContact_Number = 1;
+    }
+    else if((contact_numberValue.match(/^[0-9]+$/)) == null){
+        setErrorFor(contact_number, 'Contact Number should contain only numbers');
+        flagContact_Number = 1;
+    }
+    else if(contact_numberValue.length !== 10){
+        setErrorFor(contact_number, 'Contact Number should contain 10 numbers');
+        flagContact_Number = 1;
+    }
+    else {
+        setSuccessFor(contact_number);
+        flagContact_Number = 0;
+    }
+
+    if(emailValue === '') {
+        setErrorFor(email, 'Email cannot be blank');
+        flagEmail = 1;
+    }
+    else if((emailValue.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)) == null){
+        setErrorFor(email, 'Email should be in correct format');
+        flagEmail = 1;
+    }
+    else {
+        setSuccessFor(email);
+        flagEmail = 0;
+    }
+
+    if(flagBranch_Name === 0 && flagAddress === 0 && flagDistrict === 0 && flagProvince === 0 && flagContact_Number === 0 && flagEmail === 0){
+        console.log("Came until data sending to backend");
+        addPoliceStation(branch_nameValue, addressValue, districtValue, provinceValue, contact_numberValue, emailValue);
     }
     else{
         return false;
@@ -149,169 +175,169 @@ function setSuccessFor(input) {
 
 let isOpen = false;
 
-function checkRankFill() {
-    if (rankOptions.firstElementChild.classList.contains("hide-option")) {
+function checkDistrictFill() {
+    if (districtOptions.firstElementChild.classList.contains("hide-option")) {
         return false;
     }
     else {
-        let selectedRank = rankOptions.firstElementChild.textContent;
-        console.log(selectedRank);
-        return selectedRank;
+        let selectedDistrict = districtOptions.firstElementChild.textContent;
+        console.log(selectedDistrict);
+        return selectedDistrict;
     }
 }
 
-function checkPolice_stationFill() {
-    if (police_stationOptions.firstElementChild.classList.contains("hide-option")) {
+function checkProvinceFill() {
+    if (provinceOptions.firstElementChild.classList.contains("hide-option")) {
         return false;
     }
     else {
-        let selectedPolice_station = police_stationOptions.firstElementChild.textContent;
-        console.log(selectedPolice_station);
-        return selectedPolice_station;
+        let selectedProvince = provinceOptions.firstElementChild.textContent;
+        console.log(selectedProvince);
+        return selectedProvince;
     }
 }
 
-rankOptions.addEventListener("click", addToUIOptionsRank);
-police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
+districtOptions.addEventListener("click", addToUIOptionsDistrict);
+provinceOptions.addEventListener("click", addToUIOptionsProvince);
 
 
 //e.target refers to the clicked element
-//adding UI options to rank
-function addToUIOptionsRank(e) {
+//adding UI options to District
+function addToUIOptionsDistrict(e) {
     if (e.target.classList.contains("hide-option")) {
-        controlOptionsRank(e);
+        controlOptionsDistrict(e);
     }
     else {
         const pickedOption = e.target;
 
-        if (rankOptions.firstElementChild.classList.contains("hide-option")) {
-            rankOptions.removeChild(rankOptions.firstElementChild);
+        if (districtOptions.firstElementChild.classList.contains("hide-option")) {
+            districtOptions.removeChild(districtOptions.firstElementChild);
         }
-        rankOptions.insertAdjacentElement("afterbegin", pickedOption);
+        districtOptions.insertAdjacentElement("afterbegin", pickedOption);
 
-        deleteOptionsRank();
-        controlOptionsRank(e);
+        deleteOptionsDistrict();
+        controlOptionsDistrict(e);
     }
 }
 
-function controlOptionsRank(e) {
+function controlOptionsDistrict(e) {
     if (isOpen === false) {
-        createOptionsRank();
-        rankOptions.classList.add("opened");
+        createOptionsDistrict();
+        districtOptions.classList.add("opened");
         isOpen = true;
     }
     else {
-        deleteOptionsRank();
-        rankOptions.classList.remove("opened");
+        deleteOptionsDistrict();
+        districtOptions.classList.remove("opened");
         isOpen = false;
     }
 }
 
-function deleteOptionsRank() {
-    while (rankOptions.childElementCount > 1) {
-        rankOptions.removeChild(rankOptions.lastElementChild);
+function deleteOptionsDistrict() {
+    while (districtOptions.childElementCount > 1) {
+        districtOptions.removeChild(districtOptions.lastElementChild);
     }
 }
 
-function createOptionsRank() {
-    rankOptionList.forEach(element => {
-        if (rankOptions.firstElementChild.textContent !== element) {
-            let rankOption = document.createElement("div");
-            rankOption.className = "option";
-            rankOption.textContent = element;
+function createOptionsDistrict() {
+    districtOptionList.forEach(element => {
+        if (districtOptions.firstElementChild.textContent !== element) {
+            let districtOption = document.createElement("div");
+            districtOption.className = "option";
+            districtOption.textContent = element;
 
-            rankOptions.firstElementChild.insertAdjacentElement("afterend", rankOption);
+            districtOptions.firstElementChild.insertAdjacentElement("afterend", districtOption);
         }
     });
 };
 
-//adding UI options to police_station
-function addToUIOptionspolice_station(e) {
+//adding UI options to Province
+function addToUIOptionsProvince(e) {
     if (e.target.classList.contains("hide-option")) {
-        controlOptionspolice_station(e);
+        controlOptionsProvince(e);
         console.log(e);
     }
     else {
         const pickedOption = e.target;
 
-        if (police_stationOptions.firstElementChild.classList.contains("hide-option")) {
-            police_stationOptions.removeChild(police_stationOptions.firstElementChild);
+        if (provinceOptions.firstElementChild.classList.contains("hide-option")) {
+            provinceOptions.removeChild(provinceOptions.firstElementChild);
         }
-        police_stationOptions.insertAdjacentElement("afterbegin", pickedOption);
+        provinceOptions.insertAdjacentElement("afterbegin", pickedOption);
 
-        deleteOptionspolice_station();
-        controlOptionspolice_station(e);
+        deleteOptionsProvince();
+        controlOptionsProvince(e);
     }
 }
 
-function controlOptionspolice_station(e) {
+function controlOptionsProvince(e) {
     if (isOpen === false) {
-        createOptionspolice_station();
-        police_stationOptions.classList.add("opened");
+        createOptionsProvince();
+        provinceOptions.classList.add("opened");
         isOpen = true;
     }
     else {
-        deleteOptionspolice_station();
-        police_stationOptions.classList.remove("opened");
+        deleteOptionsProvince();
+        provinceOptions.classList.remove("opened");
         isOpen = false;
     }
 }
 
-function deleteOptionspolice_station() {
-    while (police_stationOptions.childElementCount > 1) {
-        police_stationOptions.removeChild(police_stationOptions.lastElementChild);
+function deleteOptionsProvince() {
+    while (provinceOptions.childElementCount > 1) {
+        provinceOptions.removeChild(provinceOptions.lastElementChild);
     }
 }
 
-function createOptionspolice_station() {
-    police_stationOptionList.forEach(element => {
-        if (police_stationOptions.firstElementChild.textContent !== element) {
-            let police_stationOption = document.createElement("div");
-            police_stationOption.className = "option";
-            police_stationOption.textContent = element;
+function createOptionsProvince() {
+    provinceOptionList.forEach(element => {
+        if (provinceOptions.firstElementChild.textContent !== element) {
+            let provinceOption = document.createElement("div");
+            provinceOption.className = "option";
+            provinceOption.textContent = element;
 
-            police_stationOptions.firstElementChild.insertAdjacentElement("afterend", police_stationOption);
+            provinceOptions.firstElementChild.insertAdjacentElement("afterend", provinceOption);
         }
     });
 };
 
 
 //Sending data to backend
-// const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const addPoliceman = function(name, police_id, nic, rank, police_station)
+const addPoliceStation = function(branch_name, address, district, province, contact_number, email)
 {
     console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(rank);
-    console.log(police_station);
+    console.log(address);
+    console.log(district);
+    console.log(province);
+    console.log(contact_number);
+    console.log(email);
 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function()
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            addPolicemanData(this);
+            addPoliceStationData(this);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send("action=addPoliceStation" + "&branch_name=" + branch_name + "&address=" + address + "&district=" + district + "&province=" + province + "&contact_number=" + contact_number + "&email=" + email);
 
-    function addPolicemanData(httpReq)
+    function addPoliceStationData(httpReq)
     {
-        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddPolicemanResponse);
+        let jsonAddPoliceStationResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonAddPoliceStationResponse);
     }
     
 }
 
 //Database data duplication error checking
 
-const checkPolicemanBranch_Name = function(branch_name) //Returns true if duplicate data exists
+const checkPoliceStationBranch_Name = function(branch_name) //Returns true if duplicate data exists
 {
-    console.log("checkPolicemanBranch_Name");
+    console.log("checkPoliceStationBranch_Name");
     console.log(branch_name);
 
     let httpReq = new XMLHttpRequest();
@@ -320,7 +346,7 @@ const checkPolicemanBranch_Name = function(branch_name) //Returns true if duplic
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            if(checkPolicemanBranch_NameData(this))
+            if(checkPoliceStationBranch_NameData(this))
             {
                 return true;
             }
@@ -331,19 +357,19 @@ const checkPolicemanBranch_Name = function(branch_name) //Returns true if duplic
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkBranch_Name" + "&branch_name=" + branch_name);
 
-    function checkPolicemanBranch_NameData(httpReq)
+    function checkPoliceStationBranch_NameData(httpReq)
     {
-        console.log("checkPolicemanBranch_NameData");
-        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonCheckPolicemanResponse);
-        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
-        console.log(jsonCheckPolicemanResponseAlert);
+        console.log("checkPoliceStationBranch_NameData");
+        let jsonCheckPoliceStationResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPoliceStationResponse);
+        let jsonCheckPoliceStationResponseAlert = jsonCheckPoliceStationResponse.alert;
+        console.log(jsonCheckPoliceStationResponseAlert);
 
-        if(jsonCheckPolicemanResponseAlert == true)
+        if(jsonCheckPoliceStationResponseAlert == true)
         {
             console.log("Branch Name already exists");
             setErrorFor(document.getElementById('branch_name'), 'Branch Name already exists');
@@ -358,9 +384,9 @@ const checkPolicemanBranch_Name = function(branch_name) //Returns true if duplic
     
 }
 
-const checkPolicemanContact_Number = function(contact_number) //Returns true if duplicate data exists
+const checkPoliceStationContact_Number = function(contact_number) //Returns true if duplicate data exists
 {
-    console.log("checkPolicemanContact_Number");
+    console.log("checkPoliceStationContact_Number");
     console.log(contact_number);
 
     let httpReq = new XMLHttpRequest();
@@ -369,7 +395,7 @@ const checkPolicemanContact_Number = function(contact_number) //Returns true if 
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            if(checkPolicemanContact_NumberData(this))
+            if(checkPoliceStationContact_NumberData(this))
             {
                 return true;
             }
@@ -380,19 +406,19 @@ const checkPolicemanContact_Number = function(contact_number) //Returns true if 
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkContact_Number" + "&contact_number=" + contact_number);
 
-    function checkPolicemanContact_NumberData(httpReq)
+    function checkPoliceStationContact_NumberData(httpReq)
     {
-        console.log("checkPolicemanContact_NumberData");
-        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonCheckPolicemanResponse);
-        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
-        console.log(jsonCheckPolicemanResponseAlert);
+        console.log("checkPoliceStationContact_NumberData");
+        let jsonCheckPoliceStationResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPoliceStationResponse);
+        let jsonCheckPoliceStationResponseAlert = jsonCheckPoliceStationResponse.alert;
+        console.log(jsonCheckPoliceStationResponseAlert);
 
-        if(jsonCheckPolicemanResponseAlert == true)
+        if(jsonCheckPoliceStationResponseAlert == true)
         {
             console.log("Contact_Number already exists");
             setErrorFor(document.getElementById('contact_number'), 'contact_number already exists');
@@ -407,9 +433,9 @@ const checkPolicemanContact_Number = function(contact_number) //Returns true if 
     
 }
 
-const checkPolicemanEmail = function(email) //Returns true if duplicate data exists
+const checkPoliceStationEmail = function(email) //Returns true if duplicate data exists
 {
-    console.log("checkPolicemanEmail");
+    console.log("checkPoliceStationEmail");
     console.log(email);
 
     let httpReq = new XMLHttpRequest();
@@ -418,7 +444,7 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            if(checkPolicemanEmailData(this))
+            if(checkPoliceStationEmailData(this))
             {
                 return true;
             }
@@ -429,19 +455,19 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkEmail" + "&email=" + email);
 
-    function checkPolicemanEmailData(httpReq)
+    function checkPoliceStationEmailData(httpReq)
     {
-        console.log("checkPolicemanEmailData");
-        let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonCheckPolicemanResponse);
-        let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
-        console.log(jsonCheckPolicemanResponseAlert);
+        console.log("checkPoliceStationEmailData");
+        let jsonCheckPoliceStationResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckPoliceStationResponse);
+        let jsonCheckPoliceStationResponseAlert = jsonCheckPoliceStationResponse.alert;
+        console.log(jsonCheckPoliceStationResponseAlert);
 
-        if(jsonCheckPolicemanResponseAlert == true)
+        if(jsonCheckPoliceStationResponseAlert == true)
         {
             console.log("Email already exists");
             setErrorFor(document.getElementById('email'), 'Email already exists');
