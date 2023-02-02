@@ -345,7 +345,7 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
             addPolicemanData(this);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
 
@@ -381,7 +381,7 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
 
@@ -430,7 +430,7 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkNIC" + "&nic=" + nic);
 
@@ -478,7 +478,7 @@ const checkPolicemanMobile_Number = function(mobile_number) //Returns true if du
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkMobile_Number" + "&mobile_number=" + mobile_number);
 
@@ -526,7 +526,7 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkEmail" + "&email=" + email);
 
