@@ -1,10 +1,10 @@
 const form = document.getElementById('form');
 const name = document.getElementById('name');
-const police_id = document.getElementById('police_id');
-const nic = document.getElementById('nic');
+const address = document.getElementById('address');
+const contact_number = document.getElementById('contact_number');
 
-let rankOptions = document.getElementById("rankOptions");
-let rankOptionList = ["OIC", "Policeman"];
+let districtOptions = document.getElementById("districtOptions");
+let districtOptionList = ["OIC", "Policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
 let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
