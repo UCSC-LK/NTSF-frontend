@@ -34,7 +34,7 @@ function loginAuthorizingBackend(username, password) {
 
   httpReq.open('POST', 'http://localhost:8080/ntsf_backend_war/policemanLogin', true);
   httpReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  httpReq.send('username=' + username + '&password=' + password);
+  httpReq.send('action=login' + '&username=' + username + '&password=' + password);
     
   function checkloginAuthorizingBackend(httpReq) {
     console.log('checkloginAuthorizingBackend');
