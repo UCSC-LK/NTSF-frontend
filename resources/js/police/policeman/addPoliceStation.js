@@ -1,5 +1,5 @@
 const form = document.getElementById('form');
-const name = document.getElementById('name');
+const branch_name = document.getElementById('branch_name');
 const address = document.getElementById('address');
 const contact_number = document.getElementById('contact_number');
 
@@ -18,67 +18,69 @@ form.addEventListener('submit', e => {
 
 document.getElementById('branch_name').addEventListener('blur', function(){
     console.log('came until js function for event listener');
-    let police_idValue = police_id.value.trim();
-    if(police_idValue !== ''){
-        checkPolicemanPolice_ID(police_idValue);
+    let branch_nameValue = branch_name.value.trim();
+    if(branch_nameValue !== ''){
+        checkPolicemanBranch_name(branch_nameValue);
     }
 });
 
 
-document.getElementById('nic').addEventListener('blur', function(){
+document.getElementById('contact_number').addEventListener('blur', function(){
     console.log('came until js function for event listener');
-    let nicValue = nic.value.trim();
-    if(nicValue !== ''){
-        checkPolicemanNic(nicValue);
+    let contact_numberValue = contact_number.value.trim();
+    if(contact_numberValue !== ''){
+        checkPolicemanContact_Number(contact_numberValue);
     }
 });
 
 //Input validating
 function checkInputs() {
 	// trim to remove the whitespaces
-	const nameValue = name.value.trim();
-	const police_idValue = police_id.value.trim();
-	const nicValue = nic.value.trim();
+	const branch_nameValue = branch_name.value.trim();
+	const addressValue = address.value.trim();
+	const contact_numberValue = contact_number.value.trim();
 	
-    let flag = 1 //error exists
+    let flagBranch_Name = 1 //error exists
+    let flagAddress = 1 //error exists
+    let flagContact_Number = 1 //error exists
 
 
-	if(nameValue === '') {
-		setErrorFor(name, 'Name cannot be blank');
-        flag = 1;
+	if(branch_nameValue === '') {
+		setErrorFor(branch_name, 'Branch Name cannot be blank');
+        flagBranch_Name = 1;
 	} 
-    else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
-        setErrorFor(name, 'Name should contain only letters');
-        flag = 1;
+    else if((branch_nameValue.match(/^[a-zA-Z]+$/)) == null){
+        setErrorFor(branch_name, 'Branch Name should contain only letters');
+        flagBranch_Name = 1;
     }
-    else if(nameValue.length < 3){
-        setErrorFor(name, 'Name should contain at least 3 letters');
-        flag = 1;
+    else if(branch_nameValue.length < 3){
+        setErrorFor(branch_name, 'Branch Name should contain at least 3 letters');
+        flagBranch_Name = 1;
     }
-    else if(nameValue.length > 20){
-        setErrorFor(name, 'Name should contain at most 20 letters');
-        flag = 1;
+    else if(branch_nameValue.length > 20){
+        setErrorFor(branch_name, 'Branch Name should contain at most 20 letters');
+        flagBranch_Name = 1;
     }
     else {
-		setSuccessFor(name);
-       flag = 0;
+		setSuccessFor(branch_name);
+       flagBranch_Name = 0;
 	}
 	
-	if(police_idValue === '') {
-		setErrorFor(police_id, 'Police ID cannot be blank');
+	if(addressValue === '') {
+		setErrorFor(address, 'Address cannot be blank');
         flag = 1;
     }
-    else if((police_idValue.match(/^[0-9]+$/)) == null){
-        setErrorFor(police_id, 'Police ID should contain only numbers');
+    else if((addressValue.match(/^[0-9]+$/)) == null){
+        setErrorFor(address, 'Address should contain only numbers');
         flag = 1;
     }
-    else if(police_idValue.length !== 10){
-        setErrorFor(police_id, 'Police ID should contain 10 numbers');
+    else if(addressValue.length !== 10){
+        setErrorFor(address, 'Address should contain 10 numbers');
         flag = 1;
     }   
 
 	else {
-		setSuccessFor(police_id);
+		setSuccessFor(address);
         flag = 0;
 	}
 	
@@ -298,10 +300,10 @@ const addPoliceman = function(name, police_id, nic, rank, police_station)
 
 //Database data duplication error checking
 
-const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate data exists
+const checkPolicemanBranch_Name = function(branch_name) //Returns true if duplicate data exists
 {
-    console.log("checkPolicemanPolice_ID");
-    console.log(police_id);
+    console.log("checkPolicemanBranch_Name");
+    console.log(branch_name);
 
     let httpReq = new XMLHttpRequest();
 
@@ -309,7 +311,7 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            if(checkPolicemanPolice_IDData(this))
+            if(checkPolicemanBranch_NameData(this))
             {
                 return true;
             }
@@ -320,13 +322,13 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
+    httpReq.send("action=checkBranch_Name" + "&branch_name=" + branch_name);
 
-    function checkPolicemanPolice_IDData(httpReq)
+    function checkPolicemanBranch_NameData(httpReq)
     {
-        console.log("checkPolicemanPolice_IDData");
+        console.log("checkPolicemanBranch_NameData");
         let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonCheckPolicemanResponse);
         let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
@@ -334,8 +336,8 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
 
         if(jsonCheckPolicemanResponseAlert == true)
         {
-            console.log("Police_ID already exists");
-            setErrorFor(document.getElementById('police_id'), 'Police_ID already exists');
+            console.log("Branch Name already exists");
+            setErrorFor(document.getElementById('branch_name'), 'Branch Name already exists');
             return true; //returns true if duplicate entry exists
         }
         else
@@ -347,10 +349,10 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
     
 }
 
-const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
+const checkPolicemanContact_Number = function(contact_number) //Returns true if duplicate data exists
 {
-    console.log("checkPolicemanNic");
-    console.log(nic);
+    console.log("checkPolicemanContact_Number");
+    console.log(contact_number);
 
     let httpReq = new XMLHttpRequest();
 
@@ -358,7 +360,7 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            if(checkPolicemanNicData(this))
+            if(checkPolicemanContact_NumberData(this))
             {
                 return true;
             }
@@ -369,13 +371,13 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/addPoliceman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("action=checkNIC" + "&nic=" + nic);
+    httpReq.send("action=checkContact_Number" + "&contact_number=" + contact_number);
 
-    function checkPolicemanNicData(httpReq)
+    function checkPolicemanContact_NumberData(httpReq)
     {
-        console.log("checkPolicemanNicData");
+        console.log("checkPolicemanContact_NumberData");
         let jsonCheckPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonCheckPolicemanResponse);
         let jsonCheckPolicemanResponseAlert = jsonCheckPolicemanResponse.alert;
@@ -383,8 +385,8 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
 
         if(jsonCheckPolicemanResponseAlert == true)
         {
-            console.log("NIC already exists");
-            setErrorFor(document.getElementById('nic'), 'NIC already exists');
+            console.log("Contact_Number already exists");
+            setErrorFor(document.getElementById('contact_number'), 'contact_number already exists');
             return true; //returns true if duplicate entry exists
         }
         else
