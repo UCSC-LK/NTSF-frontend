@@ -1,17 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600");
-@import url("https://kit.fontawesome.com/251590f28b.css");
 
 body {
 	font-family: "Lato", sans-serif;
 	height: 100%;
-	width: 100%;
-	position: fixed;
+	width: 100%
+	/* position: fixed; */
 }
 
-.ntsflogo {
+.ntsflogo
+{
 	height: 75px;
 	width: 125px;
-	margin-left: -30px;
 }
 
 .dashboto-logo p:nth-child(2) {
@@ -31,10 +30,6 @@ body {
 	height: 100vh;
 	padding: 0px 2%;
 	float: left;
-}
-
-.logo {
-	margin-left: 2px;
 }
 
 button {
@@ -65,7 +60,7 @@ button {
 	font-size: 1.2em;
 }
 
-.menu a:nth-child(3) {
+.menu a:first-child {
 	color: #14abfa;
 }
 
@@ -137,7 +132,7 @@ button {
 }
 
 .dashboard-heading .all {
-	margin-top: 20px;
+	margin-top: 20px ;
 	background: #f2f2f2;
 	width: 100%;
 	min-height: 100vh;
@@ -148,11 +143,9 @@ button {
 		width: 90%;
 		display: none;
 	}
-
 	.dashboard-heading {
 		width: 100%;
 	}
-
 	.blok i {
 		display: none;
 	}
@@ -164,7 +157,7 @@ button {
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
 
 .formbody {
-	background-color: #edebeb;
+	background-color: #bbbbbb;
 	font-family: 'Open Sans', sans-serif;
 	display: flex;
 	align-items: center;
@@ -178,28 +171,22 @@ button {
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	width: 500px;
+	width: 400px;
 	max-width: 100%;
-	margin-top: -50px;
-	height: 500px;
-	overflow-y: auto;
-
 }
 
 .formHeader {
 	border-bottom: 1px solid #f0f0f0;
 	background-color: #f7f7f7;
 	padding: 20px 40px;
-	position: sticky;
 }
 
 .formHeader h2 {
 	margin: 0;
-	position: sticky;
 }
 
 .form {
-	padding: 30px 40px;
+	padding: 30px 40px;	
 }
 
 .form-control {
@@ -279,79 +266,58 @@ button {
 }
 
 .options {
-	cursor: pointer;
-	width: 300px;
-	border-radius: 15px;
-	background-color: rgb(250, 250, 250);
-	transition: all 300ms;
+    cursor: pointer;
+    width: 300px;
+    border-radius: 15px;
+    background-color: rgb(250, 250, 250);
+    transition: all 300ms;
 }
 
 .options.opened {
-	overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .option {
-	width: 100%;
-	height: 60px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 15px;
-	transition: all 300ms;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    transition: all 300ms;
 }
 
 .option:nth-child(1) {
-	border-radius: 15px;
+    border-radius: 15px;
 }
 
 .option:hover {
-	background-color: 12abf7;
-	color: white;
+    background-color: 12abf7;
+    color: white;
 }
 
 .message {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 255px;
-	height: 60px;
-	position: absolute;
-	right: -255px;
-	bottom: 5vh;
-	animation: showMessage ease-out 5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 255px;
+    height: 60px;
+    position: absolute;
+    right: -255px;
+    bottom: 5vh;
+    animation: showMessage ease-out 5s;
 }
 
 .message.success {
-	background-color: rgb(184, 255, 112);
+    background-color: rgb(184, 255, 112);
 }
 
 .message.danger {
-	background-color: crimson;
+    background-color: crimson;
 }
 
 @keyframes showMessage {
-	0%, 100% {
-		right: -255px
-	}
-
-	10% {
-		right: 0
-	}
-
-	90% {
-		right: 0;
-	}
-}
-
-/* CSS for add complaint form */
-
-#cancel-button {
-	background: #B2BEB5;
-	border: solid 6px #B2BEB5;
-	border-radius: 3px;
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 1.2em;
-	margin-left: 6px;
+    0%, 100% {right: -255px}
+    10% {right: 0}
+    90% {right: 0;}
 }
