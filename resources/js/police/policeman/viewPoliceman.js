@@ -11,7 +11,7 @@ const loadPolicemanDetails = function()
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/viewPoliceman", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=viewPoliceman");
 
