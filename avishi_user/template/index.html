@@ -1,61 +1,64 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<title>NTSF</title>
-	<link rel="stylesheet"
-		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
+	<meta http-equiv="X-UA-Compatible"
+		  content="IE=edge">
 	<meta name="viewport"
-		  content="width=device-width, initial-scale=1">
+		  content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet"
-		  href="./style.css">
-	<script src="./script.js"></script>
+		  href="./common.css">
+	<title>Document</title>
 </head>
 
 <body>
-	<div class="option">
+	<div class="DashBoardOption">
 		<div class="logo">
 			<div class="dashboto-logo">
-				<p></p>
-				<p>LO</p>
+				<img src="/resources/images/logo_NTSF.png"
+					 alt="NTSF logo"
+					 class="ntsflogo">
 			</div>
-			<p class="logo">NTSF</p>
+			<p class="logo"><b>NTSF</b></p>
 		</div>
-		<p class="tagline">Welcome to National Traffic Spot Fine
-			<bold>User</bold>Side
-		</p>
+		<p class="tagline">National Traffic Spot Fine System</p>
 		<button class="main">User Dashboard</button>
 		<div class="clear"></div>
 		<ul class="menu">
+			<a href="">
+				<i class="fa fa-dashboard"></i>
+				View Fines
+			</a>
 			<br>
 			<a href="">
 				<i class="fa fa-tasks"></i>
-				Fines
+				Add Complaints
 			</a>
 			<a href="">
-				<i class="fa fa-warning"></i>
-				Complaints
+				<i class="fa fa-book"></i>
+				View Complaints
 			</a>
 			<a href="">
-				<i class="fa fa-user-o"></i>
-				Profile
+				<i class="fa fa-newspaper-o"></i>
+				Logout
 			</a>
+			<!-- <a href="">
+                <i class="fa fa-money"></i>
+                Logout
+            </a> -->
 		</ul>
 	</div>
 
+	<!-- Dashboard heading -->
 	<div class="dashboard-heading">
 		<div class="panel">
-			<bold>Fines Details</bold>
-		</div>
-		<div class="all">
-			<div id="user-fines"
-				 class="starter-stats">
+			<div ng-app="app"
+				 ng-controller="coin">
+				<p class="btc-price">Avishi Ganepola</p>
 			</div>
 		</div>
 	</div>
+	<script src="/resources/js/police/policeman/addPoliceman.js"></script>
 </body>
 
 </html>
