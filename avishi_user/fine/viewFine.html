@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="/resources/css/police/igp/viewFine.css">
+    <title>Document</title>
+</head>
+
+<body onload="loadFineDetails()">
+
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="container">
+            <h1>Fines Details</h1>
+            <div class="tableSection">
+                <table class="rwd-table"
+                       id="table">
+                    <tbody>
+                        <div class="tableheading">
+                            <thead>
+                                <th>Ticket No</th>
+                                <th>Fine No</th>
+                                <th>Date</th>
+                                <th>Due Date</th>
+                                <th>Fine Amount</th>
+                                <th>Fine Type</th>
+                                <th>Payment Status</th>
+                            </thead>
+                        </div>
+                        <div id="fineData"></div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/resources/js/police/policeman/viewFine.js"></script>
+</body>
+
+</html>
