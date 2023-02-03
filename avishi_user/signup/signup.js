@@ -5,10 +5,10 @@ document.getElementsByTagName("head")[0].appendChild(script);
 function validateFormContents() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("rePassword").value;
-  const signUpBtn = document.getElementById("signup-submit");
+  const signUpBtn = document.getElementById("signupSubmit");
 
   const inputFields = document
-    .getElementById("signup-form")
+    .getElementById("signupForm")
     .getElementsByTagName("input");
 
   let isAllFilled = true;
@@ -27,21 +27,18 @@ function validateFormContents() {
 }
 
 function submitSignup() {
-  var userType = 1; // Driver
-  const licenceNo = document.getElementById("licenceNo").value;
+  // var userType = 1; // Driver
+  // const licenceNo = document.getElementById("licenceNo").value;
   const nic = document.getElementById("nic").value;
   const email = document.getElementById("email").value;
-  const mobileNo = document.getElementById("mobileNo").value;
+  // const mobileNo = document.getElementById("mobileNo").value;
   const password = document.getElementById("password").value;
 
   console.log("called");
 
   var query = $.param({
-    user_type: userType,
-    licence_no: licenceNo,
     nic,
     email,
-    mobile_no: mobileNo,
     password,
   });
 
@@ -54,7 +51,7 @@ function submitSignup() {
 }
 
 function signUpSuccessCallback(data) {
-  alert("SignUp successful");
+  alert("Sign Up Successful");
 
   window.location.href = "../login.html";
 }
