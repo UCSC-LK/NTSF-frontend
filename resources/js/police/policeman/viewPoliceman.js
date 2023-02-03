@@ -36,7 +36,7 @@ const loadPolicemanDetails = function()
             for(i=0; i<= count; i++)
             {
                 policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
-                jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+                jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
             }
 
         }
@@ -48,11 +48,13 @@ const loadPolicemanDetails = function()
     return jsonPolicemanData;
 }
 
-function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
+function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, rank, police_station)
 {
     console.log(name);
     console.log(police_id);
     console.log(nic);
+    console.log(mobile_number);
+    console.log(email);
     console.log(rank);
     console.log(police_station);
 
@@ -63,13 +65,17 @@ function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
     var dataCell3 = dataRow.insertCell(2);
     var dataCell4 = dataRow.insertCell(3);
     var dataCell5 = dataRow.insertCell(4);
+    var dataCell6 = dataRow.insertCell(5);
+    var dataCell7 = dataRow.insertCell(6);
 
     //Add content to the table data cells
     dataCell1.innerHTML = name;
     dataCell2.innerHTML = police_id;
     dataCell3.innerHTML = nic;
-    dataCell4.innerHTML = rank;
-    dataCell5.innerHTML = police_station;
+    dataCell4.innerHTML = mobile_number;
+    dataCell5.innerHTML = email;
+    dataCell5.innerHTML = rank;
+    dataCell6.innerHTML = police_station;
     
 }
 
