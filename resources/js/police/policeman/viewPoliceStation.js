@@ -11,9 +11,9 @@ const loadPolicemanDetails = function()
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/viewPoliceman", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
-    httpreq.send("action=viewPoliceman");
+    httpreq.send("action=viewPoliceStation");
 
     function completeLoad(httpreq)
     {
@@ -35,8 +35,8 @@ const loadPolicemanDetails = function()
             let count =  jsonPolicemanData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
-                jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+                policemanDataHTMLoutput(jsonPolicemanData.List[i].branch_name, jsonPolicemanData.List[i].address,
+                jsonPolicemanData.List[i].district, jsonPolicemanData.List[i].province, jsonPolicemanData.List[i].contact_number, jsonPolicemanData.List[i].email);
             }
 
         }
@@ -48,13 +48,14 @@ const loadPolicemanDetails = function()
     return jsonPolicemanData;
 }
 
-function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
+function policemanDataHTMLoutput(name, address, district, province, contact_number, email)
 {
     console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(rank);
-    console.log(police_station);
+    console.log(address);
+    console.log(district);
+    console.log(province);
+    console.log(contact_number);
+    console.log(email);
 
     // create table data row
     var dataRow = table.insertRow();
@@ -63,13 +64,15 @@ function policemanDataHTMLoutput(name, police_id, nic, rank, police_station)
     var dataCell3 = dataRow.insertCell(2);
     var dataCell4 = dataRow.insertCell(3);
     var dataCell5 = dataRow.insertCell(4);
+    var dataCell6 = dataRow.insertCell(5);
 
     //Add content to the table data cells
     dataCell1.innerHTML = name;
-    dataCell2.innerHTML = police_id;
-    dataCell3.innerHTML = nic;
-    dataCell4.innerHTML = rank;
-    dataCell5.innerHTML = police_station;
+    dataCell2.innerHTML = address;
+    dataCell3.innerHTML = district;
+    dataCell4.innerHTML = province;
+    dataCell5.innerHTML = contact_number;
+    dataCell6.innerHTML = email;
     
 }
 
