@@ -1,13 +1,20 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="../template/common.css">
+    <link rel=""
+          href="../template/index.html">
     <title>Document</title>
 </head>
+
 <body>
-    <div class="DashBoardOption">
+    <!-- <div class="DashBoardOption">
         <div class="logo">
             <div class="dashboto-logo">
                 <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
@@ -35,44 +42,50 @@
                 <i class="fa fa-newspaper-o"></i>
                 Logout
             </a>
-            <!-- <a href="">
+            <a href="">
                 <i class="fa fa-money"></i>
                 Logout
-            </a> -->
+            </a>
         </ul>
     </div>
     
-    <!-- Dashboard heading -->
-    <div class="dashboard-heading">
+    Dashboard heading -->
+    <!-- <div class="dashboard-heading">
         <div class="panel">
             <div ng-app="app" ng-controller="coin">
                 <p class="btc-price">Avishi Ganepola</p>
-            </div>
-        </div>
-    
+            </div> -->
+    <!-- </div> -->
+
     <!-- Dashbboard cards -->
-        <div class="all">
-            <div class="formBody">
-                <div class="container">
-                    <div class="formHeader">
-                        <h2>Add Complaint</h2>
+    <div class="all">
+        <div class="formBody">
+            <div class="container">
+                <div class="formHeader">
+                    <h2>Add Complaint</h2>
+                </div>
+                <form action="#"
+                      id="form"
+                      class="form">
+                    <div class="form-control">
+                        <label for="name">Title</label>
+                        <input type="text"
+                               placeholder=""
+                               id="title" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
-                    <form action="#" id="form" class="form">
-                        <div class="form-control">
-                            <label for="name">Title</label>
-                            <input type="text" placeholder="" id="title" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <div class="form-control">
-                            <label for="police_id">Description</label>
-                            <input type="text" placeholder="" id="description" />
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
-                        </div>
-                        <!-- <div class="form-control">
+                    <div class="form-control">
+                        <label for="police_id">Description</label>
+                        <input type="text"
+                               placeholder=""
+                               id="description" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <!-- <div class="form-control">
                             <label for="nic">NIC</label>
                             <input type="text" placeholder="eg: 200019292837" id="nic" />
                             <i class="fas fa-check-circle"></i>
@@ -97,12 +110,13 @@
                             </div>
                             <small>Error message</small>
                         </div> -->
-                        <button>Submit</button>
-                        <button id="cancel-button">Cancel</button>
-                    </form>
-                </div>
+                    <button>Submit</button>
+                    <button id="cancel-button">Cancel</button>
+                </form>
             </div>
         </div>
+    </div>
     <script src="/resources/js/police/policeman/addPoliceman.js"></script>
 </body>
+
 </html>
