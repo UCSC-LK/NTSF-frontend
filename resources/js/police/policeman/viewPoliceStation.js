@@ -11,32 +11,32 @@ const loadPolicemanDetails = function()
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=viewPoliceStation");
 
     function completeLoad(httpreq)
     {
-        let jsonPolicemanData = JSON.parse(httpreq.responseText);
-        console.log(jsonPolicemanData);
+        let jsonPoliceStationData = JSON.parse(httpreq.responseText);
+        console.log(jsonPoliceStationData);
 
-        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+        if(jsonPoliceStationData.serverResponse === "null session" || jsonPoliceStationData.serverResponse === "Not Allowed")
         {
             window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
             console.log("Redirecting to login page");
         }
-        else if(jsonPolicemanData.serverResponse === "Allowed")
+        else if(jsonPoliceStationData.serverResponse === "Allowed")
         {
             console.log("Allowed");
                     
-            const policemanData = document.getElementById("policemanData");
-            policemanData.innerHTML = "";
+            const policestationData = document.getElementById("policestationData");
+            policestationData.innerHTML = "";
 
-            let count =  jsonPolicemanData.List.length - 1;
+            let count =  jsonPoliceStationData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                policemanDataHTMLoutput(jsonPolicemanData.List[i].branch_name, jsonPolicemanData.List[i].address,
-                jsonPolicemanData.List[i].district, jsonPolicemanData.List[i].province, jsonPolicemanData.List[i].contact_number, jsonPolicemanData.List[i].email);
+                policestationDataHTMLoutput(jsonPoliceStationData.List[i].branch_name, jsonPoliceStationData.List[i].address,
+                jsonPoliceStationData.List[i].district, jsonPoliceStationData.List[i].province, jsonPoliceStationData.List[i].contact_number, jsonPoliceStationData.List[i].email);
             }
 
         }
@@ -45,12 +45,12 @@ const loadPolicemanDetails = function()
             alert("Something went wrong");
         }
     }
-    return jsonPolicemanData;
+    return jsonPoliceStationData;
 }
 
-function policemanDataHTMLoutput(name, address, district, province, contact_number, email)
+function policestationDataHTMLoutput(branch_name, address, district, province, contact_number, email)
 {
-    console.log(name);
+    console.log(branch_name);
     console.log(address);
     console.log(district);
     console.log(province);
