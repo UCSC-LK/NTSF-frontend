@@ -11,11 +11,11 @@ const loadComplaintDetails = function () {
 
   httpreq.open(
     "POST",
-    "http://localhost:8080/ntsf_backend_war/fineServlet",
+    "http://localhost:8080/ntsf_backend_war/complaintServlet",
     true
   );
   httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  httpreq.send("action=fineServlet");
+  httpreq.send("action=complaintServlet");
 
   function completeLoad(httpreq) {
     let jsonComplaintData = JSON.parse(httpreq.responseText);
@@ -25,7 +25,8 @@ const loadComplaintDetails = function () {
       jsonComplaintData.serverResponse === "null session" ||
       jsonComplaintData.serverResponse === "Not Allowed"
     ) {
-      window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+      window.location.href =
+        "http://localhost:8080/ntsf_backend_war/userLoginServlet"; //Redirect to login page
       console.log("Redirecting to login page");
     } else if (jsonComplaintData.serverResponse === "Allowed") {
       console.log("Allowed");
