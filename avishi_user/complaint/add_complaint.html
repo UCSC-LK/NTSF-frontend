@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../template/common.css">
+          href="./style.css">
     <title>Document</title>
 </head>
 
@@ -68,8 +68,19 @@
                 <form action="#"
                       id="form"
                       class="form">
+
                     <div class="form-control">
-                        <label for="name">Title</label>
+                        <label for="userId">User ID</label>
+                        <input type="text"
+                               placeholder=""
+                               id="userId" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="title">Title</label>
                         <input type="text"
                                placeholder=""
                                id="title" />
@@ -77,8 +88,9 @@
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
+
                     <div class="form-control">
-                        <label for="police_id">Description</label>
+                        <label for="description">Description</label>
                         <input type="text"
                                placeholder=""
                                id="description" />
@@ -86,7 +98,9 @@
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </div>
-                    <button>Submit</button>
+
+                    <button id="addComplaintButton"
+                            onclick="addComplaint()">Submit</button>
                     <button id="cancel-button">Cancel</button>
                 </form>
             </div>
