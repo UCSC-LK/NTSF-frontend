@@ -67,6 +67,8 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     var dataCell5 = dataRow.insertCell(4);
     var dataCell6 = dataRow.insertCell(5);
     var dataCell7 = dataRow.insertCell(6);
+    var dataCell8 = dataRow.insertCell(7);
+    var dataCell9 = dataRow.insertCell(8);
 
     //Add content to the table data cells
     dataCell1.innerHTML = name;
@@ -74,8 +76,11 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell3.innerHTML = nic;
     dataCell4.innerHTML = mobile_number;
     dataCell5.innerHTML = email;
-    dataCell5.innerHTML = rank;
-    dataCell6.innerHTML = police_station;
+    dataCell6.innerHTML = rank;
+    dataCell7.innerHTML = police_station;
+    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
+    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
+    
     
 }
 

@@ -1,6 +1,6 @@
 form.addEventListener('submit', e => {
 	e.preventDefault();
-    loginAuthenticating();
+  loginAuthorizing();
 });
 
 function loginAuthorizing() {
@@ -22,9 +22,12 @@ function loginAuthorizingBackend(username, password) {
 
   httpReq.onreadystatechange = function()
   {
+    console.log('loginAuthorizingBackend readyState');
     if (this.readyState == 4 && this.status == 200) 
     {
+      console.log('loginAuthorizingBackend response');
       if (checkloginAuthorizingBackend(this)) {
+        console.log('loginAuthorizingBackend response true');
         return true;
       } else {
         return false;
@@ -32,7 +35,7 @@ function loginAuthorizingBackend(username, password) {
     }
   }
 
-  httpReq.open('POST', 'http://localhost:8080/ntsf_backend_war/policemanLogin', true);
+  httpReq.open('POST', 'http://localhost:8080/ntsf_backend_war/policeman', true);
   httpReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   httpReq.send('action=login' + '&username=' + username + '&password=' + password);
     
@@ -40,16 +43,20 @@ function loginAuthorizingBackend(username, password) {
     console.log('checkloginAuthorizingBackend');
     let jsonCheckloginAuthorizingBackendResponse = JSON.parse(httpReq.responseText);
     console.log(jsonCheckloginAuthorizingBackendResponse);
-    let checkloginAuthorizingBackendResponseAuthorization = jsonCheckloginAuthorizingBackendResponse.authorization;
-    if (checkloginAuthorizingBackendResponseAuthorization === 'true') {
-      let checkloginAuthorizingBackendResponseRank = jsonCheckloginAuthorizingBackendResponse.rank;
+    let checkloginAuthorizingBackendResponseAuthorization = jsonCheckloginAuthorizingBackendResponse.loginResponse[0].authorization;
+    console.log(checkloginAuthorizingBackendResponseAuthorization);
+    if (checkloginAuthorizingBackendResponseAuthorization == true) {
+      let checkloginAuthorizingBackendResponseRank = jsonCheckloginAuthorizingBackendResponse.loginResponse[0].rank;
+      console.log(checkloginAuthorizingBackendResponseRank);
       if (checkloginAuthorizingBackendResponseRank === 'igp') {
-        console.log('igp');
-        window.location.href = "../../../../../police/igp/viewPoliceman.html";
-      } else if (checkloginAuthorizingBackendResponseRank === 'oic') {
-        window.location.href = 'http://localhost:8080/ntsf_frontend_war/oic.html';
-      } else if (checkloginAuthorizingBackendResponseRank === 'policeman') {
-        window.location.href = 'http://localhost:8080/ntsf_frontend_war/policeman.html';
+        console.log('Redirecting to IGP page');
+        window.location.href = "";
+      } else if (checkloginAuthorizingBackendResponseRank === 'OIC') {
+        console.log('Redirecting to OIC page');
+        window.location.href = "../../../../police/policeman/viewPoliceman.html";
+      } else if (checkloginAuthorizingBackendResponseRank === 'Policeman') {
+        console.log('Redirecting to Policeman page');
+        window.location.href = "D:\project\NTSF-frontend\police\igp\viewPoliceman.html";
       }
       return true;
     } else {
