@@ -7,38 +7,85 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="/resources/css/police/igp/viewFine.css">
+          href="./view_fine.css">
+
     <title>Document</title>
 </head>
 
 <body onload="loadFineDetails()">
+    <!-- Repeating side bar starts from here -->
 
-    <!-- Dashbboard cards -->
-    <div class="all">
-        <div class="container">
-            <h1>Fines Details</h1>
-            <div class="tableSection">
-                <table class="rwd-table"
-                       id="table">
-                    <tbody>
-                        <div class="tableheading">
-                            <thead>
-                                <th>Ticket No</th>
-                                <th>Fine No</th>
-                                <th>Date</th>
-                                <th>Due Date</th>
-                                <th>Fine Amount</th>
-                                <th>Fine Type</th>
-                                <th>Payment Status</th>
-                            </thead>
-                        </div>
-                        <div id="fineData"></div>
-                    </tbody>
-                </table>
+    <body>
+        <div class="DashBoardOption">
+            <div class="logo">
+                <div class="dashboto-logo">
+                    <img src="/resources/images/logo_NTSF.png"
+                         alt="NTSF logo"
+                         class="ntsflogo">
+                </div>
+                <p class="logo"><b>NTSF</b></p>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+            <button class="main">User Dashboard</button>
+            <div class="clear"></div>
+            <ul class="menu">
+                <a href="">
+                    <i class="fa fa-dashboard"></i>
+                    View Fines
+                </a>
+                <br>
+                <a href="">
+                    <i class="fa fa-tasks"></i>
+                    Add Complaints
+                </a>
+                <a href="">
+                    <i class="fa fa-book"></i>
+                    View Complaints
+                </a>
+                <a href="">
+                    <i class="fa fa-newspaper-o"></i>
+                    Logout
+                </a>
+            </ul>
+        </div>
+
+        <!-- Dashboard heading -->
+        <div class="dashboard-heading">
+            <div class="panel">
+                <div ng-app="app"
+                     ng-controller="coin">
+                    <p class="btc-price">Avishi Ganepola</p>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="/resources/js/police/policeman/viewFine.js"></script>
-</body>
+        <!-- Repeating side bar ends here -->
+
+        <!-- Dashbboard cards -->
+        <div class="all">
+            <div class="container">
+                <h1>Fines Details</h1>
+                <div class="tableSection">
+                    <table class="rwd-table"
+                           id="table">
+                        <tbody>
+                            <div class="tableheading">
+                                <thead>
+                                    <th>Ticket No</th>
+                                    <th>Fine No</th>
+                                    <th>Date</th>
+                                    <th>Due Date</th>
+                                    <th>Fine Amount</th>
+                                    <th>Fine Type</th>
+                                    <th>Payment Status</th>
+                                </thead>
+                            </div>
+                            <div id="fineData"></div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="/resources/js/police/policeman/viewFine.js"></script>
+    </body>
 
 </html>
