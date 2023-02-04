@@ -5,6 +5,7 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 function submitLogin() {
   // const userType = 1; // Driver
+  console.log("called");
   const nic = document.getElementById("nic").value;
   const password = document.getElementById("password").value;
 
@@ -28,7 +29,7 @@ function loginSuccessCallback(data) {
     // sessionStorage.setItem("user_type", "1");
     sessionStorage.setItem("userId", data.userId);
     module.exports = { sessionStorage };
-    window.location.href = "#";
+    window.location.href = "../fine/view_fine.html";
   } else {
     alert("Incorrect nic or password!");
   }
