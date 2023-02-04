@@ -14,7 +14,7 @@ function submitLogin() {
   });
 
   const settings = {
-    url: `http://localhost:8080/ntsf/login?${query}`,
+    url: `http://localhost:8080/ntsf/user_login?${query}`,
     method: "GET",
   };
 

@@ -10,7 +10,7 @@
           href="../resources/css/police/login.css"> -->
     <link rel="stylesheet"
           href="../../resources/css/police/login.css">
-    <title>Document</title>
+    <title>NTSF</title>
 </head>
 
 <body>
@@ -30,7 +30,9 @@
     </div>
 
     <div class="wrapper">
-        <form class="login">
+        <form class="login"
+              action="http://localhost:8080/ntsf/user_login"
+              method="get">
             <p class="title">Login</p>
             <input type="text"
                    id="username"
@@ -40,16 +42,17 @@
             <input type="password"
                    id="password"
                    placeholder="Password" />
-            <i class="fa fa-key"></i>
-            <a href="#">Forgot your password?</a>
-            <button>
+            <i class="fa fa-key"></i><br>
+            <a href="#">Forgot your password?</a><br><br>
+            <a href="#">Sign Up</a>
+            <button onclick="submitLogin()">
                 <i class="spinner"></i>
                 <span class="state">Log In</span>
             </button>
         </form>
     </div>
 
-    <script src="../resources/js/police/login.js"></script>
+    <script src="../fine/"></script>
 </body>
 
 </html>
