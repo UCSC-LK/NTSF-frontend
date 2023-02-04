@@ -9,11 +9,7 @@ const loadFineDetails = function () {
     }
   };
 
-  httpreq.open(
-    "POST",
-    "http://localhost:8080/ntsf_backend_war/fine",
-    true
-  );
+  httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
   httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   httpreq.send("action=fine");
 
@@ -25,7 +21,8 @@ const loadFineDetails = function () {
       jsonFineData.serverResponse === "null session" ||
       jsonFineData.serverResponse === "Not Allowed"
     ) {
-      window.location.href = "http://localhost:8080/ntsf_backend_war/user_login"; //Redirect to login page
+      window.location.href =
+        "http://localhost:8080/ntsf_backend_war/user_login"; // Redirect to login page
       console.log("Redirecting to login page");
     } else if (jsonFineData.serverResponse === "Allowed") {
       console.log("Allowed");
