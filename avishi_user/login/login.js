@@ -9,12 +9,12 @@ function submitLogin() {
   const password = document.getElementById("password").value;
 
   const query = $.param({
-    nic: nic,
+    nic,
     password,
   });
 
   const settings = {
-    url: `http://localhost:8080/ntsf/user_login?${query}`,
+    url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
     method: "GET",
   };
 
@@ -28,7 +28,7 @@ function loginSuccessCallback(data) {
     // sessionStorage.setItem("user_type", "1");
     sessionStorage.setItem("userId", data.userId);
     module.exports = { sessionStorage };
-    window.location.href = "../common/fine/view.html";
+    window.location.href = "#";
   } else {
     alert("Incorrect nic or password!");
   }
