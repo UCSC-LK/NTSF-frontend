@@ -5,6 +5,10 @@ const nic = document.getElementById('nic');
 const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
 
+var police_idSession = sessionStorage.getItem("username");
+console.log("Printing below the username from session storage");
+console.log("police_idSession: " + police_idSession);
+
 let rankOptions = document.getElementById("rankOptions");
 let rankOptionList = ["OIC", "Policeman"];
 

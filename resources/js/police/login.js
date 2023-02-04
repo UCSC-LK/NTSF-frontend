@@ -28,6 +28,7 @@ function loginAuthorizingBackend(username, password) {
       console.log('loginAuthorizingBackend response');
       if (checkloginAuthorizingBackend(this)) {
         console.log('loginAuthorizingBackend response true');
+        sessionStorage.setItem('username', username);
         return true;
       } else {
         return false;
@@ -50,13 +51,13 @@ function loginAuthorizingBackend(username, password) {
       console.log(checkloginAuthorizingBackendResponseRank);
       if (checkloginAuthorizingBackendResponseRank === 'igp') {
         console.log('Redirecting to IGP page');
-        window.location.href = "";
+        window.location.href = "../../../police/igp/viewPoliceman.html";
       } else if (checkloginAuthorizingBackendResponseRank === 'OIC') {
         console.log('Redirecting to OIC page');
-        window.location.href = "../../../../police/policeman/viewPoliceman.html";
+        window.location.href = "../../../police/oic/viewPoliceman.html";
       } else if (checkloginAuthorizingBackendResponseRank === 'Policeman') {
         console.log('Redirecting to Policeman page');
-        window.location.href = "D:\project\NTSF-frontend\police\igp\viewPoliceman.html";
+        window.location.href = "../../../police/policeman/viewPoliceman.html";
       }
       return true;
     } else {
