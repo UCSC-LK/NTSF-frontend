@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
 //Checking whether data already exisiting
 
 document.getElementById('police_id').addEventListener('blur', function(){
-    console.log('came until js function for event listener');
+    console.log('came until js function for event listener of policeID blue');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
         checkPolicemanPolice_ID(police_idValue);
@@ -27,7 +27,7 @@ document.getElementById('police_id').addEventListener('blur', function(){
 });
 
 document.getElementById('nic').addEventListener('blur', function(){
-    console.log('came until js function for event listener');
+    console.log('came until js function for event listener of NIC blure');
     let nicValue = nic.value.trim();
     if(nicValue !== ''){
         checkPolicemanNic(nicValue);
@@ -35,7 +35,7 @@ document.getElementById('nic').addEventListener('blur', function(){
 });
 
 document.getElementById('mobile_number').addEventListener('blur', function(){
-    console.log('came until js function for event listener');
+    console.log('came until js function for event listener of mobilenumber blur');
     let mobile_numberValue = mobile_number.value.trim();
     if(mobile_numberValue !== ''){
         checkPolicemanMobile_Number(mobile_numberValue);
@@ -43,7 +43,7 @@ document.getElementById('mobile_number').addEventListener('blur', function(){
 });
 
 document.getElementById('email').addEventListener('blur', function(){
-    console.log('came until js function for event listener');
+    console.log('came until js function for event listener of email blur');
     let emailValue = email.value.trim();
     if(emailValue !== ''){
         checkPolicemanEmail(emailValue);
@@ -174,8 +174,9 @@ function checkInputs() {
     }
 
     if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
+        console.log('came until js function for event listener of submit button');
         console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
-        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue)
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
     }
     else{
         return false;
@@ -329,6 +330,7 @@ function createOptionspolice_station() {
 
 const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
 {
+    console.log('came until js function for addPoliceman which sends data to backend');
     console.log(name);
     console.log(police_id);
     console.log(nic);
