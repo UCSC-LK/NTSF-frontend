@@ -9,9 +9,14 @@ const loadFineDetails = function () {
     }
   };
 
-  httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
+  // httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
+  // httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // httpreq.send("action=fine");
+
+
+  httpreq.open("GET", "http://localhost:8080/ntsf_backend_war/fine", true);
   httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  httpreq.send("action=fine");
+  // httpreq.send("action=fine");
 
   function completeLoad(httpreq) {
     let jsonFineData = JSON.parse(httpreq.responseText);
