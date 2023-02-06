@@ -25,14 +25,16 @@ function loginAuthorizingBackend(username, password) {
     console.log('loginAuthorizingBackend readyState');
     if (this.readyState == 4 && this.status == 200) 
     {
+      let loginStatus = false;
       console.log('loginAuthorizingBackend response');
       if (checkloginAuthorizingBackend(this)) {
+        loginStatus = true;
         console.log('loginAuthorizingBackend response true');
         sessionStorage.setItem('username', username);
-        return true;
       } else {
-        return false;
+        loginStatus = false;
       }
+      getMessage(loginStatus);
     }
   }
 
@@ -66,11 +68,11 @@ function loginAuthorizingBackend(username, password) {
   }
 }
 
-function getMessage(policemanAdditionStatus) {
+function getMessage(loginStatus) {
   let message = document.createElement("div");
   message.className = "message";
 
-  if (policemanAdditionStatus == true) {
+  if (loginStatus == true) {
       message.classList.add("danger");
       message.textContent = "Login Unsuccessful. Please try again or contact your administrator for assistance.";
 
