@@ -65,3 +65,26 @@ function loginAuthorizingBackend(username, password) {
     }
   }
 }
+
+function getMessage(policemanAdditionStatus) {
+  let message = document.createElement("div");
+  message.className = "message";
+
+  if (policemanAdditionStatus == true) {
+      message.classList.add("danger");
+      message.textContent = "Login Unsuccessful. Please try again or contact your administrator for assistance.";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+  }
+  else {
+      message.classList.add("success");
+      message.textContent = "Login Successful";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+  }
+
+}

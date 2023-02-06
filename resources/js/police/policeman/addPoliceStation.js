@@ -493,11 +493,11 @@ const checkPoliceStationEmail = function(email) //Returns true if duplicate data
     
 }
 
-function getMessage(policemanAdditionStatus) {
+function getMessage(policestationAdditionStatus) {
     let message = document.createElement("div");
     message.className = "message";
 
-    if (policemanAdditionStatus == true) {
+    if (policestationAdditionStatus == true) {
         message.classList.add("danger");
         message.textContent = "Oh no! It is cannot be blank";
 
