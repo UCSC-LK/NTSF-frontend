@@ -99,3 +99,62 @@ function deleteMessage(el) {
         document.body.removeChild(el);
     }, 6000);
 }
+
+//Checking if username is correct
+document.getElementById('username').addEventListener('blur', function(){
+  console.log('came until js function for event listener of Username blur');
+  let usernameValue = username.value.trim();
+  if(usernameValue !== ''){
+      checkLoginUsername(usernameValue);
+  }
+});
+
+
+const checkLoginUsername = function(username) //Returns true if duplicate data exists
+{
+    console.log("checkLoginUsername");
+    console.log(username);
+
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkLoginUsernameData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.send("action=checkLoginUsername" + "&username=" + username);
+
+    function checkLoginUsernameData(httpReq)
+    {
+        console.log("checkLoginUsernameData");
+        let jsonCheckLoginUsernameResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckLoginUsernameResponse);
+        let jsonCheckLoginUsernameResponseAlert = jsonCheckLoginUsernameResponse.alert;
+        console.log(jsonCheckLoginUsernameResponseAlert);
+
+        if(jsonCheckLoginUsernameResponseAlert == false)
+        {
+            console.log("Username is invalid");
+            setErrorFor(document.getElementById('username'), 'Username is invalid');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
+    
+}
