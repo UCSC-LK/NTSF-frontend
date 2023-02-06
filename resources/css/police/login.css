@@ -90,6 +90,7 @@ body {
   transition: border-width 0.2s ease;
   border-radius: 2px;
   color: #ccc;
+  position: relative;
 }
 .login input + i.fa {
   color: #fff;
@@ -213,4 +214,17 @@ footer a, footer a:link {
 	90% {
 		right: 0;
 	}
+}
+
+/*Error message*/
+.form-control small {
+	color: #e74c3c;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.form-control.error small {
+	visibility: visible;
 }
