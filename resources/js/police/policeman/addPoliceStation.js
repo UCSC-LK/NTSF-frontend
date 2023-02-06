@@ -318,7 +318,18 @@ const addPoliceStation = function(branch_name, address, district, province, cont
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            addPoliceStationData(this);
+            policestationAdditionStatus = false;
+            if(addPoliceStationData(this))
+            {
+                console.log("Police Station added successfully");
+                policestationAdditionStatus = true;
+            }
+            else
+            {
+                console.log("Police Station adding failed");
+                policestationAdditionStatus = false;
+            }
+            getMessage(policestationAdditionStatus)
         }
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
@@ -482,5 +493,26 @@ const checkPoliceStationEmail = function(email) //Returns true if duplicate data
     
 }
 
+function getMessage(policemanAdditionStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
 
+    if (policemanAdditionStatus == true) {
+        message.classList.add("danger");
+        message.textContent = "Oh no! It is cannot be blank";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+    else {
+        message.classList.add("success");
+        message.textContent = "Police Station Added Successfully";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+
+}
 
