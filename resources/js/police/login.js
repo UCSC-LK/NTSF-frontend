@@ -95,7 +95,7 @@ function getMessage(loginStatus) {
 }
 
 function deleteMessage(el) {
-  setTimeout(() => {
-      document.body.removeChild(el);
-  }, 6000);
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
 }
