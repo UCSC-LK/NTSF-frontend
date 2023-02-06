@@ -348,7 +348,18 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            addPolicemanData(this);
+            policemanAdditionStatus = false;
+            if(addPolicemanData(this))
+            {
+                console.log("Policeman added successfully");
+                policemanAdditionStatus = true;
+            }
+            else
+            {
+                console.log("Policeman added failed");
+                policemanAdditionStatus = false;
+            }
+            getMessage(policemanAdditionStatus);
         }
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
@@ -556,6 +567,29 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
             return false;
         }
     }
+}
+
+function getMessage(policemanAdditionStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (policemanAdditionStatus == true) {
+        message.classList.add("danger");
+        message.textContent = "Oh no! It is cannot be blank";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+    else {
+        message.classList.add("success");
+        message.textContent = "Policeman Added Successfully";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+
 }
 
 
