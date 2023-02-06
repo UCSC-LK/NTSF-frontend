@@ -156,5 +156,11 @@ const checkLoginUsername = function(username) //Returns true if duplicate data e
             return false;
         }
     }
-    
+}
+
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-control error';
+	small.innerText = message;
 }

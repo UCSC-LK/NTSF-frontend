@@ -27,10 +27,16 @@
     <div class="wrapper">
         <form class="login" id="form">
           <p class="title">Log in</p>
-          <input type="text" id="username" placeholder="Username" autofocus />
-          <i class="fa fa-user"></i>
-          <input type="password" id="password" placeholder="Password" />
-          <i class="fa fa-key"></i>
+          <div class="form-control">
+            <input type="text" id="username" placeholder="Username" autofocus />
+            <i class="fa fa-user"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <input type="password" id="password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <small>Error message</small>
+          </div>
           <a href="#">Forgot your password?</a>
           <button>
             <i class="spinner"></i>
