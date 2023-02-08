@@ -137,6 +137,6 @@ function deletePolicemanDetails(police_id) //Delete a policeman
 function editPolicemanDetails(police_id) //Edit a policeman
 {
     console.log("Function called to Edit a policeman");
-    console.log(police_id);
-    window.location.href = "http://localhost:8080/ntsf_backend_war/editPoliceman?police_id="+police_id;
+    window.location.href = "../../../../police/igp/updatePoliceman.html";
+    sessionStorage.setItem("Updatepolice_id", police_id);
 }
