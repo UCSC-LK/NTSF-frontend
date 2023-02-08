@@ -164,3 +164,10 @@ function setErrorFor(input, message) {
 	formControl.className = 'form-control error';
 	small.innerText = message;
 }
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-control success';
+}
+
+
