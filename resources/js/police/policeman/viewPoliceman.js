@@ -82,12 +82,54 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
     dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
     dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
+        
 }
 
-function editPolicemanDetails(police_id){
-    sessionStorage.setItem("editingPolice_id", police_id);
-}
+function deletePolicemanDetails(police_id) //Delete a policeman
+{
+    console.log("Function called to Delete a policeman");
+    console.log(police_id);
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            policemanDeletionStatus = false;
+            if(deletePolicemanData(this))
+            {
+                console.log("Policeman deleted successfully");
+                policemanDeletionStatus = true;
+            }
+            else
+            {
+                console.log("Policeman deletion failed");
+                policemanDeletionStatus = false;
+            }
+            getMessage(policemanDeletionStatus);
+        }
+    }
+    
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.send("action=deletePoliceman" + "&police_id=" +police_id);
 
-function deletePolicemanDetails(police_id){
-    sessionStorage.setItem("deletingPolice_id", police_id);
+    function deletePolicemanData(httpreq)
+    {
+        console.log("deletePolicemanData function called");
+        let jsonDeletePolicemanResponse = JSON.parse(httpreq.responseText);
+        console.log(jsonDeletePolicemanResponse);
+        let jsonDeletePolicemanResponseAlert = jsonDeletePolicemanResponse.alert;
+        console.log(jsonDeletePolicemanResponseAlert);
+
+        if(jsonDeletePolicemanResponseAlert == true)
+        {
+            alert("Policeman deleted successfully");
+            console.log("Policeman deleted successfully");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
