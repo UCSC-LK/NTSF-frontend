@@ -67,12 +67,14 @@ function policestationDataHTMLoutput(branch_name, address, district, province, c
     var dataCell6 = dataRow.insertCell(5);
 
     //Add content to the table data cells
-    dataCell1.innerHTML = name;
+    dataCell1.innerHTML = branch_name;
     dataCell2.innerHTML = address;
     dataCell3.innerHTML = district;
     dataCell4.innerHTML = province;
     dataCell5.innerHTML = contact_number;
     dataCell6.innerHTML = email;
+    // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+policeid+")'>Edit</button>";
+    // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
     
 }
 
