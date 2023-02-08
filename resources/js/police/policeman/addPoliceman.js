@@ -120,7 +120,7 @@ function checkInputs() {
         flagNic = 1;
         
 	}
-    else if(validation(nicValue) == false){
+    else if(nicValidate(nicValue) == false){
         setErrorFor(nic, 'Invalid NIC');
         flagNic = 1;
     }
