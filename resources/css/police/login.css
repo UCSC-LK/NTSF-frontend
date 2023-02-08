@@ -60,6 +60,11 @@ body {
   background: #fff;
   position: relative;
   padding-bottom: 80px;
+  /*new insertion*/
+  margin-bottom: 10px;
+
+
+  /*new insertion*/
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .login.loading button {
@@ -228,3 +233,4 @@ footer a, footer a:link {
 .form-control.error small {
 	visibility: visible;
 }
+
