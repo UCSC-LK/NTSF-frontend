@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../resources/css/police/igp/addPoliceman.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="DashBoardOption">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+            </div>
+            <p class="logo"><b>NTSF</b></p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <button class="main">IGP Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../igp/viewPoliceman.html">
+                <i class="fa fa-dashboard"></i>
+                View Policeman
+            </a>
+            <br>
+            <a href="../igp/addPoliceman.html">
+                <i class="fa fa-tasks"></i>
+                Add Policeman
+            </a>
+            <a href="../igp/viewPoliceStation.html">
+                <i class="fa fa-book"></i>
+                View Police Station
+            </a>
+            <a href="../igp/addPoliceStation.html">
+                <i class="fa fa-newspaper-o"></i>
+                Add Police Station
+            </a>
+            <a href="">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <div ng-app="app" ng-controller="coin">
+                <p class="btc-price">Suraif Muhammad</p>
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+        <div class="all">
+            <div class="formBody">
+                <div class="container">
+                    <div class="formHeader">
+                        <h2>Add Policeman</h2>
+                    </div>
+                    <form action="#" id="form" class="form">
+                        <div class="form-control">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="eg: Suraif Muhammad" id="name" value="" />
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="police_id">Police_ID</label>
+                            <input type="text" placeholder="eg: 7109827" id="police_id" value=""/>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="nic">NIC</label>
+                            <input type="text" placeholder="eg: 200019292837" id="nic" value="" />
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="mobile_number">Mobile Number</label>
+                            <input type="number" placeholder="eg: 0766093011" id="mobile_number" value=""/>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="email">E=mail</label>
+                            <input type="email" placeholder="eg: suraifcoc16@gmail.com" id="email" value="" />
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="rankOptions">Rank</label>
+                            <div class="options" id="rankOptions">
+                                <div class="hide-option option" id="hide-rankOption">Select the rank</div>
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="police_stationOptions">Police Station</label>
+                            <div class="options" id="police_stationOptions">
+                                <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+                        <button id="button">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <script src="../../resources/js/police/policeman/addPoliceman.js"></script>
+    <script src="/resources/js/login.js"></script>
+</body>
+</html>
