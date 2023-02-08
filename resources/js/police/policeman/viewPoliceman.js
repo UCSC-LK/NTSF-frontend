@@ -78,6 +78,8 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell5.innerHTML = email;
     dataCell6.innerHTML = rank;
     dataCell7.innerHTML = police_station;
+    // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
+    // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
     dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
     dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
         
@@ -131,4 +133,3 @@ function deletePolicemanDetails(police_id) //Delete a policeman
 
     }
 }
-
