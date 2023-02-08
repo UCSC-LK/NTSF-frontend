@@ -119,7 +119,12 @@ function checkInputs() {
 		setErrorFor(nic, 'NIC cannot be blank');
         flagNic = 1;
         
-	} else {
+	}
+    else if(validation(nicValue) == false){
+        setErrorFor(nic, 'Invalid NIC');
+        flagNic = 1;
+    }
+    else {
 		setSuccessFor(nic);
         flagNic = 0;
 	}
@@ -591,6 +596,45 @@ function getMessage(policemanAdditionStatus) {
     }
 
 }
+
+/*Returns True if NIC is valid */
+let nicValidate = function(nicNumber)
+{
+    var nicNumber = nicNumber;
+    if (validation(nicNumber)) {
+        console.log("NIC is valid!!");
+        console.log(nicNumber);
+        /*NIC Number is valid */
+        return true;
+    }
+    else {
+        /*NIC Number is invalid */
+        return false;
+        console.log("NIC is invalid in nicValidation.js!!");
+    }
+}
+
+/* If Valid returns True */
+function validation(nicNumber) {
+    var result = false;
+    if (nicNumber.length === 10 && !isNaN(nicNumber.substr(0, 9)) && isNaN(nicNumber.substr(9, 1).toLowerCase()) && ['x', 'v'].includes(nicNumber.substr(9, 1).toLowerCase())) {
+        result = true;
+        console.log("NIC of 10 digits is valid");
+        setErrorFor(document.getElementById('nic'), 'NIC of 10 digits is valid');
+    } else if (nicNumber.length === 12 && !isNaN(nicNumber)) {
+        result = true;
+        console.log(nic,"NIC of 12 digits is valid");
+        setErrorFor(nic, 'NIC of 12 digits is valid');
+    } else {
+        result = false;
+        console.log("NIC is invalid not 10 or 12");
+        setErrorFor(nic, 'NIC is invalid not 10 or 12');
+    }
+    return result;
+}
+
+
+
 
 
 
