@@ -80,7 +80,44 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell7.innerHTML = police_station;
     dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
     dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
+        
+}
+
+function deletePolicemanDetails(police_id)
+{
+    console.log(police_id);
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            completeLoad(this);
+        }
+    }
     
-    
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.send("action=deletePoliceman" + "&police_id=" +police_id);
+
+    function completeLoad(httpreq)
+    {
+        let jsonPolicemanData = JSON.parse(httpreq.responseText);
+        console.log(jsonPolicemanData);
+
+        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+        {
+            window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+            console.log("Redirecting to login page");
+        }
+        else if(jsonPolicemanData.serverResponse === "Allowed")
+        {
+            console.log("Allowed");
+            alert("Policeman Deleted");
+            window.location.reload();
+        }
+        else
+        {
+            alert("Something went wrong");
+        }
+    }
 }
 
