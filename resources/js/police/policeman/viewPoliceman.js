@@ -84,3 +84,10 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     
 }
 
+function editPolicemanDetails(police_id){
+    sessionStorage.setItem("editingPolice_id", police_id);
+}
+
+function deletePolicemanDetails(police_id){
+    sessionStorage.setItem("deletingPolice_id", police_id);
+}
