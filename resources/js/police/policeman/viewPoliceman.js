@@ -83,14 +83,26 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
         
 }
 
-function deletePolicemanDetails(police_id)
+function deletePolicemanDetails(police_id) //Delete a policeman
 {
+    console.log("Function called to Delete a policeman");
     console.log(police_id);
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            completeLoad(this);
+            policemanDeletionStatus = false;
+            if(deletePolicemanData(this))
+            {
+                console.log("Policeman deleted successfully");
+                policemanDeletionStatus = true;
+            }
+            else
+            {
+                console.log("Policeman deletion failed");
+                policemanDeletionStatus = false;
+            }
+            getMessage(policemanDeletionStatus);
         }
     }
     
@@ -98,26 +110,25 @@ function deletePolicemanDetails(police_id)
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=deletePoliceman" + "&police_id=" +police_id);
 
-    function completeLoad(httpreq)
+    function deletePolicemanData(httpreq)
     {
-        let jsonPolicemanData = JSON.parse(httpreq.responseText);
-        console.log(jsonPolicemanData);
+        console.log("deletePolicemanData function called");
+        let jsonDeletePolicemanResponse = JSON.parse(httpreq.responseText);
+        console.log(jsonDeletePolicemanResponse);
+        let jsonDeletePolicemanResponseAlert = jsonDeletePolicemanResponse.alert;
+        console.log(jsonDeletePolicemanResponseAlert);
 
-        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+        if(jsonDeletePolicemanResponseAlert == true)
         {
-            window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
-            console.log("Redirecting to login page");
-        }
-        else if(jsonPolicemanData.serverResponse === "Allowed")
-        {
-            console.log("Allowed");
-            alert("Policeman Deleted");
-            window.location.reload();
+            alert("Policeman deleted successfully");
+            console.log("Policeman deleted successfully");
+            return true;
         }
         else
         {
-            alert("Something went wrong");
+            return false;
         }
+
     }
 }
 
