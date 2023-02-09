@@ -66,3 +66,21 @@ function fetchPolicemanDetails(){
     }
 }
 
+const form = document.getElementById('form');
+// const name = document.getElementById('name');
+// const police_id = document.getElementById('police_id');
+// const nic = document.getElementById('nic');
+// const mobile_number = document.getElementById('mobile_number');
+// const email = document.getElementById('email');
+
+// form.addEventListener('submit', e => {
+// 	e.preventDefault();
+//     checkInputs();
+// });
+
+
+
+
+
+
+
