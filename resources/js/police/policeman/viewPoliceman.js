@@ -140,3 +140,9 @@ function editPolicemanDetails(police_id) //Edit a policeman
     window.location.href = "../../../../police/igp/updatePoliceman.html";
     sessionStorage.setItem("Updatepolice_id", police_id);
 }
+
+
+document.getElementById("logoutButton").addEventListener("click", function() {
+    console.log("clicked to logout")
+    window.location.href = "../../../../police/login.html";
+  });
