@@ -122,9 +122,8 @@ function deletePolicemanDetails(police_id) //Delete a policeman
 
         if(jsonDeletePolicemanResponseAlert == true)
         {
-            alert("Policeman deleted successfully");
             console.log("Policeman deleted successfully");
-            loadPolicemanDetails();
+            window.location.reload();
             return true;
         }
         else
