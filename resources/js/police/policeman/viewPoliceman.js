@@ -124,6 +124,7 @@ function deletePolicemanDetails(police_id) //Delete a policeman
         {
             alert("Policeman deleted successfully");
             console.log("Policeman deleted successfully");
+            loadPolicemanDetails();
             return true;
         }
         else
