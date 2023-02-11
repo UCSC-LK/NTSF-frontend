@@ -1,3 +1,9 @@
+// const deleteButtons = document.querySelectorAll('.delete-button');
+const modal = document.getElementById('myModal');
+const modalYes = document.getElementById('modal-yes');
+const modalNo = document.getElementById('modal-no');
+
+
 const loadPolicemanDetails = function()
 {
     var table = document.getElementById("table");
@@ -80,8 +86,8 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell7.innerHTML = police_station;
     // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
-    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
-    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
+    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
+    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
         
 }
 
@@ -146,3 +152,40 @@ document.getElementById("logoutButton").addEventListener("click", function() {
     console.log("clicked to logout")
     window.location.href = "../../../../police/login.html";
   });
+
+
+//Model to ask are you sure want to delete??
+// const deleteButtons = document.querySelectorAll('.delete-button');
+// const modal = document.getElementById('myModal');
+// const modalYes = document.getElementById('modal-yes');
+// const modalNo = document.getElementById('modal-no');
+
+// deleteButtons.forEach(button => {
+//   button.addEventListener('click', function() {
+//     modal.style.display = "block";
+//   });
+// });
+
+function deletePolicemanPopUp(police_id) {
+    modal.style.display = "block";
+    console.log("popup is called with police_id: " + police_id);
+}
+
+modalYes.addEventListener('click', function() {
+  // Perform the delete operation
+  console.log("YES delete is clicked");
+  deletePolicemanDetails(police_id);
+  modal.style.display = "none";
+});
+
+modalNo.addEventListener('click', function() {
+  console.log("NO delete is clicked");  
+  modal.style.display = "none";
+});
+
+// Close the modal window if the user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
