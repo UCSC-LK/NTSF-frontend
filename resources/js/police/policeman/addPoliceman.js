@@ -13,7 +13,35 @@ let rankOptions = document.getElementById("rankOptions");
 let rankOptionList = ["OIC", "Policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
-let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+// let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+
+/*Dynamically load the policestation option list*/
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("came until js function for event listener of DOMContentLoaded");
+
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            loadPoliceStationOptionsList(this);
+            console.log("came until js function to load PoliceStation List dynamically");
+        }
+        else
+        {
+            console.log("Loading PoliceStation information dynamiclly failed");
+        }
+    }
+
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.send("action=loadPoliceStationOptionsList");
+
+    function loadPoliceStationOptionsList(httpreq)  
+    
+
+
+});
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();

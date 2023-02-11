@@ -88,7 +88,6 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
     dataCell8.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
     dataCell9.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
-        
 }
 
 function deletePolicemanDetails(police_id) //Delete a policeman
@@ -169,6 +168,9 @@ document.getElementById("logoutButton").addEventListener("click", function() {
 function deletePolicemanPopUp(police_id) {
     modal.style.display = "block";
     console.log("popup is called with police_id: " + police_id);
+    console.log(modal);
+    console.log(modalYes);
+    console.log(modalNo);
 }
 
 modalYes.addEventListener('click', function() {
