@@ -14,17 +14,23 @@ let rankOptionList = ["OIC", "Policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
 // let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+let police_stationOptionList = [];
 
 /*Dynamically load the policestation option list*/
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("came until js function for event listener of DOMContentLoaded");
-
+function loadPoliceStationOptionsListOnLoad(){
+    console.log("Loading PoliceStation information dynamiclly");
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            loadPoliceStationOptionsList(this);
-            console.log("came until js function to load PoliceStation List dynamically");
+            if(loadPoliceStationOptionsList(this))
+            {
+                console.log("Loading PoliceStation information dynamiclly success");
+            }
+            else
+            {
+                console.log("came until js function to load PoliceStation List dynamically");
+            }
         }
         else
         {
@@ -36,11 +42,34 @@ document.addEventListener('DOMContentLoaded', function() {
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=loadPoliceStationOptionsList");
 
-    function loadPoliceStationOptionsList(httpreq)  
-    
+    function loadPoliceStationOptionsList(httpreq) 
+    {
+        let jsonPoliceStationData = JSON.parse(httpreq.responseText);
+        console.log(jsonPoliceStationData);
+        
+        if(jsonPoliceStationData.serverResponse === "null session" || jsonPoliceStationData.serverResponse === "Not Allowed")
+        {
+            // window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+            // console.log("Redirecting to login page");
+        }
+        else if(jsonPoliceStationData.serverResponse === "Allowed")
+        {
+            console.log("Allowed");
+            let count =  jsonPoliceStationData.List.length - 1;
+            for(i=0; i<= count; i++)
+            {
+                police_stationOptionList.push(jsonPoliceStationData.List[i].police_station);    
+            }
+            return true;
+        }
+        else
+        {
+            console.log("Something went wrong");
+            return false;
+        }
+    }
 
-
-});
+}
 
 
 form.addEventListener('submit', e => {
@@ -258,6 +287,7 @@ function checkPolice_stationFill() {
 }
 
 rankOptions.addEventListener("click", addToUIOptionsRank);
+police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
 
 
