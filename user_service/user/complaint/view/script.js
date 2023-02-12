@@ -10,7 +10,7 @@ function complaintDataHTMLoutput(complaintDatArray) {
   const complaintTable = document.getElementById("table");
 
   // Add contents
-  complaintDatArray.map(({ complaintNo, title, description }) => {
+  complaintDatArray.map(({ complaint_no, title, description }) => {
     const dataRow = table.insertRow();
 
     const dataCellArray = [];
@@ -20,7 +20,7 @@ function complaintDataHTMLoutput(complaintDatArray) {
       dataCellArray.push(dataCell);
     }
 
-    dataCellArray[0].innerHTML = complaintNo;
+    dataCellArray[0].innerHTML = complaint_no;
     dataCellArray[1].innerHTML = title;
     dataCellArray[2].innerHTML = description;
   });
