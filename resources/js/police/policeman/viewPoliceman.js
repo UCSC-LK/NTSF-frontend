@@ -1,9 +1,3 @@
-// const deleteButtons = document.querySelectorAll('.delete-button');
-const modal = document.getElementById('myModal');
-const modalYes = document.getElementById('modal-yes');
-const modalNo = document.getElementById('modal-no');
-
-
 const loadPolicemanDetails = function()
 {
     var table = document.getElementById("table");
@@ -50,8 +44,8 @@ const loadPolicemanDetails = function()
         {
             alert("Something went wrong");
         }
+        return jsonPolicemanData;
     }
-    return jsonPolicemanData;
 }
 
 function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, rank, police_station)
@@ -147,23 +141,17 @@ function editPolicemanDetails(police_id) //Edit a policeman
 }
 
 
-document.getElementById("logoutButton").addEventListener("click", function() {
-    console.log("clicked to logout")
-    window.location.href = "../../../../police/login.html";
-  });
+// document.getElementById("logoutButton").onclick = function() {
+//     console.log("clicked to logout")
+//     window.location.href = "../../../../police/login.html";
+//   };
 
 
 //Model to ask are you sure want to delete??
-// const deleteButtons = document.querySelectorAll('.delete-button');
-// const modal = document.getElementById('myModal');
-// const modalYes = document.getElementById('modal-yes');
-// const modalNo = document.getElementById('modal-no');
+const modal = document.getElementById('myModal');
+const modalYes = document.getElementById('modal-yes');
+const modalNo = document.getElementById('modal-no');
 
-// deleteButtons.forEach(button => {
-//   button.addEventListener('click', function() {
-//     modal.style.display = "block";
-//   });
-// });
 
 function deletePolicemanPopUp(police_id) {
     modal.style.display = "block";
@@ -173,17 +161,17 @@ function deletePolicemanPopUp(police_id) {
     console.log(modalNo);
 }
 
-modalYes.addEventListener('click', function() {
+modalYes.onclick = function() {
   // Perform the delete operation
   console.log("YES delete is clicked");
   deletePolicemanDetails(police_id);
   modal.style.display = "none";
-});
+};
 
-modalNo.addEventListener('click', function() {
+modalNo.onclick = function() {
   console.log("NO delete is clicked");  
   modal.style.display = "none";
-});
+};
 
 // Close the modal window if the user clicks outside of it
 window.onclick = function(event) {
