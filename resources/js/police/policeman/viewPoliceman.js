@@ -149,19 +149,21 @@ const modalNo = document.getElementById('modal-no');
 function deletePolicemanPopUp(police_id) {
     modal.style.display = "block";
     console.log("popup is called with police_id: " + police_id);
+
+    modalYes.onclick = function() {
+    // Perform the delete operation
+    console.log("YES delete is clicked" + police_id);
+    deletePolicemanDetails(police_id);
+    modal.style.display = "none";
+    };
+
+
+    modalNo.onclick = function() {
+    console.log("NO delete is clicked" + police_id);  
+    modal.style.display = "none";
+    };
+
 }
-
-modalYes.onclick = function() {
-  // Perform the delete operation
-  console.log("YES delete is clicked");
-  deletePolicemanDetails(police_id);
-  modal.style.display = "none";
-};
-
-modalNo.onclick = function() {
-  console.log("NO delete is clicked");  
-  modal.style.display = "none";
-};
 
 // Close the modal window if the user clicks outside of it
 window.onclick = function(event) {
