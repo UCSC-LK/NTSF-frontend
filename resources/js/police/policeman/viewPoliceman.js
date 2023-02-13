@@ -156,9 +156,6 @@ const modalNo = document.getElementById('modal-no');
 function deletePolicemanPopUp(police_id) {
     modal.style.display = "block";
     console.log("popup is called with police_id: " + police_id);
-    console.log(modal);
-    console.log(modalYes);
-    console.log(modalNo);
 }
 
 modalYes.onclick = function() {
