@@ -140,13 +140,6 @@ function editPolicemanDetails(police_id) //Edit a policeman
     sessionStorage.setItem("Updatepolice_id", police_id);
 }
 
-
-// document.getElementById("logoutButton").onclick = function() {
-//     console.log("clicked to logout")
-//     window.location.href = "../../../../police/login.html";
-//   };
-
-
 //Model to ask are you sure want to delete??
 const modal = document.getElementById('myModal');
 const modalYes = document.getElementById('modal-yes');
