@@ -18,14 +18,14 @@ let police_stationOptionList = [];
 
 /*Dynamically load the policestation option list*/
 function loadPoliceStationOptionsListOnLoad(){
-    console.log("Loading PoliceStation information dynamiclly");
+    console.log("Loading PoliceStation List to be included in drop down dynamiclly");
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
             if(loadPoliceStationOptionsList(this))
             {
-                console.log("Loading PoliceStation information dynamiclly success");
+                console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
             }
             else
             {
@@ -34,7 +34,7 @@ function loadPoliceStationOptionsListOnLoad(){
         }
         else
         {
-            console.log("Loading PoliceStation information dynamiclly failed");
+            console.log("Loading PoliceStation information dynamiclly FAILED!!!");
         }
     }
 
