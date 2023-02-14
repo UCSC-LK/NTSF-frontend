@@ -383,6 +383,12 @@ h3:after {
   }
 
 
+/*CSS for add policeman button*/
 
+.addPolicemanButton {
+	position: absolute;
+	top: 8%;
+	right: 7%
+}
   
 
