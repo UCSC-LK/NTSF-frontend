@@ -26,6 +26,8 @@ function loadPoliceStationOptionsListOnLoad(){
             if(loadPoliceStationOptionsList(this))
             {
                 console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
+                console.log("Printing the police station list below");
+                console.log(police_stationOptionList);
             }
             else
             {
@@ -38,7 +40,7 @@ function loadPoliceStationOptionsListOnLoad(){
         }
     }
 
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policestation", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=loadPoliceStationOptionsList");
 
@@ -58,8 +60,11 @@ function loadPoliceStationOptionsListOnLoad(){
             let count =  jsonPoliceStationData.List.length - 1;
             for(i=0; i<= count; i++)
             {
+                console.log("Here onwards entering the police station list into array")
+                console.log(jsonPoliceStationData.List[i].police_station);
                 police_stationOptionList.push(jsonPoliceStationData.List[i].police_station);    
             }
+            console.log("Entering the police station list into array is done");
             return true;
         }
         else
