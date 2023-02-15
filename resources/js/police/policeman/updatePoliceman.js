@@ -94,6 +94,7 @@ form.addEventListener('submit', e => {
 
 document.getElementById('police_id').addEventListener('input', function(){
     console.log('came until js function for event listener of policeID input coloumn changed');
+    setErrorFor(police_id, 'Police_ID Cannot be Altered');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
         checkPolicemanPolice_ID(police_idValue);
