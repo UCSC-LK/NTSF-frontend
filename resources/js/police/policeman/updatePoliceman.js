@@ -90,33 +90,35 @@ form.addEventListener('submit', e => {
 });
 
 //Checking whether data already exisiting
+//Here javascript event listener is called only when the value in the input field is changed
 
-document.getElementById('police_id').addEventListener('blur', function(){
-    console.log('came until js function for event listener of policeID blue');
+document.getElementById('police_id').addEventListener('input', function(){
+    console.log('came until js function for event listener of policeID input coloumn changed');
+    setErrorFor(police_id, 'Police_ID Cannot be Altered');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
         checkPolicemanPolice_ID(police_idValue);
     }
 });
 
-document.getElementById('nic').addEventListener('blur', function(){
-    console.log('came until js function for event listener of NIC blure');
+document.getElementById('nic').addEventListener('input', function(){
+    console.log('came until js function for event listener of NIC input coloumn changed');
     let nicValue = nic.value.trim();
     if(nicValue !== ''){
         checkPolicemanNic(nicValue);
     }
 });
 
-document.getElementById('mobile_number').addEventListener('blur', function(){
-    console.log('came until js function for event listener of mobilenumber blur');
+document.getElementById('mobile_number').addEventListener('input', function(){
+    console.log('came until js function for event listener of mobilenumber input coloumn changed');
     let mobile_numberValue = mobile_number.value.trim();
     if(mobile_numberValue !== ''){
         checkPolicemanMobile_Number(mobile_numberValue);
     }
 });
 
-document.getElementById('email').addEventListener('blur', function(){
-    console.log('came until js function for event listener of email blur');
+document.getElementById('email').addEventListener('input', function(){
+    console.log('came until js function for event listener of email input coloumn changed');
     let emailValue = email.value.trim();
     if(emailValue !== ''){
         checkPolicemanEmail(emailValue);
