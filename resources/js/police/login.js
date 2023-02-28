@@ -36,7 +36,7 @@ function loginAuthorizingBackend(username, password) {
     }
   }
 
-  httpReq.open('POST', 'http://localhost:8080/ntsf_backend_war/policeman', true);
+  httpReq.open('POST', 'http://localhost:8080/ntsf_backend_war/policeman_login', true);
   httpReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   httpReq.send('action=login' + '&username=' + username + '&password=' + password);
     
@@ -132,7 +132,7 @@ const checkLoginUsername = function(username) //Returns true if duplicate data e
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman_login", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.send("action=checkLoginUsername" + "&username=" + username);
 
