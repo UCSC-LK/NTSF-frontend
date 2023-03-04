@@ -3,6 +3,13 @@ const loadPolicemanDetails = function()
     var table = document.getElementById("table");
 
     console.log("I was called onload");
+    console.log("Printing session storage values")
+    jwt = sessionStorage.getItem('jwt');
+    console.log(jwt);
+    user_police_id = sessionStorage.getItem('police_id');
+    console.log(user_police_id);
+    user_rank = sessionStorage.getItem('rank');
+    console.log(user_rank);
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
@@ -13,6 +20,7 @@ const loadPolicemanDetails = function()
     
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=viewPoliceman");
 
     function completeLoad(httpreq)
