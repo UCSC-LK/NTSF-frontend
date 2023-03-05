@@ -18,10 +18,10 @@
             <h2 class="logo"><b>NTSF</b></h2>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">IGP Dashboard</button>
+        <button class="main">OIC Dashboard</button>
         <div class="clear"></div>
         <ul class="menu">
-            <a href="../igp/viewPoliceman.html">
+            <a href="../oic/viewPoliceman.html">
                 <i class="fa fa-dashboard"></i>
                 Policeman
             </a>
@@ -42,6 +42,30 @@
         </div>
     
     <!-- Dashbboard cards -->
+    <div class="all">
+        <a href="../igp/addPoliceman.html">
+            <button id="addPoliceman" class="addPolicemanButton">Add Policeman</button> <!--Show policestation name here-->
+        </a>
+        <div class="container">
+            <h1>Policeman Information</h1>
+            <div class="tableSection">
+                <table class="rwd-table" id="table">
+                    <tbody>
+                      <div class="tableheading">
+                        <thead>
+                          <th>Name</th>
+                          <th>Police_ID</th>
+                          <th>NIC</th>
+                          <th>Mobile Number</th>
+                          <th>Email</th>
+                          <th>Position</th> <!--All the rank will be Policeman under OIC--> <!--Same station-->
+                        </thead>
+                      </div>
+                      <div id="policemanData"></div>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
 
     <script src="../../resources/js/police/oic/policeman.js"></script>
 </body>
