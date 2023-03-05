@@ -83,12 +83,12 @@ function loginAuthorizingBackend(username, password) {
         getMessage(true);
         sessionStorage.setItem('rank', rank);
         window.location.href = "../../../police/igp/viewPoliceman.html";
-      } else if (rank === 'OIC') {
+      } else if (rank === 'oic') {
         console.log('Redirecting to OIC page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
         window.location.href = "../../../police/oic/viewPoliceman.html";
-      } else if (rank === 'Policeman') {
+      } else if (rank === 'policeman') {
         console.log('Redirecting to Policeman page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
