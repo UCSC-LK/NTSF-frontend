@@ -42,6 +42,7 @@ function loadPoliceStationOptionsListOnLoad(){
 
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=loadPoliceStationOptionsList");
 
     function loadPoliceStationOptionsList(httpreq) 
@@ -432,6 +433,7 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
 
     function addPolicemanData(httpReq)
@@ -468,6 +470,7 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
 
     function checkPolicemanPolice_IDData(httpReq)
@@ -517,6 +520,7 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkNIC" + "&nic=" + nic);
 
     function checkPolicemanNicData(httpReq)
@@ -565,6 +569,7 @@ const checkPolicemanMobile_Number = function(mobile_number) //Returns true if du
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkMobile_Number" + "&mobile_number=" + mobile_number);
 
     function checkPolicemanMobile_NumberData(httpReq)
@@ -613,6 +618,7 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkEmail" + "&email=" + email);
 
     function checkPolicemanEmailData(httpReq)
