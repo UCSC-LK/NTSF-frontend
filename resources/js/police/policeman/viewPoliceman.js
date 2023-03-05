@@ -18,7 +18,7 @@ const loadPolicemanDetails = function()
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=viewPoliceman");
@@ -115,7 +115,7 @@ function deletePolicemanDetails(police_id) //Delete a policeman
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.send("action=deletePoliceman" + "&police_id=" +police_id);
 
