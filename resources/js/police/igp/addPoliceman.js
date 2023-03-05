@@ -10,7 +10,7 @@ console.log("Printing below the username from session storage");
 console.log("police_idSession: " + police_idSession);
 
 let rankOptions = document.getElementById("rankOptions");
-let rankOptionList = ["OIC", "Policeman"];
+let rankOptionList = ["oic", "policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
 // let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
