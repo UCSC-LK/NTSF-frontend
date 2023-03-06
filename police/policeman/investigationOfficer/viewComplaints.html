@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
+    <link rel="stylesheet" href="../../../resources/css/police/policeman/investigationOfficer/viewComplaints.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body onload="loadPolicemanDetails()">
+<body onload="loadComplaintsDetails()">
     <div class="DashBoardOption">
         <div class="logo">
             <div class="dashboto-logo">
@@ -51,9 +51,6 @@
     
     <!-- Dashbboard cards -->
     <div class="all">
-        <a href="../igp/addPoliceman.html">
-            <button id="addPoliceman" class="addPolicemanButton">Add Policeman</button> <!--Show policestation name here-->
-        </a>
         <div class="container">
             <h1>Policeman Information</h1>
             <div class="tableSection">
@@ -61,12 +58,10 @@
                     <tbody>
                       <div class="tableheading">
                         <thead>
-                          <th>Name</th>
-                          <th>Police_ID</th>
+                          <th>Complaint ID</th>
+                          <th>Title</th>
                           <th>NIC</th>
-                          <th>Mobile Number</th>
-                          <th>Email</th>
-                          <th>Position</th> <!--All the rank will be Policeman under OIC--> <!--Same station-->
+                          <th>Position</th> 
                         </thead>
                       </div>
                       <div id="policemanData"></div>
@@ -75,6 +70,6 @@
             </div>
         </div>
 
-    <script src="../../resources/js/police/oic/policeman.js"></script>
+    <script src="../../../resources/js/police/policeman/investigationOfficer/viewComplaints.js"></script>
 </body>
 </html>

@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
+    <link rel="stylesheet" href="/resources/css/police/policeman/dashboard.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body onload="loadPolicemanDetails()">
+<body>
     <div class="DashBoardOption">
         <div class="logo">
             <div class="dashboto-logo">
@@ -18,16 +18,12 @@
             <h2 class="logo"><b>NTSF</b></h2>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">OIC Dashboard</button>
+        <button class="main">Policeman Dashboard</button>
         <div class="clear"></div>
         <ul class="menu">
-            <a href="../oic/viewPoliceman.html">
+            <a href="../../police/policeman/trafficPolice/addFine.html">
                 <i class="fa fa-dashboard"></i>
                 Policeman
-            </a>
-            <a href="../oic/">
-                <i class="fa fa-book"></i>
-                Fine
             </a>
             <a href="../oic/">
                 <i class="fa fa-book"></i>
@@ -51,28 +47,23 @@
     
     <!-- Dashbboard cards -->
     <div class="all">
-        <a href="../igp/addPoliceman.html">
-            <button id="addPoliceman" class="addPolicemanButton">Add Policeman</button> <!--Show policestation name here-->
         </a>
         <div class="container">
-            <h1>Policeman Information</h1>
-            <div class="tableSection">
-                <table class="rwd-table" id="table">
-                    <tbody>
-                      <div class="tableheading">
-                        <thead>
-                          <th>Name</th>
-                          <th>Police_ID</th>
-                          <th>NIC</th>
-                          <th>Mobile Number</th>
-                          <th>Email</th>
-                          <th>Position</th> <!--All the rank will be Policeman under OIC--> <!--Same station-->
-                        </thead>
-                      </div>
-                      <div id="policemanData"></div>
-                    </tbody>
-                  </table>
-            </div>
+            <div class="cardContainer">
+                <div class="card">
+                  <a href="/police/policeman/trafficPolice/addFine.html">
+                    <h2>Traffic Police</h2>
+                  </a>
+                </div>
+                <div class="card">
+                    <a href="/police/policeman/trafficPolice/viewAppeals.html">
+                        <h2>Investigation Officer</h2>
+                </div>
+                <div class="card">
+                    <a href="/police/policeman/trafficPolice/viewFines.css">
+                        <h2>Court Officer</h2>
+                </div>
+              </div>
         </div>
 
     <script src="../../resources/js/police/oic/policeman.js"></script>
