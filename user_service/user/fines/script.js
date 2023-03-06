@@ -1,14 +1,13 @@
-import { getFinesByUserId } from "/service/fineService.js";
+import { getFinesByNic } from "/service/fineService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-  getFinesByUserId(68, fineDataHTMLoutput);
+  // Store NIC no
+  getFinesByUserId("996129039V", fineDataHTMLoutput);
 });
 
 function fineDataHTMLoutput(finesDatArray) {
-  const finesTableDriver = document.getElementById("table-driver");
-  const finesTableVehicle = document.getElementById("table-vehicle");
-  const finesTablePedestrian = document.getElementById("table-pedestrian");
+  const finesTable = document.getElementById("table");
 
   // Add contents
   finesDatArray.map(
@@ -18,14 +17,14 @@ function fineDataHTMLoutput(finesDatArray) {
       date,
       dueDate,
       fineAmount,
-      // fineType,
+      fineType,
       paymentStatus,
     }) => {
       const dataRow = table.insertRow();
 
       const dataCellArray = [];
 
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 7; i++) {
         const dataCell = dataRow.insertCell(i);
         dataCellArray.push(dataCell);
       }
@@ -35,8 +34,8 @@ function fineDataHTMLoutput(finesDatArray) {
       dataCellArray[2].innerHTML = date;
       dataCellArray[3].innerHTML = dueDate;
       dataCellArray[4].innerHTML = fineAmount;
-      // dataCellArray[5].innerHTML = fineType;
-      dataCellArray[5].innerHTML = paymentStatus;
+      dataCellArray[5].innerHTML = fineType;
+      dataCellArray[6].innerHTML = paymentStatus;
     }
   );
 }
