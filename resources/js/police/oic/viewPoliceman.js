@@ -86,19 +86,19 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
     // dataCell6.innerHTML = position;
 
     if(position === "notAssigned"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions'>" +
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
         "<option value='notAssigned' selected>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "trafficPolice"){
-        dataCell6.innerHTML = "<select name='position' id='position'>" +
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
         "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice' selected>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "investigationOfficer"){
-        dataCell6.innerHTML = "<select name='position' id='position'>" +
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
         "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer' selected>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "courtSeargent"){
-        dataCell6.innerHTML = "<select name='position' id='position'>" +
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + "),>" +
         "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent' selected>Court Seargent</option>" + "</select>";
     }
     else{
@@ -106,7 +106,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
 
 
 
-    dataCell7.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPosition("+police_id+")'>Update Position</button>";
+   // dataCell7.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPosition("+police_id+")'>Update Position</button>";
     // dataCell8.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
 }
 
