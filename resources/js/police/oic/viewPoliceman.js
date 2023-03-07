@@ -110,7 +110,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
     // dataCell8.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
 }
 
-
+/*Not really sure this is working pretty well (Copied from updatePoliceman) */
 function editPosition(police_id) //Edit the position of the policeman
 {
    console.log(police_id);
