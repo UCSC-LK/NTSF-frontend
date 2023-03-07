@@ -99,7 +99,7 @@ function loginAuthorizingBackend(username, password) {
         sessionStorage.setItem('rank', rank);
         sessionStorage.setItem('position', position);
         sessionStorage.setItem('police_station', police_station)
-        window.location.href = "../../../police/policeman/viewPoliceman.html";
+        window.location.href = "../../../police/policeman/dashboard.html";
       }
       return true;
     }

@@ -98,7 +98,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
         "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer' selected>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "courtSeargent"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + "),>" +
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
         "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent' selected>Court Seargent</option>" + "</select>";
     }
     else{
