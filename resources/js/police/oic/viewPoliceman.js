@@ -155,6 +155,31 @@ function getSelectedPosition(){
     return selectedPosition;
 }
 
+function getMessage(positionUpdationStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (positionUpdationStatus == true) {
+        message.classList.add("danger");
+        message.textContent = "Position Updation Failed";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+    else {
+        message.classList.add("success");
+        message.textContent = "Position Updated";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+
+}
+
+
+
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;
 	const small = formControl.querySelector('small');
