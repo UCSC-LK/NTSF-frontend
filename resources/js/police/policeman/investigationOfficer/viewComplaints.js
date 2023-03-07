@@ -20,7 +20,7 @@ const loadPolicemanDetails = function()
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/investigationOfficer", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=viewComplaintsAsInvestigationOfficer");
@@ -74,8 +74,8 @@ function complaintDataHTMLoutput(user_id, title, complaint_no)
     //Add content to the table data cells
     dataCell1.innerHTML = user_id;
     dataCell2.innerHTML = title;
-    dataCell3.innerHTML = complaint_no;
-
+    dataCell3.innerHTML = description;
+    dataCell4.innerHTML = complaint_no;
     dataCell4.innerHTML = "<button type='button' class='btn btn-primary' id='viewButton' onclick='viewComplaintDetails("+user_id+")'>view</button>";
 }
 

@@ -75,9 +75,11 @@ function loginAuthorizingBackend(username, password) {
       var police_id = payloadDecodedJSON.police_id;
       var rank = payloadDecodedJSON.rank;
       var position = payloadDecodedJSON.position;
+      var police_station = payloadDecodedJSON.police_station;
       console.log(police_id);
       console.log(rank);
       console.log(position);
+      console.log(police_station);
       sessionStorage.setItem('police_id', police_id);
 
       if (rank === 'igp') {
@@ -89,12 +91,14 @@ function loginAuthorizingBackend(username, password) {
         console.log('Redirecting to OIC page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
+        sessionStorage.setItem('police_station', police_station)
         window.location.href = "../../../police/oic/viewPoliceman.html";
       } else if (rank === 'policeman') {
         console.log('Redirecting to Policeman page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
         sessionStorage.setItem('position', position);
+        sessionStorage.setItem('police_station', police_station)
         window.location.href = "../../../police/policeman/viewPoliceman.html";
       }
       return true;
