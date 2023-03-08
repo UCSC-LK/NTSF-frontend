@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../resources/css/police/igp/addPoliceman.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="DashBoardOption">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+            </div>
+            <p class="logo"><b>NTSF</b></p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <button class="main">IGP Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../igp/viewPoliceman.html">
+                <i class="fa fa-dashboard"></i>
+                Policeman
+            </a>
+            <br>
+            <a href="../igp/viewPoliceStation.html">
+                <i class="fa fa-book"></i>
+                Police Station
+            </a>
+            <a href="../login.html">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <div ng-app="app" ng-controller="coin">
+                <p class="btc-price">Suraif Muhammad</p>
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+        <div class="all">
+
+            <div class="formBody">
+                <div class="container">
+                    <div class="formHeader">
+                        <h2>Add Offence</h2>
+                    </div>
+                    <form action="#" id="form" class="form">
+                        <div class="form-control">
+                            <label for="offenceTypeOptions">Offence Type</label>
+                            <div class="options" id="offenceTypeOptions">
+                                <div class="hide-option option" id="hide-rankOption">Select the Type</div>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+                        <!--Offence_No Autoincrements in Database-->
+                        <div class="form-control">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
+                            <!-- <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i> -->
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="police_id">Description</label>
+                            <input type="text" placeholder="eg: 7109827" id="police_id" />
+                            <!-- <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i> -->
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="nic">Amonunt(Rs):</label>
+                            <input type="text" placeholder="eg: 200019292837" id="nic" />
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="demeritPointOptions">Demerit Points</label>
+                            <div class="options" id="demeritPointOptions">
+                                <div class="hide-option option" id="hide-rankOption">Select the Demerit points</div>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+
+                        <button id="button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <script src="../../resources/js/police/igp/addPoliceman.js"></script>
+    <script src="/resources/js/login.js"></script>
+</body>
+</html>
