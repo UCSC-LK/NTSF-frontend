@@ -1,4 +1,4 @@
-const loadPolicemanDetails = function()
+const loadOffenceDetails = function()
 {
     var table = document.getElementById("table");
 
@@ -25,26 +25,26 @@ const loadPolicemanDetails = function()
 
     function completeLoad(httpreq)
     {
-        let jsonPolicemanData = JSON.parse(httpreq.responseText);
-        console.log(jsonPolicemanData);
+        let jsonOffenceData = JSON.parse(httpreq.responseText);
+        console.log(jsonOffenceData);
 
-        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+        if(jsonOffenceData.serverResponse === "null session" || jsonOffenceData.serverResponse === "Not Allowed")
         {
             window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
             console.log("Redirecting to login page");
         }
-        else if(jsonPolicemanData.serverResponse === "Allowed")
+        else if(jsonOffenceData.serverResponse === "Allowed")
         {
             console.log("Allowed");
                     
             const offenceData = document.getElementById("offenceData");
             offenceData.innerHTML = "";
 
-            let count =  jsonPolicemanData.List.length - 1;
+            let count =  jsonOffenceData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                offenceDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
-                jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+                offenceDataHTMLoutput(jsonOffenceData.List[i].offence_no, jsonOffenceData.List[i].offence_type,
+                jsonOffenceData.List[i].description, jsonOffenceData.List[i].amount, jsonOffenceData.List[i].demerit_points);
             }
 
         }
@@ -52,19 +52,17 @@ const loadPolicemanDetails = function()
         {
             alert("Something went wrong");
         }
-        return jsonPolicemanData;
+        return jsonOffenceData;
     }
 }
 
-function offenceDataHTMLoutput(name, police_id, nic, mobile_number, email, rank, police_station)
+function offenceDataHTMLoutput(offence_no, offence_type, description, amount, demerit_points)
 {
-    console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(mobile_number);
-    console.log(email);
-    console.log(rank);
-    console.log(police_station);
+    console.log(offence_no);
+    console.log(offence_type);
+    console.log(description);
+    console.log(amount);
+    console.log(demerit_points);
 
     // create table data row
     var dataRow = table.insertRow();
@@ -75,62 +73,56 @@ function offenceDataHTMLoutput(name, police_id, nic, mobile_number, email, rank,
     var dataCell5 = dataRow.insertCell(4);
     var dataCell6 = dataRow.insertCell(5);
     var dataCell7 = dataRow.insertCell(6);
-    var dataCell8 = dataRow.insertCell(7);
-    var dataCell9 = dataRow.insertCell(8);
 
     //Add content to the table data cells
-    dataCell1.innerHTML = name;
-    dataCell2.innerHTML = police_id;
-    dataCell3.innerHTML = nic;
-    dataCell4.innerHTML = mobile_number;
-    dataCell5.innerHTML = email;
-    dataCell6.innerHTML = rank;
-    dataCell7.innerHTML = police_station;
-    // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
-    // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
-    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
-    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
+    dataCell1.innerHTML = offence_no;
+    dataCell2.innerHTML = offence_type;
+    dataCell3.innerHTML = description;
+    dataCell4.innerHTML = amount;
+    dataCell5.innerHTML = demerit_points;
+    dataCell6.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editOffenceDetails("+offence_no+")'>Edit</button>";
+    dataCell7.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deleteOffencePopUp("+offence_no+")'>Delete</button>";
 }
 
-function deletePolicemanDetails(police_id) //Delete a policeman
+function deleteOffenceDetails(offence_no) //Delete an offence
 {
-    console.log("Function called to Delete a policeman");
-    console.log(police_id);
+    console.log("Function called to Delete an offence");
+    console.log(offence_no);
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            policemanDeletionStatus = false;
-            if(deletePolicemanData(this))
+            offenceDeletionStatus = false;
+            if(deleteOffenceData(this))
             {
-                console.log("Policeman deleted successfully");
-                policemanDeletionStatus = true;
+                console.log("Offence deleted successfully");
+                offenceDeletionStatus = true;
             }
             else
             {
-                console.log("Policeman deletion failed");
-                policemanDeletionStatus = false;
+                console.log("Offence deletion failed");
+                offenceDeletionStatus = false;
             }
-            getMessage(policemanDeletionStatus);
+            getMessage(offenceDeletionStatus);
         }
     }
     
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpreq.send("action=deletePoliceman" + "&police_id=" +police_id);
+    httpreq.send("action=deleteOffence" + "&offence_no=" +offence_no);
 
-    function deletePolicemanData(httpreq)
+    function deleteOffenceData(httpreq)
     {
-        console.log("deletePolicemanData function called");
-        let jsonDeletePolicemanResponse = JSON.parse(httpreq.responseText);
-        console.log(jsonDeletePolicemanResponse);
-        let jsonDeletePolicemanResponseAlert = jsonDeletePolicemanResponse.alert;
-        console.log(jsonDeletePolicemanResponseAlert);
+        console.log("deleteOffenceData function called");
+        let jsonDeleteOffenceResponse = JSON.parse(httpreq.responseText);
+        console.log(jsonDeleteOffenceResponse);
+        let jsonDeleteOffenceResponseAlert = jsonDeleteOffenceResponse.alert;
+        console.log(jsonDeleteOffenceResponseAlert);
 
-        if(jsonDeletePolicemanResponseAlert == true)
+        if(jsonDeleteOffenceResponseAlert == true)
         {
-            console.log("Policeman deleted successfully");
+            console.log("Offence deleted successfully");
             window.location.reload();
             return true;
         }
@@ -142,11 +134,11 @@ function deletePolicemanDetails(police_id) //Delete a policeman
     }
 }
 
-function editPolicemanDetails(police_id) //Edit a policeman
+function editOffenceDetails(offence_no) //Edit a offence
 {
-    console.log("Function called to Edit a policeman");
-    window.location.href = "../../../../police/igp/updatePoliceman.html";
-    sessionStorage.setItem("Updatepolice_id", police_id);
+    console.log("Function called to Edit an offence");
+    window.location.href = "../../../../police/igp/updateOffence.html";
+    sessionStorage.setItem("Updateoffence_no", offence_no);
 }
 
 //Model to ask are you sure want to delete??
@@ -155,20 +147,20 @@ const modalYes = document.getElementById('modal-yes');
 const modalNo = document.getElementById('modal-no');
 
 
-function deletePolicemanPopUp(police_id) {
+function deleteOffencePopUp(offence_no) {
     modal.style.display = "block";
-    console.log("popup is called with police_id: " + police_id);
+    console.log("popup is called with offence_no: " + offence_no);
 
     modalYes.onclick = function() {
     // Perform the delete operation
-    console.log("YES delete is clicked" + police_id);
-    deletePolicemanDetails(police_id);
+    console.log("YES delete is clicked" + offence_no);
+    deleteOffenceDetails(offence_no);
     modal.style.display = "none";
     };
 
 
     modalNo.onclick = function() {
-    console.log("NO delete is clicked" + police_id);  
+    console.log("NO delete is clicked" + offence_no);  
     modal.style.display = "none";
     };
 
