@@ -300,7 +300,7 @@ const checkOffenceDescription = function(description) //Returns true if duplicat
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=checkDescription" + "&description=" + description);
+    httpReq.send("action=checkOffenceDescription" + "&description=" + description);
 
     function checkOffenceDescriptionData(httpReq)
     {
