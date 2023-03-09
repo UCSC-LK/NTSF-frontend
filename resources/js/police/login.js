@@ -80,7 +80,7 @@ function loginAuthorizingBackend(username, password) {
       console.log(rank);
       console.log(position);
       console.log(police_station);
-      sessionStorage.setItem('police_idSession', police_idSession);
+      sessionStorage.setItem('user_police_id', police_id);
 
       if (rank === 'igp') {
         console.log('Redirecting to IGP page');

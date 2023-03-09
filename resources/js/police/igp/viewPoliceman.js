@@ -6,8 +6,8 @@ const loadPolicemanDetails = function()
     console.log("Printing session storage values")
     jwt = sessionStorage.getItem('jwt');
     console.log(jwt);
-    user_police_id = sessionStorage.getItem('police_id');
-    console.log(user_police_id);
+    user_police_id = sessionStorage.getItem('user_police_id');
+    console.log("user_police_id: " +user_police_id);
     user_rank = sessionStorage.getItem('rank');
     console.log(user_rank);
     let httpreq = new XMLHttpRequest;

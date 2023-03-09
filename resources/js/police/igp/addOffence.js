@@ -2,15 +2,15 @@ const form = document.getElementById('form');
 const description = document.getElementById('description');
 const amount = document.getElementById('amount');
 
-var police_idSession = sessionStorage.getItem("username");
+var police_idSession = sessionStorage.getItem("user_police_id");
 console.log("Printing below the username from session storage");
-console.log("police_idSession: " + police_idSession);
+console.log("user_police_id: " + police_idSession);
 
-let offenceTypeOptions = document.getElementById("offenceTypeOptions");
-let offenceTypeOptionList = ["driver", "pedestrian", "vehicle"];
+let offence_typeOptions = document.getElementById("offence_typeOptions");
+let offence_typeOptionList = ["driver", "pedestrian", "vehicle"];
 
-const demeritPointsOptions = document.getElementById('demeritPointsOptions');
-let demeritPointsOptionList = [1, 2, 3];
+const demerit_pointOptions = document.getElementById('demerit_pointOptions');
+let demerit_pointOptionList = [1, 2, 3];
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -22,7 +22,7 @@ document.getElementById('description').addEventListener('blur', function(){
     console.log('came until js function for event listener of Description blure');
     let descriptionValue = description.value.trim();
     if(descriptionValue !== ''){
-        checkOffenceDescription(description.value);
+        checkOffenceDescription(descriptionValue);
     }
 });
 
@@ -32,13 +32,13 @@ function checkInputs() {
 	const descriptionValue = description.value.trim();
     const amountValue = amount.value.trim();
 
-    let flagOffenceType = 1 //error exists
+    let flagOffence_type = 1 //error exists
     let flagDescription = 1 //error exists
     let flagAmount = 1 //error exists
-    let flagDemeritPoints = 1 //error exists
+    let flagDemerit_point = 1 //error exists
 	
 	if(descriptionValue === '') {
-		setErrorFor(nic, 'Description cannot be blank');
+		setErrorFor(description, 'Description cannot be blank');
         flagDescription = 1;
         
 	}
@@ -56,36 +56,36 @@ function checkInputs() {
         flagAmount = 0;
     }
 
-    let offenceType = checkOffenceTypeFill();
-    if(offenceType){
-        setSuccessFor(offenceTypeOptions);
-        var offenceTypeValue = offenceType;
-        flagOffenceType = 0;
+    let offence_type = checkOffence_typeFill();
+    if(offence_type){
+        setSuccessFor(offence_typeOptions);
+        var offence_typeValue = offence_type;
+        flagOffence_type = 0;
     }
     else {
-        setErrorFor(offenceTypeOptions, 'An offence type should be  selected');
-        flagOffenceType = 1;
+        setErrorFor(offence_typeOptions, 'An offence type should be  selected');
+        flagOffence_type = 1;
         
     }
 
-    let demeritPoints = checkDemeritPointsFill();
+    let demerit_point = checkDemerit_pointFill();
 
-    if(demeritPoints){
-        setSuccessFor(demeritPointsOptions);
-        var demeritPointsValue = demeritPoints;
-        flagDemeritPoints = 0;
+    if(demerit_point){
+        setSuccessFor(demerit_pointOptions);
+        var demerit_pointValue = demerit_point;
+        flagDemerit_point = 0;
     } else {
-        setErrorFor(demeritPointsOptions, 'A Demerit Point should be  selected');
-        flagDemeritPoints = 1;
+        setErrorFor(demerit_pointOptions, 'A Demerit Point should be  selected');
+        flagDemerit_point = 1;
     }
 
-    if(flagOffenceType === 0 && flagDescription === 0 && flagAmount === 0 && flagDemeritPoints === 0){
+    if(flagOffence_type === 0 && flagDescription === 0 && flagAmount === 0 && flagDemerit_point === 0){
         console.log('came until js function for event listener of submit button');
-        console.log("offenceTypeValue: " + offenceTypeValue);
+        console.log("offence_typeValue: " + offence_typeValue);
         console.log("descriptionValue: " + descriptionValue);
         console.log("amountValue: " + amountValue);
-        console.log("demeritPointsValue: " + demeritPointsValue);
-        addOffence(offenceTypeValue, descriptionValue, amountValue, demeritPointsValue);
+        console.log("demerit_pointValue: " + demerit_pointValue);
+        addOffence(offence_typeValue, descriptionValue, amountValue, demerit_pointValue);
     }
 }
 
@@ -104,128 +104,128 @@ function setSuccessFor(input) {
 
 let isOpen = false;
 
-function checkOffencetypeFill() {
-    if (offenceTypeOptions.firstElementChild.classList.contains("hide-option")) {
+function checkOffence_typeFill() {
+    if (offence_typeOptions.firstElementChild.classList.contains("hide-option")) {
         return false;
     }
     else {
-        let selectedOffencetype = offenceTypeOptions.firstElementChild.textContent;
-        console.log(selectedOffencetype);
-        return selectedOffencetype;
+        let selectedOffence_type = offence_typeOptions.firstElementChild.textContent;
+        console.log(selectedOffence_type);
+        return selectedOffence_type;
     }
 }
 
-function checkDemeritPointsFill() {
-    if (demeritPointsOptions.firstElementChild.classList.contains("hide-option")) {
+function checkDemerit_pointFill() {
+    if (demerit_pointOptions.firstElementChild.classList.contains("hide-option")) {
         return false;
     }
     else {
-        let selectedDemeritPoints = demeritPointsOptions.firstElementChild.textContent;
-        console.log(selectedDemeritPoints);
-        return selectedDemeritPoints;
+        let selectedDemerit_point = demerit_pointOptions.firstElementChild.textContent;
+        console.log(selectedDemerit_point);
+        return selectedDemerit_point;
     }
 }
 
-offenceTypeOptions.addEventListener("click", addToUIOptionsOffenceType);
-demeritPointsOptions.addEventListener("click", addToUIOptionsdemeritPoints);
+offence_typeOptions.addEventListener("click", addToUIOptionsOffence_type);
+demerit_pointOptions.addEventListener("click", addToUIOptionsDemerit_point);
 
 
 //e.target refers to the clicked element
 //adding UI options to offence type
-function addToUIOptionsOffenceType(e) {
+function addToUIOptionsOffence_type(e) {
     if (e.target.classList.contains("hide-option")) {
-        controlOptionsOffenceType(e);
+        controlOptionsOffence_type(e);
     }
     else {
         const pickedOption = e.target;
 
-        if (offenceTypeOptions.firstElementChild.classList.contains("hide-option")) {
-            offenceTypeOptions.removeChild(offenceTypeOptions.firstElementChild);
+        if (offence_typeOptions.firstElementChild.classList.contains("hide-option")) {
+            offence_typeOptions.removeChild(offence_typeOptions.firstElementChild);
         }
-        offenceTypeOptions.insertAdjacentElement("afterbegin", pickedOption);
+        offence_typeOptions.insertAdjacentElement("afterbegin", pickedOption);
 
-        deleteOptionsOffenceType();
-        controlOptionsOffenceType(e);
+        deleteOptionsOffence_type();
+        controlOptionsOffence_type(e);
     }
 }
 
-function controlOptionsOffenceType(e) {
+function controlOptionsOffence_type(e) {
     if (isOpen === false) {
-        createOptionsOffenceType();
-        offenceTypeOptions.classList.add("opened");
+        createOptionsOffence_type();
+        offence_typeOptions.classList.add("opened");
         isOpen = true;
     }
     else {
-        deleteOptionsOffenceType();
-        offenceTypeOptions.classList.remove("opened");
+        deleteOptionsOffence_type();
+        offence_typeOptions.classList.remove("opened");
         isOpen = false;
     }
 }
 
-function deleteOptionsOffenceType() {
-    while (offenceTypeOptions.childElementCount > 1) {
-        offenceTypeOptions.removeChild(offenceTypeOptions.lastElementChild);
+function deleteOptionsOffence_type() {
+    while (offence_typeOptions.childElementCount > 1) {
+        offence_typeOptions.removeChild(offence_typeOptions.lastElementChild);
     }
 }
 
-function createOptionsOffenceType() {
-    offenceTypeOptionList.forEach(element => {
-        if (offenceTypeOptions.firstElementChild.textContent !== element) {
-            let offenceTypeOption = document.createElement("div");
-            offenceTypeOption.className = "option";
-            offenceTypeOption.textContent = element;
+function createOptionsOffence_type() {
+    offence_typeOptionList.forEach(element => {
+        if (offence_typeOptions.firstElementChild.textContent !== element) {
+            let offence_typeOption = document.createElement("div");
+            offence_typeOption.className = "option";
+            offence_typeOption.textContent = element;
 
-            offenceTypeOptions.firstElementChild.insertAdjacentElement("afterend", offenceTypeOption);
+            offence_typeOptions.firstElementChild.insertAdjacentElement("afterend", offence_typeOption);
         }
     });
 };
 
 //adding UI options to demerit points
-function addToUIOptionsdemeritPoints(e) {
+function addToUIOptionsDemerit_point(e) {
     if (e.target.classList.contains("hide-option")) {
-        controlOptionsdemeritPoints(e);
+        controlOptionsDemerit_point(e);
         console.log(e);
     }
     else {
         const pickedOption = e.target;
 
-        if (demeritPointsOptions.firstElementChild.classList.contains("hide-option")) {
-            demeritPointsOptions.removeChild(demeritPointsOptions.firstElementChild);
+        if (demerit_pointOptions.firstElementChild.classList.contains("hide-option")) {
+            demerit_pointOptions.removeChild(demerit_pointOptions.firstElementChild);
         }
-        demeritPointsOptions.insertAdjacentElement("afterbegin", pickedOption);
+        demerit_pointOptions.insertAdjacentElement("afterbegin", pickedOption);
 
-        deleteOptionsdemeritPoints();
-        controlOptionsdemeritPoints(e);
+        deleteOptionsDemerit_point();
+        controlOptionsDemerit_point(e);
     }
 }
 
-function controlOptionsdemeritPoints(e) {
+function controlOptionsDemerit_point(e) {
     if (isOpen === false) {
-        createOptionsdemeritPoints();
-        demeritPointsOptions.classList.add("opened");
+        createOptionsDemerit_point();
+        demerit_pointOptions.classList.add("opened");
         isOpen = true;
     }
     else {
-        deleteOptionsdemeritPoints();
-        demeritPointsOptions.classList.remove("opened");
+        deleteOptionsDemerit_point();
+        demerit_pointOptions.classList.remove("opened");
         isOpen = false;
     }
 }
 
-function deleteOptionsdemeritPoints() {
-    while (demeritPointsOptions.childElementCount > 1) {
-        demeritPointsOptions.removeChild(demeritPointsOptions.lastElementChild);
+function deleteOptionsDemerit_point() {
+    while (demerit_pointOptions.childElementCount > 1) {
+        demerit_pointOptions.removeChild(demerit_pointOptions.lastElementChild);
     }
 }
 
-function createOptionsdemeritPoints() {
-    demeritPointsOptionList.forEach(element => {
-        if (demeritPointsOptions.firstElementChild.textContent !== element) {
-            let demeritPointsOption = document.createElement("div");
-            demeritPointsOption.className = "option";
-            demeritPointsOption.textContent = element;
+function createOptionsDemerit_point() {
+    demerit_pointOptionList.forEach(element => {
+        if (demerit_pointOptions.firstElementChild.textContent !== element) {
+            let demerit_pointOption = document.createElement("div");
+            demerit_pointOption.className = "option";
+            demerit_pointOption.textContent = element;
 
-            demeritPointsOptions.firstElementChild.insertAdjacentElement("afterend", demeritPointsOption);
+            demerit_pointOptions.firstElementChild.insertAdjacentElement("afterend", demerit_pointOption);
         }
     });
 };
@@ -233,13 +233,13 @@ function createOptionsdemeritPoints() {
 
 //Sending data to backend
 
-const addOffence = function(offenceType, description, amount, demeritPoints)
+const addOffence = function(offence_type, description, amount, demerit_point)
 {
     console.log('came until js function for addOffence which sends data to backend');
-    console.log(offenceType);
+    console.log(offence_type);
     console.log(description);
     console.log(amount);
-    console.log(demeritPoints);
+    console.log(demerit_point);
 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function()
@@ -263,7 +263,7 @@ const addOffence = function(offenceType, description, amount, demeritPoints)
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addOffence" + "&offenceType=" + offenceType + "&description=" + description + "&amount=" + amount + "&demeritPoints=" + demeritPoints);
+    httpReq.send("action=addOffence" + "&offence_type=" + offence_type + "&description=" + description + "&amount=" + amount + "&demerit_point=" + demerit_point);
 
     function addOffenceData(httpReq)
     {
