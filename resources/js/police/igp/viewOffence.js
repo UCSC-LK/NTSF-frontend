@@ -107,7 +107,7 @@ function deleteOffenceDetails(offence_no) //Delete an offence
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=deleteOffence" + "&offence_no=" +offence_no);
