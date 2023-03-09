@@ -9,8 +9,8 @@ console.log("police_idSession: " + police_idSession);
 let offenceTypeOptions = document.getElementById("offenceTypeOptions");
 let offenceTypeOptionList = ["driver", "pedestrian", "vehicle"];
 
-const demeritPointOptions = document.getElementById('demeritPointOptions');
-let demeritPointOptionList = [1, 2, 3];
+const demeritPointsOptions = document.getElementById('demeritPointsOptions');
+let demeritPointsOptionList = [1, 2, 3];
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -127,7 +127,6 @@ function checkDemeritPointsFill() {
 }
 
 offenceTypeOptions.addEventListener("click", addToUIOptionsOffenceType);
-demeritPointsOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 demeritPointsOptions.addEventListener("click", addToUIOptionsdemeritPoints);
 
 
@@ -261,7 +260,7 @@ const addOffence = function(offenceType, description, amount, demeritPoints)
             getMessage(offenceAdditionStatus);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=addOffence" + "&offenceType=" + offenceType + "&description=" + description + "&amount=" + amount + "&demeritPoints=" + demeritPoints);
