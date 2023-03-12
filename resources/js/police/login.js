@@ -91,14 +91,14 @@ function loginAuthorizingBackend(username, password) {
         console.log('Redirecting to OIC page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
-        sessionStorage.setItem('police_station', police_station)
+        sessionStorage.setItem('user_police_station', police_station)
         window.location.href = "../../../police/oic/viewPoliceman.html";
       } else if (rank === 'policeman') {
         console.log('Redirecting to Policeman page');
         getMessage(true);
         sessionStorage.setItem('rank', rank);
         sessionStorage.setItem('position', position);
-        sessionStorage.setItem('police_station', police_station)
+        sessionStorage.setItem('user_police_station', police_station)
         window.location.href = "../../../police/policeman/dashboard.html";
       }
       return true;

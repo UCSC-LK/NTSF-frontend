@@ -10,7 +10,7 @@ const loadPolicemanDetails = function()
     console.log(user_police_id);
     user_rank = sessionStorage.getItem('rank');
     console.log(user_rank);
-    user_police_station = sessionStorage.getItem('police_station');
+    user_police_station = sessionStorage.getItem('user_police_station');
     console.log(user_police_station);
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
