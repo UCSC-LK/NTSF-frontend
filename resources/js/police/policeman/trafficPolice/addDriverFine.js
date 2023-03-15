@@ -5,6 +5,8 @@ console.log("fine_type: " + fine_type);
 if(fine_type == "driver"){
     document.getElementById("user_id").placeholder = "Enter License No";
     document.querySelector('label[for="user_id"]').innerHTML = "License No:";
+
+    document.getElementById("drivenVehicle").setAttribute("hidden", false); //Make the drivenVehicle input coloumn visible
 }
 else if(fine_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
