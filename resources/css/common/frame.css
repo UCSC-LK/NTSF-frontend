@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600");
+@import url("https://kit.fontawesome.com/251590f28b.css");
+
+body {
+	font-family: "Lato", sans-serif;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+
+.ntsflogo {
+	height: 75px;
+	width: 125px;
+	margin-left: -30px;
+}
+
+.dashboto-logo p:nth-child(2) {
+	font-weight: 600;
+}
+
+.tagline {
+	color: #9b9ea2;
+	font-weight: 300;
+	padding: 0px 5px;
+	margin-top: -5px;
+}
+
+
+.DashBoardOption {
+	width: 20%;
+	height: 100vh;
+	padding: 0px 2%;
+	float: left;
+}
+
+.logo {
+	margin-left: 2px;
+}
+
+button {
+	background: #14abfa;
+	border: solid 6px #14abfa;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: 700;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.2em;
+	margin-left: 6px;
+}
+
+.menu {
+	margin-top: 30px;
+	width: 100%;
+	padding: 0px;
+	margin-left: 8px;
+}
+
+.menu a {
+	width: 100%;
+	color: #666666;
+	text-decoration: none;
+	margin: 15px 0px;
+	float: left;
+	display: block;
+	font-size: 1.2em;
+}
+
+.menu a:nth-child(3) {
+	color: #14abfa;
+}
+
+.menu a i {
+	font-size: 1.7em;
+	color: #14abfa;
+	position: relative;
+	padding-right: 10px;
+	top: 3px;
+}
+
+.menu .fa-tasks {
+	top: 6px;
+	padding-left: 2px;
+}
+
+.menu .fa-book {
+	top: 5px;
+	padding-left: 2px;
+}
+
+.menu .fa-newspaper-o {
+	top: 6px;
+	padding-left: 2px;
+}
+
+.menu .fa-money {
+	top: 5px;
+	padding-left: 2px;
+}
+
+.clear {
+	clear: both;
+}
+
+.dashboard-heading {
+	width: 76%;
+	float: left;
+	background: #ffffff;
+	position: relative;
+	color: #73787c;
+	margin-top: 20px;
+	position: relative;
+}
+
+.dashboard-heading .panel {
+	padding-bottom: 40px;
+	background-color: #12abf7;
+	margin-bottom: 20px;
+}
+
+.btc-price {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: -8px;
+	color: white;
+}
+
+.dashboard-heading .panel i {
+	border-radius: 50%;
+	background: #f4f4f4;
+	padding: 8px;
+	border: solid 2px;
+	position: relative;
+	left: 20px;
+	cursor: pointer;
+	background-color: #12abf7;
+}
+
+.dashboard-heading .all {
+	margin-top: 20px;
+	background: #f2f2f2;
+	width: 100%;
+	min-height: 100vh;
+}
+
+@media only screen and (max-width: 800px) {
+	.DashBoardOption {
+		width: 90%;
+		display: none;
+	}
+
+	.dashboard-heading {
+		width: 100%;
+	}
+
+	.blok i {
+		display: none;
+	}
+}
