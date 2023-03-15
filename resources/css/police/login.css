@@ -2,31 +2,26 @@
 .header
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     border: 1px solid black;
     margin-bottom: 20px;
     background-color: #14abfa;
 
 }
 
-.ntsflogo{
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-
+img
+{
+    width: 120px;
+    height: 80px;
+    padding: 5px;
 }
 
-
-
-.formIcon{
+.profileLogo
+{
     width: 100px;
     height: 100px;
-
+    padding: 15px;
 }
-
 
 body {
   font-family: "Lato", sans-serif;
@@ -34,11 +29,7 @@ body {
   height: 100%;
   width: 100%;
   position: fixed;
-  display: flex;
-  flex-direction: column;
 }
-
-
 @keyframes spinner {
   0% {
     transform: rotateZ(0deg);
@@ -53,7 +44,7 @@ body {
 .wrapper {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -242,4 +233,3 @@ footer a, footer a:link {
 .form-control.error small {
 	visibility: visible;
 }
-
