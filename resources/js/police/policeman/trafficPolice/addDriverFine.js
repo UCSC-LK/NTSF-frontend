@@ -6,7 +6,7 @@ if(fine_type == "driver"){
     document.getElementById("user_id").placeholder = "Enter License No";
     document.querySelector('label[for="user_id"]').innerHTML = "License No:";
 
-    document.getElementById("drivenVehicle").setAttribute("hidden", false); //Make the drivenVehicle input coloumn visible
+    document.getElementById("driven_vehicle").setAttribute("hidden", false); //Make the drivenVehicle input coloumn visible
 }
 else if(fine_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
@@ -23,6 +23,7 @@ else
 
 const form = document.getElementById('form');
 const user_id = document.getElementById('user_id');
+const driven_vehicle = document.getElementById('driven_vehicle');
 const offence_no = document.getElementById('offence_no');
 const spot_description = document.getElementById('spot_description');
 
@@ -205,7 +206,7 @@ const addFine = function(user_id, offence_no, spot_description)
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addFine" + "&fine_type" + fine_type + "&user_id=" + user_id + "&offence_no=" + offence_no + "&spot_description=" + spot_description + "&police_id=" + police_id + "&police_station=" + police_station);
+    httpReq.send("action=addFine" + "&fine_type" + fine_type + "&user_id=" + user_id + "&driven_vehicle" + driven_vehicle + "&offence_no=" + offence_no + "&spot_description=" + spot_description + "&police_id=" + police_id + "&police_station=" + police_station);
 
     function addFineData(httpReq)
     {
