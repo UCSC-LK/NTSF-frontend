@@ -5,7 +5,6 @@ console.log("fine_type: " + fine_type);
 if(fine_type == "driver"){
     document.getElementById("user_id").placeholder = "Enter License No";
     document.querySelector('label[for="user_id"]').innerHTML = "License No:";
-
 }
 else if(fine_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
