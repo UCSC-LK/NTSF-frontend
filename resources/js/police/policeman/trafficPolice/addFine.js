@@ -72,8 +72,8 @@ function checkInputs() {
             setErrorFor(user_id, 'License No should contain only numbers');
             flagUser_id = 1;
         }
-        else if(user_idValueTrim.length !== 10){
-            setErrorFor(user_id, 'License No should contain 10 numbers');
+        else if(user_idValueTrim.length !== 7){
+            setErrorFor(user_id, 'License No should contain 7 numbers');
             flagUser_id = 1;
         }
         else {
@@ -131,7 +131,7 @@ function checkInputs() {
         setErrorFor(offence_no, 'Offence No should contain only numbers');
         flagOffence_no = 1;
     }
-    else if(offence_noValueTrim.length <= 3){
+    else if(offence_noValueTrim.length > 3){
         setErrorFor(offence_no, 'Offence No must have 3 or less digits, refer to manual.');
         flagOffence_no = 1;
     }
