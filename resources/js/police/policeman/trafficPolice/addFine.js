@@ -131,8 +131,8 @@ function checkInputs() {
         setErrorFor(offence_no, 'Offence No should contain only numbers');
         flagOffence_no = 1;
     }
-    else if(offence_noValueTrim.length !== 3){
-        setErrorFor(offence_no, 'Offence No should contain 3 numbers, check the manual for offence no');
+    else if(offence_noValueTrim.length <= 3){
+        setErrorFor(offence_no, 'Offence No must have 3 or less digits, refer to manual.');
         flagOffence_no = 1;
     }
     else {
