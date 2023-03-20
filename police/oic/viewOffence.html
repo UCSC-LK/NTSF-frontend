@@ -1,15 +1,15 @@
-<!-- <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/igp/viewFine.css">
+    <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body onload="loadPolicemanDetails()">
+<body onload="loadOffenceDetails()">
     <div class="DashBoardOption">
         <div class="logo">
             <div class="dashboto-logo">
@@ -21,22 +21,18 @@
         <button class="main">IGP Dashboard</button>
         <div class="clear"></div>
         <ul class="menu">
-            <a href="../igp/viewPoliceman.html">
+            <a href="../oic/viewPoliceman.html">
                 <i class="fa fa-dashboard"></i>
-                View Policeman
+                Policeman
             </a>
             <br>
-            <a href="../igp/addPoliceman.html">
-                <i class="fa fa-tasks"></i>
-                Add Policeman
-            </a>
-            <a href="../igp/viewPoliceStation.html">
+            <a href="../oic/viewFine.html">
                 <i class="fa fa-book"></i>
-                View Police Station
+                Fine
             </a>
-            <a href="../igp/addPoliceStation.html">
-                <i class="fa fa-newspaper-o"></i>
-                Add Police Station
+            <a href="../oic/viewOffence.html">
+                <i class="fa fa-book"></i>
+                Offence
             </a>
             <a href="../login.html">
                 <i class="fa fa-money"></i>
@@ -55,26 +51,30 @@
     
     <!-- Dashbboard cards -->
         <div class="all">
+            <a href="../igp/addOffence.html">
+                <button id="addPoliceman" class="addPolicemanButton">Add Offence</button>
+            </a>
             <div class="container">
-                <h1>Policeman Information</h1>
+                <h1>Offence Information</h1>
                 <div class="tableSection">
                     <table class="rwd-table" id="table">
                         <tbody>
                           <div class="tableheading">
                             <thead>
-                              <th>Name</th>
-                              <th>Police_ID</th>
-                              <th>NIC</th>
-                              <th>Rank</th>
-                              <th>Police Station</th>
+                              <th>Offence No</th>
+                              <th>Offence Type</th>
+                              <th>Description</th>
+                              <th>Amount</th>
+                              <th>Demerit Points</th>
                             </thead>
                           </div>
-                          <div id="policemanData"></div>
+                          <div id="offenceData"></div>
                         </tbody>
                       </table>
                 </div>
             </div>
         </div>
-    <script src="/resources/js/police/igp/viewFine.js"></script>
+
+    <script src="../../resources/js/police/oic/viewOffence.js"></script>
 </body>
-</html> -->
+</html>git commit --amend -m "New commit message"

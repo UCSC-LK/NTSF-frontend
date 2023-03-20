@@ -334,6 +334,7 @@ const addPoliceStation = function(branch_name, address, district, province, cont
     }
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=addPoliceStation" + "&branch_name=" + branch_name + "&address=" + address + "&district=" + district + "&province=" + province + "&contact_number=" + contact_number + "&email=" + email);
 
     function addPoliceStationData(httpReq)
@@ -370,6 +371,7 @@ const checkPoliceStationBranch_Name = function(branch_name) //Returns true if du
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkBranch_Name" + "&branch_name=" + branch_name);
 
     function checkPoliceStationBranch_NameData(httpReq)
@@ -419,6 +421,7 @@ const checkPoliceStationContact_Number = function(contact_number) //Returns true
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkContact_Number" + "&contact_number=" + contact_number);
 
     function checkPoliceStationContact_NumberData(httpReq)
@@ -468,6 +471,7 @@ const checkPoliceStationEmail = function(email) //Returns true if duplicate data
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkEmail" + "&email=" + email);
 
     function checkPoliceStationEmailData(httpReq)

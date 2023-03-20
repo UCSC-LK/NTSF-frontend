@@ -1,71 +1,3 @@
-function fetchPolicemanDetails(){
-    console.log("I was called onload");
-    let police_id = sessionStorage.getItem("Updatepolice_id");
-
-    let httpreq = new XMLHttpRequest;
-    httpreq.onreadystatechange = function()
-    {
-        if (this.readyState === 4 && this.status === 200) {
-            if(fetchPolicemanData(this))
-            {
-                console.log("Policeman fetched successfully");
-            }
-            else
-            {
-                console.log("Policeman fetch failed");
-            }
-        }
-    }
-
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
-    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
-    httpreq.send("action=fetchPoliceman" + "&police_id=" +police_id);
-
-    function fetchPolicemanData(httpreq)
-    {
-        let jsonPolicemanData = JSON.parse(httpreq.responseText)
-        console.log(jsonPolicemanData);
-
-        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
-        {
-            window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
-            console.log("Redirecting to login page");
-        }
-        else if(jsonPolicemanData.serverResponse === "Allowed")
-        {
-            console.log("Allowed");
-                    
-            let name = document.getElementById("name");
-            let police_id = document.getElementById("police_id");
-            let nic = document.getElementById("nic");
-            let mobile_number = document.getElementById("mobile_number");
-            let email = document.getElementById("email")
-            let rank = document.getElementById("rank");
-            let police_station = document.getElementById("police_station");
-
-            console.log(name);
-            console.log(police_id);
-            console.log(nic);
-            console.log(mobile_number);
-            console.log(email);
-            console.log(rank);
-            console.log(police_station);
-
-            name.setAttribute("value", jsonPolicemanData.List[0].name);
-            police_id.setAttribute("value", jsonPolicemanData.List[0].police_id);
-            nic.setAttribute("value", jsonPolicemanData.List[0].nic);
-            mobile_number.setAttribute("value", jsonPolicemanData.List[0].mobile_number);
-            email.setAttribute("value", jsonPolicemanData.List[0].email);
-            rank.setAttribute("value", jsonPolicemanData.List[0].rank);
-            police_station.setAttribute("value", jsonPolicemanData.List[0].police_station)
-        }
-        else
-        {
-            alert("Something went wrong");
-        }
-    }
-}
-
 const form = document.getElementById('form');
 const name = document.getElementById('name');
 const police_id = document.getElementById('police_id');
@@ -73,15 +5,77 @@ const nic = document.getElementById('nic');
 const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
 
-var police_idSession = sessionStorage.getItem("username");
+var police_idSession = sessionStorage.getItem("user_police_id");
 console.log("Printing below the username from session storage");
 console.log("police_idSession: " + police_idSession);
 
 let rankOptions = document.getElementById("rankOptions");
-let rankOptionList = ["OIC", "Policeman"];
+let rankOptionList = ["oic", "policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
-let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+// let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+let police_stationOptionList = [];
+
+/*Dynamically load the policestation option list*/
+function loadPoliceStationOptionsListOnLoad(){
+    console.log("Loading PoliceStation List to be included in drop down dynamiclly");
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            if(loadPoliceStationOptionsList(this))
+            {
+                console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
+                console.log("Printing the police station list below");
+                console.log(police_stationOptionList);
+            }
+            else
+            {
+                console.log("came until js function to load PoliceStation List dynamically");
+            }
+        }
+        else
+        {
+            console.log("Loading PoliceStation information dynamiclly FAILED!!!");
+        }
+    }
+
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpreq.send("action=loadPoliceStationOptionsList");
+
+    function loadPoliceStationOptionsList(httpreq) 
+    {
+        let jsonPoliceStationData = JSON.parse(httpreq.responseText);
+        console.log(jsonPoliceStationData);
+        
+        if(jsonPoliceStationData.serverResponse === "null session" || jsonPoliceStationData.serverResponse === "Not Allowed")
+        {
+            // window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+            // console.log("Redirecting to login page");
+        }
+        else if(jsonPoliceStationData.serverResponse === "Allowed")
+        {
+            console.log("Allowed");
+            let count =  jsonPoliceStationData.List.length - 1;
+            for(i=0; i<= count; i++)
+            {
+                console.log("Here onwards entering the police station list into array")
+                console.log(jsonPoliceStationData.List[i].police_station);
+                police_stationOptionList.push(jsonPoliceStationData.List[i].police_station);    
+            }
+            console.log("Entering the police station list into array is done");
+            return true;
+        }
+        else
+        {
+            console.log("Something went wrong");
+            return false;
+        }
+    }
+
+}
 
 
 form.addEventListener('submit', e => {
@@ -254,7 +248,7 @@ function checkInputs() {
     if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
         console.log('came until js function for event listener of submit button');
         console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
-        updatePoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
     }
     else{
         return false;
@@ -299,6 +293,7 @@ function checkPolice_stationFill() {
 }
 
 rankOptions.addEventListener("click", addToUIOptionsRank);
+police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
 
 
@@ -406,9 +401,9 @@ function createOptionspolice_station() {
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const updatePoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
+const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
 {
-    console.log('came until js function for editPoliceman which sends data to backend');
+    console.log('came until js function for addPoliceman which sends data to backend');
     console.log(name);
     console.log(police_id);
     console.log(nic);
@@ -423,24 +418,25 @@ const updatePoliceman = function(name, police_id, nic, mobile_number, email,  ra
         if(this.readyState === 4 && this.status === 200)
         {
             policemanAdditionStatus = false;
-            if(updatePolicemanData(this))
+            if(addPolicemanData(this))
             {
-                console.log("Policeman updated successfully");
+                console.log("Policeman added successfully");
                 policemanAdditionStatus = true;
             }
             else
             {
-                console.log("Policeman updated failed");
+                console.log("Policeman added failed");
                 policemanAdditionStatus = false;
             }
             getMessage(policemanAdditionStatus);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.send("action=updatePoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
 
-    function updatePolicemanData(httpReq)
+    function addPolicemanData(httpReq)
     {
         let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonAddPolicemanResponse);
@@ -472,8 +468,9 @@ const checkPolicemanPolice_ID = function(police_id) //Returns true if duplicate 
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkPoliceman_ID" + "&police_id=" + police_id);
 
     function checkPolicemanPolice_IDData(httpReq)
@@ -521,8 +518,9 @@ const checkPolicemanNic = function(nic) //Returns true if duplicate data exists
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkNIC" + "&nic=" + nic);
 
     function checkPolicemanNicData(httpReq)
@@ -569,8 +567,9 @@ const checkPolicemanMobile_Number = function(mobile_number) //Returns true if du
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkMobile_Number" + "&mobile_number=" + mobile_number);
 
     function checkPolicemanMobile_NumberData(httpReq)
@@ -617,8 +616,9 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
         }
     }
 
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send("action=checkEmail" + "&email=" + email);
 
     function checkPolicemanEmailData(httpReq)
@@ -657,7 +657,7 @@ function getMessage(policemanAdditionStatus) {
     }
     else {
         message.classList.add("success");
-        message.textContent = "Policeman Updated Successfully";
+        message.textContent = "Policeman Added Successfully";
 
         document.body.appendChild(message);
 
@@ -701,13 +701,6 @@ function validation(nicNumber) {
     }
     return result;
 }
-
-
-
-
-
-
-
 
 
 
