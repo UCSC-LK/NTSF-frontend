@@ -17,12 +17,13 @@ body {
 
 .header
 {
-    width: 100%;
+    width: 99.5%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    margin-top: 0.25%;
+    border-radius: 5px;
     background-color: #14abfa;
 }
 .container{
@@ -38,13 +39,17 @@ body {
 
 footer
 {
-  width: 100%;
+  width: 99.5%;
   height: 5%;
-  border: 1px solid black;
   background-color: #14abfa;
   color: black;
   text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
   padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 0.25%;
+
 }
 
 .policeLoginImage{
