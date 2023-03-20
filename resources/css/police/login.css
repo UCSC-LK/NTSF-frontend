@@ -67,25 +67,7 @@ body {
   /*new insertion*/
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
-.login.loading button {
-  max-height: 100%;
-  padding-top: 50px;
-}
-.login.loading button .spinner {
-  opacity: 1;
-  top: 40%;
-}
-.login.ok button {
-  background-color: #8bc34a;
-}
-.login.ok button .spinner {
-  border-radius: 0;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  height: 20px;
-  animation: none;
-  transform: rotateZ(-45deg);
-}
+
 .login input {
   display: block;
   padding: 15px 10px;
@@ -149,29 +131,7 @@ body {
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
 }
-.login button .spinner {
-  display: block;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  border: 4px solid #fff;
-  border-top-color: rgba(255, 255, 255, 0.3);
-  border-radius: 100%;
-  left: 50%;
-  top: 0;
-  opacity: 0;
-  margin-left: -20px;
-  margin-top: -20px;
-  animation: spinner 0.6s infinite linear;
-  transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-}
-.login:not(.loading) button:hover {
-  box-shadow: 0px 1px 3px #2196f3;
-}
-.login:not(.loading) button:focus {
-  border-bottom-width: 4px;
-}
+
 footer {
   display: block;
   padding-top: 50px;
