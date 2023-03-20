@@ -7,55 +7,58 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="/resources/css/police/igp/viewFine.css">
+          href="../fine/view_fine.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Document</title>
 </head>
 
-<body onload="loadComplaintDetails()">
-
+<body onload="loadFineDetails()">
     <!-- Repeating side bar starts from here -->
-
-    <body>
-        <div class="DashBoardOption">
-            <div class="logo">
-                <div class="dashboto-logo">
-                    <img src="/resources/images/logo_NTSF.png"
-                         alt="NTSF logo"
-                         class="ntsflogo">
-                </div>
-                <p class="logo"><b>NTSF</b></p>
+    <div class="DashBoardOption">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <img src="/resources/images/logo_NTSF.png"
+                     alt="NTSF logo"
+                     class="ntsflogo">
             </div>
-            <p class="tagline">National Traffic Spot Fine System</p>
-            <button class="main">User Dashboard</button>
-            <div class="clear"></div>
-            <ul class="menu">
-                <a href="">
-                    <i class="fa fa-dashboard"></i>
-                    View Fines
-                </a>
-                <br>
-                <a href="">
-                    <i class="fa fa-tasks"></i>
-                    Add Complaints
-                </a>
-                <a href="">
-                    <i class="fa fa-book"></i>
-                    View Complaints
-                </a>
-                <a href="">
-                    <i class="fa fa-newspaper-o"></i>
-                    Logout
-                </a>
-            </ul>
+            <p class="logo"><b>NTSF</b></p>
         </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <button class="main">User Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../fine/view_fine.html">
+                <i class="fa fa-dashboard"></i>
+                View Fines
+            </a>
+            <br>
+            <a href="../complaint/add_complaint.html">
+                <i class="fa fa-tasks"></i>
+                Add Complaint
+            </a>
+            <a href="../complaint/view_complaint.html">
+                <i class="fa fa-book"></i>
+                View Complaints
+            </a>
+            <!-- <a href="">
+                <i class="fa fa-newspaper-o"></i>
+                Add Police Station
+            </a> -->
+            <a href="../login/login.html">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
 
-        <!-- Dashboard heading -->
-        <div class="dashboard-heading">
-            <div class="panel">
-                <div ng-app="app"
-                     ng-controller="coin">
-                    <p class="btc-price">Avishi Ganepola</p>
-                </div>
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <div ng-app="app"
+                 ng-controller="coin">
+                <p class="btc-price">Avishi Ganepola</p>
             </div>
         </div>
         <!-- Repeating side bar ends here -->
@@ -63,6 +66,7 @@
         <!-- Dashbboard cards -->
         <div class="all">
             <div class="container">
+                <h1></h1>
                 <div class="tableSection">
                     <table class="rwd-table"
                            id="table">
@@ -81,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <script src="/resources/js/police/policeman/viewFine.js"></script>
-    </body>
+        <script src="./view_complaint.js"></script>
+</body>
 
 </html>

@@ -12,7 +12,7 @@ function checkInputs() {
   } else if (title.length < 5) {
     setErrorFor(title, "Title should contain at least 5 characters");
     flag = 1;
-  } else if (title.length > 50) {
+  } else if (title.length > 100) {
     setErrorFor(title, "Title should contain at most 50 characters");
     flag = 1;
   } else {
@@ -29,10 +29,10 @@ function checkInputs() {
       "Description should contain at least 5 characters"
     );
     flag = 1;
-  } else if (description.length > 100) {
+  } else if (description.length > 500) {
     setErrorFor(
       description,
-      "Description should contain at most 100 characters"
+      "Description should contain at most 500 characters"
     );
     flag = 1;
   } else {
