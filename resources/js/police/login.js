@@ -73,14 +73,17 @@ function loginAuthorizingBackend(username, password) {
       console.log(headerDecodedJSON);
       console.log(payloadDecodedJSON);
       var police_id = payloadDecodedJSON.police_id;
+      var police_name = payloadDecodedJSON.police_name;
       var rank = payloadDecodedJSON.rank;
       var position = payloadDecodedJSON.position;
       var police_station = payloadDecodedJSON.police_station;
       console.log(police_id);
+      console.log(police_name);
       console.log(rank);
       console.log(position);
       console.log(police_station);
       sessionStorage.setItem('user_police_id', police_id);
+      sessionStorage.setItem('user_police_name', police_name);
 
       if (rank === 'igp') {
         console.log('Redirecting to IGP page');
