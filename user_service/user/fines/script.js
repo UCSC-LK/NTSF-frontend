@@ -1,13 +1,27 @@
-import { getFinesByNic } from "/service/fineService.js";
+import { getFinesByNic } from "/user_service/service/fineService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
   // Store NIC no
-  getFinesByUserId("996129039V", fineDataHTMLoutput);
+  getFinesByNic("996129039V", "DRIVER", fineDataHTMLoutput);
+  getFinesByNic("996129039V", "VEHICLE", fineDataHTMLoutput);
+  getFinesByNic("996129039V", "PEDESTRIAN", fineDataHTMLoutput);
 });
 
-function fineDataHTMLoutput(finesDatArray) {
-  const finesTable = document.getElementById("table");
+function fineDataHTMLoutput(finesDatArray, offenceType) {
+  let finesTable;
+  switch (offenceType) {
+    case "DRIVER":
+      finesTable = document.getElementById("table-driver");
+      break;
+    case "VEHICLE":
+      finesTable = document.getElementById("table-vehicle");
+      break;
+    case "PEDESTRIAN":
+      finesTable = document.getElementById("table-pedestrian");
+    default:
+      break;
+  }
 
   // Add contents
   finesDatArray.map(
@@ -20,7 +34,7 @@ function fineDataHTMLoutput(finesDatArray) {
       fineType,
       paymentStatus,
     }) => {
-      const dataRow = table.insertRow();
+      const dataRow = finesTable.insertRow();
 
       const dataCellArray = [];
 
@@ -39,13 +53,3 @@ function fineDataHTMLoutput(finesDatArray) {
     }
   );
 }
-
-// const model = {
-//   userId: "68",
-//   ticketNo: 41,
-//   fineNo: 101,
-//   date: "Dec 22, 2022",
-//   dueDate: "Jan 1, 2023",
-//   fineAmount: 200.0,
-//   paymentStatus: "PAY",
-// };

@@ -8,13 +8,13 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="/resources/css/main.css">
+          href="../fines/main.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600">
 
-    <title>Profile</title>
+    <title>View Fines</title>
     <link rel="icon"
           type="image/x-icon"
           href="/resources/icons/favicon.ico">
@@ -35,8 +35,8 @@
             <p class="logo"><b class="app-name">NTSF</b></p>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <a href="../index.html">
-            <button class="main">Profile</button></a>
+        <a href="../../index.html">
+            <button class="main">User Dashboard</button></a>
         <div class="clear"></div>
         <ul class="menu">
             <a href="../fines/index.html">
@@ -69,29 +69,78 @@
     </div>
     <!-- REPEATING -->
 
-    <!-- Fines table
+    <!-- Fines table -->
     <div class="container">
-        <h1>Fines Details</h1>
+        <h1>Profile</h1>
         <div class="tableSection">
+
+            <h2>Information from Department for Registration of Persons</h2>
             <table class="fines-table"
-                   id="table">
+                   id="table-driver">
                 <tbody>
                     <div class="tableheading">
                         <thead>
-                            <th id="ticket-no">Ticket No</th>
-                            <th id="fine-no">Fine No</th>
-                            <th id="date">Date</th>
-                            <th id="due-date">Due Date</th>
-                            <th id="fine">Fine Amount</th>
-                            <th id="fine-type">Fine Type</th>
-                            <th id="payment-status">Payment Status</th>
+                            <th id="nic">NIC</th>
+                            <th id="issue-date">Issue Date</th>
+                            <th id="name">Name</th>
+                            <th id="address">Address</th>
+                            <th id="dob">Date of Birth</th>
+                            <th id="gender">Gender</th>
+                            <th id="birth-place">Birth Place</th>
+                            <th id="job">job</th>
+                        </thead>
+                    </div>
+                    <div id="fineData"></div>
+                </tbody>
+            </table>
+
+
+            <h3>License Information from Department of Motor Traffic</h3>
+            <table class="fines-table"
+                   id="table-vehicle">
+                <tbody>
+                    <div class="tableheading">
+                        <thead>
+                            <th id="ticket-no">License No</th>
+                            <th id="fine-no">Issue Date</th>
+                            <th id="date">Expire Date</th>
+                            <th id="due-date">Administrative No</th>
+                            <th id="fine">Holders Signature</th>
+                            <th id="fine-type">Vehicle Categories</th>
+                            <!-- <th id="payment-status">Payment Status</th> -->
+                        </thead>
+                    </div>
+                    <div id="fineData"></div>
+                </tbody>
+            </table>
+
+            <h3>Vehicle Information from Department of Motor Traffic</h3>
+            <table class="fines-table"
+                   id="table-vehicle">
+                <tbody>
+                    <div class="tableheading">
+                        <thead>
+                            <th id="vehicle-no">Vehicle No</th>
+                            <th id="reg-no">Registration No</th>
+                            <th id="chassis-no">Chassis No</th>
+                            <th id="c-owner-name">Current Owner Name</th>
+                            <th id="c-owner-address">Current Owner Address</th>
+                            <th id="engine-no">Engine No</th>
+                            <th id="class">Vehicle Class</th>
+                            <th id="state">State When Register</th>
+                            <th id="color">Color</th>
+                            <th id="engine-capacity">Engine Capacity</th>
+                            <th id="fuel-type">Fuel Type</th>
+                            <th id="year-manufactured">Year of Manufactured</th>
+                            <th id="previous-owners">Previous Owners</th>
+                            <th id="c-owner-id">Current Owner ID</th>
                         </thead>
                     </div>
                     <div id="fineData"></div>
                 </tbody>
             </table>
         </div>
-    </div> -->
+    </div>
 
 </body>
 
