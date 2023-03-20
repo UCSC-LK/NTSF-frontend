@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
 }
 
 body {
@@ -21,7 +23,6 @@ body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
-    margin-bottom: 20px;
     background-color: #14abfa;
 }
 .container{
@@ -31,24 +32,20 @@ body {
   align-items: center;
   height: 85%;
   width: 60%;
-  border: #14abfa 1px solid;
+  /* border: #14abfa 1px solid; */
   padding: 4%;
-
 }
 
 footer
 {
   width: 100%;
   height: 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border: 1px solid black;
-  margin-top: 20px;
   background-color: #14abfa;
+  color: black;
+  text-align: center;
+  padding: 1%;
 }
-
-
 
 .policeLoginImage{
   width: 60%;
@@ -57,7 +54,6 @@ footer
   padding: 5%;
   justify-content: center;
   align-items: center;
-  border: #14abfa 1px solid;
 }
 
 .wrapper {
@@ -70,12 +66,15 @@ footer
   border: #14abfa 1px solid;
 }
 
-
 .ntsflogoDiv
 {
   width: 6%;
 }
 
+.emptyDiv
+{
+  width: 6%;
+}
 .ntsflogo
 {
     width: 100%;
@@ -93,8 +92,6 @@ footer
   padding-bottom: 80px;
   /*new insertion*/
   margin-bottom: 10px;
-
-
   /*new insertion*/
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
@@ -161,20 +158,6 @@ footer
   transform: rotateZ(0deg);
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
-}
-
-footer {
-  display: block;
-  padding-top: 50px;
-  text-align: center;
-  color: black;
-  font-weight: normal;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
-  font-size: 0.8em;
-}
-footer a, footer a:link {
-  color: #fff;
-  text-decoration: none;
 }
 
 /* Success/Error messages */
