@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="header">
-        <div class="ntsflogo">
-            <img src="../../../resources/images/logo_NTSF.png"
-                 alt="ntsflogo">
+        <div class="ntsflogoDiv">
+            <img src="../../../resources/images/logo_NTSF.png" class="ntsflogo"
+                 alt="NTSF Logo">
         </div>
         <div class="title">
             <h2>
@@ -24,28 +24,30 @@
         </a>
     </div>
 
-    <div class="wrapper">
-      <form class="login" id="form">
-        <p class="title">Log in</p>
-        <div class="form-control">
-          <input type="text" id="username" placeholder="Username" autofocus />
-          <i class="fa fa-user"></i>
-          <small>Error message</small>
-        </div>
-        <div class="form-control">
-          <input type="password" id="password" placeholder="Password" />
-          <i class="fa fa-key"></i>
-          <small>Error message</small>
-        </div>
-        <!-- <a href="#">Forgot your password?</a> -->
-        <button id="button">Log in
-        </button>
-      </form>
-    </div>
+    <div class="container">
+    
+      <img src="../resources/images/PoliceLoginImage.jpg" alt="" class="policeLoginImage">
 
-    <div>
-      <footer>Copy Rights Resereved</footer>
+      <div class="wrapper">
+        <form class="login" id="form">
+          <p class="title">Log in</p>
+          <div class="form-control">
+            <input type="text" id="username" placeholder="Username" autofocus />
+            <i class="fa fa-user"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <input type="password" id="password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <small>Error message</small>
+          </div>
+          <button id="button">Log in
+          </button>
+        </form>
+      </div>
     </div>
+    <footer>Copy Rights Resereved</footer>
+
       <script src="../resources/js/police/login.js"></script>
 </body>
 </html>
