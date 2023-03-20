@@ -1,40 +1,68 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600");
 
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: "Lato", sans-serif;
+	display: flex;;
 	height: 100%;
 	width: 100%;
-	position: fixed;
+}
+
+.side-bar {
+	width: 20%;
+	height: 100%;
+	padding: 0px 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.side-bar-logo {
+	height: 30%;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.side-bar-list
+{
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.logo-container {
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .ntsflogo
 {
-	height: 75px;
-	width: 125px;
-	margin-left: -30px;
+	height: 80%;
+	width: 70%;
 }
 
-.dashboto-logo p:nth-child(2) {
-	font-weight: 600;
+.logo-name
+{
+	width: 30%;
+
 }
+
 
 .tagline {
+	height: 40%;
 	color: #9b9ea2;
 	font-weight: 300;
-	padding: 0px 5px;
-	margin-top: -5px;
 }
 
-.DashBoardOption {
-	width: 20%;
-	height: 100vh;
-	padding: 0px 2%;
-	float: left;
-}
-
-.logo{
-	margin-left: 2px;
-}
 
 button {
 	background: #14abfa;
@@ -143,7 +171,7 @@ button {
 }
 
 @media only screen and (max-width: 800px) {
-	.DashBoardOption {
+	.side-bar {
 		width: 90%;
 		display: none;
 	}
@@ -294,10 +322,6 @@ th
 }
 
 /* Basic Styling */
-body {
-/* background: -webkit-linear-gradient(to left, #4B79A1 , #283E51);
-background: linear-gradient(to left, #4B79A1 , #283E51);         */
-}
 h1 {
   text-align: center;
   font-size: 2.4em;
@@ -341,7 +365,6 @@ h3:after {
   100%  { transform: translateX(0)}
 }
 
-/* CSS for Form */
 
 
 /*CSS for model to ask are you sure want to delete??*/

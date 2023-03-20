@@ -10,37 +10,37 @@
     <title>Document</title>
 </head>
 <body onload="loadPolicemanDetails()">
-    <div class="DashBoardOption">
-        <div class="logo">
-            <div class="dashboto-logo">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
                 <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
             </div>
-            <h2 class="logo"><b>NTSF</b></h2>
+            <p class="tagline">National Traffic Spot Fine System</p>
         </div>
-        <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">IGP Dashboard</button>
-        <div class="clear"></div>
-        <ul class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <br>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Police Station
-            </a>
-            <a href="../igp/viewOffence.html">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
-        </ul>
+        <div class="side-bar-list">
+            <button class="main">IGP Dashboard</button>
+            <ul class="menu">
+                <a href="../igp/viewPoliceman.html">
+                    <i class="fa fa-dashboard"></i>
+                    Policeman
+                </a>
+                <br>
+                <a href="../igp/viewPoliceStation.html">
+                    <i class="fa fa-book"></i>
+                    Police Station
+                </a>
+                <a href="../igp/viewOffence.html">
+                    <i class="fa fa-book"></i>
+                    Offence
+                </a>
+                <a href="../login.html">
+                    <i class="fa fa-money"></i>
+                    Logout
+                </a>
+            </ul>
+        </div>
     </div>
-    
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
@@ -89,6 +89,7 @@
               <button id="modal-no">No</button>
             </div>
         </div>
+    </div>
     <script src="../../resources/js/police/igp/viewPoliceman.js"></script>
 </body>
 </html>
