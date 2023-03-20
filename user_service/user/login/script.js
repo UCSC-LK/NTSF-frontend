@@ -28,7 +28,8 @@ function loginSuccessCallback(data) {
     alert("Login successful");
     // sessionStorage.setItem("user_type", "1");
     sessionStorage.setItem("userId", data.userId);
-    window.location.href = "/index.html";
+    // window.location.href = "/index.html";
+    window.location.href = "user_service/index.html";
   } else {
     alert("Incorrect nic or password!");
   }

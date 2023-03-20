@@ -20,7 +20,7 @@ body {
     position: fixed;
 }
 
-h1 {
+h1, h2, h3, h4 {
     font-size: 25px;
     color: gray;
 }
@@ -97,9 +97,9 @@ button {
     color: #14abfa;
 }
 
-.menu a:nth-child(4) {
+/* .menu a:nth-child(4) {
     color: #14abfa;
-}
+} */
 
 .menu a i {
     font-size: 1.7em;
