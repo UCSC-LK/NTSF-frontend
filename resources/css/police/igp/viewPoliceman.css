@@ -26,17 +26,12 @@ h1 {
 
 
 .tableSection
-{	
-	
-	
-	top: 0;
+{
 	overflow-y: auto;
 	height: 100%;
 }
 .tableheading
 {
-	position: sticky;
-	top: 0;
 	width: 100%;
 }
 
@@ -50,12 +45,6 @@ table
 	border-radius: .4em;
 	overflow: hidden;
 
-}
-
-thead
-{
-	position: sticky;
-	top: 0;
 }
 
 th
@@ -87,7 +76,7 @@ tr:first-child {
   color: #fff;
 }
 
-.tr:nth-child(odd):not(:first-child) {
+tr:nth-child(odd):not(:first-child) {
   background-color: #ebf3f9;
 }
 
@@ -131,6 +120,16 @@ tr:first-child {
   }
 } */
 
+#deleteButton, #editButton, .addButton {
+	font-size: inherit;
+	background-color: transparent;
+	border: none; 
+	cursor: pointer;
+}
+
+.fa-person-circle-plus{
+	font-size: 3.5rem;
+}
 
 /*CSS for model to ask are you sure want to delete??*/
 .modal {
@@ -169,15 +168,3 @@ tr:first-child {
 	text-decoration: none;
 	cursor: pointer;
   }
-
-
-#deleteButton, #editButton, .addButton {
-	font-size: inherit;
-	background-color: transparent;
-	border: none; 
-	cursor: pointer;
-}
-
-.fa-person-circle-plus{
-	font-size: 3.5rem;
-}
