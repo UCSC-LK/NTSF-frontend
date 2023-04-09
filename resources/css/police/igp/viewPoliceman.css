@@ -1,193 +1,38 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600");
-
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	font-family: "Lato", sans-serif;
-	display: flex;;
-	height: 100%;
-	width: 100%;
-}
-
-.side-bar {
-	width: 20%;
-	height: 100%;
-	padding: 0px 2%;
+/*CSS for add Button*/
+.buttonSection{
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-
-.side-bar-logo {
-	height: 30%;
-	display: flex;
-	flex-direction: column;
-
-}
-
-.side-bar-list
-{
-	height: 70%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-
-.logo-container {
-	height: 60%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.ntsflogo
-{
-	height: 80%;
-	width: 70%;
-}
-
-.logo-name
-{
-	width: 30%;
-
-}
-
-
-.tagline {
-	height: 40%;
-	color: #9b9ea2;
-	font-weight: 300;
-}
-
-
-button {
-	background: #14abfa;
-	border: solid 6px #14abfa;
-	border-radius: 3px;
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 1.2em;
-	margin-left: 6px;
-}
-
-.menu {
-	margin-top: 30px;
-	width: 100%;
-	padding: 0px;
-	margin-left: 8px;
-}
-
-.menu a {
-	width: 100%;
-	color: #666666;
-	text-decoration: none;
-	margin: 15px 0px;
-	float: left;
-	display: block;
-	font-size: 1.2em;
-}
-
-.menu a:first-child {
-	color: #14abfa;
-}
-
-.menu a i {
-	font-size: 1.7em;
-	color: #14abfa;
-	position: relative;
-	padding-right: 10px;
-	top: 3px;
-}
-
-.menu .fa-tasks {
-	top: 6px;
-	padding-left: 2px;
-}
-
-.menu .fa-book {
-	top: 5px;
-	padding-left: 2px;
-}
-
-.menu .fa-newspaper-o {
-	top: 6px;
-	padding-left: 2px;
-}
-
-.menu .fa-money {
-	top: 5px;
-	padding-left: 2px;
-}
-
-.clear {
-	clear: both;
-}
-
-.dashboard-heading {
-	width: 76%;
-	float: left;
-	background: #ffffff;
-	position: relative;
-	color: #73787c;
-	margin-top: 20px;
-	position: relative;
-}
-
-.dashboard-heading .panel {
-	padding-bottom: 40px;
-	background-color: #12abf7;
-	margin-bottom: 20px;
-}
-
-.btc-price {
-	display: inline-block;
-	position: absolute;
-	right: 20px;
-	top: -8px;
-	color: white;
-}
-
-.dashboard-heading .panel i {
-	border-radius: 50%;
-	background: #f4f4f4;
-	padding: 8px;
-	border: solid 2px;
-	position: relative;
-	left: 20px;
-	cursor: pointer;
-	background-color: #12abf7;
-}
-
-.dashboard-heading .all {
-	margin-top: 20px ;
-	background: #f2f2f2;
-	width: 100%;
-	min-height: 100vh;
-}
-
-@media only screen and (max-width: 800px) {
-	.side-bar {
-		width: 90%;
-		display: none;
-	}
-	.dashboard-heading {
-		width: 100%;
-	}
-	.blok i {
-		display: none;
-	}
+	justify-content: flex-end;
+	height: 10%;
+	margin-right: 2%;
+	margin-top: 1%;
 }
 
 /*CSS for table*/
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
 
-* {font-family: 'Open Sans', sans-serif;}
+h1 {
+	text-align: center;
+	font-size: 2.4em;
+	color:red;
+}
 
+.container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 60%; /*Adjust the horizontal scroll bar height*/
+}
+
+
+.tableSection
+{	
+	
+	
+	top: 0;
+	overflow-y: auto;
+	height: 100%;
+}
 .tableheading
 {
 	position: sticky;
@@ -197,17 +42,14 @@ button {
 
 table
 {
+	margin: auto;
 	width: 90%;
 	height: 80%;
-}
+	border-collapse: collapse;
+	color: #333;
+	border-radius: .4em;
+	overflow: hidden;
 
-.tableSection
-{	
-	justify-content: space-around;
-	position: sticky;
-	top: 0;
-	overflow-y: auto;
-	height: 450px;
 }
 
 thead
@@ -220,77 +62,45 @@ th
 {
 	position: sticky;
 	top: 0;
+	text-align: left;
+	padding: .5em 1em;
+	padding: 1em !important; /*DELETE LATER*/
 }
 
-
-.rwd-table {
-  margin: auto;
-  min-width: 300px;
-  max-width: 100%;
-  border-collapse: collapse;
+td{
+	text-align: left;
+	padding: .5em 1em;
+	padding: 1em !important;
 }
 
-.rwd-table tr:first-child {
+tr
+{
+	border-color: #bfbfbf;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background-color: #f5f9fc;
+}
+
+tr:first-child {
   border-top: none;
   background: #9FB4C7;
   color: #fff;
 }
 
-.rwd-table tr {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: #f5f9fc;
-}
-
-.rwd-table tr:nth-child(odd):not(:first-child) {
+.tr:nth-child(odd):not(:first-child) {
   background-color: #ebf3f9;
-  
 }
 
-.rwd-table th {
-  display: none;
-}
-
-.rwd-table td {
-  display: block;
-}
-
-.rwd-table td:first-child {
-  margin-top: .5em;
-}
-
-.rwd-table td:last-child {
-  margin-bottom: .5em;
-}
-
-.rwd-table td:before {
+/* .rwd-table td:before {
   content: attr(data-th) ": ";
   font-weight: bold;
   width: 120px;
   display: inline-block;
   color: #000;
-}
+} */
 
-.rwd-table th,
-.rwd-table td {
-  text-align: left;
-}
 
-.rwd-table {
-  color: #333;
-  border-radius: .4em;
-  overflow: hidden;
-}
-
-.rwd-table tr {
-  border-color: #bfbfbf;
-}
-
-.rwd-table th,
-.rwd-table td {
-  padding: .5em 1em;
-}
-@media screen and (max-width: 601px) {
+/* @media screen and (max-width: 601px) {
   .rwd-table tr:nth-child(2) {
     border-top: none;
   }
@@ -319,52 +129,7 @@ th
   .rwd-table td {
     padding: 1em !important;
   }
-}
-
-/* Basic Styling */
-h1 {
-  text-align: center;
-  font-size: 2.4em;
-  color: #f2f2f2;
-}
-.container {
-  display: block;
-  text-align: center;
-}
-h3 {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  font-size: 1.5em;
-  color: #cecece;
-}
-h3:before {
-  content: "\25C0";
-  position: absolute;
-  left: -50px;
-  -webkit-animation: leftRight 2s linear infinite;
-  animation: leftRight 2s linear infinite;
-}
-h3:after {
-  content: "\25b6";
-  position: absolute;
-  right: -50px;
-  -webkit-animation: leftRight 2s linear infinite reverse;
-  animation: leftRight 2s linear infinite reverse;
-}
-@-webkit-keyframes leftRight {
-  0%    { -webkit-transform: translateX(0)}
-  25%   { -webkit-transform: translateX(-10px)}
-  75%   { -webkit-transform: translateX(10px)}
-  100%  { -webkit-transform: translateX(0)}
-}
-@keyframes leftRight {
-  0%    { transform: translateX(0)}
-  25%   { transform: translateX(-10px)}
-  75%   { transform: translateX(10px)}
-  100%  { transform: translateX(0)}
-}
-
+} */
 
 
 /*CSS for model to ask are you sure want to delete??*/
@@ -406,12 +171,13 @@ h3:after {
   }
 
 
-/*CSS for add policeman button*/
-
-.addPolicemanButton {
-	position: absolute;
-	top: 8%;
-	right: 7%
+#deleteButton, #editButton, .addButton {
+	font-size: inherit;
+	background-color: transparent;
+	border: none; 
+	cursor: pointer;
 }
-  
 
+.fa-person-circle-plus{
+	font-size: 3.5rem;
+}

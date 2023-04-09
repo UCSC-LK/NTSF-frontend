@@ -88,8 +88,8 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell7.innerHTML = police_station;
     // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
-    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
-    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
+    dataCell8.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+police_id+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell9.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deletePolicemanDetails(police_id) //Delete a policeman

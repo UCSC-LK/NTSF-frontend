@@ -3,11 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
     <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
 </head>
 <body onload="loadPolicemanDetails()">
     <div class="side-bar">
@@ -19,13 +21,12 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="main">IGP Dashboard</button>
-            <ul class="menu">
-                <a href="../igp/viewPoliceman.html">
+            <button class="dashboard-button">IGP Dashboard</button>
+            <div class="menu">
+                <a href="../igp/viewPoliceman.html" style="color:red">
                     <i class="fa fa-dashboard"></i>
                     Policeman
                 </a>
-                <br>
                 <a href="../igp/viewPoliceStation.html">
                     <i class="fa fa-book"></i>
                     Police Station
@@ -38,21 +39,18 @@
                     <i class="fa fa-money"></i>
                     Logout
                 </a>
-            </ul>
+            </div>
         </div>
     </div>
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div ng-app="app" ng-controller="coin">
-                <p class="btc-price" id="user_name"></p>
-            </div>
+            <p class="user-name" id="user_name">Suraif Muhammad</p>
         </div>
-    
     <!-- Dashbboard cards -->
         <div class="all">
-            <a href="../igp/addPoliceman.html">
-                <button id="addPoliceman" class="addPolicemanButton">Add Policeman</button>
+            <a href="../igp/addPoliceman.html" class="buttonSection">
+                <button id="addPoliceman" class="addButton"><i class="fa-sharp fa-solid fa-person-circle-plus fa-2xl" style="color: #0eabfa;"></i></button>
             </a>
             <div class="container">
                 <h1>Policeman Information</h1>
@@ -68,8 +66,8 @@
                               <th>Email</th>
                               <th>Rank</th>
                               <th>Police Station</th>
-                              <th>Edit</th>
-                              <th>Delete</th>
+                              <th></th>
+                              <th></th>
                             </thead>
                           </div>
                           <div id="policemanData"></div>
