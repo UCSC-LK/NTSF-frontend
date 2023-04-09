@@ -15,21 +15,23 @@
 .model-content {
 	display: flex;
 	flex-direction: column;
+    justify-content: space-around;
 	background-color: #fefefe;
 	margin-top: 15%;
-	margin-left: 50%; 
-	margin-right: 30% ;
+	margin-left: 47.5%; 
+	margin-right: 27.5% ;
+    margin-bottom: 65%;
 	padding: 1.5%;
 	border: 1px solid #888;
-	width: 20%;
-	height: 15%;
+	width: 25%;
+	height: 20%;
   }
   
 .model-question{
-	font-size: 1.2em;
+	font-size: 1.3rem;
 	font-weight: 700;
 	font-family: "Source Sans Pro", sans-serif;
-	align-self: center;
+    text-align: center;
   }
 
 
@@ -48,6 +50,6 @@
 	color: #ffffff;
 	font-weight: 700;
 	font-family: "Source Sans Pro", sans-serif;
-	font-size: 1.1em;
+	font-size: 1rem;
 }
 
