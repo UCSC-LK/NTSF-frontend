@@ -1,6 +1,3 @@
-/* @import url("https://kit.fontawesome.com/251590f28b.css"); */
-
-
 /* CSS for Form */
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
@@ -18,24 +15,23 @@
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	overflow-y: auto;
 
 }
 
-.formHeader {
+.form-header {
 	border-bottom: 1px solid #f0f0f0;
 	background-color: #f7f7f7;
-	padding: 20px 40px;
+	height: 15%;
+	padding: 4%; /*issue here*/
 	position: sticky;
 }
 
-.formHeader h2 {
-	margin: 0;
-	position: sticky;
-}
 
 .form {
 	padding: 30px 40px;
+	overflow-y: auto;
+	height: 80%;
+
 }
 
 .form-control {
