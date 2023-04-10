@@ -6,25 +6,18 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
 
-.formbody {
-	background-color: #edebeb;
-	font-family: 'Open Sans', sans-serif;
-	display: flex;
+
+.all{
 	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	margin: 0;
+	justify-content: space-around;
 }
 
 .container {
+	height: 70%;
+	width: 45%;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
-	width: 500px;
-	max-width: 100%;
-	margin-top: -50px;
-	height: 500px;
 	overflow-y: auto;
 
 }
