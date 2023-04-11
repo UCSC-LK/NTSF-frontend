@@ -88,8 +88,8 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell7.innerHTML = police_station;
     // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
-    dataCell8.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPolicemanDetails("+police_id+")'>Edit</button>";
-    dataCell9.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
+    dataCell8.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+police_id+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell9.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deletePolicemanDetails(police_id) //Delete a policeman
@@ -150,33 +150,33 @@ function editPolicemanDetails(police_id) //Edit a policeman
 }
 
 //Model to ask are you sure want to delete??
-const modal = document.getElementById('myModal');
-const modalYes = document.getElementById('modal-yes');
-const modalNo = document.getElementById('modal-no');
+const model = document.getElementById('myModel');
+const modelYes = document.getElementById('model-yes');
+const modelNo = document.getElementById('model-no');
 
 
 function deletePolicemanPopUp(police_id) {
-    modal.style.display = "block";
+    model.style.display = "block";
     console.log("popup is called with police_id: " + police_id);
 
-    modalYes.onclick = function() {
+    modelYes.onclick = function() {
     // Perform the delete operation
     console.log("YES delete is clicked" + police_id);
     deletePolicemanDetails(police_id);
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 
-    modalNo.onclick = function() {
+    modelNo.onclick = function() {
     console.log("NO delete is clicked" + police_id);  
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 }
 
-// Close the modal window if the user clicks outside of it
+// Close the model window if the user clicks outside of it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == model) {
+    model.style.display = "none";
   }
 }

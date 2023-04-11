@@ -3,60 +3,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/table.css">
+    <link rel="stylesheet" href="/resources/css/model.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
 </head>
 <body onload="loadPolicemanDetails()">
-    <div class="DashBoardOption">
-        <div class="logo">
-            <div class="dashboto-logo">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
                 <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
             </div>
-            <h2 class="logo"><b>NTSF</b></h2>
+            <p class="tagline">National Traffic Spot Fine System</p>
         </div>
-        <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">IGP Dashboard</button>
-        <div class="clear"></div>
-        <ul class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <br>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Police Station
-            </a>
-            <a href="../igp/viewOffence.html">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
-        </ul>
+        <div class="side-bar-list">
+            <button class="dashboard-button">IGP Dashboard</button>
+            <div class="menu">
+                <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
+                    <i class="fa fa-dashboard"></i>
+                    Policeman
+                </a>
+                <a href="../igp/viewPoliceStation.html">
+                    <i class="fa fa-book"></i>
+                    Police Station
+                </a>
+                <a href="../igp/viewOffence.html">
+                    <i class="fa fa-book"></i>
+                    Offence
+                </a>
+                <a href="../login.html">
+                    <i class="fa fa-money"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
     </div>
-    
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div ng-app="app" ng-controller="coin">
-                <p class="btc-price">Suraif Muhammad</p>
-            </div>
+            <p class="user-name" id="user_name">Suraif Muhammad</p>
         </div>
-    
     <!-- Dashbboard cards -->
         <div class="all">
-            <a href="../igp/addPoliceman.html">
-                <button id="addPoliceman" class="addPolicemanButton">Add Policeman</button>
+            <a href="../igp/addPoliceman.html" class="buttonSection">
+                <button id="addPoliceman" class="addButton"><i class="fa-sharp fa-solid fa-person-circle-plus fa-2xl" style="color: #14abfa;"></i></button>
             </a>
             <div class="container">
                 <h1>Policeman Information</h1>
                 <div class="tableSection">
+                    <br>
                     <table class="rwd-table" id="table">
                         <tbody>
                           <div class="tableheading">
@@ -68,8 +68,8 @@
                               <th>Email</th>
                               <th>Rank</th>
                               <th>Police Station</th>
-                              <th>Edit</th>
-                              <th>Delete</th>
+                              <th></th>
+                              <th></th>
                             </thead>
                           </div>
                           <div id="policemanData"></div>
@@ -81,14 +81,16 @@
 
         <!-- Model to popup Are you sure want to delete?? -->
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close"></span>
-              <p>Are you sure you want to delete ?</p>
-              <button id="modal-yes">Yes</button>
-              <button id="modal-no">No</button>
+        <div id="myModel" class="model">
+            <div class="model-content">
+                <p class="model-question">Are you sure you want to delete ?</p>
+                <div class="model-options">
+                    <button id="model-yes" class="model-button">Yes</button>
+                    <button id="model-no" class="model-button">No</button>
+                </div>
             </div>
         </div>
+    </div>
     <script src="../../resources/js/police/igp/viewPoliceman.js"></script>
 </body>
 </html>
