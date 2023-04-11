@@ -1,5 +1,3 @@
-const addComplaintButton = document.getElementById("addComplaintButton");
-
 function checkInputs() {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
@@ -12,7 +10,7 @@ function checkInputs() {
   } else if (title.length < 5) {
     setErrorFor(title, "Title should contain at least 5 characters");
     flag = 1;
-  } else if (title.length > 100) {
+  } else if (title.length > 50) {
     setErrorFor(title, "Title should contain at most 50 characters");
     flag = 1;
   } else {
@@ -29,10 +27,10 @@ function checkInputs() {
       "Description should contain at least 5 characters"
     );
     flag = 1;
-  } else if (description.length > 500) {
+  } else if (description.length > 100) {
     setErrorFor(
       description,
-      "Description should contain at most 500 characters"
+      "Description should contain at most 100 characters"
     );
     flag = 1;
   } else {
@@ -57,52 +55,42 @@ function setSuccessFor(input) {
   formControl.className = "form-control success";
 }
 
-const addComplaint = function () {
-  let userId = sessionStorage.getItem("userId");
+function addComplaint() {
+  // let user_id = sessionStorage.getItem("user_id");
+  const user_id = "65";
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
 
-  console.log(userId);
+  console.log(user_id);
   console.log(title);
   console.log(description);
 
   let httpReq = new XMLHttpRequest();
   httpReq.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
+    if (this.readyState === 4) {
       addComplaintData(this); //This is where we get the response when the request was successfully send and a successful response was received
     }
   };
 
   httpReq.open(
     "POST",
-    "http://localhost:8080/ntsf_backend_war/complaint",
+    `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&user_id=${user_id}&title=${title}&description=${true}`,
     true
   );
   httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  httpReq.send(
-    "action=createComplaint" +
-      "&userId=" +
-      userId +
-      "&title=" +
-      title +
-      "&description=" +
-      description
-  );
+  httpReq.send();
 
   function addComplaintData(httpReq) {
     let jsonAddComplaintResponse = JSON.parse(
       httpReq.responseText
-    ); /* Here when we recieve the response from the server, we convert it to JSON format as it 
+    ); /* Here when we recieve the response from the server, we convert it to JSON format as it */
 
-    */
-
-    if (jsonAddComplaintResponse.status === "success") {
+    if (httpReq.status === 200) {
       alert("Complaint Added Successfully");
-      window.location.href =
-        "http://localhost:8080/ntsf_frontend_war/user/complaints.html";
+      window.location.href = "#";
     } else {
       alert("Complaint Not Added");
     }
     console.log(jsonAddComplaintResponse);
   }
-};
+}

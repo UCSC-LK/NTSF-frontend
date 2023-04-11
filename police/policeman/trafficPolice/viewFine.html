@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/policeman/dashboard.css">
+    <link rel="stylesheet" href="../../../resources/css/police/policeman/investigationOfficer/viewComplaints.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="loadComplaintsDetails()">
     <div class="DashBoardOption">
         <div class="logo">
             <div class="dashboto-logo">
@@ -18,16 +18,16 @@
             <h2 class="logo"><b>NTSF</b></h2>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">Policeman Dashboard</button>
+        <button class="main">Traffic Police Dashboard</button>
         <div class="clear"></div>
         <ul class="menu">
-            <a href="../../police/policeman/trafficPolice/addFine.html">
+            <a href="../../policeman/viewPoliceman.html">
                 <i class="fa fa-dashboard"></i>
                 Policeman
             </a>
-            <a href="../policeman/trafficPolice/viewFine.html">
+            <a href="../../policeman/trafficPolice/viewFine.html">
                 <i class="fa fa-book"></i>
-                View Fines
+                View Fine
             </a>
             <a href="../oic/">
                 <i class="fa fa-book"></i>
@@ -54,22 +54,21 @@
         <div class="container">
             <div class="cardContainer">
                 <div class="card">
-                  <a href="/police/policeman/trafficPolice/Fine.html">
-                    <h2>Traffic Police</h2>
+                  <a href="/viewDriverFine.html">
+                    <h2>Driver Fines</h2>
                   </a>
                 </div>
                 <div class="card">
-                    <a href="/police/policeman/trafficPolice/viewAppeals.html">
-                        <h2>Investigation Officer</h2>
+                    <a href="/viewPedestrianFine.html">
+                        <h2>Pedestrian Fines</h2>
                 </div>
                 <div class="card">
-                    <a href="/police/policeman/trafficPolice/viewFines.css">
-                        <h2>Court Officer</h2>
+                    <a href="/viewVehicleFine.html">
+                        <h2>Vehicle Fines</h2>
                 </div>
               </div>
         </div>
     </div>
-
-    <script src="../../resources/js/police/oic/policeman.js"></script>
+    <script src="../../../resources/js/police/policeman/investigationOfficer/viewComplaints.js"></script>
 </body>
 </html>
