@@ -49,7 +49,7 @@ body {
 
 .tagline bold {
 	color: #14abfa;
-	font-eright: 600;
+	font-weight: 600;
 }
 
 .option {
@@ -114,7 +114,7 @@ button {
 	padding-left: 2px;
 }
 
-.menu .fa-money {
+.menu .points {
 	top: 5px;
 	padding-left: 2px;
 }
@@ -148,11 +148,12 @@ button {
 	margin-top: -10px;
 }
 
-.btc-price {
+.Account {
 	display: inline-block;
 	position: absolute;
 	right: 20px;
-	top: -8px;
+	top: -20px;
+	cursor: pointer;
 	color: #12abf7;
 }
 
@@ -182,7 +183,7 @@ button {
 	position: relative;
 }
 
-.blok i {
+.block i {
 	border-radius: 50%;
 	background: #12abf7;
 	padding: 10px;
@@ -195,26 +196,26 @@ button {
 	font-size: 1.2em;
 }
 
-.blok .kl {
+.block .kl {
 	background: #978ded;
 }
 
-.blok .pl {
+.block .pl {
 	background: #facaee;
 }
 
-.blok .no {
+.block .no {
 	display: inline-block;
 }
 
-.blok .no p:first-child {
+.block .no p:first-child {
 	font-weight: 700;
 	font-size: 0.8em;
 	position: relative;
 	top: 8px;
 }
 
-.blok .no p:nth-child(2) {
+.block .no p:nth-child(2) {
 	position: relative;
 	top: -10px;
 	font-size: 1.3em;
