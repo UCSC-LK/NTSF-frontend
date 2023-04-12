@@ -6,7 +6,6 @@ const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
 
 var police_idSession = sessionStorage.getItem("user_police_id");
-console.log("Printing below the username from session storage");
 console.log("police_idSession: " + police_idSession);
 
 let rankOptions = document.getElementById("rankOptions");
@@ -18,7 +17,6 @@ let police_stationOptionList = [];
 
 /*Dynamically load the policestation option list*/
 function loadPoliceStationOptionsListOnLoad(){
-    console.log("Loading PoliceStation List to be included in drop down dynamiclly");
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
@@ -26,12 +24,10 @@ function loadPoliceStationOptionsListOnLoad(){
             if(loadPoliceStationOptionsList(this))
             {
                 console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
-                console.log("Printing the police station list below");
-                console.log(police_stationOptionList);
             }
             else
             {
-                console.log("came until js function to load PoliceStation List dynamically");
+                console.log("Loading PoliceStation information dynamiclly FAILED!!!");
             }
         }
         else
@@ -86,7 +82,6 @@ form.addEventListener('submit', e => {
 //Checking whether data already exisiting
 
 document.getElementById('police_id').addEventListener('blur', function(){
-    console.log('came until js function for event listener of policeID blue');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
         checkPolicemanPolice_ID(police_idValue);
@@ -94,7 +89,6 @@ document.getElementById('police_id').addEventListener('blur', function(){
 });
 
 document.getElementById('nic').addEventListener('blur', function(){
-    console.log('came until js function for event listener of NIC blure');
     let nicValue = nic.value.trim();
     if(nicValue !== ''){
         checkPolicemanNic(nicValue);
@@ -102,7 +96,6 @@ document.getElementById('nic').addEventListener('blur', function(){
 });
 
 document.getElementById('mobile_number').addEventListener('blur', function(){
-    console.log('came until js function for event listener of mobilenumber blur');
     let mobile_numberValue = mobile_number.value.trim();
     if(mobile_numberValue !== ''){
         checkPolicemanMobile_Number(mobile_numberValue);
@@ -110,7 +103,6 @@ document.getElementById('mobile_number').addEventListener('blur', function(){
 });
 
 document.getElementById('email').addEventListener('blur', function(){
-    console.log('came until js function for event listener of email blur');
     let emailValue = email.value.trim();
     if(emailValue !== ''){
         checkPolicemanEmail(emailValue);
@@ -131,13 +123,6 @@ function checkInputs() {
 	const nicValue = nic.value.trim();
     const mobile_numberValue = mobile_number.value.trim();
     const emailValue = email.value.trim();
-
-    console.log("Printing the values of the input fields");
-    console.log(nameValue);
-    console.log(police_idValue);
-    console.log(nicValue);
-    console.log(mobile_numberValue);
-    console.log(emailValue);
 	
     let flagName = 1 //error exists
     let flagPolice_ID = 1 //error exists
@@ -411,13 +396,6 @@ function createOptionspolice_station() {
 const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
 {
     console.log('came until js function for addPoliceman which sends data to backend');
-    console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(mobile_number);
-    console.log(email);
-    console.log(rank);
-    console.log(police_station);
 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function()
