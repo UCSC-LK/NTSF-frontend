@@ -10,13 +10,13 @@ else if(fine_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
     document.querySelector('label[for="user_id"]').innerHTML = "Vehicle No:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn visible
+    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else if(fine_type == "pedestrian"){
     document.getElementById("user_id").placeholder = "Enter NIC";
     document.querySelector('label[for="user_id"]').innerHTML = "NIC:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn visible
+    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else
 {
