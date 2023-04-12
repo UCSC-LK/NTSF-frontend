@@ -1,19 +1,19 @@
 import { HOST_NAME } from "./constants.js";
 
-export const getFinesByNic = (nic, offenceType, callback) => {
+export const getFinesByNic = (nic, fineType, callback) => {
   const httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function () {
     if (this.readyState === 4) {
       const responseBody = this.responseText;
       console.log(responseBody);
       if (this.status === 200) {
-        callback(JSON.parse(responseBody), offenceType);
+        callback(JSON.parse(responseBody), fineType);
       } else {
       }
     }
   };
 
-  const queryString = `nic=${nic}&offence_type=${offenceType}`;
+  const queryString = `nic=${nic}&fineType=${fineType}`;
 
   httpRequest.open("GET", `${HOST_NAME}/fine?${queryString}`, true);
   httpRequest.setRequestHeader(
