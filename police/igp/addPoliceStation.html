@@ -3,29 +3,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/css/police/igp/addPoliceStation.css">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/form.css">
+    <link rel="stylesheet" href="/resources/css/message.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
     <title>Add Police Station</title>
 </head>
 <body>
-    <div class="DashBoardOption">
-        <div class="logo">
-            <div class="dashboto-logo">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
                 <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
             </div>
-            <p class="logo"><b>NTSF</b></p>
+            <p class="tagline">National Traffic Spot Fine System</p>
         </div>
-        <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">IGP Dashboard</button>
-        <div class="clear"></div>
-        <ul class="menu">
+        <div class="side-bar-list">
+            <button class="dashboard-button">IGP Dashboard</button>
+            <div class="menu">
             <a href="../igp/viewPoliceman.html">
                 <i class="fa fa-dashboard"></i>
                 Policeman
             </a>
-            <br>
             <a href="../igp/viewPoliceStation.html">
                 <i class="fa fa-book"></i>
                 Police Station
@@ -38,45 +40,41 @@
                 <i class="fa fa-money"></i>
                 Logout
             </a>
-        </ul>
+        </div>
     </div>
+</div>
     
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div ng-app="app" ng-controller="coin">
-                <p class="btc-price">Suraif Muhammad</p>
-            </div>
+            <p class="user-name" id="user_name">Suraif Muhammad</p>
         </div>
     
     <!-- Dashbboard cards -->
-        <div class="all">
-            <div class="formBody">
-                <div class="container">
-                    <div class="formHeader">
-                        <h2>Add Police Station</h2>
-                    </div>
+    <div class="all">
+        <div class="container">
+            <h2 class="form-header">Add Police Station</h2>
                     <form action="#" id="form" class="form">
                         <div class="form-control">
                             <label for="branch_name">Branch Name</label>
                             <input type="text" placeholder="eg: Nugegoda" id="branch_name" />
-                            <!-- <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i> -->
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
                             <label for="address">Address</label>
                             <input type="text" placeholder="eg: 11, High level Road" id="address" />
-                            <!-- <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i> -->
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
                             <label for="districtOptions">District</label>
                             <div class="options" id="districtOptions">
                                 <div class="hide-option option" id="hide-districtOption">Select the district</div>
-                                <!-- <i class="fas fa-check-circle"></i>
-                                <i class="fas fa-exclamation-circle"></i> -->
+                                <i class="fa-regular fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-exclamation"></i>
                             </div>
                             <small>Error message</small>
                         </div>
@@ -84,30 +82,29 @@
                             <label for="provinceOptions">Province</label>
                             <div class="options" id="provinceOptions">
                                 <div class="hide-option option" id="hide-provinceOption">Select the Police Station</div>
-                                <!-- <i class="fas fa-check-circle"></i>
-                                <i class="fas fa-exclamation-circle"></i> -->
+                                <i class="fa-regular fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-exclamation"></i>
                             </div>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
                             <label for="contact_number">Telephone Number</label>
                             <input type="text" placeholder="eg: 0112737922" id="contact_number" />
-                            <!-- <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i> -->
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
                             <label for="email">E-mail</label>
                             <input type="email" placeholder="eg: suraifcoc16@gmail.com" id="email" />
-                            <!-- <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i> -->
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
                             <small>Error message</small>
                         </div> 
                         <button>Submit</button>
                     </form>
                 </div>
             </div>
-        </div>
     <script src="/resources/js/police/igp/addPoliceStation.js"></script>
 </body>
 </html>
