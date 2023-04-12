@@ -125,12 +125,19 @@ function isEmail(email) {
 
 //Input validating
 function checkInputs() {
-	// trim to remove the whitespaces
+	// trim to remove the leading and trailing whitespaces
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
 	const nicValue = nic.value.trim();
     const mobile_numberValue = mobile_number.value.trim();
     const emailValue = email.value.trim();
+
+    console.log("Printing the values of the input fields");
+    console.log(nameValue);
+    console.log(police_idValue);
+    console.log(nicValue);
+    console.log(mobile_numberValue);
+    console.log(emailValue);
 	
     let flagName = 1 //error exists
     let flagPolice_ID = 1 //error exists
@@ -144,7 +151,7 @@ function checkInputs() {
 		setErrorFor(name, 'Name cannot be blank');
         flagName = 1;
 	} 
-    else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
+    else if((nameValue.match(/^[a-zA-Z ]+$/)) == null){
         setErrorFor(name, 'Name should contain only letters');
         flagName = 1;
     }
