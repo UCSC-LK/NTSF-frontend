@@ -74,8 +74,8 @@ function policestationDataHTMLoutput(branch_name, address, district, province, c
     dataCell4.innerHTML = province;
     dataCell5.innerHTML = contact_number;
     dataCell6.innerHTML = email;
-    // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+policeid+")'>Edit</button>";
-    // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'>Delete</button>";
+    dataCell8.innerHTML = "<button type='button' id='editButton' onclick='editPoliceStationDetails("+branch_name+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell9.innerHTML = "<button type='button' id='deletebutton' onclick='deletePoliceStationPopUp("+branch_name+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
     
 }
 
