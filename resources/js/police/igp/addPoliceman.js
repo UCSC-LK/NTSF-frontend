@@ -425,6 +425,9 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     {
         let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonAddPolicemanResponse);
+        let addPolicemanResponse = jsonAddPolicemanResponse.alert;
+        console.log(addPolicemanResponse);
+        return addPolicemanResponse;
     }
     
 }
@@ -632,9 +635,9 @@ function getMessage(policemanAdditionStatus) {
     let message = document.createElement("div");
     message.className = "message";
 
-    if (policemanAdditionStatus == true) {
+    if (policemanAdditionStatus == false) {
         message.classList.add("danger");
-        message.textContent = "Oh no! It is cannot be blank";
+        message.textContent = "Policeman Addition Failed!!";
 
         document.body.appendChild(message);
 
