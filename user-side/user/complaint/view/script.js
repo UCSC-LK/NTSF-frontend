@@ -1,4 +1,4 @@
-import { getComplaintByUserId } from "/service/complaintService.js";
+import { getComplaintByUserId } from "service/complaintService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
