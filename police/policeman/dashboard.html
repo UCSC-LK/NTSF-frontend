@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
     <link rel="stylesheet" href="/resources/css/police/policeman/dashboard.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
@@ -10,65 +11,64 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="DashBoardOption">
-        <div class="logo">
-            <div class="dashboto-logo">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
                 <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
             </div>
-            <h2 class="logo"><b>NTSF</b></h2>
+            <p class="tagline">National Traffic Spot Fine System</p>
         </div>
-        <p class="tagline">National Traffic Spot Fine System</p>
-        <button class="main">Policeman Dashboard</button>
-        <div class="clear"></div>
-        <ul class="menu">
-            <a href="../../police/policeman/trafficPolice/addFine.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <a href="../policeman/trafficPolice/viewFine.html">
-                <i class="fa fa-book"></i>
-                View Fines
-            </a>
-            <a href="../oic/">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <br>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
-        </ul>
+        <div class="side-bar-list">
+            <button class="dashboard-button">Policeman Dashboard</button>
+            <div class="menu">
+                <a href="../../police/policeman/trafficPolice/addFine.html">
+                    <i class="fa fa-dashboard"></i>
+                    Policeman
+                </a>
+                <a href="../policeman/trafficPolice/viewFine.html">
+                    <i class="fa fa-book"></i>
+                    View Fines
+                </a>
+                <a href="../oic/">
+                    <i class="fa fa-book"></i>
+                    Offence
+                </a>
+                <br>
+                <a href="../login.html">
+                    <i class="fa fa-money"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
     </div>
     
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div ng-app="app" ng-controller="coin">
-                <p class="btc-price">Suraif Muhammad</p>
-            </div>
+            <p class="user-name" id="user_name">Suraif Muhammad</p>
         </div>
     
     <!-- Dashbboard cards -->
-    <div class="all">
-        <div class="container">
-            <div class="cardContainer">
-                <div class="card">
-                  <a href="/police/policeman/trafficPolice/Fine.html">
-                    <h2>Traffic Police</h2>
-                  </a>
-                </div>
-                <div class="card">
-                    <a href="/police/policeman/trafficPolice/viewAppeals.html">
-                        <h2>Investigation Officer</h2>
-                </div>
-                <div class="card">
-                    <a href="/police/policeman/trafficPolice/viewFines.css">
-                        <h2>Court Officer</h2>
-                </div>
-              </div>
+        <div class="all">
+            <div class="container">
+                    <div class="card">
+                        <a href="/police/policeman/trafficPolice/Fine.html">
+                        <h2>Traffic Police</h2>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="/police/policeman/trafficPolice/viewAppeals.html">
+                            <h2>Investigation Officer</h2>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="/police/policeman/trafficPolice/viewFines.css">
+                            <h2>Court Officer</h2>
+                        </a>
+                    </div>
+            </div>
         </div>
-    </div>
 
     <script src="../../resources/js/police/oic/policeman.js"></script>
 </body>
