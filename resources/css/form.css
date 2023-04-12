@@ -108,6 +108,16 @@
 	padding: 10px;
 	margin-top: 20px;
 	width: 100%;
+	cursor: pointer;
+}
+
+.form button:hover {
+	background-color: #0e8cd9;
+}
+
+.form button:active {
+	background-color: #0e8cd9;
+	transform: translateY(4px);
 }
 
 .options {
