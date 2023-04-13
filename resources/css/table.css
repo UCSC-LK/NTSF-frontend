@@ -21,7 +21,7 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	height: 60%; /*Adjust the horizontal scroll bar height*/
+	height: 74%; /*Adjust the horizontal scroll bar height*/
 }
 
 

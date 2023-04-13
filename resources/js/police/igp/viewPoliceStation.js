@@ -1,4 +1,4 @@
-const loadPolicemanDetails = function()
+const loadPoliceStationDetails = function()
 {
     var table = document.getElementById("table");
 
@@ -30,13 +30,13 @@ const loadPolicemanDetails = function()
         {
             console.log("Allowed");
                     
-            const policestationData = document.getElementById("policestationData");
-            policestationData.innerHTML = "";
+            const policeStationData = document.getElementById("policeStationData");
+            policeStationData.innerHTML = "";
 
             let count =  jsonPoliceStationData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                policestationDataHTMLoutput(jsonPoliceStationData.List[i].branch_name, jsonPoliceStationData.List[i].address,
+                policeStationDataHTMLoutput(jsonPoliceStationData.List[i].branch_name, jsonPoliceStationData.List[i].address,
                 jsonPoliceStationData.List[i].district, jsonPoliceStationData.List[i].province, jsonPoliceStationData.List[i].contact_number, jsonPoliceStationData.List[i].email);
             }
 
@@ -49,7 +49,7 @@ const loadPolicemanDetails = function()
     return jsonPoliceStationData;
 }
 
-function policestationDataHTMLoutput(branch_name, address, district, province, contact_number, email)
+function policeStationDataHTMLoutput(branch_name, address, district, province, contact_number, email)
 {
     console.log(branch_name);
     console.log(address);
@@ -66,6 +66,8 @@ function policestationDataHTMLoutput(branch_name, address, district, province, c
     var dataCell4 = dataRow.insertCell(3);
     var dataCell5 = dataRow.insertCell(4);
     var dataCell6 = dataRow.insertCell(5);
+    var dataCell7 = dataRow.insertCell(6);
+    var dataCell8 = dataRow.insertCell(7);
 
     //Add content to the table data cells
     dataCell1.innerHTML = branch_name;
@@ -74,8 +76,65 @@ function policestationDataHTMLoutput(branch_name, address, district, province, c
     dataCell4.innerHTML = province;
     dataCell5.innerHTML = contact_number;
     dataCell6.innerHTML = email;
-    dataCell8.innerHTML = "<button type='button' id='editButton' onclick='editPoliceStationDetails("+branch_name+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
-    dataCell9.innerHTML = "<button type='button' id='deletebutton' onclick='deletePoliceStationPopUp("+branch_name+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell7.innerHTML = "<button type='button' id='editButton' onclick='editPoliceStationDetails("+branch_name+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell8.innerHTML = "<button type='button' id='deletebutton' onclick='deletePoliceStationPopUp("+branch_name+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
     
+}
+
+function deletePoliceStationDetails(branch_name) //Delete a Police Station
+{
+    console.log("Function called to Delete a Police Station");
+    console.log(branch_name);
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            policemanDeletionStatus = false;
+            if(deletePoliceStationData(this))
+            {
+                console.log("Police Station deleted successfully");
+                policemanDeletionStatus = true;
+            }
+            else
+            {
+                console.log("Police Station deletion failed");
+                policemanDeletionStatus = false;
+            }
+            getMessage(policemanDeletionStatus);
+        }
+    }
+    
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpreq.send("action=deletePoliceStation" + "&branch_name=" +branch_name);
+
+    function deletePoliceStationData(httpreq)
+    {
+        console.log("deletePoliceStationData function called");
+        let jsonDeletePoliceStationResponse = JSON.parse(httpreq.responseText);
+        console.log(jsonDeletePoliceStationResponse);
+        let jsonDeletePoliceStationResponseAlert = jsonDeletePoliceStationResponse.alert;
+        console.log(jsonDeletePoliceStationResponseAlert);
+
+        if(jsonDeletePoliceStationResponseAlert == true)
+        {
+            console.log("PoliceStation deleted successfully");
+            window.location.reload();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+}
+
+function editPoliceStationDetails(branch_name) //Edit a policeman
+{
+    console.log("Function called to Edit a policeman");
+    window.location.href = "../../../../police/igp/updatePoliceStation.html";
+    sessionStorage.setItem("Updatebranch_name", branch_name);
 }
 

@@ -73,15 +73,15 @@ function offenceDataHTMLoutput(offence_no, offence_type, description, amount, de
     var dataCell5 = dataRow.insertCell(4);
     var dataCell6 = dataRow.insertCell(5);
     var dataCell7 = dataRow.insertCell(6);
-
+    
     //Add content to the table data cells
     dataCell1.innerHTML = offence_no;
     dataCell2.innerHTML = offence_type;
     dataCell3.innerHTML = description;
     dataCell4.innerHTML = amount;
     dataCell5.innerHTML = demerit_points;
-    dataCell6.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editOffenceDetails("+offence_no+")'>Edit</button>";
-    dataCell7.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deleteOffencePopUp("+offence_no+")'>Delete</button>";
+    dataCell6.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+offence_no+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell7.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+offence_no+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deleteOffenceDetails(offence_no) //Delete an offence
