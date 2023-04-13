@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/card.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <button class="dashboard-button">IGP Dashboard</button>
+            <div class="menu">
+            <a href="../igp/viewPoliceman.html">
+                <i class="fa fa-dashboard"></i>
+                Policeman
+            </a>
+            <a href="../igp/viewPoliceStation.html">
+                <i class="fa fa-book"></i>
+                Police Station
+            </a>
+            <a href="../igp/viewOffence.html" style="color: #14abfa;">
+                <i class="fa fa-book"></i>
+                Offence
+            </a>
+            <a href="../login.html">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <p class="user-name" id="user_name">Suraif Muhammad</p>
+        </div>
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="container">
+            <div class="card">
+                <a href="/police/policeman/trafficPolice/viewOffence.html" id="driverOffence">
+                <h2>Driver</h2>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/police/policeman/trafficPolice/viewOffence.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/police/policeman/trafficPolice/viewOffence.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
+            </div>
+        </div>
+
+    <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
+</body>
+</html>
