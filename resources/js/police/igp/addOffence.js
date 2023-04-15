@@ -85,7 +85,9 @@ function checkInputs() {
         console.log("descriptionValue: " + descriptionValue);
         console.log("amountValue: " + amountValue);
         console.log("demerit_pointValue: " + demerit_pointValue);
-        addOffence(offence_typeValue, descriptionValue, amountValue, demerit_pointValue);
+        offence_no = fetchOffenceNo();
+        console.log("offence_no: " + offence_no);
+        addOffence(offence_no, offence_typeValue, descriptionValue, amountValue, demerit_pointValue);
     }
 }
 
@@ -230,12 +232,100 @@ function createOptionsDemerit_point() {
     });
 };
 
+function getOffenceNo(offenceType){
+    console.log("getOffenceNo function called");
+    let jsonGetOffenceNo;
+    let httpreq = new XMLHttpRequest();
+    httpreq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            let jsonGetOffenceNoResponse = JSON.parse(this.responseText);
+            console.log(jsonGetOffenceNoResponse);
+            jsonGetOffenceNo = jsonGetOffenceNoResponse.offence_no;
+            console.log(jsonGetOffenceNo);
+            return jsonGetOffenceNo;
+        }
+    }
+
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpreq.send("action=getOffenceNo" + "&offence_type=" + offenceType);
+}
+
+
+/*Adding offence number to the API request*/
+function fetchOffenceNo() {
+    console.log("fetchOffenceNo() called");
+    let offence_no;
+    let selectedOffenceType = checkOffence_typeFill();
+    console.log(selectedOffenceType);
+    if(selectedOffenceType == "driver")
+    {
+        recievedOffenceNo = getOffenceNo("driver");
+        console.log(recievedOffenceNo);
+        if(recievedOffenceNo == 0) //Offence Number for Drivers 1-100
+        {
+            offence_no = 1;
+        }
+        else if(recievedOffenceNo > 0 && recievedOffenceNo < 100)
+        {
+            offence_no = recievedOffenceNo + 1;
+        }
+        else if (recievedOffenceNo == 100)
+        {
+            console.log("Maximum number of offences for drivers reached")
+            getMessage("Maximum number of offences for drivers reached");
+        }
+    }
+    else if(selectedOffenceType == "vehicle") //Offence Number for Vehicles 101-200
+    {
+        recievedOffenceNo = getOffenceNo("vehicle");
+        console.log(recievedOffenceNo);
+        if(recievedOffenceNo == 0)
+        {
+            offence_no = 101;
+        }
+        else if(recievedOffenceNo > 100 && recievedOffenceNo < 200)
+        {
+            offence_no = recievedOffenceNo + 1;
+        }
+        else if (recievedOffenceNo == 200)
+        {
+            console.log("Maximum number of offences for vehicles reached");
+            getMessage("Maximum number of offences for vehicles reached");
+        }
+    }
+    else if(selectedOffenceType == "pedestrian") //Offence Number for Pedestrians 201-300
+    {
+        recievedOffenceNo = getOffenceNo("pedestrian");
+        console.log(recievedOffenceNo);
+        if(recievedOffenceNo == 0)
+        {
+            offence_no = 201;
+        }
+        else if(recievedOffenceNo > 200 && recievedOffenceNo < 300)
+        {
+            offence_no = recievedOffenceNo + 1;
+        }
+        else if (recievedOffenceNo == 300)
+        {
+            console.log("Maximum number of offences for pedestrians reached")
+            getMessage("Maximum number of offences for pedestrians reached");
+        }
+    }
+    console.log("offence_no to be sent to the backend: " + offence_no);
+    return offence_no;
+}
+
 
 //Sending data to backend
 
-const addOffence = function(offence_type, description, amount, demerit_point)
+const addOffence = function(offence_no, offence_type, description, amount, demerit_point)
 {
     console.log('came until js function for addOffence which sends data to backend');
+    console.log(offence_no);
     console.log(offence_type);
     console.log(description);
     console.log(amount);
@@ -263,7 +353,7 @@ const addOffence = function(offence_type, description, amount, demerit_point)
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addOffence" + "&offence_type=" + offence_type + "&description=" + description + "&amount=" + amount + "&demerit_point=" + demerit_point);
+    httpReq.send("action=addOffence" + "&offence_no" + offence_no + "&offence_type=" + offence_type + "&description=" + description + "&amount=" + amount + "&demerit_point=" + demerit_point);
 
     function addOffenceData(httpReq)
     {

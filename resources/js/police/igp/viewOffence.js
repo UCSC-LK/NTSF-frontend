@@ -77,7 +77,7 @@ const loadOffenceDetails = function()
     }
 }
 
-function offenceDataHTMLoutput(offence_no, offence_type, description, amount, demerit_points)
+function offenceDataHTMLoutput(offence_no, description, amount, demerit_points)
 {
     // create table data row
     var dataRow = table.insertRow();
@@ -93,8 +93,8 @@ function offenceDataHTMLoutput(offence_no, offence_type, description, amount, de
     dataCell2.innerHTML = description;
     dataCell3.innerHTML = amount;
     dataCell4.innerHTML = demerit_points;
-    dataCell5.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+offence_no+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
-    dataCell6.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+offence_no+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell5.innerHTML = "<button type='button' id='editButton' onclick='editOffenceDetails("+offence_no+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell6.innerHTML = "<button type='button' id='deletebutton' onclick='deleteOffencePopUp("+offence_no+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deleteOffenceDetails(offence_no) //Delete an offence
@@ -155,33 +155,33 @@ function editOffenceDetails(offence_no) //Edit a offence
 }
 
 //Model to ask are you sure want to delete??
-const modal = document.getElementById('myModal');
-const modalYes = document.getElementById('modal-yes');
-const modalNo = document.getElementById('modal-no');
+const model = document.getElementById('myModel');
+const modelYes = document.getElementById('model-yes');
+const modelNo = document.getElementById('model-no');
 
 
 function deleteOffencePopUp(offence_no) {
-    modal.style.display = "block";
+    model.style.display = "block";
     console.log("popup is called with offence_no: " + offence_no);
 
-    modalYes.onclick = function() {
+    modelYes.onclick = function() {
     // Perform the delete operation
     console.log("YES delete is clicked" + offence_no);
     deleteOffenceDetails(offence_no);
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 
-    modalNo.onclick = function() {
+    modelNo.onclick = function() {
     console.log("NO delete is clicked" + offence_no);  
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 }
 
-// Close the modal window if the user clicks outside of it
+// Close the model window if the user clicks outside of it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == model) {
+    model.style.display = "none";
   }
 }
