@@ -3,6 +3,13 @@ const loadPoliceStationDetails = function()
     var table = document.getElementById("table");
 
     console.log("I was called onload");
+    console.log("Printing session storage values");
+    let jwt = sessionStorage.getItem('jwt');
+    console.log(jwt);
+    let user_police_id = sessionStorage.getItem('user_police_id');
+    console.log("user_police_id + " + user_police_id);
+    let user_rank = sessionStorage.getItem('rank');
+    console.log(user_rank);
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
@@ -45,19 +52,13 @@ const loadPoliceStationDetails = function()
         {
             alert("Something went wrong");
         }
+        return jsonPoliceStationData;
     }
-    return jsonPoliceStationData;
+
 }
 
 function policeStationDataHTMLoutput(branch_name, address, district, province, contact_number, email)
 {
-    console.log(branch_name);
-    console.log(address);
-    console.log(district);
-    console.log(province);
-    console.log(contact_number);
-    console.log(email);
-
     // create table data row
     var dataRow = table.insertRow();
     var dataCell1 = dataRow.insertCell(0);
@@ -89,18 +90,18 @@ function deletePoliceStationDetails(branch_name) //Delete a Police Station
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            policemanDeletionStatus = false;
+            policeStationDeletionStatus = false;
             if(deletePoliceStationData(this))
             {
                 console.log("Police Station deleted successfully");
-                policemanDeletionStatus = true;
+                policeStationDeletionStatus = true;
             }
             else
             {
                 console.log("Police Station deletion failed");
-                policemanDeletionStatus = false;
+                policeStationDeletionStatus = false;
             }
-            getMessage(policemanDeletionStatus);
+            getMessage(policeStationDeletionStatus);
         }
     }
     
@@ -131,10 +132,43 @@ function deletePoliceStationDetails(branch_name) //Delete a Police Station
     }
 }
 
-function editPoliceStationDetails(branch_name) //Edit a policeman
+function editPoliceStationDetails(branch_name) //Edit a Police Station
 {
-    console.log("Function called to Edit a policeman");
+    console.log("Function called to Edit a Police Station");
     window.location.href = "../../../../police/igp/updatePoliceStation.html";
     sessionStorage.setItem("Updatebranch_name", branch_name);
 }
+
+//Model to ask are you sure want to delete??
+const model = document.getElementById('myModel');
+const modelYes = document.getElementById('model-yes');
+const modelNo = document.getElementById('model-no');
+
+
+function deletePoliceStationPopUp(branch_name) {
+    model.style.display = "block";
+    console.log("popup is called with branch_name: " + branch_name);
+
+    modelYes.onclick = function() {
+    // Perform the delete operation
+    console.log("YES delete is clicked" + branch_name);
+    deletePoliceStationDetails(branch_name);
+    model.style.display = "none";
+    };
+
+
+    modelNo.onclick = function() {
+    console.log("NO delete is clicked" + branch_name);  
+    model.style.display = "none";
+    };
+
+}
+
+// Close the model window if the user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == model) {
+    model.style.display = "none";
+  }
+}
+
 
