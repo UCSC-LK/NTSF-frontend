@@ -5,6 +5,19 @@ let offence_type = sessionStorage.getItem("offence_type");
 console.log("Printing below the offence_type from session storage");
 console.log("offence_type: " + offence_type);
 
+if(offence_type === "driver"){
+   document.getElementById("formTitle").innerHTML = "Add Driver Offence";
+}
+else if(offence_type === "vehicle"){
+    document.getElementById("formTitle").innerHTML = "Add Vehicle Offence";
+}
+else if(offence_type === "pedestrian"){
+    document.getElementById("formTitle").innerHTML = "Add Pedestrian Offence";
+}
+else{
+    console.log("Something went wrong");
+}
+
 var police_idSession = sessionStorage.getItem("user_police_id");
 console.log("Printing below the username from session storage");
 console.log("user_police_id: " + police_idSession);
