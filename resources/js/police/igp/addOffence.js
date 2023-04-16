@@ -85,7 +85,7 @@ function checkInputs() {
         console.log("descriptionValue: " + descriptionValue);
         console.log("amountValue: " + amountValue);
         console.log("demerit_pointValue: " + demerit_pointValue);
-        offence_no = fetchOffenceNo();
+        let offence_no = fetchOffenceNo();
         console.log("offence_no: " + offence_no);
         addOffence(offence_no, offence_typeValue, descriptionValue, amountValue, demerit_pointValue);
     }
@@ -248,10 +248,12 @@ function getOffenceNo(offenceType){
         }
     }
 
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", false); //async = false is mandatory for this function to work properly (???)
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=getOffenceNo" + "&offence_type=" + offenceType);
+
+    return jsonGetOffenceNo;
 }
 
 
@@ -407,7 +409,6 @@ const checkOffenceDescription = function(description) //Returns true if duplicat
         }
         else
         {
-            
             return false;
         }
     }
