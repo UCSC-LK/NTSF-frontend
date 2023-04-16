@@ -7,7 +7,7 @@ const loadPoliceStationDetails = function()
     let jwt = sessionStorage.getItem('jwt');
     console.log(jwt);
     let user_police_id = sessionStorage.getItem('user_police_id');
-    console.log("user_police_id + " + user_police_id);
+    console.log("user_police_id: " + user_police_id);
     let user_rank = sessionStorage.getItem('rank');
     console.log(user_rank);
     let httpreq = new XMLHttpRequest;
@@ -59,6 +59,15 @@ const loadPoliceStationDetails = function()
 
 function policeStationDataHTMLoutput(branch_name, address, district, province, contact_number, email)
 {
+    console.log("Function called to add Police Station data to the table");
+    console.log(branch_name);
+    console.log(address);
+    console.log(district);
+    console.log(province);
+    console.log(contact_number);
+    console.log(email);
+
+
     // create table data row
     var dataRow = table.insertRow();
     var dataCell1 = dataRow.insertCell(0);
@@ -77,8 +86,9 @@ function policeStationDataHTMLoutput(branch_name, address, district, province, c
     dataCell4.innerHTML = province;
     dataCell5.innerHTML = contact_number;
     dataCell6.innerHTML = email;
-    dataCell7.innerHTML = "<button type='button' id='editButton' onclick='editPoliceStationDetails("+branch_name+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
-    dataCell8.innerHTML = "<button type='button' id='deletebutton' onclick='deletePoliceStationPopUp("+branch_name+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell7.innerHTML = "<button type='button' id='editButton' onclick='editPoliceStationDetails(\""+branch_name+"\")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell8.innerHTML = "<button type='button' id='deletebutton' onclick='deletePoliceStationPopUp(\""+branch_name+"\")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
+
     
 }
 
@@ -135,6 +145,7 @@ function deletePoliceStationDetails(branch_name) //Delete a Police Station
 function editPoliceStationDetails(branch_name) //Edit a Police Station
 {
     console.log("Function called to Edit a Police Station");
+    console.log(branch_name);
     window.location.href = "../../../../police/igp/updatePoliceStation.html";
     sessionStorage.setItem("Updatebranch_name", branch_name);
 }
