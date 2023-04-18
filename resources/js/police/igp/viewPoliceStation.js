@@ -115,7 +115,7 @@ function deletePoliceStationDetails(branch_name) //Delete a Police Station
         }
     }
     
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpreq.send("action=deletePoliceStation" + "&branch_name=" +branch_name);
