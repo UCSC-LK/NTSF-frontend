@@ -200,7 +200,7 @@ function getOffenceNo(offenceType){
 function fetchOffenceNo() {
     console.log("fetchOffenceNo() called");
     let offence_no;
-    let selectedOffenceType = checkOffence_typeFill();
+    let selectedOffenceType = offence_type;
     console.log(selectedOffenceType);
     if(selectedOffenceType == "driver")
     {
