@@ -1,18 +1,21 @@
-//Dynamically setting up the input coloumn for user_id based on fine_type
-var fine_type = sessionStorage.getItem("fine_type");
-console.log("fine_type: " + fine_type);
+//Dynamically setting up the input coloumn for user_id based on offence_type
+var offence_type = sessionStorage.getItem("offence_type");
+console.log("offence_type: " + offence_type);
 
-if(fine_type == "driver"){
+if(offence_type == "driver"){
+    document.getElementById("addFineType").innerHTML = "Add Driver Fine";
     document.getElementById("user_id").placeholder = "Enter License No";
     document.querySelector('label[for="user_id"]').innerHTML = "License No:";
 }
-else if(fine_type == "vehicle"){
+else if(offence_type == "vehicle"){
+    document.getElementById("addFineType").innerHTML = "Add Vehicle Fine";
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
     document.querySelector('label[for="user_id"]').innerHTML = "Vehicle No:";
 
     document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
-else if(fine_type == "pedestrian"){
+else if(offence_type == "pedestrian"){
+    document.getElementById("addFineType").innerHTML = "Add Pedestrian Fine";
     document.getElementById("user_id").placeholder = "Enter NIC";
     document.querySelector('label[for="user_id"]').innerHTML = "NIC:";
 
@@ -20,7 +23,7 @@ else if(fine_type == "pedestrian"){
 }
 else
 {
-    console.log("Error in setting up the input coloumn for user_id based on fine_type");
+    console.log("Error in setting up the input coloumn for user_id based on offence_type");
 }
 
 
@@ -45,7 +48,7 @@ form.addEventListener('submit', e => {
 function checkInputs() {
     
 	// trim to remove the whitespaces
-    //Enter here the code to validate fine_type
+    //Enter here the code to validate offence_type
     const user_idValue = user_id.value;
     const offence_noValue = offence_no.value;
     const spot_descriptionValue = spot_description.value;
@@ -62,7 +65,7 @@ function checkInputs() {
     let flagOffence_no = 0;
     let flagSpot_description = 0;
 
-    if(fine_type == "driver"){
+    if(offence_type == "driver"){
         //user_id is license_no
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'License No cannot be blank');
@@ -81,7 +84,7 @@ function checkInputs() {
             flagUser_id = 0;
         }
     }
-    else if(fine_type == "vehicle"){
+    else if(offence_type == "vehicle"){
         //user_id is vehicle_no
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'Vehicle No cannot be blank');
@@ -104,7 +107,7 @@ function checkInputs() {
             flagUser_id = 0;
         }
     }
-    else if(fine_type == "pedestrian"){
+    else if(offence_type == "pedestrian"){
         //user_id is nic
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'NIC cannot be blank');
@@ -120,7 +123,7 @@ function checkInputs() {
         }
     }
     else{
-        console.log("Error in validating user_id based on fine_type");
+        console.log("Error in validating user_id based on offence_type");
     }
 
     if(offence_noValueTrim === '') {
@@ -216,7 +219,7 @@ const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, p
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addFine" + "&fine_type=" + fine_type + "&user_id=" + user_idValue + "&driven_vehicle" + driven_vehicle + "&offence_no=" + offence_noValue + "&spot_description=" + spot_descriptionValue + "&police_id=" + police_id + "&police_station=" + police_station);
+    httpReq.send("action=addFine" + "&offence_type=" + offence_type + "&user_id=" + user_idValue + "&driven_vehicle" + driven_vehicle + "&offence_no=" + offence_noValue + "&spot_description=" + spot_descriptionValue + "&police_id=" + police_id + "&police_station=" + police_station);
 
     function addFineData(httpReq)
     {
