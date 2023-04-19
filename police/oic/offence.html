@@ -3,16 +3,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/police/igp/viewPoliceman.css">
     <link rel="stylesheet" href="/resources/css/user-interface.css">
-    <link rel="stylesheet" href="/resources/css/table.css">
+    <link rel="stylesheet" href="/resources/css/card.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
-    <title>NTSF</title>
+    <title>Document</title>
 </head>
-<body onload="loadOffenceDetails()">
+<body>
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -24,16 +22,15 @@
         <div class="side-bar-list">
             <button class="dashboard-button">OIC Dashboard</button>
             <div class="menu">
-            <a href="../oic/viewPoliceman.html">
+            <a href="../igp/viewPoliceman.html">
                 <i class="fa fa-dashboard"></i>
                 Policeman
             </a>
-            <br>
-            <a href="../oic/viewFine.html">
+            <a href="../igp/viewPoliceStation.html">
                 <i class="fa fa-book"></i>
-                Fine
+                Police Station
             </a>
-            <a href="../oic/viewOffence.html">
+            <a href="../igp/offence.html" style="color: #14abfa;">
                 <i class="fa fa-book"></i>
                 Offence
             </a>
@@ -50,31 +47,25 @@
         <div class="panel">
             <p class="user-name" id="user_name">Suraif Muhammad</p>
         </div>
-    
     <!-- Dashbboard cards -->
-        <div class="all">
-            <a></a>
-            <div class="container">
-                <h1>Offence Information</h1>
-                <div class="tableSection">
-                    <table class="rwd-table" id="table">
-                        <tbody>
-                          <div class="tableheading">
-                            <thead>
-                              <th>Offence No</th>
-                              <th>Offence Type</th>
-                              <th>Description</th>
-                              <th>Amount</th>
-                              <th>Demerit Points</th>
-                            </thead>
-                          </div>
-                          <div id="offenceData"></div>
-                        </tbody>
-                      </table>
-                </div>
+    <div class="all">
+        <div class="container">
+            <div class="card">
+                <a href="/police/oic/viewOffence.html" id="driverOffence">
+                <h2>Driver</h2>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/police/oic/viewOffence.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/police/oic/viewOffence.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
             </div>
         </div>
-
-    <script src="../../resources/js/police/oic/viewOffence.js"></script>
+    <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
 </body>
 </html>
