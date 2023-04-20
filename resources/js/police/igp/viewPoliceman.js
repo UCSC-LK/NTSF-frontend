@@ -1,59 +1,67 @@
 document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 const loadPolicemanDetails = function()
 {
-    var table = document.getElementById("table");
 
-    console.log("I was called onload");
-    console.log("Printing session storage values")
-    jwt = sessionStorage.getItem('jwt');
-    console.log(jwt);
-    user_police_id = sessionStorage.getItem('user_police_id');
-    console.log("user_police_id: " +user_police_id);
-    user_rank = sessionStorage.getItem('rank');
-    console.log(user_rank);
-    let httpreq = new XMLHttpRequest;
-    httpreq.onreadystatechange = function()
-    {
-        if (this.readyState === 4 && this.status === 200) {
-            completeLoad(this);
-        }
+    let user_rank = sessionStorage.getItem('rank');
+    if(user_rank !== "igp"){
+        window.location.href = "http://localhost:8080/ntsf_backend_war/404error"; //Redirect to 404 error page
+        console.log("Redirecting to 404 error page");
     }
-    
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
-    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
-    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpreq.send("action=viewPoliceman");
+    else{            
+        var table = document.getElementById("table");
 
-    function completeLoad(httpreq)
-    {
-        let jsonPolicemanData = JSON.parse(httpreq.responseText);
-        console.log(jsonPolicemanData);
-
-        if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+        console.log("I was called onload");
+        console.log("Printing session storage values")
+        jwt = sessionStorage.getItem('jwt');
+        console.log(jwt);
+        user_police_id = sessionStorage.getItem('user_police_id');
+        console.log("user_police_id: " +user_police_id);
+        user_rank = sessionStorage.getItem('rank');
+        console.log(user_rank);
+        let httpreq = new XMLHttpRequest;
+        httpreq.onreadystatechange = function()
         {
-            window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
-            console.log("Redirecting to login page");
-        }
-        else if(jsonPolicemanData.serverResponse === "Allowed")
-        {
-            console.log("Allowed");
-                    
-            const policemanData = document.getElementById("policemanData");
-            policemanData.innerHTML = "";
-
-            let count =  jsonPolicemanData.List.length - 1;
-            for(i=0; i<= count; i++)
-            {
-                policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
-                jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+            if (this.readyState === 4 && this.status === 200) {
+                completeLoad(this);
             }
+        }
+        
+        httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+        httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+        httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+        httpreq.send("action=viewPoliceman");
 
-        }
-        else
+        function completeLoad(httpreq)
         {
-            alert("Something went wrong");
+            let jsonPolicemanData = JSON.parse(httpreq.responseText);
+            console.log(jsonPolicemanData);
+
+            if(jsonPolicemanData.serverResponse === "null session" || jsonPolicemanData.serverResponse === "Not Allowed")
+            {
+                window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+                console.log("Redirecting to login page");
+            }
+            else if(jsonPolicemanData.serverResponse === "Allowed")
+            {
+                console.log("Allowed");
+                        
+                const policemanData = document.getElementById("policemanData");
+                policemanData.innerHTML = "";
+
+                let count =  jsonPolicemanData.List.length - 1;
+                for(i=0; i<= count; i++)
+                {
+                    policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
+                    jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+                }
+
+            }
+            else
+            {
+                alert("Something went wrong");
+            }
+            return jsonPolicemanData;
         }
-        return jsonPolicemanData;
     }
 }
 
