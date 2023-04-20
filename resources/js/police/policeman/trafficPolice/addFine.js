@@ -147,7 +147,7 @@ function checkInputs() {
         setErrorFor(spot_description, 'Spot Description cannot be blank');
         flagSpot_description = 1;
     }
-    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9]+$/)) == null){
+    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9 ]+$/)) == null){
         setErrorFor(spot_description, 'Spot Description should contain only letters and numbers');
         flagSpot_description = 1;
     }
