@@ -1,3 +1,4 @@
+document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 const loadPoliceStationDetails = function()
 {
     var table = document.getElementById("table");

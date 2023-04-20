@@ -5,6 +5,8 @@ const nic = document.getElementById('nic');
 const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
 
+document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
+
 var police_idSession = sessionStorage.getItem("user_police_id");
 console.log("police_idSession: " + police_idSession);
 
