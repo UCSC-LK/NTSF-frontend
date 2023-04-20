@@ -4,7 +4,7 @@ const loadPolicemanDetails = function()
 
     let user_rank = sessionStorage.getItem('rank');
     if(user_rank !== "igp"){
-        window.location.href = "http://localhost:8080/ntsf_backend_war/404error"; //Redirect to 404 error page
+        window.location.href = "../../404error.html"; //Redirect to 404 error page
         console.log("Redirecting to 404 error page");
     }
     else{            
