@@ -1,4 +1,3 @@
-document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 const loadPolicemanDetails = function()
 {
 
@@ -8,6 +7,8 @@ const loadPolicemanDetails = function()
         console.log("Redirecting to 404 error page");
     }
     else{            
+        document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
+        
         var table = document.getElementById("table");
 
         console.log("I was called onload");

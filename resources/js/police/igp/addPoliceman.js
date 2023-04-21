@@ -627,7 +627,6 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
         }
         else
         {
-            
             return false;
         }
     }
