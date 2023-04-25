@@ -4,6 +4,8 @@ const police_id = document.getElementById('police_id');
 const nic = document.getElementById('nic');
 const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
+// const profile_picture = document.getElementById('profile_picture'); //To make the variable profile picture mentioned inside form.addEventListener() to be global
+// let profile_pictureFile = "Methana yako error"; //To make the variable profile picture mentioned inside form.addEventListener() to be global
 
 document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 
@@ -78,7 +80,12 @@ function loadPoliceStationOptionsListOnLoad(){
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
-    checkInputs();
+    const enctype = form.enctype;
+    console.log(enctype);
+    const profile_picture = document.getElementById('profile_picture'); //declared above already
+    const profile_pictureFile = profile_picture.files[0]; //File object
+    console.log(profile_pictureFile);
+    checkInputs(profile_pictureFile);
 });
 
 //Checking whether data already exisiting
@@ -118,7 +125,7 @@ function isEmail(email) {
   }
 
 //Input validating
-function checkInputs() {
+function checkInputs(profile_pictureFile) {
 	// trim to remove the leading and trailing whitespaces
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
@@ -241,8 +248,8 @@ function checkInputs() {
 
     if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
         console.log('came until js function for event listener of submit button');
-        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
-        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
+        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, profile_pictureFile);
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, profile_pictureFile);
     }
     else{
         return false;
@@ -395,7 +402,7 @@ function createOptionspolice_station() {
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
+const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station, profile_picture)
 {
     console.log('came until js function for addPoliceman which sends data to backend');
 
@@ -418,10 +425,38 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
             getMessage(policemanAdditionStatus);
         }
     }
+    // httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    // httpReq.setRequestHeader("Content-type", "multipart/form-data"); /*Changed from application/x-www-form-urlencoded to enable uploading profile pic */
+    // httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    // httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station + "&profile_picture=" + profile_picture);
+
+    const form_data = new FormData();
+    form_data.append('action', 'addPoliceman');
+    form_data.append('name', name);
+    form_data.append('police_id', police_id);
+    form_data.append('nic', nic);
+    form_data.append('mobile_number', mobile_number);
+    form_data.append('email', email);
+    form_data.append('rank', rank);
+    form_data.append('police_station', police_station);
+    form_data.append('profile_picture', profile_picture);
+
+    console.log(form_data);
+    console.log(form_data.get('action'));
+    console.log(form_data.get('name'));
+    console.log(form_data.get('police_id'));
+    console.log(form_data.get('nic'));
+    console.log(form_data.get('mobile_number'));
+    console.log(form_data.get('email'));
+    console.log(form_data.get('rank'));
+    console.log(form_data.get('police_station'));
+    console.log(form_data.get('profile_picture'));
+
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send(form_data);
+
+
 
     function addPolicemanData(httpReq)
     {
@@ -691,6 +726,24 @@ function validation(nicNumber) {
     return result;
 }
 
+function profile_pictureValidation(profile_picture) {
+    profile_picture.addEventListener('change', function() {
+    // get the file name
+    const fileName = profile_picture.value;
+    // check if the file type matches the accepted types
+    if (!fileName.match(/\.png$|\.jpg$|\.jpeg$/)) {
+        // display an error message and reset the file input
+        setErrorFor(profile_picture,'Invalid file type. Only PNG and JPEG files are allowed.');
+        console.log("Profile Picture is invalid");
+        profile_picture.value = '';
+        return false
+    } else
+    {
+        return true;
+        console.log("Profile Picture is valid");
+    }
+    });
+}
 
 
 

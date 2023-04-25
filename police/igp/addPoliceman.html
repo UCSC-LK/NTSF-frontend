@@ -55,7 +55,7 @@
         <div class="all">
             <div class="container">
                 <h2 class="form-header">Add Policeman</h2>
-                <form action="#" id="form" class="form">
+                <form action="#" id="form" class="form"  enctype="multipart/form-data">
                     <div class="form-control">
                         <label for="name">Name</label>
                         <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
@@ -104,6 +104,13 @@
                             <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
                         </div>
                         <small>Error message</small>
+                    </div>
+                    <div>
+                        <label for="profile_picture">Profile Picture</label>
+                        <input type="file" id="profile_picture" name="profile_picture" accept="image/png, image/jpeg, image/jpg"> <!--Accepts only the file formats png,jpeg,jpg-->
+                        <!-- <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small> -->
                     </div>
                     <button id="button">Submit</button>
                 </form>
