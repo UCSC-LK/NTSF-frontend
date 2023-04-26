@@ -1,3 +1,6 @@
+/**
+ * @codeoverview Below code contains the old script for the login page
+ */
 //jquery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
