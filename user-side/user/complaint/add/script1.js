@@ -1,96 +1,71 @@
-function checkInputs() {
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-
-  let flag = 1;
-
-  if (title === "") {
-    setErrorFor(title, "Title cannot be blank");
-    flag = 1;
-  } else if (title.length < 5) {
-    setErrorFor(title, "Title should contain at least 5 characters");
-    flag = 1;
-  } else if (title.length > 50) {
-    setErrorFor(title, "Title should contain at most 50 characters");
-    flag = 1;
-  } else {
-    setSuccessFor(title);
-    flag = 0;
-  }
-
-  if (description === "") {
-    setErrorFor(description, "Description cannot be blank");
-    flag = 1;
-  } else if (description.length < 5) {
-    setErrorFor(
-      description,
-      "Description should contain at least 5 characters"
-    );
-    flag = 1;
-  } else if (description.length > 100) {
-    setErrorFor(
-      description,
-      "Description should contain at most 100 characters"
-    );
-    flag = 1;
-  } else {
-    setSuccessFor(description);
-    flag = 0;
-  }
-
-  if (flag === 0) {
-    addComplaint();
-  }
-}
-
-function setErrorFor(input, message) {
-  const formControl = input.parentElement;
-  const small = formControl.querySelector("small");
-  formControl.className = "form-control error";
-  small.innerText = message;
-}
-
-function setSuccessFor(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control success";
-}
+import {
+  validateTitle,
+  validateDescription,
+  validateParams,
+} from "../../../util/validator";
 
 function addComplaint() {
   // let user_id = sessionStorage.getItem("user_id");
   const user_id = "65";
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
+  validateTitle(title);
+  validateDescription(description);
 
-  console.log(user_id);
-  console.log(title);
-  console.log(description);
+  let validateStatusCode = validateParams(title, description);
 
-  let httpReq = new XMLHttpRequest();
-  httpReq.onreadystatechange = function () {
-    if (this.readyState === 4) {
-      addComplaintData(this); //This is where we get the response when the request was successfully send and a successful response was received
-    }
-  };
+  switch (validateStatusCode) {
+    case 0:
+      let httpReq = new XMLHttpRequest();
+      httpReq.onreadystatechange = function () {
+        if (this.readyState === 4) {
+          addComplaintData(this); //This is where we get the response when the request was successfully send and a successful response was received
+        }
+      };
 
-  httpReq.open(
-    "POST",
-    `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&user_id=${user_id}&title=${title}&description=${true}`,
-    true
-  );
-  httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  httpReq.send();
+      httpReq.open(
+        "POST",
+        `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&user_id=${user_id}&title=${title}&description=${true}`,
+        true
+      );
+      httpReq.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      httpReq.send();
 
-  function addComplaintData(httpReq) {
-    let jsonAddComplaintResponse = JSON.parse(
-      httpReq.responseText
-    ); /* Here when we recieve the response from the server, we convert it to JSON format as it */
+      function addComplaintData(httpReq) {
+        let jsonAddComplaintResponse = JSON.parse(
+          httpReq.responseText
+        ); /* Here when we receive the response from the server, we convert it to JSON format as it */
 
-    if (httpReq.status === 200) {
-      alert("Complaint Added Successfully");
-      window.location.href = "#";
-    } else {
-      alert("Complaint Not Added");
-    }
-    console.log(jsonAddComplaintResponse);
+        if (httpReq.status === 200) {
+          alert("Complaint Added Successfully");
+          window.location.href = "#";
+        } else {
+          alert("Complaint Not Added");
+        }
+        console.log(jsonAddComplaintResponse);
+      }
+      break;
+
+    case 1:
+      alert("Title is invalid");
+      break;
+    case 2:
+      alert("Description is invalid");
+      break;
+  }
+
+  function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+    formControl.className = "form-control error";
+    small.innerText = message;
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control success";
   }
 }
