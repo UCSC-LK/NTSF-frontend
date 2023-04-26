@@ -56,16 +56,4 @@ function addComplaint() {
       alert("Description is invalid");
       break;
   }
-
-  function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector("small");
-    formControl.className = "form-control error";
-    small.innerText = message;
-  }
-
-  function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = "form-control success";
-  }
 }
