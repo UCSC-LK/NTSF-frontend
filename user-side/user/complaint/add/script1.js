@@ -12,7 +12,14 @@ function addComplaint() {
   validateTitle(title);
   validateDescription(description);
 
-  let validateStatusCode = validateParams(title, description);
+  let validateStatusCode = validateParams(
+    null,
+    null,
+    null,
+    null,
+    title,
+    description
+  );
 
   switch (validateStatusCode) {
     case 0:
@@ -49,10 +56,10 @@ function addComplaint() {
       }
       break;
 
-    case 1:
+    case 5:
       alert("Title is invalid");
       break;
-    case 2:
+    case 6:
       alert("Description is invalid");
       break;
   }
