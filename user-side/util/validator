@@ -1,0 +1,45 @@
+function validateTitle(title) {
+    if (title === "") {
+      setErrorFor(title, "Title cannot be blank");
+      return false;
+    } else if (title.length < 5) {
+      setErrorFor(title, "Title should contain at least 5 characters");
+      return false;
+    } else if (title.length > 50) {
+      setErrorFor(title, "Title should contain at most 50 characters");
+      return false;
+    } else {
+      setSuccessFor(title);
+      return true;
+    }
+  }
+
+  function validateDescription(description) {
+    if (description === "") {
+      setErrorFor(description, "Description cannot be blank");
+      return false;
+    } else if (description.length < 5) {
+      setErrorFor(
+        description,
+        "Description should contain at least 5 characters"
+      );
+      return false;
+    } else if (description.length > 100) {
+      setErrorFor(
+        description,
+        "Description should contain at most 100 characters"
+      );
+      return false;
+    } else {
+      setSuccessFor(description);
+      return true;
+    }
+  }
+
+  function validateParams() {
+    if (validateTitle(title) != true) {
+      return 1;
+    } else if (validateDescription(description) != true) {
+      return 2;
+    }
+  }
