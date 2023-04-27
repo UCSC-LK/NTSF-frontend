@@ -6,7 +6,12 @@ import {
 
 function addComplaint() {
   // let user_id = sessionStorage.getItem("user_id");
-  const user_id = "65";
+  // const user_id = "65";
+
+  // Adding session storage to store the user id
+  sessionStorage.setItem("user_id", "65");
+  const user_id = sessionStorage.getItem("user_id");
+
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   validateTitle(title);
@@ -62,5 +67,26 @@ function addComplaint() {
     case 6:
       alert("Description is invalid");
       break;
+  }
+
+  function getMessage(addComplaintStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (addComplaintStatus == true) {
+      message.classList.add("danger");
+      message.textContent = "Oh no! It is cannot be blank";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+    } else {
+      message.classList.add("success");
+      message.textContent = "Complaint Added Successfully";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+    }
   }
 }
