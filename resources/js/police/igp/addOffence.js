@@ -23,7 +23,7 @@ console.log("Printing below the username from session storage");
 console.log("user_police_id: " + police_idSession);
 
 const demerit_pointOptions = document.getElementById('demerit_pointOptions');
-let demerit_pointOptionList = [1, 2, 3];
+let demerit_pointOptionList = [3, 2, 1];
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -304,77 +304,7 @@ const addOffence = function(offence_no, offence_type, description, amount, demer
     
 }
 
-//Database data duplication error checking
-const checkOffenceDescription = function(description) //Returns true if duplicate data exists
-{
-    console.log("checkOffenceDescription");
-    console.log(description);
-
-    let httpReq = new XMLHttpRequest();
-
-    httpReq.onreadystatechange = function()
-    {
-        if(this.readyState === 4 && this.status === 200)
-        {
-            if(checkOffenceDescriptionData(this))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=checkOffenceDescription" + "&description=" + description);
-
-    function checkOffenceDescriptionData(httpReq)
-    {
-        console.log("checkOffenceDescriptionData");
-        let jsonCheckOffenceDescriptionResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonCheckOffenceDescriptionResponse);
-        let jsonCheckOffenceDescriptionResponseAlert = jsonCheckOffenceDescriptionResponse.alert;
-        console.log(jsonCheckOffenceDescriptionResponseAlert);
-
-        if(jsonCheckOffenceDescriptionResponseAlert == true)
-        {
-            console.log("Description already exists");
-            setErrorFor(document.getElementById('description'), 'Description already exists');
-            return true; //returns true if duplicate entry exists
-        }
-        else
-        {
-            return false;
-        }
-    }
-}
-
-function getMessage(offenceAdditionStatus) {
-    let message = document.createElement("div");
-    message.className = "message";
-
-    if (offenceAdditionStatus == true) {
-        message.classList.add("danger");
-        message.textContent = "Oh no! It is cannot be blank";
-
-        document.body.appendChild(message);
-
-        deleteMessage(message);
-    }
-    else {
-        message.classList.add("success");
-        message.textContent = "Offence Added Successfully";
-
-        document.body.appendChild(message);
-
-        deleteMessage(message);
-    }
-
-}
+ 
 
 
 
