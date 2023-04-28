@@ -17,10 +17,10 @@ function fetchOffenceDetails(){
         }
     }
 
-    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
+    httpreq.open("GET","http://localhost:8080/ntsf_backend_war/offence?action=fetchOffence&offence_no=" +offence_no, true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpreq.send("action=fetchOffence" + "&offence_no=" +offence_no);
+    httpreq.send();
 
     function fetchOffenceData(httpreq)
     {
@@ -91,6 +91,12 @@ document.getElementById('description').addEventListener('blur', function(){
     }
 });
 
+//
+document.getElementById('offence_type').addEventListener('input', function(){
+    console.log('came until js function for event listener of offence_type input');
+    alert("You cannot change the offence type");  //Complete this part later
+});
+
 //Input validating
 function checkInputs() {
 	// trim to remove the whitespaces
@@ -138,7 +144,7 @@ function checkInputs() {
         console.log("demerit_pointValue: " + demerit_pointValue);
         let offence_no = fetchOffenceNo();
         console.log("offence_no: " + offence_no);
-        addOffence(offence_no, offence_type, descriptionValue, amountValue, demerit_pointValue);
+        updateOffence(offence_no, offence_type, descriptionValue, amountValue, demerit_pointValue);
     }
 }
 
@@ -251,10 +257,11 @@ const updateOffence = function(offence_type, offence_no, description, amount, de
             getMessage(offenceAdditionStatus);
         }
     }
-    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
+    httpReq.open("PUT", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=updateOffence" + "&offence_type=" + offence_type + "&offence_no=" + offence_no + "&description=" + description + "&amount=" + amount + "&demerit_points=" + demerit_points);
+    httpReq.send("action=updateOffence" + "&offence_type" + offence_type + "&offence_no=" + offence_no + "&description=" + description + "&amount=" + amount + "&demerit_points=" + demerit_points);
+    
 
     function updateOffenceData(httpReq)
     {
