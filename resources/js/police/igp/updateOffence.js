@@ -52,7 +52,7 @@ function fetchOffenceDetails(){
             offence_no.setAttribute("value", jsonOffenceData.List[0].offence_no);
             description.setAttribute("value", jsonOffenceData.List[0].description);
             amount.setAttribute("value", jsonOffenceData.List[0].amount);
-            demerit_points.setAttribute("value", jsonOffenceData.List[0].demerit_points);
+           // demerit_points.setAttribute("value", jsonOffenceData.List[0].demerit_points);
         }
         else
         {
@@ -91,17 +91,26 @@ document.getElementById('description').addEventListener('blur', function(){
     }
 });
 
-//
+//Show alert if offence type is changed by the user that it could not be changed
 document.getElementById('offence_type').addEventListener('input', function(){
     console.log('came until js function for event listener of offence_type input');
     alert("You cannot change the offence type");  //Complete this part later
 });
 
+//Show alert if offence no is changed by the user that it could not be changed
+document.getElementById('offence_no').addEventListener('input', function(){
+    console.log('came until js function for event listener of offence_no input');
+    alert("You cannot change the offence no");  //Complete this part later
+});
+
 //Input validating
 function checkInputs() {
 	// trim to remove the whitespaces
+    const offence_typeValue = offence_type.value.trim();
+    const offence_noValue = offence_no.value.trim();
 	const descriptionValue = description.value.trim();
     const amountValue = amount.value.trim();
+
 
     let flagDescription = 1 //error exists
     let flagAmount = 1 //error exists
@@ -142,9 +151,9 @@ function checkInputs() {
         console.log("descriptionValue: " + descriptionValue);
         console.log("amountValue: " + amountValue);
         console.log("demerit_pointValue: " + demerit_pointValue);
-        let offence_no = fetchOffenceNo();
-        console.log("offence_no: " + offence_no);
-        updateOffence(offence_no, offence_type, descriptionValue, amountValue, demerit_pointValue);
+        console.log("offence_type: " + offence_typeValue);
+        console.log("offence_no: " + offence_noValue);
+        updateOffence(offence_typeValue, offence_noValue, descriptionValue, amountValue, demerit_pointValue);
     }
 }
 
@@ -257,16 +266,41 @@ const updateOffence = function(offence_type, offence_no, description, amount, de
             getMessage(offenceAdditionStatus);
         }
     }
-    httpReq.open("PUT", "http://localhost:8080/ntsf_backend_war/offence", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // var data={};
+    // data.action="updateOffence";
+    // data.offence_type=offence_type;
+    // data.offence_no=offence_no;
+    // data.description=description;
+    // data.amount=amount;
+    // data.demerit_points=demerit_points;
+    // var jsonData=JSON.stringify(data);
+
+
+    // httpReq.open("PUT", "http://localhost:8080/ntsf_backend_war/offence", true);
+    // httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    // httpReq.send("action=updateOffence" + "&offence_type=" + offence_type + "&offence_no=" + offence_no + "&description=" + description + "&amount=" + amount + "&demerit_points=" + demerit_points);
+
+    var url = "http://localhost:8080/ntsf_backend_war/offence?action=updateOffence"
+        + "&offence_type=" + offence_type
+        + "&offence_no=" + offence_no
+        + "&description=" + description
+        + "&amount=" + amount
+        + "&demerit_points=" + demerit_points;
+    httpReq.open("PUT", url, true);
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=updateOffence" + "&offence_type" + offence_type + "&offence_no=" + offence_no + "&description=" + description + "&amount=" + amount + "&demerit_points=" + demerit_points);
-    
+    httpReq.send();
+
+
 
     function updateOffenceData(httpReq)
     {
-        let jsonAddOffenceResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddOffenceResponse);
+        let jsonUpdateOffenceResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonUpdateOffenceResponse);
+        let updateOffenceResponse = jsonUpdateOffenceResponse.alert;
+        console.log(updateOffenceResponse);
+        return updateOffenceResponse;
     }
     
 }
@@ -324,7 +358,7 @@ function getMessage(offenceAdditionStatus) {
     let message = document.createElement("div");
     message.className = "message";
 
-    if (offenceAdditionStatus == true) {
+    if (offenceAdditionStatus == false) {
         message.classList.add("danger");
         message.textContent = "Oh no! It is cannot be blank";
 

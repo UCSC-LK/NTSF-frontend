@@ -219,6 +219,10 @@ function fetchOffenceNo() {
             console.log("Maximum number of offences for drivers reached")
             getMessage("Maximum number of offences for drivers reached");
         }
+        else
+        {
+            console.log("Error in fetching offence number for drivers");
+        }
     }
     else if(selectedOffenceType == "vehicle") //Offence Number for Vehicles 101-200
     {
@@ -237,6 +241,10 @@ function fetchOffenceNo() {
             console.log("Maximum number of offences for vehicles reached");
             getMessage("Maximum number of offences for vehicles reached");
         }
+        else
+        {
+            console.log("Error in fetching offence number for vehicles");
+        }
     }
     else if(selectedOffenceType == "pedestrian") //Offence Number for Pedestrians 201-300
     {
@@ -254,6 +262,10 @@ function fetchOffenceNo() {
         {
             console.log("Maximum number of offences for pedestrians reached")
             getMessage("Maximum number of offences for pedestrians reached");
+        }
+        else
+        {
+            console.log("Error in fetching offence number for pedestrians");
         }
     }
     console.log("offence_no to be sent to the backend: " + offence_no);
