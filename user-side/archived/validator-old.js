@@ -44,3 +44,37 @@ window.validateLoginForm = function validateLoginForm() {
     submitButtonElement.disabled = false;
   }
 };
+
+/**
+ * Validate the sign up form (Old version)
+ */
+window.validateSignUpForm = function validateSignUpForm() {
+  // Get the whole element
+  const nicElement = document.getElementById("nic");
+  const passwordElement = document.getElementById("password");
+  const emailElement = document.getElementById("email");
+  const mobileNoElement = document.getElementById("mobile-no");
+  // Get the whole submit button element
+  const submitButtonElement = document.getElementById("submit-btn");
+
+  if (!validateNIC(nicElement.value)) {
+    console.log("Provided NIC is invalid");
+    nicElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validatePassword(passwordElement.value)) {
+    passwordElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validateEmail(emailElement.value)) {
+    emailElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validateMobileNo(mobileNoElement.value)) {
+    mobileNoElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else {
+    nicElement.classList.remove("invalid");
+    passwordElement.classList.remove("invalid");
+    emailElement.classList.remove("invalid");
+    mobileNoElement.classList.remove("invalid");
+    submitButtonElement.disabled = false;
+  }
+};
