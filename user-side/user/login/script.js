@@ -55,9 +55,13 @@ window.submitLogin = function submitLogin() {
     password,
   });
 
+  // Retrieve the JWT token from the sessionStorage using the getItem()
+  const jwt = sessionStorage.getItem("jwt");
+
   const settings = {
     url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
     method: "GET",
+    authorization: `Bearer ${jwt}`,
   };
 
   $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
@@ -68,7 +72,7 @@ function loginSuccessCallback(data) {
   if (data.loggedIn) {
     alert("Login successful");
     sessionStorage.setItem("userId", data.userId);
-    sessionStorage.setItem("jwt", data.jwt);
+    // sessionStorage.setItem("jwt", data.jwt);
     window.location.href = "user_service/index.html";
   } else {
     alert("Incorrect nic or password!");
