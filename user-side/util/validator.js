@@ -15,7 +15,7 @@ function setSuccessFor(input) {
  * @param title
  * @returns if title is valid
  */
-function validateTitle(title) {
+export function validateTitle(title) {
   if (title === "") {
     setErrorFor(title, "Title cannot be blank");
     return false;
@@ -36,7 +36,7 @@ function validateTitle(title) {
  * @param description
  * @returns if description is valid
  */
-function validateDescription(description) {
+export function validateDescription(description) {
   if (description === "") {
     setErrorFor(description, "Description cannot be blank");
     return false;
@@ -85,7 +85,7 @@ export function validateNIC(nic) {
  */
 export function validatePassword(password) {
   if (password == null || password.length < 8) {
-    setErrorFor(password, "Password should contain at least 8 characters");
+    // setErrorFor(password, "Password should contain at least 8 characters");
     return false;
   }
 
@@ -109,14 +109,14 @@ export function validatePassword(password) {
   }
 
   if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecialChar) {
-    setErrorFor(
-      password,
-      "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
-    );
+    // setErrorFor(
+    //   password,
+    //   "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
+    // );
     return false;
   }
 
-  setSuccessFor(password);
+  // setSuccessFor(password);
   return true;
 }
 
@@ -124,7 +124,7 @@ export function validatePassword(password) {
  * @param mobileNo Mobile Number in Sri Lanka
  * @return if mobile number is valid
  */
-function validateMobileNo(mobileNo) {
+export function validateMobileNo(mobileNo) {
   if (mobileNo == null || mobileNo.length == 0) {
     setErrorFor(mobileNo, "Mobile No is empty");
     return false;
@@ -164,7 +164,7 @@ function validateMobileNo(mobileNo) {
  * @param email User email
  * @return if email is valid
  */
-function validateEmail(email) {
+export function validateEmail(email) {
   if (email.trim().equals("")) {
     setErrorFor(email, "Email is empty");
     return false;
@@ -176,20 +176,18 @@ function validateEmail(email) {
     return true;
   }
 
-  function validateParams(nic, password, email, mobileNo, title, description) {
-    if (!validateNIC(nic)) {
-      return 1;
-    } else if (!validatePassword(password)) {
-      return 2;
-    } else if (!validateEmail(email)) {
-      return 3;
-    } else if (!validateMobileNo(mobileNo)) {
-      return 4;
-    } else if (!validateTitle(title)) {
-      return 5;
-    } else if (!validateDescription(description)) {
-      return 6;
-    }
-    return 0;
-  }
+  /**
+   *
+   * @param {NIC number} nic
+   * @param {Input password} password
+   * @returns
+   */
+  // export function validateLoginParams(nic, password) {
+  //   if (!validateNIC(nic)) {
+  //     return 1;
+  //   } else if (!validatePassword(password)) {
+  //     return 2;
+  //   }
+  //   return 0;
+  // }
 }
