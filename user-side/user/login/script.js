@@ -68,6 +68,7 @@ function loginSuccessCallback(data) {
   if (data.loggedIn) {
     alert("Login successful");
     sessionStorage.setItem("userId", data.userId);
+    sessionStorage.setItem("jwt", data.jwt);
     window.location.href = "user_service/index.html";
   } else {
     alert("Incorrect nic or password!");
