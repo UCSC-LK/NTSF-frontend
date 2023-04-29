@@ -31,7 +31,7 @@ function validateInputField(elementId, validateFn) {
 /**
  * Validate the login form
  */
-window.validateLoginForm = function validateLoginForm() {
+window.validateSignUpForm = function validateSignUpForm() {
   const submitButtonElement = document.getElementById("submit-btn");
   const isNICValid = validateInputField("nic", validateNIC);
   const isPasswordValid = validateInputField("password", validatePassword);

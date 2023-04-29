@@ -116,7 +116,7 @@ body {
     border-left-width: 35px;
 }
 
-/* Login input validation */
+/* Sign up input validation */
 .sign-up input.invalid:focus {
     color: #444;
     border-color: #ff0000;
@@ -183,7 +183,7 @@ body {
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Login disable button */
+/* Sign up disable button */
 .sign-up button:disabled,
 button[disabled] {
     opacity: 0.5;
