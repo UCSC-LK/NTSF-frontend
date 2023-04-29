@@ -10,6 +10,8 @@
           href="../resources/css/police/login.css"> -->
     <link rel="stylesheet"
           href="../../resources/css/login.css">
+    <!-- <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
     <title>NTSF</title>
 </head>
 
@@ -31,26 +33,33 @@
 
 
     <div class="wrapper">
-        <form class="login">
+        <form class="login"
+              onkeypress="validateSignUpForm()">
             <p class="title">Sign Up</p>
             <input type="text"
                    id="nic"
                    placeholder="NIC"
                    autofocus />
-            <i class="fa fa-user"></i>
+            <i class="fa-solid fa-user"></i>
             <input type="text"
                    id="email"
                    placeholder="Email"
                    autofocus />
-            <i class="fa fa-user"></i>
+            <i class="fa-solid fa-envelope"></i>
+            <input type="text"
+                   id="mobile-no"
+                   placeholder="Mobile No"
+                   autofocus />
+            <i class="fa-solid fa-mobile-notch"></i>
             <input type="text"
                    id="password"
                    placeholder="Password"
                    autofocus />
+            <i class="fa-solid fa-key"></i>
             <input type="password"
                    id="re-password"
                    placeholder="Re Enter Password" />
-            <i class="fa fa-key"></i><br>
+            <i class="fa-solid fa-key"></i><br>
             <!-- <a href="#">Forgot your password?</a><br><br> -->
             Already have an account? <a href="../login/index.html">Login</a>
             <button onclick="submitSignup()">
