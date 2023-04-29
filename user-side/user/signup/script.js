@@ -10,34 +10,6 @@ script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
- * Check whether the password and re enter password fields match
- */
-window.passwordMatch = function passwordsMatch() {
-  const password = document.getElementById("password").value;
-  const rePassword = document.getElementById("re-password").value;
-  // Get the whole submit button element
-  const submitButtonElement = document.getElementById("submit-btn");
-
-  const inputFields = document
-    .getElementById("submit-form")
-    .getElementsByTagName("input");
-
-  let isAllFilled = true;
-
-  Array.from(inputFields).forEach((element) => {
-    if (!element.value) {
-      isAllFilled = false;
-    }
-  });
-
-  if (password == rePassword && isAllFilled) {
-    submitButtonElement.disabled = false;
-  } else {
-    submitButtonElement.disabled = true;
-  }
-};
-
-/**
  * Validate the sign up form
  */
 window.validateSignUpForm = function validateSignUpForm() {
@@ -68,6 +40,34 @@ window.validateSignUpForm = function validateSignUpForm() {
     emailElement.classList.remove("invalid");
     mobileNoElement.classList.remove("invalid");
     submitButtonElement.disabled = false;
+  }
+};
+
+/**
+ * Check whether the password and re enter password fields match
+ */
+window.passwordMatch = function passwordsMatch() {
+  const password = document.getElementById("password").value;
+  const rePassword = document.getElementById("re-password").value;
+  // Get the whole submit button element
+  const submitButtonElement = document.getElementById("submit-btn");
+
+  const inputFields = document
+    .getElementById("submit-form")
+    .getElementsByTagName("input");
+
+  let isAllFilled = true;
+
+  Array.from(inputFields).forEach((element) => {
+    if (!element.value) {
+      isAllFilled = false;
+    }
+  });
+
+  if (password == rePassword && isAllFilled) {
+    submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
   }
 };
 
