@@ -6,8 +6,6 @@
           content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet"
-          href="../resources/css/police/login.css"> -->
     <link rel="stylesheet"
           href="../../resources/css/login.css">
     <!-- <link rel="stylesheet"
@@ -33,14 +31,15 @@
 
 
     <div class="wrapper">
-        <form class="login"
+        <form id="signup-form"
+              class="login"
               onkeypress="validateSignUpForm()">
             <p class="title">Sign Up</p>
             <input type="text"
                    id="nic"
                    placeholder="NIC"
                    autofocus />
-            <i class="fa-solid fa-user"></i>
+            <i class="fa fa-user"></i>
             <input type="text"
                    id="email"
                    placeholder="Email"
@@ -62,7 +61,8 @@
             <i class="fa-solid fa-key"></i><br>
             <!-- <a href="#">Forgot your password?</a><br><br> -->
             Already have an account? <a href="../login/index.html">Login</a>
-            <button onclick="submitSignup()">
+            <button id="signup-btn"
+                    onclick="submitSignup()">
                 <i class="spinner"></i>
                 <span class="state">Sign Up</span>
             </button>
