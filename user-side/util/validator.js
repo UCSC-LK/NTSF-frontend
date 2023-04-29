@@ -17,16 +17,12 @@ function setSuccessFor(input) {
  */
 export function validateTitle(title) {
   if (title === "") {
-    // setErrorFor(title, "Title cannot be blank");
     return false;
   } else if (title.length < 5) {
-    // setErrorFor(title, "Title should contain at least 5 characters");
     return false;
   } else if (title.length > 50) {
-    // setErrorFor(title, "Title should contain at most 50 characters");
     return false;
   } else {
-    // setSuccessFor(title);
     return true;
   }
 }
@@ -38,22 +34,12 @@ export function validateTitle(title) {
  */
 export function validateDescription(description) {
   if (description === "") {
-    // setErrorFor(description, "Description cannot be blank");
     return false;
   } else if (description.length < 5) {
-    // setErrorFor(
-    //   description,
-    //   "Description should contain at least 5 characters"
-    // );
     return false;
   } else if (description.length > 100) {
-    // setErrorFor(
-    //   description,
-    //   "Description should contain at most 100 characters"
-    // );
     return false;
   } else {
-    // setSuccessFor(description);
     return true;
   }
 }
@@ -85,7 +71,6 @@ export function validateNIC(nic) {
  */
 export function validatePassword(password) {
   if (password == null || password.length < 8) {
-    // setErrorFor(password, "Password should contain at least 8 characters");
     return false;
   }
 
@@ -109,14 +94,8 @@ export function validatePassword(password) {
   }
 
   if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecialChar) {
-    // setErrorFor(
-    //   password,
-    //   "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
-    // );
     return false;
   }
-
-  // setSuccessFor(password);
   return true;
 }
 
@@ -166,28 +145,10 @@ export function validateMobileNo(mobileNo) {
  */
 export function validateEmail(email) {
   if (email.trim().equals("")) {
-    // setErrorFor(email, "Email is empty");
     return false;
   } else if (!email.trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-    // setErrorFor(email, "Email is invalid");
     return false;
   } else {
-    // setSuccessFor(email);
     return true;
   }
-
-  /**
-   *
-   * @param {NIC number} nic
-   * @param {Input password} password
-   * @returns
-   */
-  // export function validateLoginParams(nic, password) {
-  //   if (!validateNIC(nic)) {
-  //     return 1;
-  //   } else if (!validatePassword(password)) {
-  //     return 2;
-  //   }
-  //   return 0;
-  // }
 }
