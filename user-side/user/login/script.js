@@ -50,35 +50,33 @@ window.submitLogin = function submitLogin() {
   const password = document.getElementById("password").value;
   const submitButtonElement = document.getElementById("submit-btn");
 
-  if (validateNIC(nic) && validatePassword(password)) {
-    const query = $.param({
-      nic,
-      password,
-    });
+  const query = $.param({
+    nic,
+    password,
+  });
 
-    const settings = {
-      url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
-      method: "GET",
-    };
+  const settings = {
+    url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
+    method: "GET",
+  };
 
-    $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
-  }
-
-  function loginSuccessCallback(data) {
-    let userId = null;
-    if (data.loggedIn) {
-      alert("Login successful");
-      sessionStorage.setItem("userId", data.userId);
-      window.location.href = "user_service/index.html";
-    } else {
-      alert("Incorrect nic or password!");
-    }
-  }
-
-  function loginUnsuccessCallback() {
-    alert("Login Unsuccessful!");
-  }
+  $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
 };
+
+function loginSuccessCallback(data) {
+  let userId = null;
+  if (data.loggedIn) {
+    alert("Login successful");
+    sessionStorage.setItem("userId", data.userId);
+    window.location.href = "user_service/index.html";
+  } else {
+    alert("Incorrect nic or password!");
+  }
+}
+
+function loginUnsuccessCallback() {
+  alert("Login Unsuccessful!");
+}
 
 // Toggle password visibility
 const togglePassword = document.querySelector("#togglePassword");
