@@ -12,7 +12,9 @@ document.getElementsByTagName("head")[0].appendChild(script);
 // Get the whole submit button element
 const submitButtonElement = document.getElementById("submit-btn");
 
-// Check whether the password and re enter password fields match
+/**
+ * Check whether the password and re enter password fields match
+ */
 function passwordsMatch() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("re-password").value;
@@ -36,6 +38,9 @@ function passwordsMatch() {
   }
 }
 
+/**
+ * Validate the sign up form
+ */
 window.validateSignUpForm = function validateSignUpForm() {
   // Get the whole element
   const nicElement = document.getElementById("nic");
@@ -65,6 +70,9 @@ window.validateSignUpForm = function validateSignUpForm() {
   }
 };
 
+/**
+ * Submit the sign up form
+ */
 function submitSignup() {
   const nic = document.getElementById("nic").value;
   const email = document.getElementById("email").value;
