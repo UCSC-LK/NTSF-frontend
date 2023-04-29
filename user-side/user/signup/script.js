@@ -1,15 +1,24 @@
+import {
+  validateNIC,
+  validatePassword,
+  validateEmail,
+  validateMobileNo,
+} from "/user-side/util/validator.js";
+
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-// Password and re-password validation
-function validateFormContents() {
+// Get the whole submit button element
+const submitButtonElement = document.getElementById("submit-btn");
+
+// Check whether the password and re enter password fields match
+function passwordsMatch() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("re-password").value;
-  const signUpBtn = document.getElementById("signup-btn");
 
   const inputFields = document
-    .getElementById("signup-form")
+    .getElementById("submit-form")
     .getElementsByTagName("input");
 
   let isAllFilled = true;
@@ -21,11 +30,40 @@ function validateFormContents() {
   });
 
   if (password == rePassword && isAllFilled) {
-    signUpBtn.disabled = false;
+    submitButtonElement.disabled = false;
   } else {
-    signUpBtn.disabled = true;
+    submitButtonElement.disabled = true;
   }
 }
+
+window.validateSignUpForm = function validateSignUpForm() {
+  // Get the whole element
+  const nicElement = document.getElementById("nic");
+  const passwordElement = document.getElementById("password");
+  const emailElement = document.getElementById("email");
+  const mobileNoElement = document.getElementById("mobile-no");
+
+  if (!validateNIC(nicElement.value)) {
+    console.log("Provided NIC is invalid");
+    nicElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validatePassword(passwordElement.value)) {
+    passwordElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validateEmail(emailElement.value)) {
+    emailElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else if (!validateMobileNo(mobileNoElement.value)) {
+    mobileNoElement.classList.add("invalid");
+    submitButtonElement.disabled = true;
+  } else {
+    nicElement.classList.remove("invalid");
+    passwordElement.classList.remove("invalid");
+    emailElement.classList.remove("invalid");
+    mobileNoElement.classList.remove("invalid");
+    submitButtonElement.disabled = false;
+  }
+};
 
 function submitSignup() {
   const nic = document.getElementById("nic").value;
