@@ -376,3 +376,17 @@ th {
     font-size: 1.2em;
     margin-left: 6px;
 }
+
+/* Complaint input validation */
+.form input.invalid:focus {
+    color: #444;
+    border-color: #ff0000;
+    border-left-width: 35px;
+}
+
+/* Complaint form disable button */
+.form button:disabled,
+button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
