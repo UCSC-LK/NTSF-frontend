@@ -5,27 +5,46 @@ var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-window.validateLoginForm = function validateLoginForm() {
-  // Get the whole element
-  const nicElement = document.getElementById("nic");
-  const passwordElement = document.getElementById("password");
-  const submitButtonElement = document.getElementById("submit-btn");
+// document
+//   .getElementById("login-form")
+//   .addEventListener("oninput", validateLoginForm);
 
-  if (!validateNIC(nicElement.value)) {
-    console.log("Provided NIC is invalid");
-    nicElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else if (!validatePassword(passwordElement.value)) {
-    passwordElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else {
-    nicElement.classList.remove("invalid");
-    passwordElement.classList.remove("invalid");
+/**
+ * Common function for validate the input field
+ * @param {nic / password} elementId
+ * @param {validateNIC / validatePassword} validateFn
+ * @returns if input field is valid
+ */
+function validateInputField(elementId, validateFn) {
+  const inputElement = document.getElementById(elementId);
+
+  if (!validateFn(inputElement.value)) {
+    console.log(`Provided ${elementId} is invalid`);
+    inputElement.classList.add("invalid");
+    return false;
+  }
+
+  inputElement.classList.remove("invalid");
+  return true;
+}
+
+/**
+ * Validate the login form
+ */
+window.validateLoginForm = function validateLoginForm() {
+  const submitButtonElement = document.getElementById("submit-btn");
+  const isNICValid = validateInputField("nic", validateNIC);
+  const isPasswordValid = validateInputField("password", validatePassword);
+
+  // Enable the submit button if all the input fields are valid
+  if (isNICValid && isPasswordValid) {
     submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
   }
 };
 
-export function submitLogin() {
+window.submitLogin = function submitLogin() {
   console.log("called");
   const nic = document.getElementById("nic").value;
   const password = document.getElementById("password").value;
@@ -59,7 +78,7 @@ export function submitLogin() {
   function loginUnsuccessCallback() {
     alert("Login Unsuccessful!");
   }
-}
+};
 
 // Toggle password visibility
 const togglePassword = document.querySelector("#togglePassword");
