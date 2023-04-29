@@ -3,21 +3,20 @@ import {
   validatePassword,
   validateEmail,
   validateMobileNo,
-} from "/user-side/util/validator.js";
+} from "user-side/util/validator.js";
 
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-// Get the whole submit button element
-const submitButtonElement = document.getElementById("submit-btn");
-
 /**
  * Check whether the password and re enter password fields match
  */
-function passwordsMatch() {
+window.passwordMatch = function passwordsMatch() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("re-password").value;
+  // Get the whole submit button element
+  const submitButtonElement = document.getElementById("submit-btn");
 
   const inputFields = document
     .getElementById("submit-form")
@@ -36,7 +35,7 @@ function passwordsMatch() {
   } else {
     submitButtonElement.disabled = true;
   }
-}
+};
 
 /**
  * Validate the sign up form
@@ -47,6 +46,8 @@ window.validateSignUpForm = function validateSignUpForm() {
   const passwordElement = document.getElementById("password");
   const emailElement = document.getElementById("email");
   const mobileNoElement = document.getElementById("mobile-no");
+  // Get the whole submit button element
+  const submitButtonElement = document.getElementById("submit-btn");
 
   if (!validateNIC(nicElement.value)) {
     console.log("Provided NIC is invalid");
