@@ -11,6 +11,9 @@
     <link rel="stylesheet"
           href="../../resources/css/login.css">
     <title>NTSF</title>
+    <script type="module"
+            src="./script.js"
+            ;></script>
 </head>
 
 <body>
@@ -29,9 +32,9 @@
         </a>
     </div>
 
-
     <div class="wrapper">
-        <form class="login">
+        <form class="login"
+              onkeypress="validateLoginForm()">
             <p class="title">Login</p>
             <input type="text"
                    id="nic"
@@ -44,14 +47,13 @@
             <i class="fa fa-key"></i><br>
             <a href="#">Forgot your password?</a><br><br>
             Don't have an account? <a href="../signup/index.html">Sign Up</a>
-            <button onclick="submitLogin()">
+            <button id="submit-btn"
+                    onclick="submitLogin()">
                 <i class="spinner"></i>
                 <span class="state">Log In</span>
             </button>
         </form>
     </div>
-
-    <script src="./script.js"></script>
 </body>
 
 </html>
