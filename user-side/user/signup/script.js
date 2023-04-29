@@ -10,36 +10,39 @@ script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
- * Validate the sign up form
+ *
+ * @param {nic/password/email/mobile number} elementId
+ * @param {validateNIC/validatePassword/validateEmail/validateMobileNo} validateFn
+ * @returns
  */
-window.validateSignUpForm = function validateSignUpForm() {
-  // Get the whole element
-  const nicElement = document.getElementById("nic");
-  const passwordElement = document.getElementById("password");
-  const emailElement = document.getElementById("email");
-  const mobileNoElement = document.getElementById("mobile-no");
-  // Get the whole submit button element
-  const submitButtonElement = document.getElementById("submit-btn");
+function validateInputField(elementId, validateFn) {
+  const inputElement = document.getElementById(elementId);
 
-  if (!validateNIC(nicElement.value)) {
-    console.log("Provided NIC is invalid");
-    nicElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else if (!validatePassword(passwordElement.value)) {
-    passwordElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else if (!validateEmail(emailElement.value)) {
-    emailElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else if (!validateMobileNo(mobileNoElement.value)) {
-    mobileNoElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else {
-    nicElement.classList.remove("invalid");
-    passwordElement.classList.remove("invalid");
-    emailElement.classList.remove("invalid");
-    mobileNoElement.classList.remove("invalid");
+  if (!validateFn(inputElement.value)) {
+    console.log(`Provided ${elementId} is invalid`);
+    inputElement.classList.add("invalid");
+    return false;
+  }
+
+  inputElement.classList.remove("invalid");
+  return true;
+}
+
+/**
+ * Validate the login form
+ */
+window.validateLoginForm = function validateLoginForm() {
+  const submitButtonElement = document.getElementById("submit-btn");
+  const isNICValid = validateInputField("nic", validateNIC);
+  const isPasswordValid = validateInputField("password", validatePassword);
+  const isEmailValid = validateInputField("email", validateEmail);
+  const isMobileNoValid = validateInputField("mobile-no", validateMobileNo);
+
+  // Enable the submit button if all the input fields are valid
+  if (isNICValid && isPasswordValid && isEmailValid && isMobileNoValid) {
     submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
   }
 };
 
@@ -106,3 +109,37 @@ function signUpSuccessCallback(data) {
 function signUpUnsuccessCallback() {
   alert("Sign Up Unsuccessful!");
 }
+
+/**
+ * Validate the sign up form (Old version)
+ */
+// window.validateSignUpForm = function validateSignUpForm() {
+//   // Get the whole element
+//   const nicElement = document.getElementById("nic");
+//   const passwordElement = document.getElementById("password");
+//   const emailElement = document.getElementById("email");
+//   const mobileNoElement = document.getElementById("mobile-no");
+//   // Get the whole submit button element
+//   const submitButtonElement = document.getElementById("submit-btn");
+
+//   if (!validateNIC(nicElement.value)) {
+//     console.log("Provided NIC is invalid");
+//     nicElement.classList.add("invalid");
+//     submitButtonElement.disabled = true;
+//   } else if (!validatePassword(passwordElement.value)) {
+//     passwordElement.classList.add("invalid");
+//     submitButtonElement.disabled = true;
+//   } else if (!validateEmail(emailElement.value)) {
+//     emailElement.classList.add("invalid");
+//     submitButtonElement.disabled = true;
+//   } else if (!validateMobileNo(mobileNoElement.value)) {
+//     mobileNoElement.classList.add("invalid");
+//     submitButtonElement.disabled = true;
+//   } else {
+//     nicElement.classList.remove("invalid");
+//     passwordElement.classList.remove("invalid");
+//     emailElement.classList.remove("invalid");
+//     mobileNoElement.classList.remove("invalid");
+//     submitButtonElement.disabled = false;
+//   }
+// };
