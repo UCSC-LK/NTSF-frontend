@@ -17,16 +17,16 @@ function setSuccessFor(input) {
  */
 export function validateTitle(title) {
   if (title === "") {
-    setErrorFor(title, "Title cannot be blank");
+    // setErrorFor(title, "Title cannot be blank");
     return false;
   } else if (title.length < 5) {
-    setErrorFor(title, "Title should contain at least 5 characters");
+    // setErrorFor(title, "Title should contain at least 5 characters");
     return false;
   } else if (title.length > 50) {
-    setErrorFor(title, "Title should contain at most 50 characters");
+    // setErrorFor(title, "Title should contain at most 50 characters");
     return false;
   } else {
-    setSuccessFor(title);
+    // setSuccessFor(title);
     return true;
   }
 }
@@ -38,22 +38,22 @@ export function validateTitle(title) {
  */
 export function validateDescription(description) {
   if (description === "") {
-    setErrorFor(description, "Description cannot be blank");
+    // setErrorFor(description, "Description cannot be blank");
     return false;
   } else if (description.length < 5) {
-    setErrorFor(
-      description,
-      "Description should contain at least 5 characters"
-    );
+    // setErrorFor(
+    //   description,
+    //   "Description should contain at least 5 characters"
+    // );
     return false;
   } else if (description.length > 100) {
-    setErrorFor(
-      description,
-      "Description should contain at most 100 characters"
-    );
+    // setErrorFor(
+    //   description,
+    //   "Description should contain at most 100 characters"
+    // );
     return false;
   } else {
-    setSuccessFor(description);
+    // setSuccessFor(description);
     return true;
   }
 }
@@ -166,13 +166,13 @@ export function validateMobileNo(mobileNo) {
  */
 export function validateEmail(email) {
   if (email.trim().equals("")) {
-    setErrorFor(email, "Email is empty");
+    // setErrorFor(email, "Email is empty");
     return false;
   } else if (!email.trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-    setErrorFor(email, "Email is invalid");
+    // setErrorFor(email, "Email is invalid");
     return false;
   } else {
-    setSuccessFor(email);
+    // setSuccessFor(email);
     return true;
   }
 
