@@ -63,20 +63,17 @@ function validateDescription(description) {
  * @param nic
  * @returns if NIC is valid
  */
-function validateNIC(nic) {
+export function validateNIC(nic) {
   if (
     nic.length === 10 &&
     !isNaN(nic.substr(0, 9)) &&
     isNaN(nic.substr(9, 1).toLowerCase()) &&
     ["x", "v"].includes(nic.substr(9, 1).toLowerCase())
   ) {
-    setSuccessFor(nic);
     return true;
   } else if (nic.length === 12 && !isNaN(nic)) {
-    setSuccessFor(nic);
     return true;
   } else {
-    setErrorFor(nic, "Invalid NIC");
     return false;
   }
 }
@@ -86,7 +83,7 @@ function validateNIC(nic) {
  * @param password
  * @returns if input password is valid
  */
-function validatePassword(password) {
+export function validatePassword(password) {
   if (password == null || password.length < 8) {
     setErrorFor(password, "Password should contain at least 8 characters");
     return false;
