@@ -98,6 +98,7 @@ body {
     color: #444;
 }
 
+/* fa */
 .login input+i.fa {
     color: #fff;
     font-size: 1em;
@@ -122,6 +123,7 @@ body {
     border-left-width: 35px;
 }
 
+/* fa */
 .login input:focus+i.fa {
     opacity: 1;
     left: 30px;
