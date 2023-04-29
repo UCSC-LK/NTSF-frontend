@@ -1,4 +1,4 @@
-import { getFinesByNic } from "user-side/service/fineService.js";
+import { getFinesByNic } from "/user-side/service/fineService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
