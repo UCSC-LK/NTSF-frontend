@@ -6,13 +6,25 @@ import {
 
 function addComplaint() {
   // let user_id = sessionStorage.getItem("user_id");
-  const user_id = "65";
+  // const user_id = "65";
+
+  // Adding session storage to store the user id
+  sessionStorage.setItem("user_id", "65");
+  const user_id = sessionStorage.getItem("user_id");
+
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   validateTitle(title);
   validateDescription(description);
 
-  let validateStatusCode = validateParams(title, description);
+  let validateStatusCode = validateParams(
+    null,
+    null,
+    null,
+    null,
+    title,
+    description
+  );
 
   switch (validateStatusCode) {
     case 0:
@@ -49,11 +61,32 @@ function addComplaint() {
       }
       break;
 
-    case 1:
+    case 5:
       alert("Title is invalid");
       break;
-    case 2:
+    case 6:
       alert("Description is invalid");
       break;
+  }
+
+  function getMessage(addComplaintStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (addComplaintStatus == true) {
+      message.classList.add("danger");
+      message.textContent = "Oh no! It is cannot be blank";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+    } else {
+      message.classList.add("success");
+      message.textContent = "Complaint Added Successfully";
+
+      document.body.appendChild(message);
+
+      deleteMessage(message);
+    }
   }
 }

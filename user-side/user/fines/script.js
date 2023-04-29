@@ -1,17 +1,17 @@
-import { getFinesByNic } from "user-side/service/fineService.js";
+import { getFinesByNic } from "/user-side/service/fineService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-  
+
   // Store NIC no
   getFinesByNic("996129039V", "DRIVER", fineDataHTMLoutput);
   getFinesByNic("996129039V", "VEHICLE", fineDataHTMLoutput);
   getFinesByNic("996129039V", "PEDESTRIAN", fineDataHTMLoutput);
 });
 
-function fineDataHTMLoutput(finesDatArray, fineType) {
+function fineDataHTMLoutput(finesDatArray, offenceType) {
   let finesTable;
-  switch (fineType) {
+  switch (offenceType) {
     case "DRIVER":
       finesTable = document.getElementById("table-driver");
       break;
@@ -26,13 +26,7 @@ function fineDataHTMLoutput(finesDatArray, fineType) {
 
   // Add contents
   finesDatArray.map(
-    ({
-      fineNo,
-      imposedDateTime,
-      dueDate,
-      amount,
-      paymentStatus,
-    }) => {
+    ({ fineNo, imposedDateTime, dueDate, amount, paymentStatus }) => {
       const dataRow = finesTable.insertRow();
 
       const dataCellArray = [];

@@ -15,18 +15,18 @@ function setSuccessFor(input) {
  * @param title
  * @returns if title is valid
  */
-function validateTitle(title) {
+export function validateTitle(title) {
   if (title === "") {
-    setErrorFor(title, "Title cannot be blank");
+    // setErrorFor(title, "Title cannot be blank");
     return false;
   } else if (title.length < 5) {
-    setErrorFor(title, "Title should contain at least 5 characters");
+    // setErrorFor(title, "Title should contain at least 5 characters");
     return false;
   } else if (title.length > 50) {
-    setErrorFor(title, "Title should contain at most 50 characters");
+    // setErrorFor(title, "Title should contain at most 50 characters");
     return false;
   } else {
-    setSuccessFor(title);
+    // setSuccessFor(title);
     return true;
   }
 }
@@ -36,24 +36,24 @@ function validateTitle(title) {
  * @param description
  * @returns if description is valid
  */
-function validateDescription(description) {
+export function validateDescription(description) {
   if (description === "") {
-    setErrorFor(description, "Description cannot be blank");
+    // setErrorFor(description, "Description cannot be blank");
     return false;
   } else if (description.length < 5) {
-    setErrorFor(
-      description,
-      "Description should contain at least 5 characters"
-    );
+    // setErrorFor(
+    //   description,
+    //   "Description should contain at least 5 characters"
+    // );
     return false;
   } else if (description.length > 100) {
-    setErrorFor(
-      description,
-      "Description should contain at most 100 characters"
-    );
+    // setErrorFor(
+    //   description,
+    //   "Description should contain at most 100 characters"
+    // );
     return false;
   } else {
-    setSuccessFor(description);
+    // setSuccessFor(description);
     return true;
   }
 }
@@ -63,32 +63,29 @@ function validateDescription(description) {
  * @param nic
  * @returns if NIC is valid
  */
-function validateNIC(nic) {
+export function validateNIC(nic) {
   if (
     nic.length === 10 &&
     !isNaN(nic.substr(0, 9)) &&
     isNaN(nic.substr(9, 1).toLowerCase()) &&
     ["x", "v"].includes(nic.substr(9, 1).toLowerCase())
   ) {
-    setSuccessFor(nic);
     return true;
   } else if (nic.length === 12 && !isNaN(nic)) {
-    setSuccessFor(nic);
     return true;
   } else {
-    setErrorFor(nic, "Invalid NIC");
     return false;
   }
 }
 
 /**
- * 
- * @param password 
+ *
+ * @param password
  * @returns if input password is valid
  */
-function validatePassword(password) {
+export function validatePassword(password) {
   if (password == null || password.length < 8) {
-    setErrorFor(password, "Password should contain at least 8 characters");
+    // setErrorFor(password, "Password should contain at least 8 characters");
     return false;
   }
 
@@ -100,11 +97,11 @@ function validatePassword(password) {
   for (var i = 0; i < password.length; i++) {
     // charAt() method is used to access each character of the string
     var c = password.charAt(i);
-    if (c >= 'A' && c <= 'Z') {
+    if (c >= "A" && c <= "Z") {
       hasUppercase = true;
-    } else if (c >= 'a' && c <= 'z') {
+    } else if (c >= "a" && c <= "z") {
       hasLowercase = true;
-    } else if (c >= '0' && c <= '9') {
+    } else if (c >= "0" && c <= "9") {
       hasDigit = true;
     } else {
       hasSpecialChar = true;
@@ -112,20 +109,22 @@ function validatePassword(password) {
   }
 
   if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecialChar) {
-    setErrorFor(password, "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character");
+    // setErrorFor(
+    //   password,
+    //   "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
+    // );
     return false;
   }
 
-  setSuccessFor(password);
+  // setSuccessFor(password);
   return true;
 }
 
-
 /**
-* @param mobileNo Mobile Number in Sri Lanka
-* @return if mobile number is valid
-*/
-function validateMobileNo(mobileNo) {
+ * @param mobileNo Mobile Number in Sri Lanka
+ * @return if mobile number is valid
+ */
+export function validateMobileNo(mobileNo) {
   if (mobileNo == null || mobileNo.length == 0) {
     setErrorFor(mobileNo, "Mobile No is empty");
     return false;
@@ -161,20 +160,34 @@ function validateMobileNo(mobileNo) {
   return true;
 }
 
-
 /**
-* @param email User email
-* @return if email is valid
-*/
-function validateEmail(email) {
+ * @param email User email
+ * @return if email is valid
+ */
+export function validateEmail(email) {
   if (email.trim().equals("")) {
-    setErrorFor(email, "Email is empty");
-      return false;
+    // setErrorFor(email, "Email is empty");
+    return false;
   } else if (!email.trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-    setErrorFor(email, "Email is invalid");
-      return false;
+    // setErrorFor(email, "Email is invalid");
+    return false;
   } else {
-    setSuccessFor(email);
+    // setSuccessFor(email);
     return true;
   }
+
+  /**
+   *
+   * @param {NIC number} nic
+   * @param {Input password} password
+   * @returns
+   */
+  // export function validateLoginParams(nic, password) {
+  //   if (!validateNIC(nic)) {
+  //     return 1;
+  //   } else if (!validatePassword(password)) {
+  //     return 2;
+  //   }
+  //   return 0;
+  // }
 }
