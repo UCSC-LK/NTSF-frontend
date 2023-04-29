@@ -3,7 +3,7 @@ import {
   validatePassword,
   validateEmail,
   validateMobileNo,
-} from "user-side/util/validator.js";
+} from "/user-side/util/validator.js";
 
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";

@@ -1,4 +1,4 @@
-import { validateNIC, validatePassword } from "user-side/util/validator.js";
+import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");
