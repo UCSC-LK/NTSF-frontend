@@ -1,40 +1,62 @@
-//jquery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-function submitLogin() {
-  // const userType = 1; // Driver
-  console.log("called");
-  const nic = document.getElementById("nic").value;
+function validateFormContents() {
   const password = document.getElementById("password").value;
+  const rePassword = document.getElementById("rePassword").value;
+  const signUpBtn = document.getElementById("signup-submit");
 
-  const query = $.param({
-    nic,
-    password,
+  const inputFields = document
+    .getElementById("signup-form")
+    .getElementsByTagName("input");
+
+  let isAllFilled = true;
+
+  Array.from(inputFields).forEach((element) => {
+    if (!element.value) {
+      isAllFilled = false;
+    }
   });
 
-  const settings = {
-    url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
-    method: "GET",
-  };
-
-  $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
-}
-
-function loginSuccessCallback(data) {
-  let userId = null;
-  if (data.loggedIn) {
-    alert("Login successful");
-    // sessionStorage.setItem("user_type", "1");
-    sessionStorage.setItem("userId", data.userId);
-    module.exports = { sessionStorage };
-    window.location.href = "#";
+  if (password == rePassword && isAllFilled) {
+    signUpBtn.disabled = false;
   } else {
-    alert("Incorrect nic or password!");
+    signUpBtn.disabled = true;
   }
 }
 
-function loginUnsuccessCallback() {
-  alert("Login Unsuccessful!");
+function submitSignup() {
+  var userType = 1; // Driver
+  const licenceNo = document.getElementById("licenceNo").value;
+  const nic = document.getElementById("nic").value;
+  const email = document.getElementById("email").value;
+  const mobileNo = document.getElementById("mobileNo").value;
+  const password = document.getElementById("password").value;
+
+  console.log("called");
+
+  var query = $.param({
+    nic,
+    email,
+    mobile_no: mobileNo,
+    password,
+  });
+
+  var settings = {
+    url: `http://localhost:8080/ntsf/signup?${query}`,
+    method: "POST",
+  };
+
+  $.ajax(settings).done(signUpSuccessCallback).fail(signUpUnsuccessCallback);
+}
+
+function signUpSuccessCallback(data) {
+  alert("SignUp successful");
+
+  window.location.href = "../login.html";
+}
+
+function signUpUnsuccessCallback() {
+  alert("Sign Up Unsuccessful!");
 }
