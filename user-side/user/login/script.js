@@ -20,6 +20,7 @@ window.validateLoginForm = function validateLoginForm() {
     submitButtonElement.disabled = true;
   } else {
     nicElement.classList.remove("invalid");
+    passwordElement.classList.remove("invalid");
     submitButtonElement.disabled = false;
   }
 };
@@ -28,22 +29,20 @@ export function submitLogin() {
   console.log("called");
   const nic = document.getElementById("nic").value;
   const password = document.getElementById("password").value;
+  const submitButtonElement = document.getElementById("submit-btn");
 
-  var validateStatusCode = validateParams(nic, password);
+  if (validateNIC(nic) && validatePassword(password)) {
+    const query = $.param({
+      nic,
+      password,
+    });
 
-  switch (validateStatusCode) {
-    case 0:
-      const query = $.param({
-        nic,
-        password,
-      });
+    const settings = {
+      url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
+      method: "GET",
+    };
 
-      const settings = {
-        url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
-        method: "GET",
-      };
-
-      $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
+    $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
   }
 
   function loginSuccessCallback(data) {
@@ -61,3 +60,16 @@ export function submitLogin() {
     alert("Login Unsuccessful!");
   }
 }
+
+// Toggle password visibility
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#id_password");
+
+togglePassword.addEventListener("click", function (e) {
+  // toggle the type attribute
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  // toggle the eye slash icon
+  this.classList.toggle("fa-eye-slash");
+});
