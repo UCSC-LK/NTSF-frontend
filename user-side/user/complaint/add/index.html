@@ -103,13 +103,19 @@
                       class="form"
                       oninput="validateComplaintForm()">
                     <div class="form-control">
+                        <label for="title">Fine No</label>
+                        <input type="text"
+                               placeholder=""
+                               id="fine-no" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
                         <label for="title">Title</label>
                         <input type="text"
                                placeholder=""
                                id="title" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
+                        <!-- <small>Error message</small> -->
                     </div>
                     <div class="form-control">
                         <label for="description">Description</label>
@@ -118,7 +124,7 @@
                                id="description" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
+                        <!-- <small>Error message</small> -->
                     </div>
                     <button id="submit-btn"
                             disabled
