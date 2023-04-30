@@ -46,9 +46,10 @@ function addComplaint() {
   // const user_id = "65";
 
   // Adding session storage to store the user id
-  sessionStorage.setItem("user_id", "65");
-  const user_id = sessionStorage.getItem("user_id");
+  sessionStorage.setItem("userId", "65");
+  const userId = sessionStorage.getItem("userId");
 
+  let fineNo = document.getElementById("fineNo").value;
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
 
@@ -61,7 +62,7 @@ function addComplaint() {
 
   httpReq.open(
     "POST",
-    `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&user_id=${user_id}&title=${title}&description=${true}`,
+    `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&user_id=${userId}&fine_no=${fineNo}&title=${title}&description=${description}`,
     true
   );
   httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
