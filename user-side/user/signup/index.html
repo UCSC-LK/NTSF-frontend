@@ -11,6 +11,8 @@
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
     <title>NTSF</title>
+    <script type="module"
+            src="./script.js"></script>
 </head>
 
 <body>
@@ -33,7 +35,7 @@
     <div class="wrapper">
         <form id="signup-form"
               class="sign-up"
-              onkeypress="validateSignUpForm()">
+              oninput="validateSignUpForm()">
             <p class="title">Sign Up</p>
             <input type="text"
                    id="nic"
@@ -62,14 +64,13 @@
             <!-- <a href="#">Forgot your password?</a><br><br> -->
             Already have an account? <a href="../login/index.html">Login</a>
             <button id="submit-btn"
+                    disabled
                     onclick="submitSignup()">
                 <i class="spinner"></i>
                 <span class="state">Sign Up</span>
             </button>
         </form>
     </div>
-
-    <script src="./script.js"></script>
 </body>
 
 </html>

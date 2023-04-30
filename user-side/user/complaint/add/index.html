@@ -9,8 +9,8 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
           href="../../../resources/css/add.css">
-    <link rel="stylesheet"
-          href="../../../../resources/css/form.css">
+    <!-- <link rel="stylesheet"
+          href="../../../../resources/css/form.css"> -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
@@ -20,7 +20,8 @@
     <link rel="icon"
           type="image/x-icon"
           href="/resources/icons/favicon.ico">
-    <script src="./script.js"></script>
+    <script type="module"
+            src="./script1.js"></script>
 
 </head>
 
@@ -99,15 +100,22 @@
                 </div>
                 <form action="#"
                       id="form"
-                      class="form">
+                      class="form"
+                      oninput="validateComplaintForm()">
                     <div class="form-control">
+                        <label for="title">Fine No</label>
+                        <input type="text"
+                               placeholder=""
+                               id="fineNo" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
                         <label for="title">Title</label>
                         <input type="text"
                                placeholder=""
                                id="title" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
+                        <!-- <small>Error message</small> -->
                     </div>
                     <div class="form-control">
                         <label for="description">Description</label>
@@ -116,9 +124,10 @@
                                id="description" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
+                        <!-- <small>Error message</small> -->
                     </div>
-                    <button id="add-complaint-button"
+                    <button id="submit-btn"
+                            disabled
                             onclick="addComplaint()">Submit</button>
                     <button id="cancel-button">Cancel</button>
                 </form>

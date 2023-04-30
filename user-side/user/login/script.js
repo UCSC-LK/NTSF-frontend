@@ -5,60 +5,82 @@ var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-window.validateLoginForm = function validateLoginForm() {
-  // Get the whole element
-  const nicElement = document.getElementById("nic");
-  const passwordElement = document.getElementById("password");
-  const submitButtonElement = document.getElementById("submit-btn");
+// document
+//   .getElementById("login-form")
+//   .addEventListener("oninput", validateLoginForm);
 
-  if (!validateNIC(nicElement.value)) {
-    console.log("Provided NIC is invalid");
-    nicElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else if (!validatePassword(passwordElement.value)) {
-    passwordElement.classList.add("invalid");
-    submitButtonElement.disabled = true;
-  } else {
-    nicElement.classList.remove("invalid");
-    passwordElement.classList.remove("invalid");
+/**
+ * Common function for validate the input field
+ * @param {nic / password} elementId
+ * @param {validateNIC / validatePassword} validateFn
+ * @returns if input field is valid
+ */
+function validateInputField(elementId, validateFn) {
+  const inputElement = document.getElementById(elementId);
+
+  if (!validateFn(inputElement.value)) {
+    console.log(`Provided ${elementId} is invalid`);
+    inputElement.classList.add("invalid");
+    return false;
+  }
+
+  inputElement.classList.remove("invalid");
+  return true;
+}
+
+/**
+ * Validate the login form
+ */
+window.validateLoginForm = function validateLoginForm() {
+  const submitButtonElement = document.getElementById("submit-btn");
+  const isNICValid = validateInputField("nic", validateNIC);
+  const isPasswordValid = validateInputField("password", validatePassword);
+
+  // Enable the submit button if all the input fields are valid
+  if (isNICValid && isPasswordValid) {
     submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
   }
 };
 
-export function submitLogin() {
+window.submitLogin = function submitLogin() {
   console.log("called");
   const nic = document.getElementById("nic").value;
   const password = document.getElementById("password").value;
   const submitButtonElement = document.getElementById("submit-btn");
 
-  if (validateNIC(nic) && validatePassword(password)) {
-    const query = $.param({
-      nic,
-      password,
-    });
+  const query = $.param({
+    nic,
+    password,
+  });
 
-    const settings = {
-      url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
-      method: "GET",
-    };
+  // Retrieve the JWT token from the sessionStorage using the getItem()
+  const jwt = sessionStorage.getItem("jwt");
 
-    $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
+  const settings = {
+    url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
+    method: "GET",
+    authorization: `Bearer ${jwt}`,
+  };
+
+  $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
+};
+
+function loginSuccessCallback(data) {
+  let userId = null;
+  if (data.loggedIn) {
+    alert("Login successful");
+    sessionStorage.setItem("userId", data.userId);
+    // sessionStorage.setItem("jwt", data.jwt);
+    window.location.href = "user_service/index.html";
+  } else {
+    alert("Incorrect nic or password!");
   }
+}
 
-  function loginSuccessCallback(data) {
-    let userId = null;
-    if (data.loggedIn) {
-      alert("Login successful");
-      sessionStorage.setItem("userId", data.userId);
-      window.location.href = "user_service/index.html";
-    } else {
-      alert("Incorrect nic or password!");
-    }
-  }
-
-  function loginUnsuccessCallback() {
-    alert("Login Unsuccessful!");
-  }
+function loginUnsuccessCallback() {
+  alert("Login Unsuccessful!");
 }
 
 // Toggle password visibility
