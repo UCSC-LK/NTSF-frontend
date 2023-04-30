@@ -34,22 +34,22 @@ function validateInputField(elementId, validateFn) {
 window.validateSignUpForm = function validateSignUpForm() {
   const submitButtonElement = document.getElementById("submit-btn");
   const isNICValid = validateInputField("nic", validateNIC);
-  const isPasswordValid = validateInputField("password", validatePassword);
   const isEmailValid = validateInputField("email", validateEmail);
   const isMobileNoValid = validateInputField("mobile-no", validateMobileNo);
+  const isPasswordValid = validateInputField("password", validatePassword);
 
   // Enable the submit button if all the input fields are valid
-  if (isNICValid && isPasswordValid && isEmailValid && isMobileNoValid) {
-    submitButtonElement.disabled = false;
-  } else {
-    submitButtonElement.disabled = true;
-  }
+  // if (isNICValid && isPasswordValid && isEmailValid && isMobileNoValid) {
+  //   submitButtonElement.disabled = false;
+  // } else {
+  //   submitButtonElement.disabled = true;
+  // }
 };
 
 /**
  * Check whether the password and re enter password fields match
  */
-window.passwordMatch = function passwordsMatch() {
+passwordMatch = function passwordsMatch() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("re-password").value;
   // Get the whole submit button element
@@ -67,12 +67,14 @@ window.passwordMatch = function passwordsMatch() {
     }
   });
 
-  if (password == rePassword && isAllFilled) {
-    submitButtonElement.disabled = false;
-  } else {
-    submitButtonElement.disabled = true;
-  }
+  // if (password == rePassword && isAllFilled) {
+  //   submitButtonElement.disabled = false;
+  // } else {
+  //   submitButtonElement.disabled = true;
+  // }
 };
+
+
 
 /**
  * Submit the sign up form
