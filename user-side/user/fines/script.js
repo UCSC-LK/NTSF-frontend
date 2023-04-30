@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
   getFinesByNic("996129039V", "PEDESTRIAN", fineDataHTMLoutput);
 });
 
-function fineDataHTMLoutput(finesDatArray, offenceType) {
+function fineDataHTMLoutput(finesDatArray, offenceType, amount) {
   let finesTable;
   switch (offenceType) {
     case "DRIVER":
@@ -26,7 +26,14 @@ function fineDataHTMLoutput(finesDatArray, offenceType) {
 
   // Add contents
   finesDatArray.map(
-    ({ fineNo, imposedDateTime, dueDate, amount, paymentStatus }) => {
+    ({
+      fineNo,
+      spotDescription,
+      imposedDateTime,
+      dueDateTime,
+      paymentStatus,
+      amount,
+    }) => {
       const dataRow = finesTable.insertRow();
 
       const dataCellArray = [];
