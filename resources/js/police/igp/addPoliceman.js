@@ -471,7 +471,7 @@ function createOptionsGrade() {
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station, profile_picture)
+const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station, grade, profile_picture)
 {
     console.log('came until js function for addPoliceman which sends data to backend');
 
@@ -508,6 +508,7 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     form_data.append('email', email);
     form_data.append('rank', rank);
     form_data.append('police_station', police_station);
+    form_data.append('grade', grade);
     form_data.append('profile_picture', profile_picture);
 
     console.log(form_data);
@@ -519,13 +520,12 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     console.log(form_data.get('email'));
     console.log(form_data.get('rank'));
     console.log(form_data.get('police_station'));
+    console.log(form.dataset.get('grade'));
     console.log(form_data.get('profile_picture'));
 
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send(form_data);
-
-
 
     function addPolicemanData(httpReq)
     {
