@@ -77,6 +77,15 @@ function loadPoliceStationOptionsListOnLoad(){
 
 }
 
+let gradeOptions = document.getElementById("gradeOptions");
+gradeOptionsList = ["Inspector General of Police (IGP)", "Senior Deputy Inspector General of police (SDIG)",
+                     "Deputy Inspector General of police (DIG)", "Senior Superintendent of police (SSP)",
+                        "Superintendent of police (SP)", "Assistant Superintendent of police (ASP)",
+                            "Chief Inspector of police (CI)", "Inspector of police (IP)", "Sub Inspector of police (SI)",
+                                "Senior Superintendent of police (SSP)", "Police Sergeant Class 1 (PS)", 
+                                    "Police Sergeant Class 2 (PS)", "Police Constable Class 1 (PC)", "Police Constable Class 2 (PC)", 
+                                        "Police Constable Class 3 (PC), Police Constable Class 4 (PC)"];
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
