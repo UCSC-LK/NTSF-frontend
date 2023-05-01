@@ -170,8 +170,8 @@ function checkInputs(profile_pictureFile) {
         setErrorFor(police_id, 'Police ID should contain only numbers');
         flagPolice_ID = 1;
     }
-    else if(police_idValue.length !== 10){
-        setErrorFor(police_id, 'Police ID should contain 10 numbers');
+    else if(police_idValue.length !== 7){
+        setErrorFor(police_id, 'Police ID should contain 7 numbers');
         flagPolice_ID = 1;
     }   
 	else {
