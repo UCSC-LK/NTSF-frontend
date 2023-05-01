@@ -32,18 +32,23 @@ function validateInputField(elementId, validateFn) {
  * Validate the login form
  */
 window.validateSignUpForm = function validateSignUpForm() {
-  const submitButtonElement = document.getElementById("submit-btn");
   const isNICValid = validateInputField("nic", validateNIC);
   const isEmailValid = validateInputField("email", validateEmail);
   const isMobileNoValid = validateInputField("mobile-no", validateMobileNo);
   const isPasswordValid = validateInputField("password", validatePassword);
+  const rePassword = validateInputField("re-password", validatePassword);
 
-  // Enable the submit button if all the input fields are valid
-  // if (isNICValid && isPasswordValid && isEmailValid && isMobileNoValid) {
-  //   submitButtonElement.disabled = false;
-  // } else {
-  //   submitButtonElement.disabled = true;
-  // }
+  if (
+    isNICValid &&
+    isPasswordValid &&
+    isEmailValid &&
+    isMobileNoValid &&
+    rePassword
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /**
@@ -52,8 +57,6 @@ window.validateSignUpForm = function validateSignUpForm() {
 passwordMatch = function passwordsMatch() {
   const password = document.getElementById("password").value;
   const rePassword = document.getElementById("re-password").value;
-  // Get the whole submit button element
-  const submitButtonElement = document.getElementById("submit-btn");
 
   const inputFields = document
     .getElementById("submit-form")
@@ -67,14 +70,25 @@ passwordMatch = function passwordsMatch() {
     }
   });
 
-  // if (password == rePassword && isAllFilled) {
-  //   submitButtonElement.disabled = false;
-  // } else {
-  //   submitButtonElement.disabled = true;
-  // }
+  if (password == rePassword && isAllFilled) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
+/**
+ * Enable or disable the submit button
+ */
+submitButtonControl = function submitButtonControl() {
+  const submitButtonElement = document.getElementById("submit-btn");
 
+  if (passwordMatch() && validateSignUpForm()) {
+    submitButtonElement.disabled = false;
+  } else {
+    submitButtonElement.disabled = true;
+  }
+};
 
 /**
  * Submit the sign up form
