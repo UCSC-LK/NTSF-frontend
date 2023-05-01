@@ -290,7 +290,7 @@ function setSuccessFor(input) {
 }
 
 
-let isOpen = false;
+let isRankOpen = false;
 
 function checkRankFill() {
     if (rankOptions.firstElementChild.classList.contains("hide-option")) {
@@ -340,15 +340,15 @@ function addToUIOptionsRank(e) {
 }
 
 function controlOptionsRank(e) {
-    if (isOpen === false) {
+    if (isRankOpen === false) {
         createOptionsRank();
         rankOptions.classList.add("opened");
-        isOpen = true;
+        isRankOpen = true;
     }
     else {
         deleteOptionsRank();
         rankOptions.classList.remove("opened");
-        isOpen = false;
+        isRankOpen = false;
     }
 }
 
@@ -371,6 +371,9 @@ function createOptionsRank() {
 };
 
 //adding UI options to police_station
+
+let isPoliceStationOpen = false;
+
 function addToUIOptionspolice_station(e) {
     if (e.target.classList.contains("hide-option")) {
         controlOptionspolice_station(e);
@@ -390,15 +393,15 @@ function addToUIOptionspolice_station(e) {
 }
 
 function controlOptionspolice_station(e) {
-    if (isOpen === false) {
+    if (isPoliceStationOpen === false) {
         createOptionspolice_station();
         police_stationOptions.classList.add("opened");
-        isOpen = true;
+        isPoliceStationOpen = true;
     }
     else {
         deleteOptionspolice_station();
         police_stationOptions.classList.remove("opened");
-        isOpen = false;
+        isPoliceStationOpen = false;
     }
 }
 
@@ -421,6 +424,8 @@ function createOptionspolice_station() {
 };
 
 //adding UI options to grade
+let isGradeOpen = false;
+
 function addToUIOptionsGrade(e) {
     if (e.target.classList.contains("hide-option")) {
         controlOptionsGrade(e);
@@ -438,15 +443,15 @@ function addToUIOptionsGrade(e) {
 }
 
 function controlOptionsGrade(e) {
-    if (isOpen === false) {
+    if (isGradeOpen === false) {
         createOptionsGrade();
         gradeOptions.classList.add("opened");
-        isOpen = true;
+        isGradeOpen = true;
     }
     else {
         deleteOptionsGrade();
         gradeOptions.classList.remove("opened");
-        isOpen = false;
+        isGradeOpen = false;
     }
 }
 
