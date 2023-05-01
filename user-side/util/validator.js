@@ -1,5 +1,24 @@
 /**
  *
+ * @param {string} elementId (`nic | password | email | mobile number`)
+ * @param {function} validateFn (`validateNIC | validatePassword | validateEmail | validateMobileNo`)
+ * @returns {boolean} if field input is valid
+ */
+export function validateInputField(elementId, validateFn) {
+  const inputElement = document.getElementById(elementId);
+
+  if (!validateFn(inputElement.value)) {
+    console.log(`Provided ${elementId} is invalid`);
+    inputElement.classList.add("invalid");
+    return false;
+  }
+
+  inputElement.classList.remove("invalid");
+  return true;
+}
+
+/**
+ *
  * @param title
  * @returns if title is valid
  */
@@ -110,7 +129,16 @@ export function validateMobileNo(mobileNo) {
   // Check for valid network operator codes
   // Declares an array named validOperatorCodes
   // Initializes it with 8 valid network operator codes in Sri Lanka
-  var validOperatorCodes = ["070", "071", "072", "074", "075", "076", "077", "078"];
+  var validOperatorCodes = [
+    "070",
+    "071",
+    "072",
+    "074",
+    "075",
+    "076",
+    "077",
+    "078",
+  ];
 
   // Extracts the first 3 digits of the phone number and assigns them to a new variable named operatorCode
   var operatorCode = mobileNo.substring(0, 3);
