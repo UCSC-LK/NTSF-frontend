@@ -149,6 +149,7 @@ function checkInputs(profile_pictureFile) {
     let flagEmail = 1 //error exists
     let flagRank = 1 //error exists
     let flagPolice_Station = 1 //error exists
+    let flagGrade = 1 //error exists
 
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
@@ -253,6 +254,17 @@ function checkInputs(profile_pictureFile) {
     } else {
         setErrorFor(police_stationOptions, 'A Police Station should be  selected');
         flagPolice_Station = 1;
+    }
+
+    let grade = checkGradeFill();
+    if(grade){
+        setSuccessFor(gradeOptions);
+        var gradeValue = grade;
+        flagGrade = 0;
+    }
+    else {
+        setErrorFor(gradeOptions, 'A Grade should be  selected');
+        flagGrade = 1;
     }
 
     if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
