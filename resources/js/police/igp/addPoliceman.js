@@ -267,10 +267,10 @@ function checkInputs(profile_pictureFile) {
         flagGrade = 1;
     }
 
-    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
+    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0 && flagGrade === 0){
         console.log('came until js function for event listener of submit button');
-        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, profile_pictureFile);
-        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, profile_pictureFile);
+        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue, profile_pictureFile);
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue , profile_pictureFile);
     }
     else{
         return false;
@@ -317,6 +317,7 @@ function checkPolice_stationFill() {
 rankOptions.addEventListener("click", addToUIOptionsRank);
 police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
+gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
 
 //e.target refers to the clicked element
@@ -419,6 +420,53 @@ function createOptionspolice_station() {
     });
 };
 
+//adding UI options to grade
+function addToUIOptionsGrade(e) {
+    if (e.target.classList.contains("hide-option")) {
+        controlOptionsGrade(e);
+    }
+    else {
+        const pickedOption = e.target;
+        if (gradeOptions.firstElementChild.classList.contains("hide-option")) {
+            gradeOptions.removeChild(gradeOptions.firstElementChild);
+        }
+        gradeOptions.insertAdjacentElement("afterbegin", pickedOption);
+
+        deleteOptionsGrade();
+        controlOptionsGrade(e);
+    }
+}
+
+function controlOptionsGrade(e) {
+    if (isOpen === false) {
+        createOptionsGrade();
+        gradeOptions.classList.add("opened");
+        isOpen = true;
+    }
+    else {
+        deleteOptionsGrade();
+        gradeOptions.classList.remove("opened");
+        isOpen = false;
+    }
+}
+
+function deleteOptionsGrade() {
+    while (gradeOptions.childElementCount > 1) {
+        gradeOptions.removeChild(gradeOptions.lastElementChild);
+    }
+}
+
+function createOptionsGrade() {
+    gradeOptionList.forEach(element => {
+        if (gradeOptions.firstElementChild.textContent !== element) {
+            let gradeOption = document.createElement("div");
+            gradeOption.className = "option";
+            gradeOption.textContent = element;
+
+            gradeOptions.firstElementChild.insertAdjacentElement("afterend", gradeOption);
+        }
+    });
+};
 
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
