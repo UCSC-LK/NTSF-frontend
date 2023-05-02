@@ -1,0 +1,53 @@
+header {
+    height: 80px;
+}
+
+.header-menu {
+    font-size: 17px;
+    line-height: 80px;
+}
+
+.header-menu li {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    /** To avoid a flash when hover messages **/
+}
+
+.header-menu-tab {
+    padding: 0 27px;
+    display: block;
+    line-height: 74px;
+    font-size: 17px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.header-menu-tab:hover {
+    background: #50597b;
+    border-bottom: 4px solid #11a8ab;
+    text-decoration: none;
+}
+
+.header-menu-tab .icon {
+    padding-right: 15px;
+}
+
+.header-menu-number {
+    position: absolute;
+    line-height: 22px;
+    padding: 0 6px;
+    font-weight: 700;
+    background: #e64c65;
+    border-radius: 100%;
+    top: 15px;
+    right: 2px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.header-menu li:hover .header-menu-number {
+    text-decoration: none;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+
+}
