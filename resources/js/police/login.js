@@ -3,7 +3,7 @@ form.addEventListener('submit', e => {
   loginAuthorizing();
 });
 
-function loginAuthorizing() {
+function loginAuthorizing(){
   console.log('loginAuthorizing');
   let username = document.getElementById('username').value;
   console.log(username);
@@ -46,6 +46,8 @@ function loginAuthorizingBackend(username, password) {
     console.log(jsonLoginResponse);
     let jwt = jsonLoginResponse.jwt;
     console.log(jwt);
+    let firstTimeLogin = jsonLoginResponse.firstTimeLogin;
+    console.log(firstTimeLogin);
 
     if(jwt === "LoginUnsuccessful")
     {
@@ -85,27 +87,34 @@ function loginAuthorizingBackend(username, password) {
       sessionStorage.setItem('user_police_id', police_id);
       sessionStorage.setItem('user_police_name', police_name);
 
-      if (rank === 'igp') {
-        console.log('Redirecting to IGP page');
-        getMessage(true);
-        sessionStorage.setItem('rank', rank);
-        window.location.href = "../../../police/igp/viewPoliceman.html";
-      } else if (rank === 'oic') {
-        console.log('Redirecting to OIC page');
-        getMessage(true);
-        sessionStorage.setItem('rank', rank);
-        sessionStorage.setItem('user_police_station', police_station)
-        window.location.href = "../../../police/oic/viewPoliceman.html";
-      } else if (rank === 'policeman') {
-        console.log('Redirecting to Policeman page');
-        getMessage(true);
-        sessionStorage.setItem('rank', rank);
-        sessionStorage.setItem('position', position);
-        sessionStorage.setItem('user_police_station', police_station)
-        window.location.href = "../../../police/policeman/dashboard.html";
+      if(firstTimeLogin === true)
+      {
+        console.log("First Time Login");
+        window.location.href = "../../../police/changePassword.html";
+      }
+      else{
+        if (rank === 'igp') {
+          console.log('Redirecting to IGP page');
+          getMessage(true);
+          sessionStorage.setItem('rank', rank);
+          window.location.href = "../../../police/igp/viewPoliceman.html";
+        } else if (rank === 'oic') {
+          console.log('Redirecting to OIC page');
+          getMessage(true);
+          sessionStorage.setItem('rank', rank);
+          sessionStorage.setItem('user_police_station', police_station)
+          window.location.href = "../../../police/oic/viewPoliceman.html";
+        } else if (rank === 'policeman') {
+          console.log('Redirecting to Policeman page');
+          getMessage(true);
+          sessionStorage.setItem('rank', rank);
+          sessionStorage.setItem('position', position);
+          sessionStorage.setItem('user_police_station', police_station)
+          window.location.href = "../../../police/policeman/dashboard.html";
+        }
       }
       return true;
-    }
+      }
   }
 }
 function getMessage(loginStatus) {
@@ -195,16 +204,4 @@ const checkLoginUsername = function(username) //Returns true if duplicate data e
     }
 }
 
-function setErrorFor(input, message) {
-	const formControl = input.parentElement;
-	const small = formControl.querySelector('small');
-	formControl.className = 'form-control error';
-	small.innerText = message;
-}
-
-function setSuccessFor(input) {
-	const formControl = input.parentElement;
-	formControl.className = 'form-control success';
-}
-
-
+ 

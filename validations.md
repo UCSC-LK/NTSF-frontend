@@ -16,4 +16,6 @@
 
 
 # Email
-1. Email of IGP(System Admin): igp.srilankapolice@gmail.com
+1. Email of IGP(System Admin): igp.slpolice@gmail.com => Mail sent when server is down
+2. Email of system: ntsf.slpolice@gmail.com 
+3. Email of others: Any as of now 
