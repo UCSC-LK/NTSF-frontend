@@ -132,7 +132,7 @@ button {
 .dashboard-heading {
     width: 76%;
     float: right;
-    background: #ffffff;
+    /* background: #ffffff; */
     position: relative;
     color: #73787c;
     margin-top: 20px;
@@ -350,7 +350,7 @@ h1, h2, p, a, span {
 }
 
 /******************************************** LEFT CONTAINER *****************************************/
-/* .left-container {} */
+.left-container {}
 
 .menu-box {
     height: 360px;
@@ -499,7 +499,7 @@ h1, h2, p, a, span {
 }
 
 /********************************************* RIGHT CONTAINER ****************************************/
-/* .right-container {} */
+.right-container .container {}
 
 .account {
     height: 390px;
