@@ -11,8 +11,8 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
  * Common function for validate the input field
- * @param {nic / password} elementId
- * @param {validateNIC / validatePassword} validateFn
+ * @param {string} elementId (`nic | password`)
+ * @param {Function}} validateFn (`validateNIC | validatePassword`)
  * @returns if input field is valid
  */
 function validateInputField(elementId, validateFn) {
@@ -55,13 +55,9 @@ window.submitLogin = function submitLogin() {
     password,
   });
 
-  // Retrieve the JWT token from the sessionStorage using the getItem()
-  const jwt = sessionStorage.getItem("jwt");
-
   const settings = {
     url: `http://localhost:8080/ntsf_backend_war/user_login?${query}`,
     method: "GET",
-    authorization: `Bearer ${jwt}`,
   };
 
   $.ajax(settings).done(loginSuccessCallback).fail(loginUnsuccessCallback);
@@ -73,7 +69,9 @@ function loginSuccessCallback(data) {
     alert("Login successful");
     sessionStorage.setItem("userId", data.userId);
     // sessionStorage.setItem("jwt", data.jwt);
-    window.location.href = "user_service/index.html";
+    // Retrieve the JWT token from the sessionStorage using the getItem()
+    sessionStorage.setItem("jwt", data.jwt);
+    window.location.href = "/user-side/user/fines/index.html";
   } else {
     alert("Incorrect nic or password!");
   }

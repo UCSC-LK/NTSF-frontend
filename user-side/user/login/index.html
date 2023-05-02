@@ -37,7 +37,8 @@
     <div class="wrapper">
         <form class="login"
               id="login-form"
-              oninput="validateLoginForm()">
+              oninput="validateLoginForm()"
+              onsubmit="submitLogin(); return false">
             <p class="
               title">Login</p>
             <input type="text"
@@ -55,8 +56,7 @@
             <a href="#">Forgot your password?</a><br><br>
             Don't have an account? <a href="../signup/index.html">Sign Up</a>
             <button id="submit-btn"
-                    disabled
-                    onclick="submitLogin()">
+                    disabled>
                 <i class="spinner"></i>
                 <span class="state">Log In</span>
             </button>

@@ -35,7 +35,8 @@
     <div class="wrapper">
         <form id="signup-form"
               class="sign-up"
-              oninput="validateSignUpForm()">
+              oninput="validateSignUpForm()"
+              onsubmit="submitSignup(); return false">
             <p class="title">Sign Up</p>
             <input type="text"
                    id="nic"
@@ -62,10 +63,9 @@
                    placeholder="Re Enter Password" />
             <i class="fa-solid fa-key"></i><br>
             <!-- <a href="#">Forgot your password?</a><br><br> -->
-            Already have an account? <a href="../login/index.html">Login</a>
+            Already have an account? <a href="">Login</a>
             <button id="submit-btn"
-                    disabled
-                    onclick="submitSignup()">
+                    disabled>
                 <i class="spinner"></i>
                 <span class="state">Sign Up</span>
             </button>

@@ -1,13 +1,20 @@
-function setErrorFor(input, message) {
-  const formControl = input.parentElement;
-  const small = formControl.querySelector("small");
-  formControl.className = "form-control error";
-  small.innerText = message;
-}
+/**
+ *
+ * @param {string} elementId (`nic | password | email | mobile number`)
+ * @param {function} validateFn (`validateNIC | validatePassword | validateEmail | validateMobileNo`)
+ * @returns {boolean} if field input is valid
+ */
+export function validateInputField(elementId, validateFn) {
+  const inputElement = document.getElementById(elementId);
 
-function setSuccessFor(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control success";
+  if (!validateFn(inputElement.value)) {
+    console.log(`Provided ${elementId} is invalid`);
+    inputElement.classList.add("invalid");
+    return false;
+  }
+
+  inputElement.classList.remove("invalid");
+  return true;
 }
 
 /**
@@ -105,7 +112,6 @@ export function validatePassword(password) {
  */
 export function validateMobileNo(mobileNo) {
   if (mobileNo == null || mobileNo.length == 0) {
-    setErrorFor(mobileNo, "Mobile No is empty");
     return false;
   }
 
@@ -115,27 +121,34 @@ export function validateMobileNo(mobileNo) {
   }
 
   // Check length and format
-  if (mobileNo.length != 9 || !mobileNo.match(/^\d{9}$/)) {
-    setErrorFor(mobileNo, "Mobile No is invalid");
+  if (mobileNo.length !== 10 || !/^\d{10}$/.test(mobileNo)) {
+    // code to execute if mobileNo is not valid
     return false;
   }
 
   // Check for valid network operator codes
   // Declares an array named validOperatorCodes
-  // Initializes it with five valid network operator codes in Sri Lanka
-  var validOperatorCodes = ["071", "072", "075", "077", "078"];
+  // Initializes it with 8 valid network operator codes in Sri Lanka
+  var validOperatorCodes = [
+    "070",
+    "071",
+    "072",
+    "074",
+    "075",
+    "076",
+    "077",
+    "078",
+  ];
 
   // Extracts the first 3 digits of the phone number and assigns them to a new variable named operatorCode
   var operatorCode = mobileNo.substring(0, 3);
 
   // Checks whether the operatorCode is in the list of validOperatorCodes
   if (!validOperatorCodes.includes(operatorCode)) {
-    setErrorFor(mobileNo, "Mobile No is invalid");
     return false;
   }
 
   // All validation checks have passed
-  setSuccessFor(mobileNo);
   return true;
 }
 
@@ -144,9 +157,10 @@ export function validateMobileNo(mobileNo) {
  * @return if email is valid
  */
 export function validateEmail(email) {
-  if (email.trim().equals("")) {
+  if (email.length == 0) {
     return false;
-  } else if (!email.trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+  } else if (!/^[A-Za-z0-9+_.-]+@(.+)$/.test(email)) {
+    // code to execute if email is not valid
     return false;
   } else {
     return true;
