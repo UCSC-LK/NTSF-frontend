@@ -207,7 +207,7 @@ button {
 
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'icomoon';
-    speak: none;
+    /* speak: none; */
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -350,7 +350,7 @@ h1, h2, p, a, span {
 }
 
 /******************************************** LEFT CONTAINER *****************************************/
-.left-container {}
+/* .left-container {} */
 
 .menu-box {
     height: 360px;
@@ -496,4 +496,19 @@ h1, h2, p, a, span {
 
 .profile-options .likes {
     border-top: 4px solid #e64c65;
+}
+
+/********************************************* RIGHT CONTAINER ****************************************/
+/* .right-container {} */
+
+.account {
+    height: 390px;
+}
+
+.account .titular {
+    padding: 10px 0;
+}
+
+.account p {
+    text-align: center;
 }
