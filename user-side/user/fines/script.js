@@ -43,16 +43,17 @@ function addFinesToTable(finesDataArray, finesTable) {
 
         const dataCellArray = [];
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           const dataCell = dataRow.insertCell(i);
           dataCellArray.push(dataCell);
         }
 
         dataCellArray[0].innerHTML = fineNo;
-        dataCellArray[1].innerHTML = imposedDateTime;
-        dataCellArray[2].innerHTML = dueDateTime;
-        dataCellArray[3].innerHTML = amount;
-        dataCellArray[4].innerHTML = paymentStatus;
+        dataCellArray[1].innerHTML = description;
+        dataCellArray[2].innerHTML = imposedDateTime;
+        dataCellArray[3].innerHTML = dueDateTime;
+        dataCellArray[4].innerHTML = amount;
+        dataCellArray[5].innerHTML = paymentStatus;
       }
     );
   }
