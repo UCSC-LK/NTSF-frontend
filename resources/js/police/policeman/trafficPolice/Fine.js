@@ -14,6 +14,6 @@ document.getElementById('vehicleFine').addEventListener('click', function(){
 document.getElementById('pedestrianFine').addEventListener('click', function(){
     console.log("pedestrianFine button clicked");
     let offenceType = "pedestrian";
-    sessionStorage.setItem("fine_type", offenceType);
+    sessionStorage.setItem("offence_type", offenceType);
 });
 
