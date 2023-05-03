@@ -136,6 +136,7 @@ button {
     position: relative;
     color: #73787c;
     margin-top: 20px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -147,7 +148,7 @@ button {
 }
 
 .dashboard-heading .panel {
-    padding-bottom: 40px;
+    padding-bottom: 50px;
     background-color: #12abf7;
     margin-bottom: 20px;
 }
@@ -323,6 +324,14 @@ h1, h2, p, a, span {
     border: 5px solid #50597b;
     width: 150px;
     height: 150px;
+    position: relative;
+}
+
+.small-profile-picture {
+    border: 2px solid #50597b;
+    width: 40px;
+    height: 40px;
+    float: left;
 }
 
 
@@ -350,7 +359,7 @@ h1, h2, p, a, span {
 }
 
 /******************************************** LEFT CONTAINER *****************************************/
-.left-container {}
+/* .left-container {} */
 
 .menu-box {
     height: 360px;
@@ -499,7 +508,9 @@ h1, h2, p, a, span {
 }
 
 /********************************************* RIGHT CONTAINER ****************************************/
-.right-container .container {}
+.right-container .container {
+    float: right;
+}
 
 .account {
     height: 390px;
@@ -511,4 +522,87 @@ h1, h2, p, a, span {
 
 .account p {
     text-align: center;
+}
+
+/********************************************* HEADER ****************************************/
+
+header {
+    height: 80px;
+}
+
+.header-menu {
+    font-size: 17px;
+    line-height: 80px;
+}
+
+.header-menu li {
+    position: relative;
+    /* -webkit-transform: translateZ(0); */
+    /** To avoid a flash when hover messages **/
+}
+
+.header-menu-tab {
+    padding: 0 27px;
+    display: block;
+    line-height: 74px;
+    font-size: 17px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.header-menu-tab:hover {
+    background: #50597b;
+    border-bottom: 4px solid #11a8ab;
+    text-decoration: none;
+}
+
+.header-menu-tab .icon {
+    padding-right: 15px;
+}
+
+.header-menu-number {
+    position: absolute;
+    line-height: 22px;
+    padding: 0 6px;
+    font-weight: 700;
+    background: #e64c65;
+    border-radius: 100%;
+    top: 15px;
+    right: 2px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.header-menu li:hover .header-menu-number {
+    text-decoration: none;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+
+}
+
+.profile-menu {
+    float: right;
+    height: 80px;
+    padding-right: 20px;
+}
+
+.profile-menu p {
+    font-size: 17px;
+    display: inline-block;
+    line-height: 76px;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.profile-menu a {
+    padding-left: 5px;
+}
+
+.profile-menu a:hover {
+    text-decoration: none;
+}
+
+.small-profile-picture {
+    display: inline-block;
+    vertical-align: middle;
 }
