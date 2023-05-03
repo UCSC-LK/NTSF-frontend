@@ -8,9 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../../../resources/css/add.css">
-    <!-- <link rel="stylesheet"
-          href="../../../../resources/css/form.css"> -->
+          href="../../../resources/css/add-style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
@@ -63,33 +61,16 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div>
+            <div class="profile-picture small-profile-picture">
                 <p class="profile-username">Avishi Ganepola</p>
+                <!-- <p>Me <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p> -->
+                <img width="40px"
+                     alt="Anne Hathaway picture"
+                     src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg">
             </div>
         </div>
     </div>
     <!-- REPEATING -->
-
-    <!-- Fines table -->
-    <!-- <div class="container">
-        <h1>Complaints Details</h1>
-        <div class="tableSection">
-            <table class="fines-table"
-                   id="table">
-                <tbody>
-                    <div class="tableheading">
-                        <thead>
-                            <th id="complaint-no">Complaint No</th>
-                            <th id="title">Title</th>
-                            <th id="ddescription">Description</th>
-                            <th id="status">Status</th>
-                        </thead>
-                    </div>
-                    <div id="complaintData"></div>
-                </tbody>
-            </table>
-        </div>
-    </div> -->
 
     <!-- Complaint form -->
     <div class="all">
@@ -103,19 +84,19 @@
                       class="form"
                       oninput="validateComplaintForm()">
                     <div class="form-control">
-                        <label for="title">Fine No</label>
+                        <!-- <label for="title">Fine No</label>
                         <input type="text"
                                placeholder=""
                                id="fineNo" />
                         <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i> -->
                         <label for="title">Title</label>
                         <input type="text"
                                placeholder=""
                                id="title" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <!-- <small>Error message</small> -->
+
                     </div>
                     <div class="form-control">
                         <label for="description">Description</label>
@@ -124,12 +105,13 @@
                                id="description" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <!-- <small>Error message</small> -->
+
                     </div>
                     <button id="submit-btn"
                             disabled
                             onclick="addComplaint()">Submit</button>
-                    <button id="cancel-button">Cancel</button>
+                    <button id="cancel-button"
+                            hidden>Cancel</button>
                 </form>
             </div>
         </div>
