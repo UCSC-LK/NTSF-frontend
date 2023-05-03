@@ -216,6 +216,7 @@ button {
     font-size: 14px;
     padding: 10px;
     width: 100%;
+    box-sizing: border-box
 }
 
 .form-control input:focus {
