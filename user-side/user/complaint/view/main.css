@@ -153,6 +153,26 @@ button {
     color: white;
 }
 
+/* .ntsf-logo new changes starts here */
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ends here */
+
 
 .tableheading {
     position: sticky;
