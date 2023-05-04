@@ -110,7 +110,8 @@ button {
 .dashboard-heading {
     width: 76%;
     float: right;
-    background: #ffffff;
+    /* background: #ffffff; */
+    background: #fff;
     position: relative;
     color: #73787c;
     margin-top: 20px;
@@ -119,7 +120,8 @@ button {
 
 .dashboard-heading .all {
     margin-top: 20px;
-    background: #f2f2f2;
+    /* background: #f2f2f2; */
+    background: #394264;
     width: 100%;
     min-height: 100vh;
 }
@@ -149,44 +151,14 @@ button {
     color: white;
 }
 
-
-.tableheading {
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-
-table {
-    width: 90%;
-    height: 80%;
-}
-
-.tableSection {
-    justify-content: space-around;
-    position: sticky;
-    top: 0;
-    overflow-y: auto;
-    height: 450px;
-}
-
-thead {
-    position: sticky;
-    top: 0;
-}
-
-th {
-    position: sticky;
-    top: 0;
-}
-
-/* CSS for Form */
+/********************************************* FORM ****************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
 
 .formbody {
     background-color: #edebeb;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,15 +175,17 @@ th {
     max-width: 100%;
     margin-top: -50px;
     height: 500px;
-    overflow-y: auto;
-
 }
 
 .formHeader {
     border-bottom: 1px solid #f0f0f0;
-    background-color: #f7f7f7;
+    background-color: #9b9ea2;
     padding: 20px 40px;
     position: sticky;
+    font-family: "Ubuntu", sans-serif;
+    color: #fff;
+    position: center;
+    font-size: 12px;
 }
 
 .formHeader h2 {
@@ -238,10 +212,11 @@ th {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
-    font-family: inherit;
+    font-family: "Ubuntu", sans-serif;
     font-size: 14px;
     padding: 10px;
     width: 100%;
+    box-sizing: border-box
 }
 
 .form-control input:focus {
@@ -292,62 +267,11 @@ th {
     border-radius: 4px;
     color: #fff;
     display: block;
-    font-family: inherit;
-    font-size: 16px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 14px;
     padding: 10px;
     margin-top: 20px;
     width: 100%;
-}
-
-.options {
-    cursor: pointer;
-    width: 300px;
-    border-radius: 15px;
-    background-color: rgb(250, 250, 250);
-    transition: all 300ms;
-}
-
-.options.opened {
-    overflow-y: scroll;
-}
-
-.option {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    transition: all 300ms;
-}
-
-.option:nth-child(1) {
-    border-radius: 15px;
-}
-
-.option:hover {
-    background-color: 12abf7;
-    color: white;
-}
-
-.message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 255px;
-    height: 60px;
-    position: absolute;
-    right: -255px;
-    bottom: 5vh;
-    animation: showMessage ease-out 5s;
-}
-
-.message.success {
-    background-color: rgb(184, 255, 112);
-}
-
-.message.danger {
-    background-color: crimson;
 }
 
 @keyframes showMessage {
@@ -366,14 +290,25 @@ th {
 
 /* CSS for add complaint form */
 
-#cancel-button {
+.cancel-button {
     background: #B2BEB5;
-    border: solid 6px #B2BEB5;
-    border-radius: 3px;
-    color: #ffffff;
+    border: solid 0.5px #B2BEB5;
+    /* border-radius: 3px; */
+    color: #1f253d;
     font-weight: 700;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1.2em;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    margin-left: 6px;
+}
+
+.submit-btn {
+    background: #12abf7;
+    border: solid 0.5px #12abf7;
+    /* border-radius: 3px; */
+    color: #1f253d;
+    font-weight: 700;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
     margin-left: 6px;
 }
 
@@ -390,3 +325,87 @@ button[disabled] {
     opacity: 0.5;
     cursor: default;
 }
+
+#formHeader {
+    font-family: "Ubuntu", sans-serif;
+    color: #1f253d;
+}
+
+@media screen and (max-width: 601px) {
+    .fines-table tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .fines-table tr:hover:not(:first-child) {
+        background-color: #d8e7f3;
+    }
+
+    .fines-table td:before {
+        display: none;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .fines-table th:first-child,
+    .fines-table td:first-child {
+        padding-left: 0;
+    }
+
+    .fines-table th:last-child,
+    .fines-table td:last-child {
+        padding-right: 0;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        padding: 1em !important;
+    }
+}
+
+.container {
+    text-align: left;
+}
+
+
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .ntsf-logo new changes starts here */
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ends here */

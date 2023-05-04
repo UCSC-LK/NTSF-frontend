@@ -9,8 +9,6 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
           href="../../../resources/css/add.css">
-    <!-- <link rel="stylesheet"
-          href="../../../../resources/css/form.css"> -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
@@ -21,7 +19,7 @@
           type="image/x-icon"
           href="/resources/icons/favicon.ico">
     <script type="module"
-            src="./script1.js"></script>
+            src="./script.js"></script>
 
 </head>
 
@@ -36,7 +34,7 @@
             <p class="logo"><b class="app-name">NTSF</b></p>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <a href="../../../index.html">
+        <a href="../../../dashboard/index.html">
             <button class="main">User Dashboard</button></a>
         <div class="clear"></div>
         <ul class="menu">
@@ -63,33 +61,12 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <div>
+            <a href="../../profile/index.html">
                 <p class="profile-username">Avishi Ganepola</p>
-            </div>
+            </a>
         </div>
     </div>
     <!-- REPEATING -->
-
-    <!-- Fines table -->
-    <!-- <div class="container">
-        <h1>Complaints Details</h1>
-        <div class="tableSection">
-            <table class="fines-table"
-                   id="table">
-                <tbody>
-                    <div class="tableheading">
-                        <thead>
-                            <th id="complaint-no">Complaint No</th>
-                            <th id="title">Title</th>
-                            <th id="ddescription">Description</th>
-                            <th id="status">Status</th>
-                        </thead>
-                    </div>
-                    <div id="complaintData"></div>
-                </tbody>
-            </table>
-        </div>
-    </div> -->
 
     <!-- Complaint form -->
     <div class="all">
@@ -103,19 +80,19 @@
                       class="form"
                       oninput="validateComplaintForm()">
                     <div class="form-control">
-                        <label for="title">Fine No</label>
+                        <!-- <label for="title">Fine No</label>
                         <input type="text"
                                placeholder=""
                                id="fineNo" />
                         <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i> -->
                         <label for="title">Title</label>
                         <input type="text"
                                placeholder=""
                                id="title" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <!-- <small>Error message</small> -->
+
                     </div>
                     <div class="form-control">
                         <label for="description">Description</label>
@@ -124,12 +101,13 @@
                                id="description" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <!-- <small>Error message</small> -->
+
                     </div>
                     <button id="submit-btn"
                             disabled
                             onclick="addComplaint()">Submit</button>
-                    <button id="cancel-button">Cancel</button>
+                    <button id="cancel-button"
+                            hidden>Cancel</button>
                 </form>
             </div>
         </div>

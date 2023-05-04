@@ -1,0 +1,616 @@
+@media only screen and (max-width: 800px) {
+    .dashboard-side-panel {
+        width: 90%;
+        display: none;
+    }
+
+    .dashboard-heading {
+        width: 100%;
+    }
+
+    .blok i {
+        display: none;
+    }
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+h1, h2, h3, h4 {
+    font-size: 25px;
+    color: gray;
+}
+
+button {
+    background: #14abfa;
+    border: solid 6px #14abfa;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.2em;
+    margin-left: 6px;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    margin-left: 2px;
+}
+
+/* dashboard-side-panel */
+.logo .app-name {
+    font-size: 50px;
+}
+
+.tagline {
+    color: #9b9ea2;
+    font-weight: bold;
+    padding: 0px 5px;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+.dashboard-side-panel {
+    width: 20%;
+    height: 100vh;
+    padding: 0px 2%;
+    float: left;
+}
+
+/* .ntsf-logo new changes starts here */
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ends here */
+
+
+
+/* side-panel menu */
+.menu {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0px;
+    margin-left: 8px;
+}
+
+.menu a {
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+    margin: 15px 0px;
+    float: left;
+    display: block;
+    font-size: 1.2em;
+}
+
+/* .menu a:first-child {
+    color: #14abfa;
+} */
+
+.menu a:nth-child(1) {
+    color: #14abfa;
+}
+
+/* .menu a:nth-child(4) {
+    color: #14abfa;
+} */
+
+.menu a i {
+    font-size: 1.7em;
+    color: #14abfa;
+    position: relative;
+    padding-right: 10px;
+    top: 3px;
+}
+
+.menu .fa-solid {
+    top: 6px;
+    padding-left: 2px;
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    /* background: #ffffff; */
+    position: relative;
+    color: #73787c;
+    /* margin-top: 20px; */
+    margin-right: 15px;
+    position: relative;
+}
+
+.dashboard-heading .all {
+    /* margin-top: 20px; */
+    background: #f2f2f2;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.dashboard-heading .panel {
+    padding-bottom: 50px;
+    background-color: #12abf7;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel i {
+    border-radius: 50%;
+    background: #f4f4f4;
+    padding: 8px;
+    border: solid 2px;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+    background-color: #12abf7;
+}
+
+.dashboard-heading .panel .profile-username {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: -8px;
+    color: white;
+    margin-right: 85px;
+    margin-top: 25px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: medium;
+    /* font-weight: bold; */
+}
+
+/** Inspired by: http://graphicburger.com/flat-design-ui-components/ **/
+/** Line-chart and donut-chart made by @kseso https://codepen.io/Kseso/pen/phiyL **/
+
+
+/************************************ FONTS ************************************/
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(https://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial);
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot');
+    src: url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('https://jlalovi-cv.herokuapp.com/font/icomoon.ttf') format('truetype'),
+        url('https://jlalovi-cv.herokuapp.com/font/icomoon.woff') format('woff'),
+        url('https://jlalovi-cv.herokuapp.com/font/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    /* speak: none; */
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/************************************* END FONTS *************************************/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+h1 {
+    font-size: 23px;
+}
+
+h2 {
+    font-size: 17px;
+}
+
+p {
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, p, a, span {
+    color: #fff;
+}
+
+.scnd-font-color {
+    color: #9099b7;
+}
+
+.horizontal-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.horizontal-list li {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+.titular {
+    display: block;
+    line-height: 60px;
+    margin: 0;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.button {
+    display: block;
+    width: 175px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+.profile-picture {
+    border-radius: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.big-profile-picture {
+    margin: 0 auto;
+    border: 5px solid #50597b;
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.small-profile-picture {
+    border: 2px solid #50597b;
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 3px;
+}
+
+
+/** MAIN CONTAINER **/
+
+.main-container {
+    font-family: 'Ubuntu', sans-serif;
+    width: 950px;
+    height: 1725px;
+    margin: 6em auto;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+/** CONTAINERS **/
+.container {
+    float: left;
+    width: 300px;
+}
+
+.block {
+    margin-bottom: 25px;
+    background: #394264;
+    border-radius: 5px;
+}
+
+/******************************************** LEFT CONTAINER *****************************************/
+/* .left-container {} */
+
+.menu-box {
+    height: 360px;
+}
+
+.menu-box .titular {
+    background: #11a8ab;
+}
+
+.menu-box-menu .icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 28px;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+.menu-box-number {
+    width: 36px;
+    line-height: 22px;
+    background: #50597b;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.menu-box-menu li {
+    height: 60px;
+    position: relative;
+}
+
+.menu-box-tab {
+    line-height: 60px;
+    display: block;
+    border-bottom: 1px solid #1f253d;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+
+.menu-box-tab:hover {
+    background: #50597b;
+    border-top: 1px solid #1f253d;
+    text-decoration: none;
+}
+
+.menu-box-tab:hover .icon {
+    color: #fff;
+}
+
+.menu-box-tab:hover .menu-box-number {
+    background: #e64c65;
+}
+
+/************************************************** MIDDLE CONTAINER **********************************/
+.middle-container {
+    margin: 0 25px;
+}
+
+.profile {
+    height: 410px;
+}
+
+.add-button .icon {
+    float: right;
+    line-height: 18px;
+    width: 23px;
+    border: 2px solid;
+    border-radius: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
+
+.add-button .icon:hover {
+    color: #e64c65;
+    border-color: #e64c65;
+}
+
+.user-name {
+    margin: 25px 0 16px;
+    text-align: center;
+}
+
+.profile-description {
+    width: 210px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-options {
+    padding-top: 23px;
+}
+
+.profile-options li {
+    border-left: 1px solid #1f253d;
+}
+
+.profile-options p {
+    margin: 0;
+}
+
+.profile-options a {
+    display: block;
+    width: 99px;
+    line-height: 60px;
+    text-align: center;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.profile-options a:hover {
+    text-decoration: none;
+    background: #50597b;
+}
+
+.profile-options a:hover.comments .icon {
+    color: #fcb150;
+}
+
+.profile-options a:hover.views .icon {
+    color: #11a8ab;
+}
+
+.profile-options a:hover.likes .icon {
+    color: #e64c65;
+}
+
+.profile-options .icon {
+    padding-right: 10px;
+}
+
+.profile-options .comments {
+    border-top: 4px solid #fcb150;
+}
+
+.profile-options .views {
+    border-top: 4px solid #11a8ab;
+}
+
+.profile-options .likes {
+    border-top: 4px solid #e64c65;
+}
+
+/********************************************* RIGHT CONTAINER ****************************************/
+.right-container .container {
+    float: right;
+}
+
+.account {
+    height: 390px;
+}
+
+.account .titular {
+    padding: 10px 0;
+}
+
+.account p {
+    text-align: center;
+}
+
+/********************************************* HEADER ****************************************/
+
+header {
+    height: 80px;
+}
+
+.header-menu {
+    font-size: 17px;
+    line-height: 80px;
+}
+
+.header-menu li {
+    position: relative;
+    /* -webkit-transform: translateZ(0); */
+    /** To avoid a flash when hover messages **/
+}
+
+.header-menu-tab {
+    padding: 0 27px;
+    display: block;
+    line-height: 74px;
+    font-size: 17px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.header-menu-tab:hover {
+    background: #50597b;
+    border-bottom: 4px solid #11a8ab;
+    text-decoration: none;
+}
+
+.header-menu-tab .icon {
+    padding-right: 15px;
+}
+
+.header-menu-number {
+    position: absolute;
+    line-height: 22px;
+    padding: 0 6px;
+    font-weight: 700;
+    background: #e64c65;
+    border-radius: 100%;
+    top: 15px;
+    right: 2px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.header-menu li:hover .header-menu-number {
+    text-decoration: none;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+
+}
+
+.profile-menu {
+    float: right;
+    height: 80px;
+    padding-right: 20px;
+}
+
+.profile-menu p {
+    font-size: 17px;
+    display: inline-block;
+    line-height: 76px;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.profile-menu a {
+    padding-left: 5px;
+}
+
+.profile-menu a:hover {
+    text-decoration: none;
+}
+
+.small-profile-picture {
+    display: inline-block;
+    vertical-align: middle;
+}
