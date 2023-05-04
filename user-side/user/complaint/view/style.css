@@ -23,6 +23,7 @@ body {
 h1 {
     font-size: 25px;
     color: gray;
+    text-align: center;
 }
 
 button {
