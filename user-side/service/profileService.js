@@ -1,6 +1,6 @@
 import { HOST_NAME } from "./constants.js";
 
-export const getUser = (nic, callback) => {
+export const getUserProfileInfo = (nic, callback) => {
   const httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function () {
     if (this.readyState === 4) {
