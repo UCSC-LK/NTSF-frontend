@@ -25,6 +25,11 @@ h1 {
     color: gray;
 }
 
+h2 {
+    font-size: 20px;
+    color: black;
+}
+
 button {
     background: #14abfa;
     border: solid 6px #14abfa;
@@ -89,9 +94,9 @@ button {
     font-size: 1.2em;
 }
 
-.menu a:first-child {
+/* .menu a:first-child {
     color: #14abfa;
-}
+} */
 
 .menu a i {
     font-size: 1.7em;
@@ -196,7 +201,7 @@ button {
 div.scroll {
     background-color: #fff;
     width: 73%;
-    height: 80vh;
+    height: 75vh;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: left;
@@ -211,9 +216,13 @@ div.scroll {
     border: 1px solid black;
     float: left;
     padding-left: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.divSquare2, .divSquare3, .divSquare4 {
-    /* height: fit-content; */
+.divSquare .divSquare2, .divSquare3, .divSquare4 {
     border: 1px solid black;
+}
+
+.divSquare .divSquare1 {
+    border: none;
 }
