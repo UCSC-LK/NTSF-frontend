@@ -1,4 +1,4 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1350px) {
     .dashboard-side-panel {
         width: 90%;
         display: none;
@@ -10,6 +10,12 @@
 
     .blok i {
         display: none;
+    }
+
+    div.scroll {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        margin: auto 10px !important;
     }
 }
 
@@ -28,6 +34,7 @@ h1 {
 h2 {
     font-size: 20px;
     color: black;
+    margin-top: 0;
 }
 
 button {
@@ -148,7 +155,7 @@ button {
     background-color: #12abf7;
 }
 
-.dashboard-heading .panel .profile-username {
+.dashboard-heading .panel .profile-username-nav {
     display: inline-block;
     position: absolute;
     right: 20px;
@@ -159,7 +166,6 @@ button {
 .container {
     text-align: center;
 }
-
 
 
 .ntsf-logo {
@@ -209,47 +215,52 @@ div.scroll {
     padding: 20px;
 }
 
-.divSquare {
+.profile-data-card {
+    display: inline-block;
+    box-sizing: border-box;
     width: 48%;
-    /* height: 200px; */
-    margin: 4px;
-    border: 1px solid black;
-    float: left;
-    padding-left: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    vertical-align: top;
+    transition: 0.3s ease-in-out;
+    font-size: 16px;
+    margin: 10px 4px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .07), 0 2px 2px rgba(0, 0, 0, .01), 0 4px 4px rgba(0, 0, 0, .02), 0 10px 8px rgba(0, 0, 0, .03), 0 15px 15px rgba(0, 0, 0, .03), 0 30px 30px rgba(0, 0, 0, .04), 0 70px 65px rgba(0, 0, 0, .05);
 }
 
-.divSquare .divSquare2, .divSquare3, .divSquare4 {
-    border: 1px solid black;
+.profile-data-card:hover {
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .04), 0 2px 2px rgba(0, 0, 0, 0), 0 4px 4px rgba(0, 0, 0, .01), 0 10px 8px rgba(0, 0, 0, .02), 0 15px 15px rgba(0, 0, 0, .02), 0 30px 30px rgba(0, 0, 0, .02), 0 70px 65px rgba(0, 0, 0, .03);
 }
-
-.divSquare .divSquare1 {
-    border: none;
-}
-
-/* img {
-    width: 100%;
-    height: 100%;
-    margin-top: 17px;
-} */
 
 .img-container {
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 50px;
 }
 
 img {
-    max-width: 100%;
-    max-height: 100%;
-    /* margin-top: 49px;
-    margin-bottom: 49px; */
-    margin-left: 10px;
+    height: 25px;
+    margin: auto 10px;
 }
 
-.text {
+.personal-info-card .profile-username {
     font-size: 25px;
     white-space: nowrap;
+    font-weight: bold;
+}
 
+.info-field {
+    display: block;
+    margin: 10px 0px;
+}
+
+.info-field-label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    padding: 10px auto;
+}
+
+.profile-data-row {
+    display: flex;
 }
