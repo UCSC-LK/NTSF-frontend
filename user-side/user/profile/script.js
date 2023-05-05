@@ -19,16 +19,41 @@ window.addEventListener("load", () => {
 function profileDataHTMLoutput(profileData) {
   if (profileData) {
     // Create card for user data model
+    // Call createProfileDataCard() to create card for user data model
     if (profileData.user) {
-      // Call createProfileDataCard() to create card for user data model
       createProfileDataCard("user-info-card", dataModel.user, profileData.user);
+    }
+    // Call createProfileDataCard() to create card for driver data model
+    if (profileData.driver) {
+      createProfileDataCard(
+        "driver-info-card",
+        dataModel.driver,
+        profileData.driver
+      );
+    }
+    // Call createProfileDataCard() to create card for vehicle data model
+    if (profileData.vehicle) {
+      createProfileDataCard(
+        "vehicle-info-card",
+        dataModel.vehicle,
+        profileData.vehicle
+      );
+    }
+    // Call createProfileDataCard() to create card for people data model
+    if (profileData.people) {
+      createProfileDataCard(
+        "personal-info-card",
+        dataModel.people,
+        profileData.people
+      );
     }
     // Display username in the profile header
     if (profileData.people) {
       document.getElementById("profile-username").innerHTML =
         profileData.people.name;
     }
-  } else { // If profile data is not available
+  } else {
+    // If profile data is not available
     document.getElementById("profile-data-container").remove();
   }
 }
