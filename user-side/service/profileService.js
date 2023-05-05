@@ -1,6 +1,8 @@
 import { HOST_NAME } from "./constants.js";
+import { redirectToLogin } from "/user-side/util/navigation.js";
+import { attachAuthorizationHeader } from "./jwtHandler.js";
 
-export const getUser = (nic, callback) => {
+export const getUserProfileInfo = (nic, callback) => {
   const httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function () {
     if (this.readyState === 4) {
@@ -8,7 +10,8 @@ export const getUser = (nic, callback) => {
       console.log(responseBody);
       if (this.status === 200) {
         callback(JSON.parse(responseBody));
-      } else {
+      } else if (this.status === 401) {
+        redirectToLogin();
       }
     }
   };
@@ -20,5 +23,10 @@ export const getUser = (nic, callback) => {
     "Content-type",
     "application/x-www-form-urlencoded"
   );
-  httpRequest.send();
+
+  if (attachAuthorizationHeader(httpRequest)) {
+    httpRequest.send();
+    return true;
+  }
+  return false;
 };

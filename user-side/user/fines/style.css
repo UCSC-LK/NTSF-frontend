@@ -23,11 +23,12 @@ body {
 h1 {
     font-size: 25px;
     color: gray;
+    text-align: center;
 }
 
-h2 {
+h2, h3, h4 {
     font-size: 20px;
-    color: black;
+    color: gray;
 }
 
 button {
@@ -98,6 +99,10 @@ button {
     color: #14abfa;
 } */
 
+.menu a:nth-child(4) {
+    color: #14abfa;
+}
+
 .menu a i {
     font-size: 1.7em;
     color: #14abfa;
@@ -115,8 +120,7 @@ button {
 .dashboard-heading {
     width: 76%;
     float: right;
-    /* background: #ffffff; */
-    background: #fff;
+    background: #ffffff;
     position: relative;
     color: #73787c;
     margin-top: 20px;
@@ -125,8 +129,7 @@ button {
 
 .dashboard-heading .all {
     margin-top: 20px;
-    /* background: #f2f2f2; */
-    background: #394264;
+    background: #f2f2f2;
     width: 100%;
     min-height: 100vh;
 }
@@ -156,28 +159,6 @@ button {
     color: white;
 }
 
-.container {
-    text-align: center;
-}
-
-
-
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
-}
-
-.logo-name {
-    width: 60%;
-}
-
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
 /* .ntsf-logo new changes starts here */
 
 .ntsf-logo {
@@ -198,58 +179,138 @@ button {
 
 /* Ends here */
 
-div.scroll {
-    background-color: #fff;
-    width: 73%;
-    height: 75vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-align: left;
-    padding-left: 20px;
-    padding: 20px;
-}
 
-.divSquare {
-    width: 48%;
-    /* height: 200px; */
-    margin: 4px;
-    border: 1px solid black;
-    float: left;
-    padding-left: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.divSquare .divSquare2, .divSquare3, .divSquare4 {
-    border: 1px solid black;
-}
-
-.divSquare .divSquare1 {
-    border: none;
-}
-
-/* img {
+.tableheading {
+    position: sticky;
+    top: 0;
     width: 100%;
-    height: 100%;
-    margin-top: 17px;
-} */
-
-.img-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 50px;
 }
 
-img {
+table {
+    width: 90%;
+    height: 80%;
+}
+
+.tableSection {
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    height: 450px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+th {
+    position: sticky;
+    top: 0;
+}
+
+/* fines table */
+.fines-table {
+    margin: auto;
+    min-width: 300px;
     max-width: 100%;
-    max-height: 100%;
-    margin-top: 49px;
-    margin-bottom: 49px;
-    margin-left: 10px;
+    border-collapse: collapse;
 }
 
-.text {
-    font-size: 25px;
-    white-space: nowrap;
+.fines-table tr:first-child {
+    border-top: none;
+    background: #9FB4C7;
+    color: #fff;
+}
 
+.fines-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+}
+
+.fines-table tr:nth-child(odd):not(:first-child) {
+    background-color: #ebf3f9;
+
+}
+
+.fines-table th {
+    display: none;
+}
+
+.fines-table td {
+    display: block;
+}
+
+.fines-table td:first-child {
+    margin-top: .5em;
+}
+
+.fines-table td:last-child {
+    margin-bottom: .5em;
+}
+
+.fines-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+}
+
+.fines-table th,
+.fines-table td {
+    text-align: left;
+}
+
+.fines-table {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.fines-table tr {
+    border-color: #bfbfbf;
+}
+
+.fines-table th,
+.fines-table td {
+    padding: .5em 1em;
+}
+
+@media screen and (max-width: 601px) {
+    .fines-table tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .fines-table tr:hover:not(:first-child) {
+        background-color: #d8e7f3;
+    }
+
+    .fines-table td:before {
+        display: none;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .fines-table th:first-child,
+    .fines-table td:first-child {
+        padding-left: 0;
+    }
+
+    .fines-table th:last-child,
+    .fines-table td:last-child {
+        padding-right: 0;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        padding: 1em !important;
+    }
 }

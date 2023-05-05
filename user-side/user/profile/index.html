@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./main.css">
+          href="./style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
@@ -19,8 +19,7 @@
           type="image/x-icon"
           href="/resources/icons/favicon.ico">
     <script type="module"
-            src="./script.js"
-            ;></script>
+            src="./script.js"></script>
 
 </head>
 
@@ -63,7 +62,7 @@
     <div class="dashboard-heading">
         <div class="panel">
             <a href="../../user/profile/index.html">
-                <p class="profile-username">Avishi Ganepola</p>
+                <p class="profile-username-nav">Avishi Ganepola</p>
             </a>
         </div>
     </div>
@@ -73,55 +72,37 @@
     <body>
         <div class="container">
             <h1>User Profile</h1>
-            <div class="scroll">
-                <div class="divSquare"
-                     id="divSquare1">
-                    <div class="img-container">
-                        <img src="../../resources/images/Account.png"
-                             alt="Account">
-                        <div class="text">
-                            <p>G.A.A.D. GANEPOLA</p>
+            <div class="scroll"
+                 id="profile-data-container">
+                <div class="profile-data-row">
+                    <div class="profile-data-card personal-info-card"
+                         id="personal-info-card">
+                        <div class="img-container">
+                            <img src="../../resources/images/Account.png"
+                                 alt="Account">
+                            <div class="profile-username"
+                                 id="profile-username">
+                            </div>
                         </div>
                     </div>
+                    <div class="profile-data-card"
+                         id="user-info-card">
+                        <h2>User Info</h2>
+                        <label id="user-id"></label>
+                    </div>
                 </div>
-                <div class="divSquare"
-                     id="divSquare2">
-                    <h2>User Info</h2>
-                    <p>User Id: </p>
-                    <p>NIC: </p>
-                    <p>Email: </p>
-                    <p>Mobile No: </p>
-                </div>
-                <div class="divSquare"
-                     id="divSquare3">
-                    <h2>Driver Info</h2>
-                    <p>Licence No: </p>
-                    <p>Issue Date: </p>
-                    <p>Expire Date: </p>
-                    <p>Holder's Signature: </p>
-                    <p>Vehicle Categories: </p>
-                </div>
-                <div class="divSquare"
-                     id="divSquare4">
-                    <h2>Vehicle Info</h2>
-                    <p>Register No: </p>
-                    <p>Chassis No: </p>
-                    <p>Current Owner Name: </p>
-                    <p>Current Owner Address: </p>
-                    <p>Engine No: </p>
-                    <p>Vehicle Class: </p>
-                    <p>State When Register: </p>
-                    <p>Color: </p>
-                    <p>Engine Capacity: </p>
-                    <p>Fuel Type: </p>
-                    <p>Year of Manufacture: </p>
-                    <p>Previous Owners: </p>
-                    <p>Current Owner Id: </p>
+                <div class="profile-data-row">
+                    <div class="profile-data-card"
+                         id="driver-info-card">
+                        <h2>Driver Info</h2>
+                    </div>
+                    <div class="profile-data-card"
+                         id="vehicle-info-card">
+                        <h2>Vehicle Info</h2>
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </body>
 
 </html>

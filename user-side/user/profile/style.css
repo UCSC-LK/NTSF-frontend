@@ -1,4 +1,4 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1350px) {
     .dashboard-side-panel {
         width: 90%;
         display: none;
@@ -11,18 +11,30 @@
     .blok i {
         display: none;
     }
+
+    div.scroll {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        margin: auto 10px !important;
+    }
 }
 
 body {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Lato", sans-serif;
     height: 100%;
     width: 100%;
     position: fixed;
 }
 
-h1, h2, h3, h4 {
+h1 {
     font-size: 25px;
     color: gray;
+}
+
+h2 {
+    font-size: 20px;
+    color: black;
+    margin-top: 0;
 }
 
 button {
@@ -31,7 +43,7 @@ button {
     border-radius: 3px;
     color: #ffffff;
     font-weight: 700;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 1.2em;
     margin-left: 6px;
 }
@@ -64,26 +76,11 @@ button {
     float: left;
 }
 
-/* .ntsf-logo new changes starts here */
-
 .ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
+    height: 75px;
+    width: 125px;
+    margin-left: -30px;
 }
-
-.logo-name {
-    width: 60%;
-}
-
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Ends here */
-
 
 
 /* side-panel menu */
@@ -108,14 +105,6 @@ button {
     color: #14abfa;
 } */
 
-.menu a:nth-child(1) {
-    color: #14abfa;
-}
-
-/* .menu a:nth-child(4) {
-    color: #14abfa;
-} */
-
 .menu a i {
     font-size: 1.7em;
     color: #14abfa;
@@ -134,22 +123,23 @@ button {
     width: 76%;
     float: right;
     /* background: #ffffff; */
+    background: #fff;
     position: relative;
     color: #73787c;
-    /* margin-top: 20px; */
-    margin-right: 15px;
+    margin-top: 20px;
     position: relative;
 }
 
 .dashboard-heading .all {
-    /* margin-top: 20px; */
-    background: #f2f2f2;
+    margin-top: 20px;
+    /* background: #f2f2f2; */
+    background: #394264;
     width: 100%;
     min-height: 100vh;
 }
 
 .dashboard-heading .panel {
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     background-color: #12abf7;
     margin-bottom: 20px;
 }
@@ -165,452 +155,112 @@ button {
     background-color: #12abf7;
 }
 
-.dashboard-heading .panel .profile-username {
+.dashboard-heading .panel .profile-username-nav {
     display: inline-block;
     position: absolute;
     right: 20px;
     top: -8px;
     color: white;
-    margin-right: 85px;
-    margin-top: 25px;
-    font-family: "Ubuntu", sans-serif;
-    font-size: medium;
-    /* font-weight: bold; */
 }
 
-/** Inspired by: http://graphicburger.com/flat-design-ui-components/ **/
-/** Line-chart and donut-chart made by @kseso https://codepen.io/Kseso/pen/phiyL **/
-
-
-/************************************ FONTS ************************************/
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
-@import url(https://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial);
-
-/* entypo */
-[class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-}
-
-/* fontawesome */
-[class*="fontawesome-"]:before {
-    font-family: 'FontAwesome', sans-serif;
-}
-
-/* zocial */
-[class*="zocial-"]:before {
-    font-family: 'zocial', sans-serif;
-}
-
-@font-face {
-    font-family: 'icomoon';
-    src: url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot');
-    src: url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot?#iefix') format('embedded-opentype'),
-        url('https://jlalovi-cv.herokuapp.com/font/icomoon.ttf') format('truetype'),
-        url('https://jlalovi-cv.herokuapp.com/font/icomoon.woff') format('woff'),
-        url('https://jlalovi-cv.herokuapp.com/font/icomoon.svg#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon';
-    /* speak: none; */
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/************************************* END FONTS *************************************/
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-body {
-    background: #fff;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding-left: 0;
-}
-
-h1 {
-    font-size: 23px;
-}
-
-h2 {
-    font-size: 17px;
-}
-
-p {
-    font-size: 15px;
-}
-
-a {
-    text-decoration: none;
-    font-size: 15px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-h1, h2, p, a, span {
-    color: #fff;
-}
-
-.scnd-font-color {
-    color: #9099b7;
-}
-
-.horizontal-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.horizontal-list li {
-    float: left;
-}
-
-.clear {
-    clear: both;
-}
-
-.icon {
-    font-size: 25px;
-}
-
-.titular {
-    display: block;
-    line-height: 60px;
-    margin: 0;
-    text-align: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.button {
-    display: block;
-    width: 175px;
-    line-height: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    -webkit-transition: background .3s;
-    transition: background .3s;
-}
-
-.button:hover {
-    text-decoration: none;
-}
-
-.profile-picture {
-    border-radius: 100%;
-    overflow: hidden;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-.big-profile-picture {
-    margin: 0 auto;
-    border: 5px solid #50597b;
-    width: 150px;
-    height: 150px;
-    position: relative;
-}
-
-.small-profile-picture {
-    border: 2px solid #50597b;
-    width: 40px;
-    height: 40px;
-    float: right;
-    margin-right: 50px;
-    margin-top: 3px;
-}
-
-
-/** MAIN CONTAINER **/
-
-.main-container {
-    font-family: 'Ubuntu', sans-serif;
-    width: 950px;
-    height: 1725px;
-    margin: 6em auto;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-/** CONTAINERS **/
 .container {
-    float: left;
-    width: 300px;
+    text-align: center;
 }
 
-.block {
-    margin-bottom: 25px;
-    background: #394264;
-    border-radius: 5px;
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
 }
 
-/******************************************** LEFT CONTAINER *****************************************/
-/* .left-container {} */
-
-.menu-box {
-    height: 360px;
+.logo-name {
+    width: 60%;
 }
 
-.menu-box .titular {
-    background: #11a8ab;
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
 }
 
-.menu-box-menu .icon {
+/* .ntsf-logo new changes starts here */
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ends here */
+
+div.scroll {
+    background-color: #fff;
+    width: 73%;
+    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    padding-left: 20px;
+    padding: 20px;
+}
+
+.profile-data-card {
     display: inline-block;
+    box-sizing: border-box;
+    width: 48%;
     vertical-align: top;
-    width: 28px;
-    margin-left: 20px;
-    margin-right: 15px;
+    transition: 0.3s ease-in-out;
+    font-size: 16px;
+    margin: 10px 4px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .07), 0 2px 2px rgba(0, 0, 0, .01), 0 4px 4px rgba(0, 0, 0, .02), 0 10px 8px rgba(0, 0, 0, .03), 0 15px 15px rgba(0, 0, 0, .03), 0 30px 30px rgba(0, 0, 0, .04), 0 70px 65px rgba(0, 0, 0, .05);
 }
 
-.menu-box-number {
-    width: 36px;
-    line-height: 22px;
-    background: #50597b;
-    text-align: center;
-    border-radius: 15px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    -webkit-transition: all .3s;
-    transition: all .3s;
+.profile-data-card:hover {
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .04), 0 2px 2px rgba(0, 0, 0, 0), 0 4px 4px rgba(0, 0, 0, .01), 0 10px 8px rgba(0, 0, 0, .02), 0 15px 15px rgba(0, 0, 0, .02), 0 30px 30px rgba(0, 0, 0, .02), 0 70px 65px rgba(0, 0, 0, .03);
 }
 
-.menu-box-menu li {
-    height: 60px;
-    position: relative;
+.img-container {
+    display: flex;
+    align-items: center;
 }
 
-.menu-box-tab {
-    line-height: 60px;
+img {
+    height: 25px;
+    margin: auto 10px;
+}
+
+.personal-info-card .profile-username {
+    font-size: 25px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.info-field {
     display: block;
-    border-bottom: 1px solid #1f253d;
-    -webkit-transition: background .2s;
-    transition: background .2s;
+    margin: 10px 0px;
 }
 
-.menu-box-tab:hover {
-    background: #50597b;
-    border-top: 1px solid #1f253d;
-    text-decoration: none;
-}
-
-.menu-box-tab:hover .icon {
-    color: #fff;
-}
-
-.menu-box-tab:hover .menu-box-number {
-    background: #e64c65;
-}
-
-/************************************************** MIDDLE CONTAINER **********************************/
-.middle-container {
-    margin: 0 25px;
-}
-
-.profile {
-    height: 410px;
-}
-
-.add-button .icon {
-    float: right;
-    line-height: 18px;
-    width: 23px;
-    border: 2px solid;
-    border-radius: 100%;
-    font-size: 18px;
-    text-align: center;
-    margin: 10px;
-}
-
-.add-button .icon:hover {
-    color: #e64c65;
-    border-color: #e64c65;
-}
-
-.user-name {
-    margin: 25px 0 16px;
-    text-align: center;
-}
-
-.profile-description {
-    width: 210px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.profile-options {
-    padding-top: 23px;
-}
-
-.profile-options li {
-    border-left: 1px solid #1f253d;
-}
-
-.profile-options p {
-    margin: 0;
-}
-
-.profile-options a {
-    display: block;
-    width: 99px;
-    line-height: 60px;
-    text-align: center;
-    -webkit-transition: background .3s;
-    transition: background .3s;
-}
-
-.profile-options a:hover {
-    text-decoration: none;
-    background: #50597b;
-}
-
-.profile-options a:hover.comments .icon {
-    color: #fcb150;
-}
-
-.profile-options a:hover.views .icon {
-    color: #11a8ab;
-}
-
-.profile-options a:hover.likes .icon {
-    color: #e64c65;
-}
-
-.profile-options .icon {
-    padding-right: 10px;
-}
-
-.profile-options .comments {
-    border-top: 4px solid #fcb150;
-}
-
-.profile-options .views {
-    border-top: 4px solid #11a8ab;
-}
-
-.profile-options .likes {
-    border-top: 4px solid #e64c65;
-}
-
-/********************************************* RIGHT CONTAINER ****************************************/
-.right-container .container {
-    float: right;
-}
-
-.account {
-    height: 390px;
-}
-
-.account .titular {
-    padding: 10px 0;
-}
-
-.account p {
-    text-align: center;
-}
-
-/********************************************* HEADER ****************************************/
-
-header {
-    height: 80px;
-}
-
-.header-menu {
-    font-size: 17px;
-    line-height: 80px;
-}
-
-.header-menu li {
-    position: relative;
-    /* -webkit-transform: translateZ(0); */
-    /** To avoid a flash when hover messages **/
-}
-
-.header-menu-tab {
-    padding: 0 27px;
-    display: block;
-    line-height: 74px;
-    font-size: 17px;
-    -webkit-transition: background .3s;
-    transition: background .3s;
-}
-
-.header-menu-tab:hover {
-    background: #50597b;
-    border-bottom: 4px solid #11a8ab;
-    text-decoration: none;
-}
-
-.header-menu-tab .icon {
-    padding-right: 15px;
-}
-
-.header-menu-number {
-    position: absolute;
-    line-height: 22px;
-    padding: 0 6px;
-    font-weight: 700;
-    background: #e64c65;
-    border-radius: 100%;
-    top: 15px;
-    right: 2px;
-    -webkit-transition: all .3s linear;
-    transition: all .3s linear;
-}
-
-.header-menu li:hover .header-menu-number {
-    text-decoration: none;
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-
-}
-
-.profile-menu {
-    float: right;
-    height: 80px;
-    padding-right: 20px;
-}
-
-.profile-menu p {
-    font-size: 17px;
+.info-field-label {
     display: inline-block;
-    line-height: 76px;
-    margin: 0;
-    padding-right: 10px;
+    width: 100px;
+    font-weight: bold;
+    padding: 10px auto;
 }
 
-.profile-menu a {
-    padding-left: 5px;
-}
-
-.profile-menu a:hover {
-    text-decoration: none;
-}
-
-.small-profile-picture {
-    display: inline-block;
-    vertical-align: middle;
+.profile-data-row {
+    display: flex;
 }
