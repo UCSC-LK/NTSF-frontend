@@ -1,4 +1,6 @@
 import { validateNIC, validatePassword } from "/user-side/util/validator.js";
+import { displayMessage } from "/user-side/component/message/script.js";
+import { redirectToViewFines } from "/user-side/util/navigation.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");
@@ -67,29 +69,37 @@ function loginSuccessCallback(data) {
   let userId = null;
   if (data.loggedIn) {
     alert("Login successful");
-    sessionStorage.setItem("userId", data.userId);
-    // sessionStorage.setItem("jwt", data.jwt);
-    // Retrieve the JWT token from the sessionStorage using the getItem()
-    sessionStorage.setItem("jwt", data.jwt);
-    window.location.href = "/user-side/user/fines/index.html";
+
+    console.log("Login Successful");
+    displayMessage("Login Successful", true, () => {
+      /**
+       * Store the user id and jwt in the session storage
+       */
+      sessionStorage.setItem("userId", data.userId);
+      sessionStorage.setItem("jwt", data.jwt);
+
+      redirectToViewFines();
+    });
   } else {
-    alert("Incorrect nic or password!");
+    displayMessage("Incorrect nic or password!", false);
   }
 }
 
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
+  console.log("Login Unsuccessful");
+  displayMessage("Login Unsuccessful", false);
 }
 
-// Toggle password visibility
-const togglePassword = document.querySelector("#togglePassword");
-const password = document.querySelector("#id_password");
+// // Toggle password visibility
+// const togglePassword = document.querySelector("#togglePassword");
+// const password = document.querySelector("#id_password");
 
-togglePassword.addEventListener("click", function (e) {
-  // toggle the type attribute
-  const type =
-    password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
-  // toggle the eye slash icon
-  this.classList.toggle("fa-eye-slash");
-});
+// togglePassword.addEventListener("click", function (e) {
+//   // toggle the type attribute
+//   const type =
+//     password.getAttribute("type") === "password" ? "text" : "password";
+//   password.setAttribute("type", type);
+//   // toggle the eye slash icon
+//   this.classList.toggle("fa-eye-slash");
+// });
