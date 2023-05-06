@@ -54,6 +54,7 @@ function createTable(finesDataArray) {
   // Create table header
   const tableHeader = table.createTHead();
   const headerRow = tableHeader.insertRow();
+
   const headers = [
     "Fine No",
     "Description",
@@ -94,6 +95,10 @@ function createTable(finesDataArray) {
         cells.forEach((cellData) => {
           const cell = row.insertCell();
           cell.textContent = cellData;
+
+          const button = document.createElement("button");
+          button.textContent = "Add Complaint";
+          button.classList.add("addButton");
         });
       }
     );
