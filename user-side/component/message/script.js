@@ -3,7 +3,7 @@
  * @param {String} messageText | The message to be displayed
  * @param {String} className | The class name of the message
  */
-export function getMessage(messageText, isSuccess, callback, timeout) {
+export function displayMessage(messageText, isSuccess, callback, timeout) {
   // Create a new <div> element
   const message = document.createElement("div");
 
@@ -13,45 +13,45 @@ export function getMessage(messageText, isSuccess, callback, timeout) {
 
   // className -> message + className
   if (isSuccess) message.classList.add("success");
-  else message.classList.add("danger");
+  else message.classList.add("failure");
 
   // Set the text content of the message
   message.textContent = messageText;
 
   document.body.appendChild(message);
 
-  deleteMessage(message, callback, timeout);
+  removeMessage(message, callback, timeout);
 }
 
 /**
  * Deletes the message after 6 seconds
  * @param {*} element
  */
-export function deleteMessage(element, callback, timeout = 2000) {
+export function removeMessage(element, callback, timeout = 2000) {
   setTimeout(() => {
     document.body.removeChild(element);
     if (callback) callback();
   }, timeout);
 }
 
-// export function getMessage(loginStatus) {
+// export function displayMessage(loginStatus) {
 //   let message = document.createElement("div");
 //   message.className = "message";
 
 //   if (loginStatus == false) {
-//     message.classList.add("danger");
+//     message.classList.add("failure");
 //     message.textContent =
 //       "Login Unsuccessful. Please try again or contact your administrator for assistance.";
 
 //     document.body.appendChild(message);
 
-//     deleteMessage(message);
+//     removeMessage(message);
 //   } else {
 //     message.classList.add("success");
 //     message.textContent = "Login Successful";
 
 //     document.body.appendChild(message);
 
-//     deleteMessage(message);
+//     removeMessage(message);
 //   }
 // }
