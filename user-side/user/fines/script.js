@@ -1,5 +1,4 @@
 import { getFinesByNic } from "/user-side/service/fineService.js";
-import finesDataModel from "./fineData.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
@@ -15,21 +14,10 @@ window.addEventListener("load", () => {
  * @param {JSON object} finesDataArray
  */
 function fineDataHTMLoutput(finesDataArray) {
-  displayFines(
-    finesDataArray.driver,
-    finesDataModel.driver,
-    "Driver Fines",
-    "table-driver"
-  );
-  displayFines(
-    finesDataArray.vehicle,
-    finesDataModel.vehicle,
-    "Vehicle Fines",
-    "table-vehicle"
-  );
+  displayFines(finesDataArray.driver, "Driver Fines", "table-driver");
+  displayFines(finesDataArray.vehicle, "Vehicle Fines", "table-vehicle");
   displayFines(
     finesDataArray.pedestrian,
-    finesDataModel.pedestrian,
     "Pedestrian Fines",
     "table-pedestrian"
   );
@@ -41,9 +29,9 @@ function fineDataHTMLoutput(finesDataArray) {
  * @param {String} headingText | Heading text of the table
  * @param {String} tableId | Id of the table
  */
-function displayFines(finesDataArray, finesDataModel, headingText, tableId) {
+function displayFines(finesDataArray, headingText, tableId) {
   if (finesDataArray.length > 0) {
-    const table = createTable(finesDataArray, finesDataModel);
+    const table = createTable(finesDataArray);
 
     // Create table heading
     const tableHeading = document.createElement("div");
@@ -60,21 +48,21 @@ function displayFines(finesDataArray, finesDataModel, headingText, tableId) {
   }
 }
 
-/**
- *
- * @param {JSON object} finesDataArray
- * @returns table
- */
-function createTable(finesDataArray, fineDataModel) {
+function createTable(finesDataArray) {
   const table = document.createElement("table");
 
   // Create table header
   const tableHeader = table.createTHead();
   const headerRow = tableHeader.insertRow();
-
-  // Get table headers from data model
-  const headers = Object.values(fineDataModel);
-  console.log(headers);
+  const headers = [
+    "Fine No",
+    "Description",
+    "Imposed Date Time",
+    "Due Date Time",
+    "Amount",
+    "Demerit Points",
+    "Payment Status",
+  ];
 
   headers.forEach((headerText) => {
     const headerCell = document.createElement("th");
@@ -89,7 +77,7 @@ function createTable(finesDataArray, fineDataModel) {
         imposedDateTime,
         dueDateTime,
         paymentStatus,
-        offence: { amount, description },
+        offence: { amount, description, demerit_points: demeritPoints },
       }) => {
         const row = table.insertRow();
 
@@ -99,6 +87,7 @@ function createTable(finesDataArray, fineDataModel) {
           imposedDateTime,
           dueDateTime,
           amount,
+          demeritPoints,
           paymentStatus,
         ];
 
