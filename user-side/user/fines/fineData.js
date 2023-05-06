@@ -5,7 +5,6 @@ const commonData = {
     demerit_points: "Demerit Points",
   },
   fineNo: "Fine No",
-  spotDescription: "Spot Description",
   imposedDateTime: "Imposed Date Time",
   dueDateTime: "Due Date Time",
   paymentStatus: "Payment Status",
