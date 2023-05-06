@@ -1,4 +1,5 @@
 import { getFinesByNic } from "/user-side/service/fineService.js";
+import finesDataModel from "./fineData.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
@@ -14,33 +15,72 @@ window.addEventListener("load", () => {
  * @param {JSON object} finesDataArray
  */
 function fineDataHTMLoutput(finesDataArray) {
-  displayFines(finesDataArray.driver, "Driver Fines", "table-driver");
-  displayFines(finesDataArray.vehicle, "Vehicle Fines", "table-vehicle");
+  displayFines(
+    finesDataArray.driver,
+    finesDataModel.driver,
+    "Driver Fines",
+    "table-driver"
+  );
+  displayFines(
+    finesDataArray.vehicle,
+    finesDataModel.vehicle,
+    "Vehicle Fines",
+    "table-vehicle"
+  );
   displayFines(
     finesDataArray.pedestrian,
+    finesDataModel.pedestrian,
     "Pedestrian Fines",
     "table-pedestrian"
   );
 }
 
-function displayFines(finesDataArray, headingText, tableId) {
-  if (finesDataArray != null) {
+/**
+ *
+ * @param {JSON object} finesDataArray | Array of fines data
+ * @param {String} headingText | Heading text of the table
+ * @param {String} tableId | Id of the table
+ */
+function displayFines(finesDataArray, finesDataModel, headingText, tableId) {
+  if (finesDataArray.length > 0) {
+    const table = createTable(finesDataArray, finesDataModel);
+
+    // Create table heading
+    const tableHeading = document.createElement("div");
+    tableHeading.classList.add("tableheading");
+
+    // Create heading
     const h2 = document.createElement("h2");
     h2.textContent = headingText;
-    document.body.appendChild(h2);
 
-    const table = createTable(finesDataArray);
+    tableHeading.appendChild(h2);
+
+    document.getElementById(tableId).appendChild(tableHeading);
     document.getElementById(tableId).appendChild(table);
   }
 }
 
 /**
- * Create table for fines data
- * @param {JSON object} finesDataArray | HTML response from getFinesByNic() in fineService.js
- * @returns
+ *
+ * @param {JSON object} finesDataArray
+ * @returns table
  */
-function createTable(finesDataArray) {
+function createTable(finesDataArray, fineDataModel) {
   const table = document.createElement("table");
+
+  // Create table header
+  const tableHeader = table.createTHead();
+  const headerRow = tableHeader.insertRow();
+
+  // Get table headers from data model
+  const headers = Object.values(fineDataModel);
+  console.log(headers);
+
+  headers.forEach((headerText) => {
+    const headerCell = document.createElement("th");
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  });
 
   if (finesDataArray.length > 0) {
     finesDataArray.forEach(
@@ -64,7 +104,7 @@ function createTable(finesDataArray) {
 
         cells.forEach((cellData) => {
           const cell = row.insertCell();
-          cell.innerHTML = cellData;
+          cell.textContent = cellData;
         });
       }
     );
