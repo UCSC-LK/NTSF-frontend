@@ -2,36 +2,48 @@ import { getFinesByNic } from "/user-side/service/fineService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-
-  // Store NIC no
+  // Get NIC from session storage here
   if (!getFinesByNic("996129039V", fineDataHTMLoutput)) {
     alert("Login Expired");
-
     window.location.href = "/user-side/user/login/index.html";
   }
 });
 
+/**
+ * Display fines data in HTML
+ * @param {JSON object} finesDataArray
+ */
 function fineDataHTMLoutput(finesDataArray) {
-  addFinesToTable(
-    finesDataArray.driver,
-    document.getElementById("table-driver")
-  );
-
-  addFinesToTable(
-    finesDataArray.vehicle,
-    document.getElementById("table-vehicle")
-  );
-
-  addFinesToTable(
+  displayFines(finesDataArray.driver, "Driver Fines", "table-driver");
+  displayFines(finesDataArray.vehicle, "Vehicle Fines", "table-vehicle");
+  displayFines(
     finesDataArray.pedestrian,
-    document.getElementById("table-pedestrian")
+    "Pedestrian Fines",
+    "table-pedestrian"
   );
 }
 
-function addFinesToTable(finesDataArray, finesTable) {
+function displayFines(finesDataArray, headingText, tableId) {
+  if (finesDataArray != null) {
+    const h2 = document.createElement("h2");
+    h2.textContent = headingText;
+    document.body.appendChild(h2);
+
+    const table = createTable(finesDataArray);
+    document.getElementById(tableId).appendChild(table);
+  }
+}
+
+/**
+ * Create table for fines data
+ * @param {JSON object} finesDataArray | HTML response from getFinesByNic() in fineService.js
+ * @returns
+ */
+function createTable(finesDataArray) {
+  const table = document.createElement("table");
+
   if (finesDataArray.length > 0) {
-    // Add contents
-    finesDataArray.map(
+    finesDataArray.forEach(
       ({
         fineNo,
         imposedDateTime,
@@ -39,22 +51,24 @@ function addFinesToTable(finesDataArray, finesTable) {
         paymentStatus,
         offence: { amount, description },
       }) => {
-        const dataRow = finesTable.insertRow();
+        const row = table.insertRow();
 
-        const dataCellArray = [];
+        const cells = [
+          fineNo,
+          description,
+          imposedDateTime,
+          dueDateTime,
+          amount,
+          paymentStatus,
+        ];
 
-        for (let i = 0; i < 6; i++) {
-          const dataCell = dataRow.insertCell(i);
-          dataCellArray.push(dataCell);
-        }
-
-        dataCellArray[0].innerHTML = fineNo;
-        dataCellArray[1].innerHTML = description;
-        dataCellArray[2].innerHTML = imposedDateTime;
-        dataCellArray[3].innerHTML = dueDateTime;
-        dataCellArray[4].innerHTML = amount;
-        dataCellArray[5].innerHTML = paymentStatus;
+        cells.forEach((cellData) => {
+          const cell = row.insertCell();
+          cell.innerHTML = cellData;
+        });
       }
     );
   }
+
+  return table;
 }
