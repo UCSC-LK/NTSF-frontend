@@ -47,7 +47,6 @@ export default data;
 //   nic: "NIC",
 //   licenseNo: "License No",
 //   vehicleNo: "Vehicle No",
-//   drivenVehicleNo: "Driven Vehicle No",
 //   spotDescription: "Spot Description",
 //   imposedDateTime: "Imposed Date Time",
 //   dueDateTime: "Due Date Time",
