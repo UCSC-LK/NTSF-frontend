@@ -1,25 +1,3 @@
-// export function getMessage(loginStatus) {
-//   let message = document.createElement("div");
-//   message.className = "message";
-
-//   if (loginStatus == false) {
-//     message.classList.add("danger");
-//     message.textContent =
-//       "Login Unsuccessful. Please try again or contact your administrator for assistance.";
-
-//     document.body.appendChild(message);
-
-//     deleteMessage(message);
-//   } else {
-//     message.classList.add("success");
-//     message.textContent = "Login Successful";
-
-//     document.body.appendChild(message);
-
-//     deleteMessage(message);
-//   }
-// }
-
 /**
  * Can display a message with a specified text and CSS class name
  * @param {String} messageText | The message to be displayed
@@ -44,8 +22,34 @@ export function showMessage(messageText, className) {
   deleteMessage(message);
 }
 
+/**
+ * Deletes the message after 6 seconds
+ * @param {*} element
+ */
 export function deleteMessage(element) {
   setTimeout(() => {
     document.body.removeChild(element);
   }, 6000);
 }
+
+// export function getMessage(loginStatus) {
+//   let message = document.createElement("div");
+//   message.className = "message";
+
+//   if (loginStatus == false) {
+//     message.classList.add("danger");
+//     message.textContent =
+//       "Login Unsuccessful. Please try again or contact your administrator for assistance.";
+
+//     document.body.appendChild(message);
+
+//     deleteMessage(message);
+//   } else {
+//     message.classList.add("success");
+//     message.textContent = "Login Successful";
+
+//     document.body.appendChild(message);
+
+//     deleteMessage(message);
+//   }
+// }
