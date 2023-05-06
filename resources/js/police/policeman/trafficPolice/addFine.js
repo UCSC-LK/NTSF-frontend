@@ -1,26 +1,29 @@
-//Dynamically setting up the input coloumn for user_id based on fine_type
-var fine_type = sessionStorage.getItem("fine_type");
-console.log("fine_type: " + fine_type);
+//Dynamically setting up the input coloumn for user_id based on offence_type
+var offence_type = sessionStorage.getItem("offence_type");
+console.log("offence_type: " + offence_type);
 
-if(fine_type == "driver"){
+if(offence_type == "driver"){
+    document.getElementById("addFineType").innerHTML = "Add Driver Fine";
     document.getElementById("user_id").placeholder = "Enter License No";
     document.querySelector('label[for="user_id"]').innerHTML = "License No:";
 }
-else if(fine_type == "vehicle"){
+else if(offence_type == "vehicle"){
+    document.getElementById("addFineType").innerHTML = "Add Vehicle Fine";
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
     document.querySelector('label[for="user_id"]').innerHTML = "Vehicle No:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn visible
+    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
-else if(fine_type == "pedestrian"){
+else if(offence_type == "pedestrian"){
+    document.getElementById("addFineType").innerHTML = "Add Pedestrian Fine";
     document.getElementById("user_id").placeholder = "Enter NIC";
     document.querySelector('label[for="user_id"]').innerHTML = "NIC:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn visible
+    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else
 {
-    console.log("Error in setting up the input coloumn for user_id based on fine_type");
+    console.log("Error in setting up the input coloumn for user_id based on offence_type");
 }
 
 
@@ -38,14 +41,16 @@ console.log("police_stationSession: " + police_stationSession);
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
-    checkInputs();
+    const footage = document.getElementById('footage');
+    const footageFile = footage.files[0];
+    checkInputs(footageFile);
 });
 
 //Input validating
-function checkInputs() {
+function checkInputs(footageFile) {
     
 	// trim to remove the whitespaces
-    //Enter here the code to validate fine_type
+    //Enter here the code to validate offence_type
     const user_idValue = user_id.value;
     const offence_noValue = offence_no.value;
     const spot_descriptionValue = spot_description.value;
@@ -62,7 +67,7 @@ function checkInputs() {
     let flagOffence_no = 0;
     let flagSpot_description = 0;
 
-    if(fine_type == "driver"){
+    if(offence_type == "driver"){
         //user_id is license_no
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'License No cannot be blank');
@@ -81,7 +86,7 @@ function checkInputs() {
             flagUser_id = 0;
         }
     }
-    else if(fine_type == "vehicle"){
+    else if(offence_type == "vehicle"){
         //user_id is vehicle_no
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'Vehicle No cannot be blank');
@@ -104,7 +109,7 @@ function checkInputs() {
             flagUser_id = 0;
         }
     }
-    else if(fine_type == "pedestrian"){
+    else if(offence_type == "pedestrian"){
         //user_id is nic
         if(user_idValueTrim === '') {
             setErrorFor(user_id, 'NIC cannot be blank');
@@ -120,7 +125,7 @@ function checkInputs() {
         }
     }
     else{
-        console.log("Error in validating user_id based on fine_type");
+        console.log("Error in validating user_id based on offence_type");
     }
 
     if(offence_noValueTrim === '') {
@@ -144,7 +149,7 @@ function checkInputs() {
         setErrorFor(spot_description, 'Spot Description cannot be blank');
         flagSpot_description = 1;
     }
-    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9]+$/)) == null){
+    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9 ]+$/)) == null){
         setErrorFor(spot_description, 'Spot Description should contain only letters and numbers');
         flagSpot_description = 1;
     }
@@ -164,7 +169,7 @@ function checkInputs() {
     if(flagUser_id === 0 && flagOffence_no === 0 && flagSpot_description === 0){
         console.log('came until js function for event listener of submit button');
         console.log(user_idValue, offence_noValue, spot_descriptionValue);
-        addFine(user_idValue, offence_noValue, spot_descriptionValue, police_idSession, police_stationSession);
+        addFine(user_idValue, offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile);
     }
     else{
         return false;
@@ -186,7 +191,7 @@ function setSuccessFor(input) {
 //Sending data to backend
 // const addFineButton = document.getElementById("addFineButton");
 
-const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, police_id, police_station)
+const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, police_id, police_station, footageFile)
 {
     console.log('came until js function for addFine which sends data to backend');
     
@@ -213,10 +218,27 @@ const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, p
             getMessage(fineAdditionStatus);
         }
     }
+    // httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
+    // httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    // httpReq.send("action=addFine" + "&offence_type=" + offence_type + "&user_id=" + user_idValue + "&driven_vehicle" + driven_vehicle + "&offence_no=" + offence_noValue + "&spot_description=" + spot_descriptionValue + "&police_id=" + police_id + "&police_station=" + police_station);
+
+    const form_data = new FormData();
+    form_data.append("action", "addFine");
+    form_data.append("offence_type", offence_type);
+    form_data.append("user_id", user_idValue);
+    form_data.append("driven_vehicle", driven_vehicle);
+    form_data.append("offence_no", offence_noValue);
+    form_data.append("spot_description", spot_descriptionValue);
+    form_data.append("police_id", police_id);
+    form_data.append("police_station", police_station);
+    form_data.append("footage_file", footageFile); //footage file is not validated
+
+    console.log(form_data.get("footageFile"));
+
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/fine", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addFine" + "&fine_type=" + fine_type + "&user_id=" + user_idValue + "&driven_vehicle" + driven_vehicle + "&offence_no=" + offence_noValue + "&spot_description=" + spot_descriptionValue + "&police_id=" + police_id + "&police_station=" + police_station);
+    httpReq.send(form_data);
 
     function addFineData(httpReq)
     {

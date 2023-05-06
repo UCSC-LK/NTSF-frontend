@@ -1,3 +1,4 @@
+document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 const loadPolicemanDetails = function()
 {
     var table = document.getElementById("table");
@@ -84,7 +85,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
     dataCell4.innerHTML = mobile_number;
     dataCell5.innerHTML = email;
     // dataCell6.innerHTML = position;
-
+    //not assigned should be turend as null
     if(position === "notAssigned"){
         dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
         "<option value='notAssigned' selected>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
@@ -104,10 +105,6 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
     else{
     }
 
-
-
-   // dataCell7.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editPosition("+police_id+")'>Update Position</button>";
-    // dataCell8.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'>Delete</button>";
 }
 
 /*Not really sure this is working pretty well (Copied from updatePoliceman) */

@@ -75,12 +75,12 @@
 	right: 10px;
 }
 
-.form-control.success i.fa-check-circle {
+.form-control.success i.fa-circle-check {
 	color: #2ecc71;
 	visibility: visible;
 }
 
-.form-control.error i.fa-exclamation-circle {
+.form-control.error i.fa-circle-exclamation {
 	color: #e74c3c;
 	visibility: visible;
 }
@@ -108,6 +108,16 @@
 	padding: 10px;
 	margin-top: 20px;
 	width: 100%;
+	cursor: pointer;
+}
+
+.form button:hover {
+	background-color: #0e8cd9;
+}
+
+.form button:active {
+	background-color: #0e8cd9;
+	transform: translateY(4px);
 }
 
 .options {

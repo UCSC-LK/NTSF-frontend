@@ -153,7 +153,7 @@ function checkInputs() {
 		setErrorFor(name, 'Name cannot be blank');
         flagName = 1;
 	} 
-    else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
+    else if((nameValue.match(/^[a-zA-Z ]+$/)) == null){
         setErrorFor(name, 'Name should contain only letters');
         flagName = 1;
     }

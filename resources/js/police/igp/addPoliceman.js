@@ -4,9 +4,12 @@ const police_id = document.getElementById('police_id');
 const nic = document.getElementById('nic');
 const mobile_number = document.getElementById('mobile_number');
 const email = document.getElementById('email');
+// const profile_picture = document.getElementById('profile_picture'); //To make the variable profile picture mentioned inside form.addEventListener() to be global
+// let profile_pictureFile = "Methana yako error"; //To make the variable profile picture mentioned inside form.addEventListener() to be global
+
+document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 
 var police_idSession = sessionStorage.getItem("user_police_id");
-console.log("Printing below the username from session storage");
 console.log("police_idSession: " + police_idSession);
 
 let rankOptions = document.getElementById("rankOptions");
@@ -18,7 +21,6 @@ let police_stationOptionList = [];
 
 /*Dynamically load the policestation option list*/
 function loadPoliceStationOptionsListOnLoad(){
-    console.log("Loading PoliceStation List to be included in drop down dynamiclly");
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
     {
@@ -26,12 +28,10 @@ function loadPoliceStationOptionsListOnLoad(){
             if(loadPoliceStationOptionsList(this))
             {
                 console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
-                console.log("Printing the police station list below");
-                console.log(police_stationOptionList);
             }
             else
             {
-                console.log("came until js function to load PoliceStation List dynamically");
+                console.log("Loading PoliceStation information dynamiclly FAILED!!!");
             }
         }
         else
@@ -77,16 +77,29 @@ function loadPoliceStationOptionsListOnLoad(){
 
 }
 
+let gradeOptions = document.getElementById("gradeOptions");
+gradeOptionList = ["Inspector General of Police (IGP)", "Senior Deputy Inspector General of police (SDIG)",
+                     "Deputy Inspector General of police (DIG)", "Senior Superintendent of police (SSP)",
+                        "Superintendent of police (SP)", "Assistant Superintendent of police (ASP)",
+                            "Chief Inspector of police (CI)", "Inspector of police (IP)", "Sub Inspector of police (SI)",
+                                "Senior Superintendent of police (SSP)", "Police Sergeant Class 1 (PS)", 
+                                    "Police Sergeant Class 2 (PS)", "Police Constable Class 1 (PC)", "Police Constable Class 2 (PC)", 
+                                        "Police Constable Class 3 (PC)", "Police Constable Class 4 (PC)"];
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
-    checkInputs();
+    const enctype = form.enctype;
+    console.log(enctype);
+    const profile_picture = document.getElementById('profile_picture'); //declared above already
+    const profile_pictureFile = profile_picture.files[0]; //File object
+    console.log(profile_pictureFile);
+    checkInputs(profile_pictureFile);
 });
 
 //Checking whether data already exisiting
 
 document.getElementById('police_id').addEventListener('blur', function(){
-    console.log('came until js function for event listener of policeID blue');
     let police_idValue = police_id.value.trim();
     if(police_idValue !== ''){
         checkPolicemanPolice_ID(police_idValue);
@@ -94,7 +107,6 @@ document.getElementById('police_id').addEventListener('blur', function(){
 });
 
 document.getElementById('nic').addEventListener('blur', function(){
-    console.log('came until js function for event listener of NIC blure');
     let nicValue = nic.value.trim();
     if(nicValue !== ''){
         checkPolicemanNic(nicValue);
@@ -102,7 +114,6 @@ document.getElementById('nic').addEventListener('blur', function(){
 });
 
 document.getElementById('mobile_number').addEventListener('blur', function(){
-    console.log('came until js function for event listener of mobilenumber blur');
     let mobile_numberValue = mobile_number.value.trim();
     if(mobile_numberValue !== ''){
         checkPolicemanMobile_Number(mobile_numberValue);
@@ -110,7 +121,6 @@ document.getElementById('mobile_number').addEventListener('blur', function(){
 });
 
 document.getElementById('email').addEventListener('blur', function(){
-    console.log('came until js function for event listener of email blur');
     let emailValue = email.value.trim();
     if(emailValue !== ''){
         checkPolicemanEmail(emailValue);
@@ -124,8 +134,8 @@ function isEmail(email) {
   }
 
 //Input validating
-function checkInputs() {
-	// trim to remove the whitespaces
+function checkInputs(profile_pictureFile) {
+	// trim to remove the leading and trailing whitespaces
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
 	const nicValue = nic.value.trim();
@@ -139,12 +149,13 @@ function checkInputs() {
     let flagEmail = 1 //error exists
     let flagRank = 1 //error exists
     let flagPolice_Station = 1 //error exists
+    let flagGrade = 1 //error exists
 
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
         flagName = 1;
 	} 
-    else if((nameValue.match(/^[a-zA-Z]+$/)) == null){
+    else if((nameValue.match(/^[a-zA-Z ]+$/)) == null){
         setErrorFor(name, 'Name should contain only letters');
         flagName = 1;
     }
@@ -169,8 +180,8 @@ function checkInputs() {
         setErrorFor(police_id, 'Police ID should contain only numbers');
         flagPolice_ID = 1;
     }
-    else if(police_idValue.length !== 10){
-        setErrorFor(police_id, 'Police ID should contain 10 numbers');
+    else if(police_idValue.length !== 7){
+        setErrorFor(police_id, 'Police ID should contain 7 numbers');
         flagPolice_ID = 1;
     }   
 	else {
@@ -245,10 +256,21 @@ function checkInputs() {
         flagPolice_Station = 1;
     }
 
-    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
+    let grade = checkGradeFill();
+    if(grade){
+        setSuccessFor(gradeOptions);
+        var gradeValue = grade;
+        flagGrade = 0;
+    }
+    else {
+        setErrorFor(gradeOptions, 'A Grade should be  selected');
+        flagGrade = 1;
+    }
+
+    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0 && flagGrade === 0){
         console.log('came until js function for event listener of submit button');
-        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
-        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
+        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue, profile_pictureFile);
+        addPoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue , profile_pictureFile);
     }
     else{
         return false;
@@ -268,7 +290,7 @@ function setSuccessFor(input) {
 }
 
 
-let isOpen = false;
+let isRankOpen = false;
 
 function checkRankFill() {
     if (rankOptions.firstElementChild.classList.contains("hide-option")) {
@@ -292,9 +314,21 @@ function checkPolice_stationFill() {
     }
 }
 
+function checkGradeFill() {
+    if (gradeOptions.firstElementChild.classList.contains("hide-option")) {
+        return false;
+    }
+    else {
+        let selectedGrade = gradeOptions.firstElementChild.textContent;
+        console.log(selectedGrade);
+        return selectedGrade;
+    }
+}
+
 rankOptions.addEventListener("click", addToUIOptionsRank);
 police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
+gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
 
 //e.target refers to the clicked element
@@ -317,15 +351,15 @@ function addToUIOptionsRank(e) {
 }
 
 function controlOptionsRank(e) {
-    if (isOpen === false) {
+    if (isRankOpen === false) {
         createOptionsRank();
         rankOptions.classList.add("opened");
-        isOpen = true;
+        isRankOpen = true;
     }
     else {
         deleteOptionsRank();
         rankOptions.classList.remove("opened");
-        isOpen = false;
+        isRankOpen = false;
     }
 }
 
@@ -348,6 +382,9 @@ function createOptionsRank() {
 };
 
 //adding UI options to police_station
+
+let isPoliceStationOpen = false;
+
 function addToUIOptionspolice_station(e) {
     if (e.target.classList.contains("hide-option")) {
         controlOptionspolice_station(e);
@@ -367,15 +404,15 @@ function addToUIOptionspolice_station(e) {
 }
 
 function controlOptionspolice_station(e) {
-    if (isOpen === false) {
+    if (isPoliceStationOpen === false) {
         createOptionspolice_station();
         police_stationOptions.classList.add("opened");
-        isOpen = true;
+        isPoliceStationOpen = true;
     }
     else {
         deleteOptionspolice_station();
         police_stationOptions.classList.remove("opened");
-        isOpen = false;
+        isPoliceStationOpen = false;
     }
 }
 
@@ -397,20 +434,62 @@ function createOptionspolice_station() {
     });
 };
 
+//adding UI options to grade
+let isGradeOpen = false;
+
+function addToUIOptionsGrade(e) {
+    if (e.target.classList.contains("hide-option")) {
+        controlOptionsGrade(e);
+    }
+    else {
+        const pickedOption = e.target;
+        if (gradeOptions.firstElementChild.classList.contains("hide-option")) {
+            gradeOptions.removeChild(gradeOptions.firstElementChild);
+        }
+        gradeOptions.insertAdjacentElement("afterbegin", pickedOption);
+
+        deleteOptionsGrade();
+        controlOptionsGrade(e);
+    }
+}
+
+function controlOptionsGrade(e) {
+    if (isGradeOpen === false) {
+        createOptionsGrade();
+        gradeOptions.classList.add("opened");
+        isGradeOpen = true;
+    }
+    else {
+        deleteOptionsGrade();
+        gradeOptions.classList.remove("opened");
+        isGradeOpen = false;
+    }
+}
+
+function deleteOptionsGrade() {
+    while (gradeOptions.childElementCount > 1) {
+        gradeOptions.removeChild(gradeOptions.lastElementChild);
+    }
+}
+
+function createOptionsGrade() {
+    gradeOptionList.forEach(element => {
+        if (gradeOptions.firstElementChild.textContent !== element) {
+            let gradeOption = document.createElement("div");
+            gradeOption.className = "option";
+            gradeOption.textContent = element;
+
+            gradeOptions.firstElementChild.insertAdjacentElement("afterend", gradeOption);
+        }
+    });
+};
 
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
+const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station, grade, profile_picture)
 {
     console.log('came until js function for addPoliceman which sends data to backend');
-    console.log(name);
-    console.log(police_id);
-    console.log(nic);
-    console.log(mobile_number);
-    console.log(email);
-    console.log(rank);
-    console.log(police_station);
 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function()
@@ -431,15 +510,46 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
             getMessage(policemanAdditionStatus);
         }
     }
+    // httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    // httpReq.setRequestHeader("Content-type", "multipart/form-data"); /*Changed from application/x-www-form-urlencoded to enable uploading profile pic */
+    // httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    // httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station + "&profile_picture=" + profile_picture);
+
+    const form_data = new FormData();
+    form_data.append('action', 'addPoliceman');
+    form_data.append('name', name);
+    form_data.append('police_id', police_id);
+    form_data.append('nic', nic);
+    form_data.append('mobile_number', mobile_number);
+    form_data.append('email', email);
+    form_data.append('rank', rank);
+    form_data.append('police_station', police_station);
+    form_data.append('grade', grade);
+    form_data.append('profile_picture', profile_picture);
+
+    console.log(form_data);
+    console.log(form_data.get('action'));
+    console.log(form_data.get('name'));
+    console.log(form_data.get('police_id'));
+    console.log(form_data.get('nic'));
+    console.log(form_data.get('mobile_number'));
+    console.log(form_data.get('email'));
+    console.log(form_data.get('rank'));
+    console.log(form_data.get('police_station'));
+    console.log(form_data.get('grade'));
+    console.log(form_data.get('profile_picture'));
+
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=addPoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send(form_data);
 
     function addPolicemanData(httpReq)
     {
         let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
         console.log(jsonAddPolicemanResponse);
+        let addPolicemanResponse = jsonAddPolicemanResponse.alert;
+        console.log(addPolicemanResponse);
+        return addPolicemanResponse;
     }
     
 }
@@ -637,7 +747,6 @@ const checkPolicemanEmail = function(email) //Returns true if duplicate data exi
         }
         else
         {
-            
             return false;
         }
     }
@@ -647,9 +756,9 @@ function getMessage(policemanAdditionStatus) {
     let message = document.createElement("div");
     message.className = "message";
 
-    if (policemanAdditionStatus == true) {
+    if (policemanAdditionStatus == false) {
         message.classList.add("danger");
-        message.textContent = "Oh no! It is cannot be blank";
+        message.textContent = "Policeman Addition Failed!!";
 
         document.body.appendChild(message);
 
@@ -702,6 +811,24 @@ function validation(nicNumber) {
     return result;
 }
 
+function profile_pictureValidation(profile_picture) {
+    profile_picture.addEventListener('change', function() {
+    // get the file name
+    const fileName = profile_picture.value;
+    // check if the file type matches the accepted types
+    if (!fileName.match(/\.png$|\.jpg$|\.jpeg$/)) {
+        // display an error message and reset the file input
+        setErrorFor(profile_picture,'Invalid file type. Only PNG and JPEG files are allowed.');
+        console.log("Profile Picture is invalid");
+        profile_picture.value = '';
+        return false
+    } else
+    {
+        return true;
+        console.log("Profile Picture is valid");
+    }
+    });
+}
 
 
 

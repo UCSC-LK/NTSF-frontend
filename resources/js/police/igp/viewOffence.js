@@ -4,6 +4,27 @@ const loadOffenceDetails = function()
 
     console.log("I was called onload");
     console.log("Printing session storage values")
+    let offenceType = sessionStorage.getItem("offence_type");
+    console.log(offenceType);;
+
+    //Set the offence type in the page heading
+    if(offenceType === "driver")
+    {
+        document.getElementById("offenceType").innerHTML = "Driver Offences";
+    }
+    else if(offenceType === "vehicle")
+    {
+        document.getElementById("offenceType").innerHTML = "Vehicle Offences";
+    }
+    else if(offenceType === "pedestrian")
+    {
+        document.getElementById("offenceType").innerHTML = "Pedestrian Offences";
+    }
+    else{
+        console.log("Something went wrong");
+    }
+
+
     jwt = sessionStorage.getItem('jwt');
     console.log(jwt);
     user_police_id = sessionStorage.getItem('police_id');
@@ -21,7 +42,7 @@ const loadOffenceDetails = function()
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/offence", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpreq.send("action=viewOffence");
+    httpreq.send("action=viewOffenceByType" + "&offence_type=" + offenceType);
 
     function completeLoad(httpreq)
     {
@@ -43,7 +64,7 @@ const loadOffenceDetails = function()
             let count =  jsonOffenceData.List.length - 1;
             for(i=0; i<= count; i++)
             {
-                offenceDataHTMLoutput(jsonOffenceData.List[i].offence_no, jsonOffenceData.List[i].offence_type,
+                offenceDataHTMLoutput(jsonOffenceData.List[i].offence_no,
                 jsonOffenceData.List[i].description, jsonOffenceData.List[i].amount, jsonOffenceData.List[i].demerit_points);
             }
 
@@ -56,14 +77,8 @@ const loadOffenceDetails = function()
     }
 }
 
-function offenceDataHTMLoutput(offence_no, offence_type, description, amount, demerit_points)
+function offenceDataHTMLoutput(offence_no, description, amount, demerit_points)
 {
-    console.log(offence_no);
-    console.log(offence_type);
-    console.log(description);
-    console.log(amount);
-    console.log(demerit_points);
-
     // create table data row
     var dataRow = table.insertRow();
     var dataCell1 = dataRow.insertCell(0);
@@ -72,16 +87,14 @@ function offenceDataHTMLoutput(offence_no, offence_type, description, amount, de
     var dataCell4 = dataRow.insertCell(3);
     var dataCell5 = dataRow.insertCell(4);
     var dataCell6 = dataRow.insertCell(5);
-    var dataCell7 = dataRow.insertCell(6);
-
+    
     //Add content to the table data cells
     dataCell1.innerHTML = offence_no;
-    dataCell2.innerHTML = offence_type;
-    dataCell3.innerHTML = description;
-    dataCell4.innerHTML = amount;
-    dataCell5.innerHTML = demerit_points;
-    dataCell6.innerHTML = "<button type='button' class='btn btn-primary' id='editButton' onclick='editOffenceDetails("+offence_no+")'>Edit</button>";
-    dataCell7.innerHTML = "<button type='button' class='btn btn-danger' id='deletebutton' onclick='deleteOffencePopUp("+offence_no+")'>Delete</button>";
+    dataCell2.innerHTML = description;
+    dataCell3.innerHTML = amount;
+    dataCell4.innerHTML = demerit_points;
+    dataCell5.innerHTML = "<button type='button' id='editButton' onclick='editOffenceDetails("+offence_no+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell6.innerHTML = "<button type='button' id='deletebutton' onclick='deleteOffencePopUp("+offence_no+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deleteOffenceDetails(offence_no) //Delete an offence
@@ -142,33 +155,33 @@ function editOffenceDetails(offence_no) //Edit a offence
 }
 
 //Model to ask are you sure want to delete??
-const modal = document.getElementById('myModal');
-const modalYes = document.getElementById('modal-yes');
-const modalNo = document.getElementById('modal-no');
+const model = document.getElementById('myModel');
+const modelYes = document.getElementById('model-yes');
+const modelNo = document.getElementById('model-no');
 
 
 function deleteOffencePopUp(offence_no) {
-    modal.style.display = "block";
+    model.style.display = "block";
     console.log("popup is called with offence_no: " + offence_no);
 
-    modalYes.onclick = function() {
+    modelYes.onclick = function() {
     // Perform the delete operation
     console.log("YES delete is clicked" + offence_no);
     deleteOffenceDetails(offence_no);
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 
-    modalNo.onclick = function() {
+    modelNo.onclick = function() {
     console.log("NO delete is clicked" + offence_no);  
-    modal.style.display = "none";
+    model.style.display = "none";
     };
 
 }
 
-// Close the modal window if the user clicks outside of it
+// Close the model window if the user clicks outside of it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == model) {
+    model.style.display = "none";
   }
 }
