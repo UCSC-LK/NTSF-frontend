@@ -1,9 +1,18 @@
 import { getUserProfileInfo } from "/user-side/service/profileService.js";
 import dataModel from "./profileData.js";
 
+// window.addEventListener("load", () => {
+//   // Get NIC from session storage here
+//   getUserProfileInfo("996129039V", profileDataHTMLoutput);
+// });
+
 window.addEventListener("load", () => {
+  console.log("callback");
   // Get NIC from session storage here
-  getUserProfileInfo("996129039V", profileDataHTMLoutput);
+  if (!getUserProfileInfo("996129039V", profileDataHTMLoutput)) {
+    alert("Login Expired");
+    window.location.href = "/user-side/user/login/index.html";
+  }
 });
 
 /**
