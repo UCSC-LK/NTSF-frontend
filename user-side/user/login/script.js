@@ -67,10 +67,17 @@ function loginSuccessCallback(data) {
   let userId = null;
   if (data.loggedIn) {
     alert("Login successful");
+
+    console.log("Login Successful");
+    getMessage(true);
+    // return false;
+
+    /**
+     * Store the user id and jwt in the session storage
+     */
     sessionStorage.setItem("userId", data.userId);
-    // sessionStorage.setItem("jwt", data.jwt);
-    // Retrieve the JWT token from the sessionStorage using the getItem()
     sessionStorage.setItem("jwt", data.jwt);
+
     window.location.href = "/user-side/user/fines/index.html";
   } else {
     alert("Incorrect nic or password!");
@@ -79,6 +86,8 @@ function loginSuccessCallback(data) {
 
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
+  console.log("Login Unsuccessful");
+  getMessage(false);
 }
 
 // Toggle password visibility
