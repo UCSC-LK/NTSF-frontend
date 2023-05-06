@@ -1,5 +1,5 @@
 import { validateNIC, validatePassword } from "/user-side/util/validator.js";
-import { getMessage } from "/user-side/component/message/script.js";
+import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 
 // Adding jquery to the page
@@ -71,7 +71,7 @@ function loginSuccessCallback(data) {
     alert("Login successful");
 
     console.log("Login Successful");
-    getMessage("Login Successful", true, () => {
+    displayMessage("Login Successful", true, () => {
       /**
        * Store the user id and jwt in the session storage
        */
@@ -81,14 +81,14 @@ function loginSuccessCallback(data) {
       redirectToViewFines();
     });
   } else {
-    getMessage("Incorrect nic or password!", false);
+    displayMessage("Incorrect nic or password!", false);
   }
 }
 
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
-  getMessage("Login Unsuccessful", false);
+  displayMessage("Login Unsuccessful", false);
 }
 
 // // Toggle password visibility
