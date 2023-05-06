@@ -3,7 +3,7 @@
  * @param {String} messageText | The message to be displayed
  * @param {String} className | The class name of the message
  */
-export function showMessage(messageText, className) {
+export function getMessage(messageText, className) {
   // Create a new <div> element
   const message = document.createElement("div");
 
