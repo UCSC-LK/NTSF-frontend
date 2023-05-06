@@ -3,7 +3,7 @@
  * @param {String} messageText | The message to be displayed
  * @param {String} className | The class name of the message
  */
-export function getMessage(messageText, className) {
+export function getMessage(messageText, isSuccess, callback, timeout) {
   // Create a new <div> element
   const message = document.createElement("div");
 
@@ -12,24 +12,26 @@ export function getMessage(messageText, className) {
   message.className = "message";
 
   // className -> message + className
-  message.classList.add(className);
+  if (isSuccess) message.classList.add("success");
+  else message.classList.add("danger");
 
   // Set the text content of the message
   message.textContent = messageText;
 
   document.body.appendChild(message);
 
-  deleteMessage(message);
+  deleteMessage(message, callback, timeout);
 }
 
 /**
  * Deletes the message after 6 seconds
  * @param {*} element
  */
-export function deleteMessage(element) {
+export function deleteMessage(element, callback, timeout = 2000) {
   setTimeout(() => {
     document.body.removeChild(element);
-  }, 6000);
+    if (callback) callback();
+  }, timeout);
 }
 
 // export function getMessage(loginStatus) {

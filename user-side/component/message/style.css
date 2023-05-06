@@ -11,11 +11,13 @@
 }
 
 .message.success {
-	background-color: rgb(184, 255, 112);
+	/* background-color: rgb(184, 255, 112); */
+	background-color: #14abfa;
 }
 
 .message.danger {
 	background-color: crimson;
+	color: white;
 }
 
 @keyframes showMessage {
