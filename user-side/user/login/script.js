@@ -1,5 +1,6 @@
 import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { getMessage } from "/user-side/component/message/script.js";
+import { redirectToViewFines } from "/user-side/util/navigation.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");
@@ -70,25 +71,24 @@ function loginSuccessCallback(data) {
     alert("Login successful");
 
     console.log("Login Successful");
-    getMessage("Login Successful", "success");
-    // return false;
+    getMessage("Login Successful", true, () => {
+      /**
+       * Store the user id and jwt in the session storage
+       */
+      sessionStorage.setItem("userId", data.userId);
+      sessionStorage.setItem("jwt", data.jwt);
 
-    /**
-     * Store the user id and jwt in the session storage
-     */
-    sessionStorage.setItem("userId", data.userId);
-    sessionStorage.setItem("jwt", data.jwt);
-
-    window.location.href = "/user-side/user/fines/index.html";
+      redirectToViewFines();
+    });
   } else {
-    alert("Incorrect nic or password!");
+    getMessage("Incorrect nic or password!", false);
   }
 }
 
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
-  getMessage("Login Unsuccessful", "danger");
+  getMessage("Login Unsuccessful", false);
 }
 
 // // Toggle password visibility
