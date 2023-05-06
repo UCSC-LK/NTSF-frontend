@@ -72,29 +72,3 @@ function signUpSuccessCallback(data) {
 function signUpUnsuccessCallback() {
   alert("Sign Up Unsuccessful!");
 }
-
-/**
- * Check whether the password and re enter password fields match
- */
-// window.passwordMatch = function passwordsMatch() {
-//   const password = document.getElementById("password").value;
-//   const rePassword = document.getElementById("re-password").value;
-
-//   const inputFields = document
-//     .getElementById("submit-form")
-//     .getElementsByTagName("input");
-
-//   let isAllFilled = true;
-
-//   Array.from(inputFields).forEach((element) => {
-//     if (!element.value) {
-//       isAllFilled = false;
-//     }
-//   });
-
-//   if (password == rePassword && isAllFilled) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
