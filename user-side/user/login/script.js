@@ -1,5 +1,5 @@
 import { validateNIC, validatePassword } from "/user-side/util/validator.js";
-import { getMessage } from "user-side/component/message/script.js";
+import { getMessage } from "/user-side/component/message/script.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");
