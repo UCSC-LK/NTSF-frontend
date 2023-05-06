@@ -70,7 +70,7 @@ function loginSuccessCallback(data) {
     alert("Login successful");
 
     console.log("Login Successful");
-    getMessage(true);
+    getMessage("Login Successful", "success");
     // return false;
 
     /**
@@ -88,18 +88,18 @@ function loginSuccessCallback(data) {
 function loginUnsuccessCallback() {
   alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
-  getMessage(false);
+  getMessage("Login Unsuccessful", "danger");
 }
 
-// Toggle password visibility
-const togglePassword = document.querySelector("#togglePassword");
-const password = document.querySelector("#id_password");
+// // Toggle password visibility
+// const togglePassword = document.querySelector("#togglePassword");
+// const password = document.querySelector("#id_password");
 
-togglePassword.addEventListener("click", function (e) {
-  // toggle the type attribute
-  const type =
-    password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
-  // toggle the eye slash icon
-  this.classList.toggle("fa-eye-slash");
-});
+// togglePassword.addEventListener("click", function (e) {
+//   // toggle the type attribute
+//   const type =
+//     password.getAttribute("type") === "password" ? "text" : "password";
+//   password.setAttribute("type", type);
+//   // toggle the eye slash icon
+//   this.classList.toggle("fa-eye-slash");
+// });
