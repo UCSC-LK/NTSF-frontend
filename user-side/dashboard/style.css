@@ -87,9 +87,9 @@ button {
 	font-size: 1.2em;
 }
 
-.menu a:first-child {
+/* .menu a:first-child {
 	color: #14abfa;
-}
+} */
 
 .menu a i {
 	font-size: 1.7em;
@@ -183,7 +183,7 @@ button {
 	position: relative;
 }
 
-.block i {
+/* .block i {
 	border-radius: 50%;
 	background: #12abf7;
 	padding: 10px;
@@ -220,7 +220,7 @@ button {
 	top: -10px;
 	font-size: 1.3em;
 	font-weight: 700;
-}
+} */
 
 .gains {
 	width: 80%;
@@ -234,10 +234,52 @@ button {
 		width: 90%;
 		display: none;
 	}
+
 	.dashboard-heading {
 		width: 100%;
 	}
+
 	.blok i {
 		display: none;
 	}
+}
+
+/*************** Block ***************/
+.blok i {
+	border-radius: 50%;
+	background: #12abf7;
+	padding: 10px;
+	color: white;
+	display: inline-block;
+	position: relative;
+	top: -20px;
+	margin-left: 20px;
+	margin-right: 5px;
+	font-size: 1.2em;
+}
+
+.blok .kl {
+	background: #978ded;
+}
+
+.blok .pl {
+	background: #facaee;
+}
+
+.blok .no {
+	display: inline-block;
+}
+
+.blok .no p:first-child {
+	font-weight: 700;
+	font-size: 0.8em;
+	position: relative;
+	top: 8px;
+}
+
+.blok .no p:nth-child(2) {
+	position: relative;
+	top: -10px;
+	font-size: 1.3em;
+	font-weight: 700;
 }
