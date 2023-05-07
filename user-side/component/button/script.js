@@ -5,7 +5,7 @@
  * @param {string} className - The class name of the button
  * @param {function} callback - Callback function to execute when the button is clicked
  */
-export function displayButton(buttonLabel, className, callback, fineNo = null) {
+export function displayButton(buttonLabel, className, callback) {
   // Create a new button element
   const button = document.createElement("button");
 
@@ -17,11 +17,7 @@ export function displayButton(buttonLabel, className, callback, fineNo = null) {
 
   // Add an event listener for the button click event
   button.addEventListener("click", () => {
-    if (fineNo != null) {
-      callback(fineNo);
-    } else {
-      callback();
-    }
+    callback();
   });
 
   return button;
