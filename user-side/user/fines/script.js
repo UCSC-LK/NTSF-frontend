@@ -1,5 +1,6 @@
 import { getFinesByNic } from "/user-side/service/fineService.js";
 import { displayButton } from "/user-side/component/button/script.js";
+import { redirectToAddComplaint } from "/user-side/util/navigation.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
@@ -101,7 +102,11 @@ function createTable(finesDataArray) {
         /**
          * Add a button to each row
          */
-        const button = displayButton("Add Complaint", "addButton", () => {});
+        const button = displayButton(
+          "Add Complaint",
+          "addButton",
+          redirectToAddComplaint
+        );
         row.appendChild(button);
       }
     );
