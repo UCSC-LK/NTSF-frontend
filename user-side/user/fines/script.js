@@ -1,4 +1,5 @@
 import { getFinesByNic } from "/user-side/service/fineService.js";
+import { displayButton } from "/user-side/component/button/script.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
@@ -95,11 +96,24 @@ function createTable(finesDataArray) {
         cells.forEach((cellData) => {
           const cell = row.insertCell();
           cell.textContent = cellData;
-
-          const button = document.createElement("button");
-          button.textContent = "Add Complaint";
-          button.classList.add("addButton");
         });
+        // const button = displayButton("Add Complaint", "addButton", () => {});
+        // cell.appendChild(button);
+
+        // Create a new button element
+        const button = document.createElement("button");
+
+        // Set the class name of the button
+        button.className = "addButton";
+
+        // Set the text content of the button
+        button.textContent = "Add Complaint";
+
+        // // Add an event listener for the button click
+        // button.addEventListener("click", callback);
+
+        // Append the button to cell
+        row.appendChild(button);
       }
     );
   }
