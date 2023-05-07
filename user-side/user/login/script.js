@@ -2,7 +2,7 @@ import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 
-// Adding jquery to the page
+// JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
