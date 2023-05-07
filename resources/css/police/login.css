@@ -169,6 +169,13 @@ footer
   border-bottom-width: 7px;
 }
 
+.forgotPassword{
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #2196f3;
+
+}
+
 /* Success/Error messages */
 .message {
 	display: flex;
@@ -216,5 +223,6 @@ footer
 .form-control.error small {
 	visibility: visible;
 }
+
 
   
