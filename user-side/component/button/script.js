@@ -17,6 +17,5 @@ export function displayButton(buttonLabel, className, callback) {
   // Add an event listener for the button click
   button.addEventListener("click", callback);
 
-  // Append the button to the document body
-  document.body.appendChild(button);
+  return button;
 }
