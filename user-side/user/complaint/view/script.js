@@ -4,7 +4,8 @@ import { displayButton } from "/user-side/component/button/script.js";
 window.addEventListener("load", () => {
   console.log("callback");
   //Enter user id here
-  getComplaintByUserId(107, complaintDataHTMLoutput);
+  const userId = sessionStorage.getItem("userId");
+  getComplaintByUserId(userId, complaintDataHTMLoutput);
 });
 
 function complaintDataHTMLoutput(complaintDatArray) {
