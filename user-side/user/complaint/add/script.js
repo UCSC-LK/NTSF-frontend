@@ -6,10 +6,10 @@ import { displayMessage } from "/user-side/component/message/script.js";
 import { validateInputField } from "/user-side/util/validator.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 
-// // JQuery
-// var script = document.createElement("script");
-// script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-// document.getElementsByTagName("head")[0].appendChild(script);
+// JQuery
+var script = document.createElement("script");
+script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
  * Get the fine no from the url and set it to the fine no input field
@@ -65,7 +65,7 @@ window.addComplaint = function addComplaint() {
   });
 
   const settings = {
-    url: `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&${query}`,
+    url: `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&&${query}`,
     method: "POST",
   };
 
