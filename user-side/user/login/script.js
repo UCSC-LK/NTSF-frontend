@@ -1,6 +1,7 @@
 import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
+import { validateInputField } from "/user-side/util/validator.js";
 
 // JQuery
 var script = document.createElement("script");
@@ -10,25 +11,6 @@ document.getElementsByTagName("head")[0].appendChild(script);
 // document
 //   .getElementById("login-form")
 //   .addEventListener("oninput", validateLoginForm);
-
-/**
- * Common function for validate the input field
- * @param {string} elementId (`nic | password`)
- * @param {Function}} validateFn (`validateNIC | validatePassword`)
- * @returns if input field is valid
- */
-function validateInputField(elementId, validateFn) {
-  const inputElement = document.getElementById(elementId);
-
-  if (!validateFn(inputElement.value)) {
-    console.log(`Provided ${elementId} is invalid`);
-    inputElement.classList.add("invalid");
-    return false;
-  }
-
-  inputElement.classList.remove("invalid");
-  return true;
-}
 
 /**
  * Validate the login form
