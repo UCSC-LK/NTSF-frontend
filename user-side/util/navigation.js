@@ -9,3 +9,7 @@ export function redirectToLogin() {
 export function redirectToViewFines() {
   window.location.href = "/user-side/user/fines/index.html";
 }
+
+export function redirectToAddComplaint() {
+  window.location.href = "/user-side/user/complaint/add/index.html";
+}
