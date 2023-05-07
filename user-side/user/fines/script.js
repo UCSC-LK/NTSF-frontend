@@ -2,6 +2,11 @@ import { getFinesByNic } from "/user-side/service/fineService.js";
 import { displayButton } from "/user-side/component/button/script.js";
 import { redirectToAddComplaint } from "/user-side/util/navigation.js";
 
+// Adding jquery to the page
+var script = document.createElement("script");
+script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+document.getElementsByTagName("head")[0].appendChild(script);
+
 window.addEventListener("load", () => {
   console.log("callback");
   // Get NIC from session storage here
@@ -94,9 +99,14 @@ function createTable(finesDataArray) {
           paymentStatus,
         ];
 
-        cells.forEach((cellData) => {
+        cells.forEach((cellData, index) => {
           const cell = row.insertCell();
           cell.textContent = cellData;
+
+          // Add the fine number as a data attribute to the row
+          if (index === 0) {
+            row.dataset.fineNo = cellData;
+          }
         });
 
         /**
@@ -105,7 +115,8 @@ function createTable(finesDataArray) {
         const button = displayButton(
           "Add Complaint",
           "addButton",
-          redirectToAddComplaint
+          redirectToAddComplaint,
+          fineNo // Pass the fine number as a parameter to the onClick function
         );
         row.appendChild(button);
       }
