@@ -49,7 +49,9 @@ window.addComplaint = function addComplaint() {
   const description = document.getElementById("description").value;
   const fineNo = document.getElementById("fineNo").value;
 
-  const userId = sessionStorage.getItem("userId");
+  const userId = 107;
+  // const userId = sessionStorage.getItem("userId");
+
   console.log("called");
 
   var query = $.param({

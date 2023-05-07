@@ -76,6 +76,7 @@ function loginSuccessCallback(data) {
        * Store the user id and jwt in the session storage
        */
       sessionStorage.setItem("userId", data.userId);
+      console.log(data.userId);
       sessionStorage.setItem("jwt", data.jwt);
 
       redirectToViewFines();
