@@ -16,7 +16,7 @@ export function redirectToViewFines() {
 
 /**
  * Redirect to the Add Complaint form with the fine number as a query parameter
- * @param {Number} fineNo
+ * @param {Integer} fineNo
  */
 export function redirectToAddComplaint(fineNo) {
   const complaintFormURL = "/user-side/user/complaint/add/index.html";
