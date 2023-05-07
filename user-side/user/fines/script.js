@@ -97,22 +97,11 @@ function createTable(finesDataArray) {
           const cell = row.insertCell();
           cell.textContent = cellData;
         });
-        // const button = displayButton("Add Complaint", "addButton", () => {});
-        // cell.appendChild(button);
 
-        // Create a new button element
-        const button = document.createElement("button");
-
-        // Set the class name of the button
-        button.className = "addButton";
-
-        // Set the text content of the button
-        button.textContent = "Add Complaint";
-
-        // // Add an event listener for the button click
-        // button.addEventListener("click", callback);
-
-        // Append the button to cell
+        /**
+         * Add a button to each row
+         */
+        const button = displayButton("Add Complaint", "addButton", () => {});
         row.appendChild(button);
       }
     );
