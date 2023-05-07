@@ -4,7 +4,7 @@ import {
 } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { validateInputField } from "/user-side/util/validator.js";
-import { redirectToViewFines } from "/user-side/util/navigation.js";
+import { redirectToViewComplaints } from "/user-side/util/navigation.js";
 
 // JQuery
 var script = document.createElement("script");
@@ -80,7 +80,7 @@ function complaintSuccessCallback(data) {
   console.log("Complaint added successfully");
 
   displayMessage("Complaint added successfully", true, () => {
-    redirectToViewFines();
+    redirectToViewComplaints();
   });
 }
 
