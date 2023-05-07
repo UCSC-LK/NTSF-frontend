@@ -33,25 +33,3 @@ export function removeMessage(element, callback, timeout = 2000) {
     if (callback) callback();
   }, timeout);
 }
-
-// export function displayMessage(loginStatus) {
-//   let message = document.createElement("div");
-//   message.className = "message";
-
-//   if (loginStatus == false) {
-//     message.classList.add("failure");
-//     message.textContent =
-//       "Login Unsuccessful. Please try again or contact your administrator for assistance.";
-
-//     document.body.appendChild(message);
-
-//     removeMessage(message);
-//   } else {
-//     message.classList.add("success");
-//     message.textContent = "Login Successful";
-
-//     document.body.appendChild(message);
-
-//     removeMessage(message);
-//   }
-// }

@@ -8,6 +8,7 @@ import {
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToLogin } from "/user-side/util/navigation.js";
 
+// JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
@@ -58,6 +59,7 @@ window.submitSignup = function submitSignup() {
   });
 
   var settings = {
+    // AJAX request
     url: `http://localhost:8080/ntsf_backend_war/user_signup?${query}`,
     method: "POST",
   };
@@ -66,7 +68,7 @@ window.submitSignup = function submitSignup() {
 };
 
 function signUpSuccessCallback(data) {
-  alert("SignUp successful");
+  // alert("SignUp successful");
 
   console.log("Sign Up Successful");
 
@@ -76,7 +78,7 @@ function signUpSuccessCallback(data) {
 }
 
 function signUpUnsuccessCallback() {
-  alert("SignUp unsuccessful");
+  // alert("SignUp unsuccessful");
 
   console.log("Sign Up Unsuccessful");
   displayMessage("Sign Up Unsuccessful", false);

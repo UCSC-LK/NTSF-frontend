@@ -1,0 +1,14 @@
+.buttonSection {
+    display: flex;
+    justify-content: flex-end;
+    height: 10%;
+    margin-right: 2%;
+    margin-top: 1%;
+}
+
+#deleteButton, #editButton, .addButton {
+    font-size: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

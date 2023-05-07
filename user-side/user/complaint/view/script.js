@@ -1,9 +1,11 @@
 import { getComplaintByUserId } from "/user-side/service/complaintService.js";
+import { displayButton } from "/user-side/component/button/script.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
   //Enter user id here
-  getComplaintByUserId(107, complaintDataHTMLoutput);
+  const userId = sessionStorage.getItem("userId");
+  getComplaintByUserId(userId, complaintDataHTMLoutput);
 });
 
 function complaintDataHTMLoutput(complaintDatArray) {
@@ -25,5 +27,11 @@ function complaintDataHTMLoutput(complaintDatArray) {
     dataCellArray[1].innerHTML = fineNo;
     dataCellArray[2].innerHTML = title;
     dataCellArray[3].innerHTML = description;
+
+    /**
+     * Add button "Add Footage" to each row
+     */
+    const button = displayButton("Add Footage", "addButton", () => {});
+    dataRow.appendChild(button);
   });
 }

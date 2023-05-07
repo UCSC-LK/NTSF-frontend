@@ -89,9 +89,10 @@ button {
     font-size: 1.2em;
 }
 
-.menu a:first-child {
+.menu a:nth-child(3) {
     color: #14abfa;
 }
+
 
 .menu a i {
     font-size: 1.7em;

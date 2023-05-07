@@ -2,7 +2,7 @@ import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 
-// Adding jquery to the page
+// JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
@@ -68,7 +68,7 @@ window.submitLogin = function submitLogin() {
 function loginSuccessCallback(data) {
   let userId = null;
   if (data.loggedIn) {
-    alert("Login successful");
+    // alert("Login successful");
 
     console.log("Login Successful");
     displayMessage("Login Successful", true, () => {
@@ -76,6 +76,7 @@ function loginSuccessCallback(data) {
        * Store the user id and jwt in the session storage
        */
       sessionStorage.setItem("userId", data.userId);
+      console.log(data.userId);
       sessionStorage.setItem("jwt", data.jwt);
 
       redirectToViewFines();
@@ -86,7 +87,7 @@ function loginSuccessCallback(data) {
 }
 
 function loginUnsuccessCallback() {
-  alert("Login Unsuccessful!");
+  // alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
   displayMessage("Login Unsuccessful", false);
 }
