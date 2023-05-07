@@ -68,7 +68,7 @@ window.submitLogin = function submitLogin() {
 function loginSuccessCallback(data) {
   let userId = null;
   if (data.loggedIn) {
-    alert("Login successful");
+    // alert("Login successful");
 
     console.log("Login Successful");
     displayMessage("Login Successful", true, () => {
@@ -86,7 +86,7 @@ function loginSuccessCallback(data) {
 }
 
 function loginUnsuccessCallback() {
-  alert("Login Unsuccessful!");
+  // alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
   displayMessage("Login Unsuccessful", false);
 }
