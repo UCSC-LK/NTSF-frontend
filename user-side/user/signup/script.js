@@ -8,9 +8,10 @@ import {
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToLogin } from "/user-side/util/navigation.js";
 
-var script = document.createElement("script");
-script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-document.getElementsByTagName("head")[0].appendChild(script);
+// // JQuery
+// var script = document.createElement("script");
+// script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+// document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
  * Validate the login form

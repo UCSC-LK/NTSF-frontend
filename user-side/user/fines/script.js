@@ -115,7 +115,9 @@ function createTable(finesDataArray) {
         const button = displayButton(
           "Add Complaint",
           "addButton",
-          redirectToAddComplaint,
+          () => {
+            if (fineNo) redirectToAddComplaint(fineNo);
+          },
           fineNo // Pass the fine number as a parameter to the onClick function
         );
         row.appendChild(button);
