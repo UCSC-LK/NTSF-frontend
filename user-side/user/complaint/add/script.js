@@ -11,6 +11,9 @@ import { redirectToViewFines } from "/user-side/util/navigation.js";
 // script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 // document.getElementsByTagName("head")[0].appendChild(script);
 
+/**
+ * Get the fine no from the url and set it to the fine no input field
+ */
 window.addEventListener("load", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const fineNo = urlParams.get("fineNo");
@@ -54,14 +57,14 @@ window.addComplaint = function addComplaint() {
 
   console.log("called");
 
-  var query = $.param({
+  const query = $.param({
     title,
     description,
     fine_no: fineNo,
     user_id: userId,
   });
 
-  var settings = {
+  const settings = {
     url: `http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint&${query}`,
     method: "POST",
   };
