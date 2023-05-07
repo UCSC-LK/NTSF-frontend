@@ -12,6 +12,8 @@
     <link rel="stylesheet"
           href="../../../resources/css/form.css">
     <link rel="stylesheet"
+          href="../../../component/message/style.css">
+    <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600">
@@ -80,7 +82,8 @@
                 <form action="#"
                       id="form"
                       class="form"
-                      oninput="validateComplaintForm()">
+                      oninput="validateComplaintForm()"
+                      onsubmit="addComplaint(); return false">
                     <div class="form-control">
 
                         <label for="title">Fine No</label>
@@ -101,10 +104,12 @@
                                id="description" />
                     </div>
                     <button id="submit-btn"
-                            disabled
-                            onclick="addComplaint()">Submit</button>
-                    <button id="cancel-button"
-                            hidden>Cancel</button>
+                            disabled>
+                        Submit
+                    </button>
+                    <button id="cancel-button">
+                        Cancel
+                    </button>
                 </form>
             </div>
         </div>
