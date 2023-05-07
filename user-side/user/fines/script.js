@@ -110,7 +110,7 @@ function createTable(finesDataArray) {
         });
 
         /**
-         * Add a button to each row
+         * Add button "Add Complaint" to each row
          */
         const button = displayButton(
           "Add Complaint",
