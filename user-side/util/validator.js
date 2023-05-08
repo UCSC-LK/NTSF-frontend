@@ -44,7 +44,7 @@ export function validateDescription(description) {
     return false;
   } else if (description.length < 5) {
     return false;
-  } else if (description.length > 100) {
+  } else if (description.length > 500) {
     return false;
   } else {
     return true;
