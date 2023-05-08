@@ -23,3 +23,7 @@ export function redirectToAddComplaint(fineNo) {
   const redirectURL = `${complaintFormURL}?fineNo=${fineNo}`;
   window.location.href = redirectURL;
 }
+
+export function redirectToViewComplaints() {
+  window.location.href = "/user-side/user/complaint/view/index.html";
+}
