@@ -20,7 +20,7 @@ function loadProfileInformation(){
     httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
     httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
     httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpreq.send("action=viewProfile" + "&police_id=" + user_police_id + "&rank=" + user_rank);
+    httpreq.send("action=viewProfile" + "&police_id=" + user_police_id);
 
     function completeLoad(httpreq)
     {
@@ -49,6 +49,23 @@ function loadProfileInformation(){
             document.getElementById("name").innerHTML = jsonProfileData.List[0].name;
             document.getElementById("position").innerHTML = jsonProfileData.List[0].position;
 
+            //Getting the file path of the profile picture
+            imagePath = jsonProfileData.List[0].profile_picture;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:8080/ntsf_backend_war/policeman', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('jwt'));
+            xhr.responseType = 'arraybuffer'; // set the response type to arraybuffer
+            xhr.send('action=viewProfilePicture' + "&police_id=" + user_police_id + "&imagePath=" + imagePath); // replace the imageId parameter with the correct value
+            
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    let blob = new Blob([this.response], {type: 'image/jpeg'}); // replace with your image type
+                    document.getElementById('profile-picture').src = URL.createObjectURL(blob);
+                }
+            };
+            
         }
         else
         {
