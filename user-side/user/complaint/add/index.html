@@ -24,7 +24,7 @@
           href="../../../resources/icons/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module"
-            src="./script.js"></script>
+            src="./script-new.js"></script>
 
 </head>
 
@@ -80,8 +80,10 @@
                 <div class="formHeader">
                     <h2>Add Complaint</h2>
                 </div>
-                <form id="form"
+                <form id="complaintForm"
                       class="form"
+                      action="#"
+                      method="post"
                       oninput="validateComplaintForm()"
                       onsubmit="addComplaint(); return false">
                     <div class="form-control">
@@ -105,16 +107,14 @@
 
                         <label for="footage">Footage Upload</label>
                         <input type="file"
-                               id="myFile"
-                               name="filename">
+                               id="footage"
+                               name="footage"
+                               accept="image/png, image/jpeg, image/jpg, video/mp4">
                     </div>
                     <button id="submit-btn"
                             disabled>
                         Submit
                     </button>
-                    <!-- <button id="cancel-button">
-                        Cancel
-                    </button> -->
                 </form>
             </div>
         </div>

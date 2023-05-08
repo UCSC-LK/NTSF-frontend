@@ -12,10 +12,13 @@ script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 /**
- * Get the fine no from the url and set it to the fine no input field
+ * Get the fine no from the URL and set it to the fine no input field
  */
 window.addEventListener("load", () => {
+  // Allows to access and manipulate the query parameters of the current URL
   const urlParams = new URLSearchParams(window.location.search);
+
+  // Retrieves the value of the "fineNo" parameter from the query string
   const fineNo = urlParams.get("fineNo");
 
   const fineNoElement = document.getElementById("fineNo");
@@ -24,22 +27,6 @@ window.addEventListener("load", () => {
     fineNoElement.disabled = true;
   }
 });
-
-// /**
-//  * Get footage file from the form
-//  */
-// form.addEventListener("submit", () => {
-//   // const enctype = form.enctype;
-//   // console.log(enctype);
-
-//   const footage = document.getElementById("footage");
-
-//   const footage_file = footage.files[0];
-
-//   console.log(footage_file);
-
-//   // checkInputs(footage_file);
-// });
 
 /**
  * Validate the complaint form
@@ -61,7 +48,7 @@ window.validateComplaintForm = function validateComplaintForm() {
 };
 
 /**
- * Submit the sign up form
+ * Submit the complaint form
  */
 window.addComplaint = function addComplaint() {
   const title = document.getElementById("title").value;
@@ -96,7 +83,7 @@ function complaintSuccessCallback(data) {
   console.log("Complaint added successfully");
 
   displayMessage("Complaint added successfully", true, () => {
-    redirectToViewComplaints();
+    // redirectToViewComplaints();
   });
 }
 
@@ -106,3 +93,50 @@ function complaintUnsuccessCallback() {
   console.log("The complaint was not added successfully");
   displayMessage("The complaint was not added successfully", false);
 }
+
+/**
+ * Get the footage file and upload it
+ */
+document.getElementById("complaintForm").addEventListener("submit", (event) => {
+  // Prevent the default form submission
+  event.preventDefault();
+
+  const footage = document.getElementById("footage");
+  const footageFile = footage.files[0];
+
+  if (footageFile) {
+    const formData = new FormData();
+    formData.append("footage", footageFile);
+
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const fineNo = document.getElementById("fineNo").value;
+    const userId = 107; // Replace with the actual user ID
+
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("fine_no", fineNo);
+    formData.append("user_id", userId);
+
+    const uploadSettings = {
+      url: "http://localhost:8080/ntsf_backend_war/complaint?action=createComplaint",
+      method: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      // Callback functions
+      // Anonymous functions that will be executed if the AJAX request is successful or not
+      success: function () {
+        complaintSuccessCallback();
+      },
+      error: function () {
+        complaintUnsuccessCallback();
+      },
+    };
+
+    $.ajax(uploadSettings);
+  } else {
+    addComplaint();
+  }
+});
