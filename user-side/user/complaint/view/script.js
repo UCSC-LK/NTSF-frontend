@@ -31,7 +31,7 @@ function complaintDataHTMLoutput(complaintDatArray) {
     /**
      * Add button "Add Footage" to each row
      */
-    const button = displayButton("Add Footage", "addButton", () => {});
-    dataRow.appendChild(button);
+    // const button = displayButton("Add Footage", "addButton", () => {});
+    // dataRow.appendChild(button);
   });
 }
