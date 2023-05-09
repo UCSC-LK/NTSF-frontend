@@ -1,30 +1,30 @@
-var ctx = document.getElementById("myChart").getContext("2d");
-var chart = new Chart(ctx, {
-  // The type of chart we want to create
-  type: "line",
+import { getPointsByNic } from "/user-side/service/pointSystemService.js";
 
-  // The data for our dataset
-  data: {
-    labels: ["2015", "2016", "2017", "2018"],
-    datasets: [
-      {
-        label: "Earnings",
-        backgroundColor: "rgba(255, 255, 255, 0)",
-        borderColor: "rgba(26, 188, 138, 1)",
-        data: [0, 1000, 0.00046, -100.01],
-      },
-    ],
-  },
+window.addEventListener("load", () => {
+  console.log("callback");
+  
+  // Getting name from the session storage
+  document.getElementById("profile-username").innerHTML =
+    sessionStorage.getItem("name");
 
-  // Configuration options go here
-  options: {},
+  
+  // Getting nic from the session storage 
+  const nic = sessionStorage.getItem("nic");
+  console.log(nic);
+
+  if (!getUserProfileInfo(nic, dashboardDataHTMLoutput)) {
+    alert("Login Expired");
+    window.location.href = "/user-side/user/login/index.html";
+  }
 });
 
-angular.module("app", []).controller("coin", function ($scope, $http) {
-  $http
-    .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-    .then(function (res) {
-      $scope.content = res.data;
-      $scope.priceGBP = $scope.content.bpi.GBP.rate;
-    });
-});
+function dashboardDataHTMLoutput(pointsData) {
+  document.getElementById("total-points").innerHTML = pointsData.points;
+  /**
+   * Reminder
+   */
+  // You can't get total fines and complaints from the API
+  // Re check with the backend team
+  document.getElementById("total-fines").innerHTML = pointsData.fines;
+  document.getElementById("total-complaints").innerHTML = pointsData.complaints;
+}

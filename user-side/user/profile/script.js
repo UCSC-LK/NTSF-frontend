@@ -1,15 +1,18 @@
 import { getUserProfileInfo } from "/user-side/service/profileService.js";
 import dataModel from "./profileData.js";
 
-// window.addEventListener("load", () => {
-//   // Get NIC from session storage here
-//   getUserProfileInfo("996129039V", profileDataHTMLoutput);
-// });
-
 window.addEventListener("load", () => {
   console.log("callback");
-  // Get NIC from session storage here
-  if (!getUserProfileInfo("996129039V", profileDataHTMLoutput)) {
+
+  // Getting name from the session storage
+  document.getElementById("profile-username").innerHTML =
+    sessionStorage.getItem("name");
+
+  // Getting nic from the session storage
+  const nic = sessionStorage.getItem("nic");
+  console.log(nic);
+
+  if (!getUserProfileInfo(nic, profileDataHTMLoutput)) {
     alert("Login Expired");
     window.location.href = "/user-side/user/login/index.html";
   }

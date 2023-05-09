@@ -50,16 +50,26 @@ window.submitLogin = function submitLogin() {
 function loginSuccessCallback(data) {
   let userId = null;
   if (data.loggedIn) {
-    // alert("Login successful");
-
     console.log("Login Successful");
     displayMessage("Login Successful", true, () => {
       /**
-       * Store the user id and jwt in the session storage
+       * Store the user id, jwt and nic in the session storage
        */
       sessionStorage.setItem("userId", data.userId);
       console.log(data.userId);
+
       sessionStorage.setItem("jwt", data.jwt);
+      console.log(data.jwt);
+
+      sessionStorage.setItem("nic", data.nic);
+      console.log(data.nic);
+
+      /**
+       * Getting name property of people object from the response and store it in the session storage
+       */
+      var name = data.people.name;
+      console.log(name);
+      sessionStorage.setItem("name", name);
 
       redirectToViewFines();
     });
@@ -69,7 +79,6 @@ function loginSuccessCallback(data) {
 }
 
 function loginUnsuccessCallback() {
-  // alert("Login Unsuccessful!");
   console.log("Login Unsuccessful");
   displayMessage("Login Unsuccessful", false);
 }

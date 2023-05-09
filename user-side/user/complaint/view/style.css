@@ -90,7 +90,7 @@ button {
     font-size: 1.2em;
 }
 
-.menu a:nth-child(4) {
+.menu a:nth-child(3) {
     color: #14abfa;
 }
 
@@ -305,3 +305,72 @@ th {
         padding: 1em !important;
     }
 }
+
+/*************** Dashboard ***************/
+
+/* .dashboard-heading .all {
+    background: #f2f2f2;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.all .starter-stats .blok {
+    background: #ffffff;
+    width: 30%;
+    float: left;
+    margin: 20px 1.5%;
+    font-size: 1.1em;
+    font-family: "Source Sans Pro", sans-serif;
+    position: relative;
+}
+
+/*************** Block ***************/
+/* .blok i {
+    border-radius: 50%;
+    background: #12abf7;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    margin-left: 20px;
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.blok .kl {
+    background: #978ded;
+}
+
+.blok .pl {
+    background: #facaee;
+}
+
+.blok .no {
+    display: inline-block;
+}
+
+.blok .no p:first-child {
+    font-weight: 700;
+    font-size: 0.8em;
+    position: relative;
+    top: 8px;
+}
+
+.blok .no p:nth-child(2) {
+    position: relative;
+    top: -10px;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.clear {
+    clear: both;
+}
+
+.gains {
+    width: 80%;
+    padding: 20px 8%;
+    margin: 5px auto;
+    background: #ffffff;
+}  */

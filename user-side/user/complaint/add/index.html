@@ -21,10 +21,12 @@
     <title>Add Complaint</title>
     <link rel="icon"
           type="image/x-icon"
-          href="/resources/icons/favicon.ico">
+          href="../../../resources/icons/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module"
-            src="./script.js"></script>
+            src="./script-new.js"></script>
+    <!-- <script type="module"
+            src="./script.js"></script> -->
 
 </head>
 
@@ -39,22 +41,22 @@
             <p class="logo"><b class="app-name">NTSF</b></p>
         </div>
         <p class="tagline">National Traffic Spot Fine System</p>
-        <a href="../../../dashboard/index.html">
+        <a href="/user-side/dashboard/index.html">
             <button class="main">User Dashboard</button></a>
         <div class="clear"></div>
         <ul class="menu">
             <a href="../../fines/index.html">
                 <i class="fa-solid fa-file-invoice"></i>
-                View Fines
+                Fine
             </a>
             </br>
-            <a href="../../complaint/add/index.html">
+            <!-- <a href="../../complaint/add/index.html">
                 <i class="fa-solid fa-plus"></i>
                 Add Complaint
-            </a>
+            </a> -->
             <a href="../../complaint/view/index.html">
                 <i class="fa-solid fa-layer-group"></i>
-                View Complaints
+                Complaint
             </a>
             <a href="../../login/index.html">
                 <i class="fa-solid fa-right-from-bracket"></i>
@@ -67,7 +69,8 @@
     <div class="dashboard-heading">
         <div class="panel">
             <a href="../../profile/index.html">
-                <p class="profile-username">G.A.A.D. Ganepola</p>
+                <p class="profile-username"
+                   id="profile-username"></p>
             </a>
         </div>
     </div>
@@ -80,10 +83,13 @@
                 <div class="formHeader">
                     <h2>Add Complaint</h2>
                 </div>
-                <form id="form"
+                <form id="complaintForm"
                       class="form"
+                      action="#"
+                      method="post"
                       oninput="validateComplaintForm()"
-                      onsubmit="addComplaint(); return false">
+                      onsubmit="addComplaint(); return false"
+                      enctype='multipart/form-data'>
                     <div class="form-control">
 
                         <label for="fineNo">Fine No</label>
@@ -102,14 +108,17 @@
                         <input type="text"
                                placeholder=""
                                id="description" />
+
+                        <label for="footage">Footage Upload</label>
+                        <input type="file"
+                               id="footage"
+                               name="footage"
+                               accept="image/png, image/jpeg, image/jpg, video/mp4">
                     </div>
                     <button id="submit-btn"
                             disabled>
                         Submit
                     </button>
-                    <!-- <button id="cancel-button">
-                        Cancel
-                    </button> -->
                 </form>
             </div>
         </div>

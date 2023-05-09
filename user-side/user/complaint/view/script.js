@@ -1,10 +1,21 @@
 import { getComplaintByUserId } from "/user-side/service/complaintService.js";
-import { displayButton } from "/user-side/component/button/script.js";
+import { getUserProfileInfo } from "/user-side/service/profileService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-  //Enter user id here
+
+  /**
+   * Getting name from the session storage
+   */
+  document.getElementById("profile-username").innerHTML =
+    sessionStorage.getItem("name");
+
+  /**
+   * Getting user Id from the session storage | User Id = 107
+   */
   const userId = sessionStorage.getItem("userId");
+  console.log(userId);
+
   getComplaintByUserId(userId, complaintDataHTMLoutput);
 });
 
@@ -27,11 +38,5 @@ function complaintDataHTMLoutput(complaintDatArray) {
     dataCellArray[1].innerHTML = fineNo;
     dataCellArray[2].innerHTML = title;
     dataCellArray[3].innerHTML = description;
-
-    /**
-     * Add button "Add Footage" to each row
-     */
-    const button = displayButton("Add Footage", "addButton", () => {});
-    dataRow.appendChild(button);
   });
 }
