@@ -2,8 +2,13 @@ import { getPointsByNic } from "/user-side/service/pointSystemService.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-  // Get NIC from session storage here
-  if (!getUserProfileInfo("996129039V", dashboardDataHTMLoutput)) {
+  /**
+   * Getting nic from the session storage
+   */
+  const nic = sessionStorage.getItem("nic");
+  console.log(nic);
+  
+  if (!getUserProfileInfo(nic, dashboardDataHTMLoutput)) {
     alert("Login Expired");
     window.location.href = "/user-side/user/login/index.html";
   }

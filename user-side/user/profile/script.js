@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
   console.log("callback");
 
   /**
-   * Getting nic from the session storage | nic = 996129039V
+   * Getting nic from the session storage
    */
   const nic = sessionStorage.getItem("nic");
   console.log(nic);
