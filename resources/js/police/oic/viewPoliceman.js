@@ -87,20 +87,20 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
     // dataCell6.innerHTML = position;
     //not assigned should be turend as null
     if(position === "notAssigned"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
-        "<option value='notAssigned' selected>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ", this)'>" +
+        "<option class='redOption' value='notAssigned' selected>Not Assigned</option>" + "<option class='greenOption' value='trafficPolice'>Traffic Police</option>" + "<option class='orangeOption' value='investigationOfficer'>Investigation Officer</option>" + "<option class='greyOption' value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "trafficPolice"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
-        "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice' selected>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions'  onchange='editPosition(" + police_id + ", this)'>" +
+        "<option class='redOption' value='notAssigned'>Not Assigned</option>" + "<option class='greenOption' value='trafficPolice' selected>Traffic Police</option>" + "<option class='orangeOption' value='investigationOfficer'>Investigation Officer</option>" + "<option class='greyOption' value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "investigationOfficer"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
-        "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer' selected>Investigation Officer</option>" + "<option value='courtSeargent'>Court Seargent</option>" + "</select>";
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ", this)'>" +
+        "<option class='redOption' value='notAssigned'>Not Assigned</option>" + "<option class='greenOption' value='trafficPolice'>Traffic Police</option>" + "<option class='orangeOption' value='investigationOfficer' selected>Investigation Officer</option>" + "<option class='greyOption' value='courtSeargent'>Court Seargent</option>" + "</select>";
     }
     else if(position === "courtSeargent"){
-        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ")'>" +
-        "<option value='notAssigned'>Not Assigned</option>" + "<option value='trafficPolice'>Traffic Police</option>" + "<option value='investigationOfficer'>Investigation Officer</option>" + "<option value='courtSeargent' selected>Court Seargent</option>" + "</select>";
+        dataCell6.innerHTML = "<select name='positionOptions' id='positionOptions' onchange='editPosition(" + police_id + ", this)'>" +
+        "<option class='redOption' value='notAssigned'>Not Assigned</option>" + "<option class='greenOption' value='trafficPolice'>Traffic Police</option>" + "<option class='orangeOption' value='investigationOfficer'>Investigation Officer</option>" + "<option class='greyOption' value='courtSeargent' selected>Court Seargent</option>" + "</select>";
     }
     else{
     }
@@ -108,8 +108,9 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, pos
 }
 
 /*Not really sure this is working pretty well (Copied from updatePoliceman) */
-function editPosition(police_id) //Edit the position of the policeman
+function editPosition(police_id, select) //Edit the position of the policeman
 {
+   select.className = select.options[select.selectedIndex].className;
    console.log(police_id);
     var selectedPosition = getSelectedPosition();
     console.log(selectedPosition);

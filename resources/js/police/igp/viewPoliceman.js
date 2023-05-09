@@ -53,7 +53,7 @@ const loadPolicemanDetails = function()
                 for(i=0; i<= count; i++)
                 {
                     policemanDataHTMLoutput(jsonPolicemanData.List[i].name, jsonPolicemanData.List[i].police_id,
-                    jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].police_station);
+                    jsonPolicemanData.List[i].nic, jsonPolicemanData.List[i].mobile_number, jsonPolicemanData.List[i].email, jsonPolicemanData.List[i].rank, jsonPolicemanData.List[i].grade ,  jsonPolicemanData.List[i].police_station);
                 }
 
             }
@@ -66,7 +66,7 @@ const loadPolicemanDetails = function()
     }
 }
 
-function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, rank, police_station)
+function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, rank, grade, police_station)
 {
     console.log(name);
     console.log(police_id);
@@ -74,6 +74,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     console.log(mobile_number);
     console.log(email);
     console.log(rank);
+    console.log(grade);
     console.log(police_station);
 
     // create table data row
@@ -87,6 +88,7 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     var dataCell7 = dataRow.insertCell(6);
     var dataCell8 = dataRow.insertCell(7);
     var dataCell9 = dataRow.insertCell(8);
+    var dataCell10 = dataRow.insertCell(9);
 
     //Add content to the table data cells
     dataCell1.innerHTML = name;
@@ -95,11 +97,12 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell4.innerHTML = mobile_number;
     dataCell5.innerHTML = email;
     dataCell6.innerHTML = rank;
-    dataCell7.innerHTML = police_station;
+    dataCell7.innerHTML = grade;
+    dataCell8.innerHTML = police_station;
     // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
     // dataCell9.innerHTML = "<button type='button' class='btn btn-danger' onclick='deletePolicemanDetails("+police_id+")'> <i class='fa-solid fa-trash'></i></button>";
-    dataCell8.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+police_id+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
-    dataCell9.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell9.innerHTML = "<button type='button' id='editButton' onclick='editPolicemanDetails("+police_id+")'><i class='fa-solid fa-pen-to-square fa-xl' style='color: #0eabfa;'></i></button>";
+    dataCell10.innerHTML = "<button type='button' id='deletebutton' onclick='deletePolicemanPopUp("+police_id+")'><i class='fa-solid fa-trash fa-xl' style='color: #0eabfa;'></i></button>";
 }
 
 function deletePolicemanDetails(police_id) //Delete a policeman
