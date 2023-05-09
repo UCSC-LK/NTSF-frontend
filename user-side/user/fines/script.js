@@ -1,6 +1,8 @@
 import { getFinesByNic } from "/user-side/service/fineService.js";
 import { displayButton } from "/user-side/component/button/script.js";
 import { redirectToAddComplaint } from "/user-side/util/navigation.js";
+import { displayMessage } from "/user-side/component/message/script.js";
+import { redirectToLogin } from "/user-side/util/navigation.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");
@@ -12,6 +14,16 @@ window.addEventListener("load", () => {
   // Get NIC from session storage here
   if (!getFinesByNic("996129039V", fineDataHTMLoutput)) {
     alert("Login Expired");
+
+    // displayMessage(
+    //   "Login Expired",
+    //   true,
+    //   () => {
+    //     redirectToLogin();
+    //   },
+    //   (timeout = 2000)
+    // );
+
     window.location.href = "/user-side/user/login/index.html";
   }
 });
