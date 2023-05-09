@@ -4,9 +4,11 @@ import dataModel from "./profileData.js";
 window.addEventListener("load", () => {
   console.log("callback");
 
-  /**
-   * Getting nic from the session storage
-   */
+  // Getting name from the session storage
+  document.getElementById("profile-username").innerHTML =
+    sessionStorage.getItem("name");
+
+  // Getting nic from the session storage
   const nic = sessionStorage.getItem("nic");
   console.log(nic);
 

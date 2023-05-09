@@ -15,6 +15,10 @@ document.getElementsByTagName("head")[0].appendChild(script);
  * Get the fine no from the URL and set it to the fine no input field
  */
 window.addEventListener("load", () => {
+  // Getting name from the session storage
+  document.getElementById("profile-username").innerHTML =
+    sessionStorage.getItem("name");
+
   // Allows to access and manipulate the query parameters of the current URL
   const urlParams = new URLSearchParams(window.location.search);
 

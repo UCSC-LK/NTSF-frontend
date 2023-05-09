@@ -64,6 +64,13 @@ function loginSuccessCallback(data) {
       sessionStorage.setItem("nic", data.nic);
       console.log(data.nic);
 
+      /**
+       * Getting name property of people object from the response and store it in the session storage
+       */
+      var name = data.people.name;
+      console.log(name);
+      sessionStorage.setItem("name", name);
+
       redirectToViewFines();
     });
   } else {
