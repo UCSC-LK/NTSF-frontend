@@ -68,8 +68,11 @@ window.addComplaint = function addComplaint() {
   const description = document.getElementById("description").value;
   const fineNo = document.getElementById("fineNo").value;
 
-  const userId = 107;
-  // const userId = sessionStorage.getItem("userId");
+  /**
+   * Get the user id from the session storage | userId = 107
+   */
+  const userId = sessionStorage.getItem("userId");
+  console.log(userId);
 
   console.log("called");
 

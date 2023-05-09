@@ -3,8 +3,13 @@ import { displayButton } from "/user-side/component/button/script.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
-  //Enter user id here
+
+  /**
+   * Getting user Id from the session storage | User Id = 107
+   */
   const userId = sessionStorage.getItem("userId");
+  console.log(userId);
+
   getComplaintByUserId(userId, complaintDataHTMLoutput);
 });
 

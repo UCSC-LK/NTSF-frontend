@@ -11,8 +11,14 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 window.addEventListener("load", () => {
   console.log("callback");
-  // Get NIC from session storage here
-  if (!getFinesByNic("996129039V", fineDataHTMLoutput)) {
+
+  /**
+   * Getting nic from the session storage | nic = 996129039V
+   */
+  const nic = sessionStorage.getItem("nic");
+  console.log(nic);
+
+  if (!getFinesByNic(nic, fineDataHTMLoutput)) {
     alert("Login Expired");
 
     // displayMessage(
