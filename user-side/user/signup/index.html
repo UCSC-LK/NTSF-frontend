@@ -8,10 +8,18 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
           href="./style.css">
+    <!-- <link rel="stylesheet"
+          href="../login/style.css"> -->
     <link rel="stylesheet"
           href="../../component/message/style.css">
-    <!-- <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
+    <link rel="stylesheet"
+          href="../../component/togglePassword/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="../../resources/icons/fontAwesome/envelope-solid.svg">
     <title>NTSF</title>
     <title>User Sign Up</title>
     <link rel="icon"
@@ -44,33 +52,61 @@
               class="sign-up"
               oninput="validateSignUpForm()"
               onsubmit="submitSignup(); return false">
+
             <p class="title">Sign Up</p>
-            <input type="text"
-                   id="nic"
-                   placeholder="NIC"
-                   autofocus />
-            <i class="fa fa-user"></i>
-            <input type="text"
-                   id="email"
-                   placeholder="Email"
-                   autofocus />
-            <i class="fa-solid fa-envelope"></i>
-            <input type="text"
-                   id="mobile-no"
-                   placeholder="Mobile No"
-                   autofocus />
-            <i class="fa-solid fa-mobile-notch"></i>
-            <input type="password"
-                   id="password"
-                   placeholder="Password"
-                   autofocus />
-            <i class="fa-solid fa-key"></i>
-            <input type="password"
-                   id="re-password"
-                   placeholder="Re Enter Password" />
-            <i class="fa-solid fa-key"></i><br>
+
+            <div class="form-control">
+                <!-- NIC -->
+                <input type="text"
+                       id="nic"
+                       placeholder="NIC"
+                       autofocus />
+                <i class="fa fa-user"></i>
+
+                <!-- Email -->
+                <input type="text"
+                       id="email"
+                       placeholder="Email"
+                       autofocus />
+                <i class="fa fa-envelope"
+                   aria-hidden="true"></i>
+
+                <!-- Mobile No -->
+                <input type="text"
+                       id="mobile-no"
+                       placeholder="Mobile No"
+                       autofocus />
+                <i class="fa fa-mobile"
+                   aria-hidden="true"></i>
+
+                <!-- Password -->
+                <div id="password-container">
+                    <input type="password"
+                           id="password"
+                           placeholder="Password"
+                           autofocus />
+                    <i class="fa fa-key"
+                       aria-hidden="true"></i>
+
+                    <!-- Toggle Password -->
+                    <span id="toggleEye-SignUp"
+                          onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+
+                <!-- Re Enter Password -->
+                <input type="password"
+                       id="re-password"
+                       placeholder="Re Enter Password"
+                       autofocus />
+                <i class="fa fa-key"
+                   aria-hidden="true"></i>
+            </div>
+
+
             <a href="#">Forgot your password?</a><br><br>
-            Already have an account? <a href="../../user/login/index.html">Login</a>
+            <a href="../../user/login/index.html">Login</a>
             <button id="submit-btn"
                     disabled>
                 <i class="spinner"></i>

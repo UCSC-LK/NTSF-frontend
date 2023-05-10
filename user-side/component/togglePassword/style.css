@@ -9,3 +9,11 @@
     transform: translateY(-50%);
     cursor: pointer;
 }
+
+#toggleEye-SignUp {
+    position: absolute;
+    top: 57%;
+    right: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

@@ -1,3 +1,4 @@
+/* Used for responsiveness */
 @media only screen and (max-width: 1350px) {
     .dashboard-side-panel {
         width: 90%;
@@ -320,7 +321,7 @@ img {
 }
 
 /* Override 'webkit-any-link' pseudo class */
-a:-webkit-any-link {
+/* a:-webkit-any-link {
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -331,3 +332,9 @@ a:-webkit-any-link:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+a:-webkit-any-link:visited {
+    color: darkblue;
+    text-decoration: none;
+    cursor: pointer;
+} */
