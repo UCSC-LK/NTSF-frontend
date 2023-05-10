@@ -92,8 +92,7 @@ function storeInSessionStorage(data) {
   sessionStorage.setItem("name", name);
 
   const profilePicture = data.people.profilePicture;
-  const binaryStream = profilePicture.binaryStream;
-  saveImageToSessionStorage("profilePicture", binaryStream);
+  saveImageToSessionStorage("profilePicture", profilePicture);
 }
 
 /**********JS Modules***/
