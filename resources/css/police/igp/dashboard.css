@@ -1,3 +1,18 @@
+//*To make the .all section of dashboards scrollable*/
+.dashboard-all {
+	margin-top: 1% ;
+	background: #f2f2f2;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.dashboard-all-wrapper {
+	height: 91%;
+	overflow-y: scroll
+}
+
 .dashboard-cards
 {
     display: flex;
