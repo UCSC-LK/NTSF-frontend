@@ -3,15 +3,21 @@ import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 import { validateInputField } from "/user-side/util/validator.js";
 import { saveImageToSessionStorage } from "/user-side/component/profilePicture/script.js";
+import { togglePasswordVisibility } from "/user-side/component/togglePassword/script.js";
 
 // JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-// document
-//   .getElementById("login-form")
-//   .addEventListener("oninput", validateLoginForm);
+/**
+ * Add event listeners in window load event
+ * This is done to make sure that the functions are available in the window scope
+ * This is done because the functions are imported from other files
+ */
+window.addEventListener("load", () => {
+  window.togglePasswordVisibility = togglePasswordVisibility;
+});
 
 /**
  * Validate the login form
@@ -90,15 +96,7 @@ function storeInSessionStorage(data) {
   saveImageToSessionStorage("profilePicture", binaryStream);
 }
 
-// // Toggle password visibility
-// const togglePassword = document.querySelector("#togglePassword");
-// const password = document.querySelector("#id_password");
-
-// togglePassword.addEventListener("click", function (e) {
-//   // toggle the type attribute
-//   const type =
-//     password.getAttribute("type") === "password" ? "text" : "password";
-//   password.setAttribute("type", type);
-//   // toggle the eye slash icon
-//   this.classList.toggle("fa-eye-slash");
-// });
+/**********JS Modules***/
+// document
+//   .getElementById("login-form")
+//   .addEventListener("oninput", validateLoginForm);

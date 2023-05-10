@@ -1,0 +1,11 @@
+.password-container {
+    position: relative;
+}
+
+#toggleEye {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

@@ -10,8 +10,11 @@
           href="./style.css">
     <link rel="stylesheet"
           href="../../component/message/style.css">
-    <!-- <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
+    <link rel="stylesheet"
+          href="../../component/togglePassword/style.css">
+    <!-- Link font-awesome for icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <title>User Login</title>
     <link rel="icon"
           type="image/x-icon"
@@ -43,22 +46,39 @@
               id="login-form"
               oninput="validateLoginForm()"
               onsubmit="submitLogin(); return false">
-            <p class="
-              title">Login</p>
-            <input type="text"
-                   id="nic"
-                   placeholder="NIC"
-                   autofocus />
-            <i class="fa fa-user"></i>
-            <input type="password"
-                   id="password"
-                   placeholder="Password" />
-            <i class="fa fa-key"></i><br>
-            <!-- <i class="far fa-eye"
-               id="togglePassword"
-               style="margin-right: -30px; cursor: pointer;"></i> -->
+
+            <p class="title">Login</p>
+
+            <!-- NIC -->
+            <div class="form-control">
+                <input type="text"
+                       id="nic"
+                       placeholder="NIC"
+                       autofocus />
+                <i class="fa fa-user"></i>
+                <!-- <small>Error message</small> -->
+
+                <div id="password-container">
+                    <!-- Password -->
+                    <input type="password"
+                           id="password"
+                           placeholder="Password"
+                           autofocus />
+                    <i class="fa fa-key"></i><br>
+
+                    <!-- Toggle Password -->
+                    <span id="toggleEye"
+                          onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
             <a href="#">Forgot your password?</a><br><br>
-            Don't have an account? <a href="../signup/index.html">Sign Up</a>
+            <!-- Don't have an account? <a href="../signup/index.html">Sign Up</a> -->
+            <a href="../signup/index.html">Sign Up</a>
+
+            <!-- Submit Button -->
             <button id="submit-btn"
                     disabled>
                 <i class="spinner"></i>
