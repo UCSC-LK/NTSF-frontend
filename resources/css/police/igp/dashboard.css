@@ -1,0 +1,81 @@
+.dashboard-cards
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: aqua; */
+    height: 15%;
+    margin: 0% 1% 0% 1%;
+}
+
+#cards-one{
+    margin-top: 1%;
+}
+
+#cards-two{
+    margin-bottom: 1%;
+}
+
+.dashboard-card{
+    width: 25%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 5px 0px #888888;
+}
+
+.card-align{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.fa-solid{
+    font-size: 200%;
+    color: #12abf7;
+    margin-right: 2%;
+}
+
+/*CSS for Dashboard graphs*/
+
+
+.graphs{
+    margin:  0% 1% 1% 1%;
+    /* background-color: blue; */
+    height: 32%;
+}
+
+#graphs-one{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#graph-one, #graph-two{
+    width: 45%;
+    height: 100%;
+    /* background-color: red; */
+    
+}
+
+#graph-one{
+    margin-right: 1%;
+}
+
+#graph-two{
+    margin-left: 1%;
+}
+
+#myChart3, #myChart2, #myChart1{
+    max-width: 100%;
+    max-height: 100%;
+}
