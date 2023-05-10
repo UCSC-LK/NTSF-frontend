@@ -3,9 +3,9 @@
  * @param {*} imageKey | The name that can later use to retrieve the image from the sessionStorage (e.g. "profilePicture")
  * @param {*} binaryStream | The binary stream of the image
  */
-export function saveImageToSessionStorage(imageKey, binaryStream) {
+export function saveImageToSessionStorage(imageKey, base64Image) {
   // Convert the binaryStream to base64-encoded string
-  const base64Image = btoa(binaryStream);
+  // const base64Image = btoa(binaryStream);
 
   // Save the base64-encoded image in the sessionStorage
   sessionStorage.setItem(imageKey, base64Image);
@@ -22,7 +22,7 @@ export function displayImageFromSessionStorage(imageKey, containerId) {
 
   // Create an <img> element and set its source to the base64-encoded image
   const imgElement = document.createElement("img");
-  imgElement.src = "data:image/png;base64," + base64Image;
+  imgElement.src = "data:image/jpeg;base64," + base64Image;
 
   // Append the <img> element to the specified container on the page
   const container = document.getElementById(containerId);
