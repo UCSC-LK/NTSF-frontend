@@ -1,3 +1,6 @@
+var latitude;
+var longitude;
+
 //Dynamically setting up the input coloumn for user_id based on offence_type
 var offence_type = sessionStorage.getItem("offence_type");
 console.log("offence_type: " + offence_type);
@@ -38,6 +41,38 @@ var police_stationSession = sessionStorage.getItem("user_police_station");
 console.log("Printing below the police_id from session storage");
 console.log("police_idSession: " + police_idSession);
 console.log("police_stationSession: " + police_stationSession);
+
+function getCoordinates() {
+    return new Promise(function(resolve, reject) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            resolve({ latitude, longitude }); // Resolve the promise with the coordinates object
+          },
+          function(error) {
+            reject(error); // Reject the promise with the error object
+          }
+        );
+      } else {
+        reject(new Error("Geolocation is not supported by this browser.")); // Reject the promise if geolocation is not supported
+      }
+    });
+  }
+  
+  // Usage
+  getCoordinates()
+    .then(function(coordinates) {
+       latitude = coordinates.latitude;
+      longitude = coordinates.longitude;
+      console.log("Latitude:", latitude);
+      console.log("Longitude:", longitude);
+    })
+    .catch(function(error) {
+      console.log("Error:", error.message);
+    });  
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -171,8 +206,10 @@ function checkInputs(footageFile) {
     if(flagUser_id === 0 && flagDriven_vehicle && flagOffence_no === 0 && flagSpot_description === 0){
         console.log('came until js function for event listener of submit button');
         console.log(user_idValue, offence_noValue, spot_descriptionValue);
-        let latitude = getLatitude();
-        let longitude = getLongitude();
+        // let latitude = getLatitude();
+        console.log(latitude);
+        // let longitude = getLongitude();
+        console.log(longitude);
         addFine(user_idValue, offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile, latitude, longitude);
     }
     else{
@@ -238,7 +275,10 @@ const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, p
     form_data.append("police_station", police_station);
     form_data.append("footage_file", footageFile); //footage file is not validated
     form_data.append("latitude", latitude); ///not validated
-    form_data.append("longitude", longitude); //not validated
+    form_data.append("longitude", longitude); //not validated   
+
+    console.log(latitude);
+    console.log(longitude);
 
     console.log(form_data.get("footageFile"));
 
@@ -321,37 +361,37 @@ function validation(nicNumber) {
 }
 
 
-function getLatitude() {
-    // Check if the Geolocation API is supported by the browser
-    if (navigator.geolocation) {
-        // Get the current position of the user
-        navigator.geolocation.getCurrentPosition(function(position) {
-        // Extract the latitude from the position object
-        var latitude = position.coords.latitude;
-        console.log(latitude); // Log the latitude to the console
-        return latitude;
-        });
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    } 
-}
-
-function getLongitude() {
-    // Check if the Geolocation API is supported by the browser
-if (navigator.geolocation) {
-    // Get the current position of the user
-    navigator.geolocation.getCurrentPosition(function(position) {
-      // Extract the longitude from the position object
-      var longitude = position.coords.longitude;
-      console.log(longitude); // Log the longitude to the console
-        return longitude;
-    });
-  } else {
-    console.log("Geolocation is not supported by this browser.");
-  }
-  
-}
 
 
+// function getLatitude() {
+//     let latitude;
+//     // Check if the Geolocation API is supported by the browser
+//     if (navigator.geolocation) {
+//         // Get the current position of the user
+//         navigator.geolocation.getCurrentPosition(function(position) {
+//         // Extract the latitude from the position object
+//         latitude = position.coords.latitude;
+//         console.log(latitude); // Log the latitude to the console
+       
+//         });
+//     } else {
+//         console.log("Geolocation is not supported by this browser.");
+//     } 
+//     return latitude;
+// }
 
-
+// function getLongitude() {
+//     let longitude;
+//     // Check if the Geolocation API is supported by the browser
+//     if (navigator.geolocation) {
+//     // Get the current position of the user
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       // Extract the longitude from the position object
+//       longitude = position.coords.longitude;
+//       console.log(longitude); // Log the longitude to the console
+//     });
+//   } else {
+//     console.log("Geolocation is not supported by this browser.");
+//   }
+//   return longitude;
+// }
