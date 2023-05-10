@@ -264,3 +264,70 @@ img {
 .profile-data-row {
     display: flex;
 }
+
+/**********Profile Picture**********/
+
+.profile-picture-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    height: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+    /* background-color: red; */
+
+}
+
+.profile-picture {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    /* background-color: blue; */
+}
+
+/**********After Adding Profile Picture**********/
+/* .dashboard-heading {
+    width: 80%;
+    background: #ffffff;
+    color: #73787c;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+} */
+
+.dashboard-heading .panel {
+    background-color: #12abf7;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+}
+
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #ffffff;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Override 'webkit-any-link' pseudo class */
+a:-webkit-any-link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:-webkit-any-link:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
