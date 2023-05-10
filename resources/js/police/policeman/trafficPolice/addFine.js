@@ -12,14 +12,14 @@ else if(offence_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
     document.querySelector('label[for="user_id"]').innerHTML = "Vehicle No:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
+    document.getElementById("driven_vehicle_div").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else if(offence_type == "pedestrian"){
     document.getElementById("addFineType").innerHTML = "Add Pedestrian Fine";
     document.getElementById("user_id").placeholder = "Enter NIC";
     document.querySelector('label[for="user_id"]').innerHTML = "NIC:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
+    document.getElementById("driven_vehicle_div").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else
 {
@@ -49,65 +49,44 @@ form.addEventListener('submit', e => {
 //Input validating
 function checkInputs(footageFile) {
     
-	// trim to remove the whitespaces
+	// trim to remove the leading and trailing whitespaces
     //Enter here the code to validate offence_type
-    const user_idValue = user_id.value;
-    const offence_noValue = offence_no.value;
-    const spot_descriptionValue = spot_description.value;
-    const driven_vehicleValue = driven_vehicle.value;
+    const user_idValue = user_id.value.trim();
+    const offence_noValue = offence_no.value.trim();
+    const spot_descriptionValue = spot_description.value.trim();
+    const driven_vehicleValue = driven_vehicle.value.trim();
 
     console.log("user_idValue: " + user_idValue);
     console.log("offence_noValue: " + offence_noValue);
     console.log("spot_descriptionValue: " + spot_descriptionValue);
 
-	const user_idValueTrim = user_idValue.trim();
-    const offence_noValueTrim = offence_noValue.trim();
-    const spot_descriptionValueTrim = spot_descriptionValue.trim();
-
-	let flagUser_id = 0;
-    let flagOffence_no = 0;
-    let flagSpot_description = 0;
-    let flagDriven_vehicle = 0;
+	let flagUser_id = 1; //error exists
+    let flagOffence_no = 1; //error exists
+    let flagSpot_description = 1; //error exists
+    let flagDriven_vehicle = 1; //error exists
 
     if(offence_type == "driver"){
         //user_id is license_no
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'License No cannot be blank');
             flagUser_id = 1;
         }
-        else if (!/^B\d{7}$/.test(user_idValueTrim)) {
+        else if (!/^B\d{7}$/.test(user_idValue)) {
             setErrorFor(user_id, 'License No should start with B and contain 7 digits');
             flagUser_id = 1;
         }
         else {
             setSuccessFor(user_id);
             flagUser_id = 0;
-        }
-
-        //driven_vehicle number is validated here
-        if(driven_vehicleValue === '') {
-            setErrorFor(driven_vehicle, 'Driven Vehicle No cannot be blank');
-            flagDriven_vehicle = 1;
-        }
-
-        else if((driven_vehicleValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
-            setErrorFor(driven_vehicle, 'Driven Vehicle No Invalid');
-            flagDriven_vehicle = 1;
-        }
-
-        else {
-            setSuccessFor(driven_vehicle);
-            flagDriven_vehicle = 0;
-        }
-            
+        }   
     }
     else if(offence_type == "vehicle"){
         //user_id is vehicle_no
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'Vehicle No cannot be blank');
             flagUser_id = 1;
         }
-        else if((user_idValueTrim.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
+        else if((user_idValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
             setErrorFor(user_id, 'Vehicle No Invalid');
             flagUser_id = 1;
         }
@@ -118,11 +97,11 @@ function checkInputs(footageFile) {
     }
     else if(offence_type == "pedestrian"){
         //user_id is nic
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'NIC cannot be blank');
             flagUser_id = 1;
         }
-        else if((nicValidate(user_idValueTrim) == false)){
+        else if((nicValidate(user_idValue) == false)){
             setErrorFor(user_id, 'Invalid NIC');
             flagUser_id = 1;
         }
@@ -135,15 +114,31 @@ function checkInputs(footageFile) {
         console.log("Error in validating user_id based on offence_type");
     }
 
-    if(offence_noValueTrim === '') {
+    //driven_vehicle number is validated here
+    if(driven_vehicleValue === '') {
+        setErrorFor(driven_vehicle, 'Driven Vehicle No cannot be blank');
+        flagDriven_vehicle = 1;
+    }
+
+    else if((driven_vehicleValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
+        setErrorFor(driven_vehicle, 'Driven Vehicle No Invalid');
+        flagDriven_vehicle = 1;
+    }
+
+    else {
+        setSuccessFor(driven_vehicle);
+        flagDriven_vehicle = 0;
+    }
+
+    if(offence_noValue === '') {
         setErrorFor(offence_no, 'Offence No cannot be blank');
         flagOffence_no = 1;
     }
-    else if((offence_noValueTrim.match(/^[0-9]+$/)) == null){
+    else if((offence_noValue.match(/^[0-9]+$/)) == null){
         setErrorFor(offence_no, 'Offence No should contain only numbers');
         flagOffence_no = 1;
     }
-    else if(offence_noValueTrim.length > 3){
+    else if(offence_noValue.length > 3){
         setErrorFor(offence_no, 'Offence No must have 3 or less digits, refer to manual.');
         flagOffence_no = 1;
     }
@@ -152,19 +147,19 @@ function checkInputs(footageFile) {
         flagOffence_no = 0;
     }
 
-    if(spot_descriptionValueTrim === '') {
+    if(spot_descriptionValue === '') {
         setErrorFor(spot_description, 'Spot Description cannot be blank');
         flagSpot_description = 1;
     }
-    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9 ]+$/)) == null){
+    else if((spot_descriptionValue.match(/^[a-zA-Z0-9 ]+$/)) == null){
         setErrorFor(spot_description, 'Spot Description should contain only letters and numbers');
         flagSpot_description = 1;
     }
-    else if(spot_descriptionValueTrim.length < 10){
+    else if(spot_descriptionValue.length < 10){
         setErrorFor(spot_description, 'Spot Description should contain at least 10 characters');
         flagSpot_description = 1;
     }
-    else if(spot_descriptionValueTrim.length > 200){
+    else if(spot_descriptionValue.length > 200){
         setErrorFor(spot_description, 'Spot Description should contain at most 200 characters');
         flagSpot_description = 1;
     }
@@ -281,6 +276,13 @@ function getMessage(fineAdditionStatus) {
     }
 
 }
+
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
 
 /*Returns True if NIC is valid */
 let nicValidate = function(nicNumber)
