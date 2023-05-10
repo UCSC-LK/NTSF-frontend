@@ -5,6 +5,7 @@ import {
 import { displayMessage } from "/user-side/component/message/script.js";
 import { validateInputField } from "/user-side/util/validator.js";
 import { redirectToViewComplaints } from "/user-side/util/navigation.js";
+import { displayImageFromSessionStorage } from "/user-side/component/profilePicture/script.js";
 
 // JQuery
 var script = document.createElement("script");

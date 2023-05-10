@@ -2,6 +2,7 @@ import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 import { validateInputField } from "/user-side/util/validator.js";
+import { saveImageToSessionStorage } from "/user-side/component/profilePicture/script.js";
 
 // JQuery
 var script = document.createElement("script");
@@ -52,24 +53,8 @@ function loginSuccessCallback(data) {
   if (data.loggedIn) {
     console.log("Login Successful");
     displayMessage("Login Successful", true, () => {
-      /**
-       * Store the user id, jwt and nic in the session storage
-       */
-      sessionStorage.setItem("userId", data.userId);
-      console.log(data.userId);
-
-      sessionStorage.setItem("jwt", data.jwt);
-      console.log(data.jwt);
-
-      sessionStorage.setItem("nic", data.nic);
-      console.log(data.nic);
-
-      /**
-       * Getting name property of people object from the response and store it in the session storage
-       */
-      var name = data.people.name;
-      console.log(name);
-      sessionStorage.setItem("name", name);
+      // Store variables in the sessionStorage
+      storeInSessionStorage(data);
 
       redirectToViewFines();
     });
@@ -81,6 +66,28 @@ function loginSuccessCallback(data) {
 function loginUnsuccessCallback() {
   console.log("Login Unsuccessful");
   displayMessage("Login Unsuccessful", false);
+}
+
+/**
+ * Function to store variables in the sessionStorage
+ */
+function storeInSessionStorage(data) {
+  sessionStorage.setItem("userId", data.userId);
+  console.log(data.userId);
+
+  sessionStorage.setItem("jwt", data.jwt);
+  console.log(data.jwt);
+
+  sessionStorage.setItem("nic", data.nic);
+  console.log(data.nic);
+
+  const name = data.people.name;
+  console.log(name);
+  sessionStorage.setItem("name", name);
+
+  const profilePicture = data.people.profilePicture;
+  const binaryStream = profilePicture.binaryStream;
+  saveImageToSessionStorage("profilePicture", binaryStream);
 }
 
 // // Toggle password visibility

@@ -1,18 +1,15 @@
 import { getComplaintByUserId } from "/user-side/service/complaintService.js";
 import { getUserProfileInfo } from "/user-side/service/profileService.js";
+import { displayImageFromSessionStorage } from "/user-side/component/profilePicture/script.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
 
-  /**
-   * Getting name from the session storage
-   */
+  // Getting name from the session storage
   document.getElementById("profile-username").innerHTML =
     sessionStorage.getItem("name");
 
-  /**
-   * Getting user Id from the session storage | User Id = 107
-   */
+  // Getting user Id from the session storage | User Id = 107
   const userId = sessionStorage.getItem("userId");
   console.log(userId);
 
