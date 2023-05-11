@@ -25,22 +25,22 @@
         <div class="side-bar-list">
             <button class="dashboard-button">IGP Dashboard</button>
             <div class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Police Station
-            </a>
-            <a href="../igp/viewOffence.html">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
+                <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="../igp/viewPoliceStation.html">
+                    <i class="fa-solid fa-building-shield"></i>
+                    Police Station
+                </a>
+                <a href="../igp/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
         </div>
     </div>
 </div>
@@ -48,9 +48,14 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <p class="user-name" id="user_name">Suraif Muhammad</p>
+            <a href="../profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
+            </div>
+
         </div>
-    
     <!-- Dashbboard cards -->
         <div class="all">
             <div class="container">
@@ -115,6 +120,7 @@
                 </form>
             </div>
         </div>
+    <script src="/resources/js/police/username.js"></script>
     <script src="../../resources/js/police/igp/updatePoliceman.js"></script>
     <script src="../../resources/js/police/igp/viewPoliceman.js"></script>
     <script src="/resources/js/login.js"></script>

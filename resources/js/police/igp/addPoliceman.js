@@ -7,7 +7,7 @@ const email = document.getElementById('email');
 // const profile_picture = document.getElementById('profile_picture'); //To make the variable profile picture mentioned inside form.addEventListener() to be global
 // let profile_pictureFile = "Methana yako error"; //To make the variable profile picture mentioned inside form.addEventListener() to be global
 
-document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
+// document.getElementById('user_name').innerHTML = sessionStorage.getItem('user_police_name');
 
 var police_idSession = sessionStorage.getItem("user_police_id");
 console.log("police_idSession: " + police_idSession);

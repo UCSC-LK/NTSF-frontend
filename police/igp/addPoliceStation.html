@@ -26,19 +26,19 @@
             <button class="dashboard-button">IGP Dashboard</button>
             <div class="menu">
                 <a href="../igp/viewPoliceman.html">
-                    <i class="fa fa-dashboard"></i>
+                    <i class="fa-solid fa-person-military-rifle"></i>
                     Policeman
                 </a>
-                <a href="../igp/viewPoliceStation.html" style="color: #14abfa;">
-                    <i class="fa fa-book"></i>
+                <a href="../igp/viewPoliceStation.html"  style="color: #14abfa;">
+                    <i class="fa-solid fa-building-shield"></i>
                     Police Station
                 </a>
-                <a href="../igp/viewOffence.html">
-                    <i class="fa fa-book"></i>
+                <a href="../igp/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
                     Offence
                 </a>
-                <a href="../login.html">
-                    <i class="fa fa-money"></i>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
             </div>
@@ -48,7 +48,12 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <p class="user-name" id="user_name">Suraif Muhammad</p>
+            <a href="../profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
+            </div>
         </div>
     
     <!-- Dashbboard cards -->
@@ -106,6 +111,7 @@
                     </form>
                 </div>
             </div>
+    <script src="/resources/js/police/username.js"></script>
     <script src="/resources/js/police/igp/addPoliceStation.js"></script>
 </body>
 </html>

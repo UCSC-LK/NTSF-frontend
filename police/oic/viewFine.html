@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/user-interface.css">
     <link rel="stylesheet" href="/resources/css/table.css">
+    <link rel="stylesheet" href="/resources/css/viewFine.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+    <title>National Traffic Spot Fine System</title>
     <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+
 </head>
-<body onload="loadComplaintsDetails()">
+<body onload="loadUnpaidFineDetails(  )">
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -51,36 +53,45 @@
         </div>
     <!-- Dashbboard cards -->
     <div class="all">
-        <a href="../igp/addPoliceman.html" class="buttonSection">
-            <button id="addPoliceman" class="addButton"><i class="fa-sharp fa-solid fa-person-circle-plus fa-2xl" style="color: #14abfa;"></i></button>
-        </a>
+        <div class="status-stripe">
+            <button class="status-button" id="unpaidButton " onclick="loadUnpaidFineDetails()">Unpaid</button>
+            <button class="status-button" id="expiredButton" onclick="loadExpiredFineDetails()">Expired</button>
+            <button class="status-button" id="paidButton" onclick="loadPaidFineDetails()">Paid</button>
+        </div>
         <div class="container">
             <h1>Policeman Information</h1>
             <div class="tableSection">
                 <br>
+                <!--View Unpaid fines and Expired Fines only-->
                 <table class="rwd-table" id="table">
                     <tbody>
                       <div class="tableheading">
                         <thead>
-                          <th>Name</th>
-                          <th>Police_ID</th>
-                          <th>NIC</th>
-                          <th>Mobile Number</th>
-                          <th>Email</th>
-                          <th>Rank</th>
-                          <th>Grade</th>
-                          <th>Police Station</th>
+                          <th>Fine No</th>
+                          <th>Offence No</th>
+                          <th>Offence Description</th>
+                          <th>Spot Description</th>
+                          <th>NIC Number</th>
+                          <th id="license_no_th">License Number</th>
+                          <th id="vehicle_no_th">Vehicle Number</th>
+                          <th id="driven_vehicle_no_th">Driven Vehicle Number</th>
+                          <th>Imposed By</th>
+                          <th>Imposed Date & Time</th>
+                          <th>Due Date & Time</th>
+                          <th>Amount</th>
                           <th></th>
                           <th></th>
+                          <th></th> <!--View Footage-->
+                          <th></th> <!--View Location-->
                         </thead>
                       </div>
-                      <div id="policemanData"></div>
+                      <div id="fineData"></div>
                     </tbody>
                   </table>
             </div>
         </div>
     </div>
     </div>
-    <script src="../../../resources/js/police/policeman/investigationOfficer/viewComplaints.js"></script>
+    <script src="../../resources/js/police/oic/viewFine.js"></script>
 </body>
 </html>
