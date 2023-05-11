@@ -17,13 +17,15 @@
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
-                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo" >
                 <h2 class="logo-name"><b>NTSF</b></h2>
             </div>
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">IGP Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
             <div class="menu">
                 <a href="../igp/viewPoliceman.html">
                     <i class="fa-solid fa-person-military-rifle"></i>
@@ -51,14 +53,14 @@
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="" id="profile-picture" >
             </div>
 
         </div>
     <!-- Dashbboard cards -->
         <div class="all">
             <a href="../igp/addOffence.html" class="buttonSection">
-                <button id="addOffence" class="addButton"><i class="fa-sharp fa-solid fa-person-circle-plus fa-2xl" style="color: #14abfa;"></i></button>
+                <button id="addOffence" class="addButton"><i class="fa-solid fa-file-circle-plus fa-2xl" style="color: #14abfa;"></i></button>
             </a>
             <div class="container">
                 <h1 id="offenceType"></h1> <br>

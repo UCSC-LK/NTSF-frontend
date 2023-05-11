@@ -15,7 +15,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script>
 </head>
-<body onload="loadPolicemanDetails()">
+<body onload="loadDashboardDetails()">
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -55,7 +55,7 @@
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
             </div>
         </div>
     <!-- Dashbboard cards -->
@@ -65,28 +65,31 @@
                     <div class="dashboard-card" id="card-one">
                         <div class="card-align">
                             <i class="fa-solid fa-building-shield"></i>
-                            <h2>No.of Police Stations</h2>
+                            <h3>No.of Police Stations</h2>
                         </div>
+                        <br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="noOfPolicestation">3</h1>
                         </div>
                     </div>
                     <div class="dashboard-card" id="card-two">
                         <div class="card-align">
                             <i class="fa-solid fa-person-military-rifle"></i>
-                            <h2>No.of Police Officials</h2>
+                            <h3>No.of Police Officials</h2>
                         </div>
+                        <br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="noOfPoliceman">10</h1>
                         </div>
                     </div>
                     <div class="dashboard-card" id="card-three">
                         <div class="card-align">
                             <i class="fa-solid fa-person-military-pointing"></i>
-                            <h2>No.of Traffic Police</h2>
+                            <h3>No.of Traffic Police</h2>
                         </div>
+                        <br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="noOfTrafficPolice">5</h1>
                         </div>
                     </div>
                 </div>
@@ -94,31 +97,31 @@
                     <div class="dashboard-card" id="card-four">
                         <div class="card-align">
                             <i class="fa-solid fa-cash-register"></i>
-                            <h2>Total Fine </h2>
+                            <h3>Total Fine </h2>
                         </div>
-                        <p>May</p>
+                        <p>May</p><br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="totalFine">Rs. 85000</h1>
                         </div>
                     </div>
                     <div class="dashboard-card" id="card-five">
                         <div class="card-align">
                             <i class="fa-solid fa-piggy-bank"></i>
-                            <h2>Total Fine Collected </h2>
+                            <h3>Total Fine Collected </h2>
                         </div>
-                        <p>May</p>
+                        <p>May</p><br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="collectedFine">Rs. 57000</h1>
                         </div>
                     </div>
                     <div class="dashboard-card" id="card-six">
                         <div class="card-align">
                             <i class="fa-solid fa-hand-holding-dollar"></i>
-                            <h2>Total Fine Due </h2>
+                            <h3>Total Fine Due </h2>
                         </div>
-                        <p>May</p>
+                        <p>May</p><br>
                         <div>
-                            <h1>10</h1>
+                            <h1 id="dueFine">Rs. 28000</h1>
                         </div>
                     </div>
                 </div>
@@ -140,6 +143,7 @@
     <script src="../../resources/js/police/igp/dashboard.js"></script>
     <script src="../../resources/js/police/username.js"></script>
     <script src="../../resources/js/police/igp/charts.js"></script>
+
 
 </body>
 </html>

@@ -22,7 +22,9 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">IGP Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
             <div class="menu">
                 <a href="../igp/viewPoliceman.html" >
                     <i class="fa-solid fa-person-military-rifle"></i>
@@ -51,7 +53,7 @@
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
+                <img  src="../../resources/images/sample.png" class="profile-picture" id="profile-picture" alt="">
             </div>
 
         </div>
@@ -59,16 +61,19 @@
     <div class="all">
         <div class="container">
             <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
                 <a href="/police/igp/viewOffence.html" id="driverOffence">
-                <h2>Driver</h2>
+                    <h2>Driver</h2> 
                 </a>
             </div>
             <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
                 <a href="/police/igp/viewOffence.html" id="pedestrianOffence">
                     <h2>Pedestrian</h2>
                 </a>
             </div>
             <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
                 <a href="/police/igp/viewOffence.html" id="vehicleOffence">
                     <h2>Vehicle</h2>
                 </a>

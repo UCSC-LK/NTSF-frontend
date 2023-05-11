@@ -17,11 +17,20 @@
     width: 30%;
     padding: 3%;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 /*Removing text color decoration*/
 a {
     text-decoration: none;
     color: #9b9ea2;
+}
 
+
+#driverIcon, #pedestrianIcon, #vehicleIcon{
+    margin-right: 2%;
+    margin-top: 3.5%;
+    font-size: 400%;
 }

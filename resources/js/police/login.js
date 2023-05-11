@@ -97,7 +97,7 @@ function loginAuthorizingBackend(username, password) {
           console.log('Redirecting to IGP page');
           getMessage(true);
           sessionStorage.setItem('rank', rank);
-          window.location.href = "../../../police/igp/viewPoliceman.html";
+          window.location.href = "../../../police/igp/dashboard.html";
         } else if (rank === 'oic') {
           console.log('Redirecting to OIC page');
           getMessage(true);
