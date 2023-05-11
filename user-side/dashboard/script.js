@@ -8,25 +8,32 @@ window.addEventListener("load", () => {
   document.getElementById("profile-username").innerHTML =
     sessionStorage.getItem("name");
 
-  displayImageFromSessionStorage("profilePicture");
+  // displayImageFromSessionStorage("profilePicture");
 
   // Getting nic from the session storage
   const nic = sessionStorage.getItem("nic");
   console.log(nic);
 
-  if (!getUserProfileInfo(nic, dashboardDataHTMLoutput)) {
+  /**
+   * Get points data from the API
+   */
+  if (!getPointsByNic(nic, dashboardDataHTMLoutput)) {
     alert("Login Expired");
     window.location.href = "/user-side/user/login/index.html";
   }
 });
 
 function dashboardDataHTMLoutput(pointsData) {
-  document.getElementById("total-points").innerHTML = pointsData.points;
-  /**
-   * Reminder
-   */
-  // You can't get total fines and complaints from the API
-  // Re check with the backend team
-  document.getElementById("total-fines").innerHTML = pointsData.fines;
-  document.getElementById("total-complaints").innerHTML = pointsData.complaints;
+  document.getElementById("current-points").innerHTML =
+    pointsData.currentPoints;
+  document.getElementById("initial-points").innerHTML =
+    pointsData.initialPoints;
+  document.getElementById("remaining-points").innerHTML =
+    pointsData.remainingPoints;
+  document.getElementById("max-point-limit").innerHTML =
+    pointsData.maxPointLimit;
+  document.getElementById("min-point-limit").innerHTML =
+    pointsData.minPointLimit;
+  document.getElementById("points-expiry-date").innerHTML =
+    pointsData.pointsExpiryDate;
 }
