@@ -82,12 +82,74 @@ let rankOptions = document.getElementById("rankOptions");
 let rankOptionList = ["OIC", "Policeman"];
 
 const police_stationOptions = document.getElementById('police_stationOptions');
-let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+// let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
+let police_stationOptionList = [];
 
+/*Dynamically load the policestation option list*/
+function loadPoliceStationOptionsListOnLoad(){
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            if(loadPoliceStationOptionsList(this))
+            {
+                console.log("Loading PoliceStation information dynamiclly SUCCESS!!!");
+            }
+            else
+            {
+                console.log("Loading PoliceStation information dynamiclly FAILED!!!");
+            }
+        }
+        else
+        {
+            console.log("Loading PoliceStation information dynamiclly FAILED!!!");
+        }
+    }
+
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeStation", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpreq.send("action=loadPoliceStationOptionsList");
+
+    function loadPoliceStationOptionsList(httpreq) 
+    {
+        let jsonPoliceStationData = JSON.parse(httpreq.responseText);
+        console.log(jsonPoliceStationData);
+        
+        if(jsonPoliceStationData.serverResponse === "null session" || jsonPoliceStationData.serverResponse === "Not Allowed")
+        {
+            // window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+            // console.log("Redirecting to login page");
+        }
+        else if(jsonPoliceStationData.serverResponse === "Allowed")
+        {
+            console.log("Allowed");
+            let count =  jsonPoliceStationData.List.length - 1;
+            for(i=0; i<= count; i++)
+            {
+                console.log("Here onwards entering the police station list into array")
+                console.log(jsonPoliceStationData.List[i].police_station);
+                police_stationOptionList.push(jsonPoliceStationData.List[i].police_station);    
+            }
+            console.log("Entering the police station list into array is done");
+            return true;
+        }
+        else
+        {
+            console.log("Something went wrong");
+            return false;
+        }
+    }
+
+}
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
-    checkInputs();
+    e.preventDefault();
+    const enctype = form.enctype;
+    console.log("enctype: " + enctype);
+    const profile_picture = document.getElementById('profile_picture');
+    const profile_pictureFile = profile_picture.files[0]; //file object
+    checkInputs(profile_pictureFile);
 });
 
 //Checking whether data already exisiting
@@ -133,7 +195,7 @@ function isEmail(email) {
   }
 
 //Input validating
-function checkInputs() {
+function checkInputs(profile_pictureFile) {
 	// trim to remove the whitespaces
 	const nameValue = name.value.trim();
 	const police_idValue = police_id.value.trim();
@@ -148,6 +210,7 @@ function checkInputs() {
     let flagEmail = 1 //error exists
     let flagRank = 1 //error exists
     let flagPolice_Station = 1 //error exists
+    let flagGrade = 1 //error exists
 
 	if(nameValue === '') {
 		setErrorFor(name, 'Name cannot be blank');
@@ -254,10 +317,21 @@ function checkInputs() {
         flagPolice_Station = 1;
     }
 
-    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0){
+    let grade = checkGradeFill();
+    if(grade){
+        setSuccessFor(gradeOptions);
+        var gradeValue = grade;
+        flagGrade = 0;
+    }
+    else {
+        setErrorFor(gradeOptions, 'A Grade should be  selected');
+        flagGrade = 1;
+    }
+
+    if(flagName === 0 && flagPolice_ID === 0 && flagNic === 0 && flagMobile_Number === 0 && flagEmail === 0 && flagRank === 0 && flagPolice_Station === 0 && flagGrade === 0){
         console.log('came until js function for event listener of submit button');
-        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
-        updatePoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue);
+        console.log(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue, profile_pictureFile);
+        updatePoliceman(nameValue, police_idValue, nicValue, mobile_numberValue, emailValue, rankValue, police_stationValue, gradeValue, profile_pictureFile);
     }
     else{
         return false;
@@ -277,7 +351,7 @@ function setSuccessFor(input) {
 }
 
 
-let isOpen = false;
+let isRankOpen = false;
 
 function checkRankFill() {
     if (rankOptions.firstElementChild.classList.contains("hide-option")) {
@@ -301,8 +375,21 @@ function checkPolice_stationFill() {
     }
 }
 
+function checkGradeFill() {
+    if (gradeOptions.firstElementChild.classList.contains("hide-option")) {
+        return false;
+    }
+    else {
+        let selectedGrade = gradeOptions.firstElementChild.textContent;
+        console.log(selectedGrade);
+        return selectedGrade;
+    }
+}
+
 rankOptions.addEventListener("click", addToUIOptionsRank);
-police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
+police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
+police_stationOptions.addEventListener("click", addToUIOptionspolice_station());
+gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
 
 //e.target refers to the clicked element
@@ -325,15 +412,15 @@ function addToUIOptionsRank(e) {
 }
 
 function controlOptionsRank(e) {
-    if (isOpen === false) {
+    if (isRankOpen === false) {
         createOptionsRank();
         rankOptions.classList.add("opened");
-        isOpen = true;
+        isRankOpen = true;
     }
     else {
         deleteOptionsRank();
         rankOptions.classList.remove("opened");
-        isOpen = false;
+        isRankOpen = false;
     }
 }
 
@@ -356,6 +443,8 @@ function createOptionsRank() {
 };
 
 //adding UI options to police_station
+let isPoliceStationOpen = false;
+
 function addToUIOptionspolice_station(e) {
     if (e.target.classList.contains("hide-option")) {
         controlOptionspolice_station(e);
@@ -375,15 +464,15 @@ function addToUIOptionspolice_station(e) {
 }
 
 function controlOptionspolice_station(e) {
-    if (isOpen === false) {
+    if (isPoliceStationOpen === false) {
         createOptionspolice_station();
         police_stationOptions.classList.add("opened");
-        isOpen = true;
+        isPoliceStationOpen = true;
     }
     else {
         deleteOptionspolice_station();
         police_stationOptions.classList.remove("opened");
-        isOpen = false;
+        isPoliceStationOpen = false;
     }
 }
 
@@ -405,11 +494,60 @@ function createOptionspolice_station() {
     });
 };
 
+//adding UI options to grade
+let isGradeOpen = false;
+
+function addToUIOptionsGrade(e) {
+    if (e.target.classList.contains("hide-option")) {
+        controlOptionsGrade(e);
+    }
+    else {
+        const pickedOption = e.target;
+        if (gradeOptions.firstElementChild.classList.contains("hide-option")) {
+            gradeOptions.removeChild(gradeOptions.firstElementChild);
+        }
+        gradeOptions.insertAdjacentElement("afterbegin", pickedOption);
+
+        deleteOptionsGrade();
+        controlOptionsGrade(e);
+    }
+}
+
+function controlOptionsGrade(e) {
+    if (isGradeOpen === false) {
+        createOptionsGrade();
+        gradeOptions.classList.add("opened");
+        isGradeOpen = true;
+    }
+    else {
+        deleteOptionsGrade();
+        gradeOptions.classList.remove("opened");
+        isGradeOpen = false;
+    }
+}
+
+function deleteOptionsGrade() {
+    while (gradeOptions.childElementCount > 1) {
+        gradeOptions.removeChild(gradeOptions.lastElementChild);
+    }
+}
+
+function createOptionsGrade() {
+    gradeOptionList.forEach(element => {
+        if (gradeOptions.firstElementChild.textContent !== element) {
+            let gradeOption = document.createElement("div");
+            gradeOption.className = "option";
+            gradeOption.textContent = element;
+
+            gradeOptions.firstElementChild.insertAdjacentElement("afterend", gradeOption);
+        }
+    });
+};
 
 //Sending data to backend
 // const addPolicemanButton = document.getElementById("addPolicemanButton");
 
-const updatePoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station)
+const updatePoliceman = function(name, police_id, nic, mobile_number, email,  rank, police_station, grade, profile_picture)
 {
     console.log('came until js function for editPoliceman which sends data to backend');
     console.log(name);
@@ -439,15 +577,47 @@ const updatePoliceman = function(name, police_id, nic, mobile_number, email,  ra
             getMessage(policemanAdditionStatus);
         }
     }
+    // httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
+    // httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    // httpReq.send("action=updatePoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
+
+    const form_data = new FormData();
+    form_data.append('action', 'updatePoliceman');
+    form_data.append('name', name);
+    form_data.append('police_id', police_id);
+    form_data.append('nic', nic);
+    form_data.append('mobile_number', mobile_number);
+    form_data.append('email', email);
+    form_data.append('rank', rank);
+    form_data.append('police_station', police_station);
+    form_data.append('grade', grade);
+    form_data.append('profile_picture', profile_picture);
+
+    console.log(form_data);
+    console.log(form_data.get('action'));
+    console.log(form_data.get('name'));
+    console.log(form_data.get('police_id'));
+    console.log(form_data.get('nic'));
+    console.log(form_data.get('mobile_number'));
+    console.log(form_data.get('email'));
+    console.log(form_data.get('rank'));
+    console.log(form_data.get('police_station'));
+    console.log(form_data.get('grade'));
+    console.log(form_data.get('profile_picture'));
+
     httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/igp", true);
-    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
-    httpReq.send("action=updatePoliceman" + "&name=" + name + "&police_id=" + police_id + "&nic=" + nic + "&mobile_number=" + mobile_number + "&email=" + email + "&rank=" + rank + "&police_station=" + police_station);
+    httpReq.send(form_data);
+
 
     function updatePolicemanData(httpReq)
     {
-        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddPolicemanResponse);
+        let jsonUpdatePolicemanResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonUpdatePolicemanResponse);
+        let jsonUpdatePolicemanResponseAlert = jsonUpdatePolicemanResponse.alert;
+        console.log(jsonUpdatePolicemanResponseAlert);
+        return jsonUpdatePolicemanResponseAlert;
     }
     
 }
@@ -710,7 +880,11 @@ function validation(nicNumber) {
     return result;
 }
 
-
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
 
 
 
