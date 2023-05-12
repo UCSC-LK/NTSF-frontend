@@ -3,6 +3,7 @@ import { displayButton } from "/user-side/component/button/script.js";
 import { redirectToAddComplaint } from "/user-side/util/navigation.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToLogin } from "/user-side/util/navigation.js";
+import { displayImageFromSessionStorage } from "/user-side/component/profilePicture/script.js";
 
 // Adding jquery to the page
 var script = document.createElement("script");

@@ -196,7 +196,9 @@ table {
     position: sticky;
     top: 0;
     overflow-y: auto;
-    height: 450px;
+    /* VIEW FINES EKE YATA PRASHNE */
+    height: 600px;
+    overflow-x: auto;
 }
 
 thead {

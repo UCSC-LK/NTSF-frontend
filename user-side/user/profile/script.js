@@ -1,5 +1,6 @@
 import { getUserProfileInfo } from "/user-side/service/profileService.js";
 import dataModel from "./profileData.js";
+import { displayImageFromSessionStorage } from "/user-side/component/profilePicture/script.js";
 
 window.addEventListener("load", () => {
   console.log("callback");
@@ -7,6 +8,8 @@ window.addEventListener("load", () => {
   // Getting name from the session storage
   document.getElementById("profile-username").innerHTML =
     sessionStorage.getItem("name");
+
+  displayImageFromSessionStorage("profilePicture", "profile-picture-container");
 
   // Getting nic from the session storage
   const nic = sessionStorage.getItem("nic");

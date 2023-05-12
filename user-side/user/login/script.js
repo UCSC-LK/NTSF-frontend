@@ -2,15 +2,22 @@ import { validateNIC, validatePassword } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToViewFines } from "/user-side/util/navigation.js";
 import { validateInputField } from "/user-side/util/validator.js";
+import { saveImageToSessionStorage } from "/user-side/component/profilePicture/script.js";
+import { togglePasswordVisibility } from "/user-side/component/togglePassword/script.js";
 
 // JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-// document
-//   .getElementById("login-form")
-//   .addEventListener("oninput", validateLoginForm);
+/**
+ * Add event listeners in window load event
+ * This is done to make sure that the functions are available in the window scope
+ * This is done because the functions are imported from other files
+ */
+window.addEventListener("load", () => {
+  window.togglePasswordVisibility = togglePasswordVisibility;
+});
 
 /**
  * Validate the login form
@@ -52,24 +59,8 @@ function loginSuccessCallback(data) {
   if (data.loggedIn) {
     console.log("Login Successful");
     displayMessage("Login Successful", true, () => {
-      /**
-       * Store the user id, jwt and nic in the session storage
-       */
-      sessionStorage.setItem("userId", data.userId);
-      console.log(data.userId);
-
-      sessionStorage.setItem("jwt", data.jwt);
-      console.log(data.jwt);
-
-      sessionStorage.setItem("nic", data.nic);
-      console.log(data.nic);
-
-      /**
-       * Getting name property of people object from the response and store it in the session storage
-       */
-      var name = data.people.name;
-      console.log(name);
-      sessionStorage.setItem("name", name);
+      // Store variables in the sessionStorage
+      storeInSessionStorage(data);
 
       redirectToViewFines();
     });
@@ -83,15 +74,28 @@ function loginUnsuccessCallback() {
   displayMessage("Login Unsuccessful", false);
 }
 
-// // Toggle password visibility
-// const togglePassword = document.querySelector("#togglePassword");
-// const password = document.querySelector("#id_password");
+/**
+ * Function to store variables in the sessionStorage
+ */
+function storeInSessionStorage(data) {
+  sessionStorage.setItem("userId", data.userId);
+  console.log(data.userId);
 
-// togglePassword.addEventListener("click", function (e) {
-//   // toggle the type attribute
-//   const type =
-//     password.getAttribute("type") === "password" ? "text" : "password";
-//   password.setAttribute("type", type);
-//   // toggle the eye slash icon
-//   this.classList.toggle("fa-eye-slash");
-// });
+  sessionStorage.setItem("jwt", data.jwt);
+  console.log(data.jwt);
+
+  sessionStorage.setItem("nic", data.nic);
+  console.log(data.nic);
+
+  const name = data.people.name;
+  console.log(name);
+  sessionStorage.setItem("name", name);
+
+  const profilePicture = data.people.profilePicture;
+  saveImageToSessionStorage("profilePicture", profilePicture);
+}
+
+/**********JS Modules***/
+// document
+//   .getElementById("login-form")
+//   .addEventListener("oninput", validateLoginForm);
