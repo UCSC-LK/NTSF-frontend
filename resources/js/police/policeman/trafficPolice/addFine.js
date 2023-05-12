@@ -203,7 +203,12 @@ function checkInputs(footageFile) {
         flagSpot_description = 0;
     }
 
-    if(flagUser_id === 0 && flagDriven_vehicle && flagOffence_no === 0 && flagSpot_description === 0){
+    console.log("flagUser_id: " + flagUser_id);
+    console.log("flagOffence_no: " + flagOffence_no);
+    console.log("flagSpot_description: " + flagSpot_description);
+    console.log("flagDriven_vehicle: " + flagDriven_vehicle);
+
+    if(flagUser_id === 0 && flagDriven_vehicle === 0 && flagOffence_no === 0 && flagSpot_description === 0){
         console.log('came until js function for event listener of submit button');
         console.log(user_idValue, offence_noValue, spot_descriptionValue);
         // let latitude = getLatitude();
@@ -360,38 +365,8 @@ function validation(nicNumber) {
     return result;
 }
 
-
-
-
-// function getLatitude() {
-//     let latitude;
-//     // Check if the Geolocation API is supported by the browser
-//     if (navigator.geolocation) {
-//         // Get the current position of the user
-//         navigator.geolocation.getCurrentPosition(function(position) {
-//         // Extract the latitude from the position object
-//         latitude = position.coords.latitude;
-//         console.log(latitude); // Log the latitude to the console
-       
-//         });
-//     } else {
-//         console.log("Geolocation is not supported by this browser.");
-//     } 
-//     return latitude;
-// }
-
-// function getLongitude() {
-//     let longitude;
-//     // Check if the Geolocation API is supported by the browser
-//     if (navigator.geolocation) {
-//     // Get the current position of the user
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       // Extract the longitude from the position object
-//       longitude = position.coords.longitude;
-//       console.log(longitude); // Log the longitude to the console
-//     });
-//   } else {
-//     console.log("Geolocation is not supported by this browser.");
-//   }
-//   return longitude;
-// }
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
