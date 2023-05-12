@@ -63,7 +63,22 @@
             </a>
             <div class="container">
                 <h1>Policeman Information</h1>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <div class="filters-section">
+                    <div class="dropdown-filters">
+                        <label for="myDropdown">Filter<label>
+                        <select name="" id="myDropdown" onchange="getSelectedOption()">
+                            <option value="searchByName">Name</option>
+                            <option value="searchByPoliceID">Police ID</option>
+                            <option value="searchByNIC">NIC</option>
+                            <option value="searchByEmail">Email</option>
+                            <option value="searchByRank">Rank</option>
+                            <option value="searchByGrade">Grade</option>
+                            <option value="searchByPoliceStation">Police Station</option>
+                        </select>
+                    </div>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                </div>
+
                 <div class="tableSection">
                     <br>
                     <table class="rwd-table" id="table">
