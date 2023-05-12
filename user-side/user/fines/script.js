@@ -62,7 +62,11 @@ function displayFines(finesDataArray, headingText, tableId) {
     const table = createTable(finesDataArray);
 
     // Create table heading
+    // Creates a new div element using the document.createElement method
+    // And assigns it to the variable tableHeading
     const tableHeading = document.createElement("div");
+
+    // Adds the CSS class "tableheading" to the div element using the classList.add method
     tableHeading.classList.add("tableheading");
 
     // Create heading
