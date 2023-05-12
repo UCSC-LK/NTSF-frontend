@@ -176,6 +176,9 @@ button {
     max-width: 100%;
     margin-top: -50px;
     height: 500px;
+    text-align: left;
+    margin-left: 650px;
+    margin-top: 100px;
 }
 
 .formHeader {
@@ -368,12 +371,6 @@ button[disabled] {
         padding: 1em !important;
     }
 }
-
-.container {
-    text-align: left;
-}
-
-
 
 .ntsf-logo {
     height: 50%;
