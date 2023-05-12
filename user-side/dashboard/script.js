@@ -26,14 +26,17 @@ window.addEventListener("load", () => {
 function dashboardDataHTMLoutput(pointsData) {
   document.getElementById("current-points").innerHTML =
     pointsData.currentPoints;
+  // Getting remaining points
   document.getElementById("remaining-points").innerHTML =
-    pointsData.remainingPoints;
-  document.getElementById("points-expiry-date").innerHTML =
-    pointsData.pointsExpiryDate;
-  // document.getElementById("max-point-limit").innerHTML =
-  //   pointsData.maxPointLimit;
-  // document.getElementById("min-point-limit").innerHTML =
-  //   pointsData.minPointLimit;
-  // document.getElementById("initial-points").innerHTML =
-  //   pointsData.initialPoints;
+    pointsData.initialPoints - pointsData.currentPoints;
+  document.getElementById("max-recovery-date").innerHTML =
+    pointsData.maxRecoveryDate;
+
+  // Constants
+  document.getElementById("max-point-limit").innerHTML =
+    pointsData.maxPointLimit;
+  document.getElementById("min-point-limit").innerHTML =
+    pointsData.minPointLimit;
+  document.getElementById("initial-points").innerHTML =
+    pointsData.initialPoints;
 }

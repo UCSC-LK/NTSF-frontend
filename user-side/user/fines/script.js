@@ -22,16 +22,7 @@ window.addEventListener("load", () => {
   console.log(nic);
 
   if (!getFinesByNic(nic, fineDataHTMLoutput)) {
-    alert("Login Expired");
-
-    // displayMessage(
-    //   "Login Expired",
-    //   true,
-    //   () => {
-    //     redirectToLogin();
-    //   },
-    //   (timeout = 2000)
-    // );
+    displayMessage("Login Expired", true, () => {});
 
     window.location.href = "/user-side/user/login/index.html";
   }
