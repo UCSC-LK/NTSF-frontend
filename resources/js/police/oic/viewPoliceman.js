@@ -4,7 +4,7 @@ const loadPolicemanDetails = function()
     var table = document.getElementById("table");
 
     console.log("I was called onload");
-    console.log("Printing session storage values")
+    console.log("Printing session storage values");
     jwt = sessionStorage.getItem('jwt');
     console.log(jwt);
     user_police_id = sessionStorage.getItem('police_id');

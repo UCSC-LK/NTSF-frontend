@@ -23,7 +23,9 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">IGP Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
             <div class="menu">
                 <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
                     <i class="fa-solid fa-person-military-rifle"></i>
@@ -37,7 +39,7 @@
                     <i class="fa-solid fa-handcuffs"></i>
                     Offence
                 </a>
-                <a href="../login.html">
+                <a href="../login.html" onclick="sessionStorage.clear()"> <!-- Clear session storage -->
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
@@ -51,8 +53,7 @@
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" alt="">
-            </div>
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="" id="profile-picture">            </div>
 
         </div>
     <!-- Dashbboard cards -->
@@ -62,6 +63,22 @@
             </a>
             <div class="container">
                 <h1>Policeman Information</h1>
+                <div class="filters-section">
+                    <div class="dropdown-filters">
+                        <label for="myDropdown">Filter<label>
+                        <select name="" id="myDropdown" onchange="getSelectedOption()">
+                            <option value="searchByName">Name</option>
+                            <option value="searchByPoliceID">Police ID</option>
+                            <option value="searchByNIC">NIC</option>
+                            <option value="searchByEmail">Email</option>
+                            <option value="searchByRank">Rank</option>
+                            <option value="searchByGrade">Grade</option>
+                            <option value="searchByPoliceStation">Police Station</option>
+                        </select>
+                    </div>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                </div>
+
                 <div class="tableSection">
                     <br>
                     <table class="rwd-table" id="table">
@@ -99,7 +116,8 @@
             </div>
         </div>
     </div>
+    <script src="../../resources/js/police/username.js"></script>
     <script src="../../resources/js/police/igp/viewPoliceman.js"></script>
-    <script src="../../resources/js/police/igp/profile.js"></script>
+    <script src="../../resources/js/police/search.js"></script>
 </body>
 </html>

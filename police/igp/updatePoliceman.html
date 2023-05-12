@@ -23,24 +23,26 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">IGP Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
             <div class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Police Station
-            </a>
-            <a href="../igp/viewOffence.html">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
+                <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="../igp/viewPoliceStation.html">
+                    <i class="fa-solid fa-building-shield"></i>
+                    Police Station
+                </a>
+                <a href="../igp/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
         </div>
     </div>
 </div>
@@ -48,16 +50,21 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <p class="user-name" id="user_name">Suraif Muhammad</p>
+            <a href="../profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="" id="profile-picture">
+            </div>
+
         </div>
-    
     <!-- Dashbboard cards -->
         <div class="all">
             <div class="container">
                 <div class="form-header">
                     <h2>Update Policeman Details</h2>
                 </div>
-                <form action="#" id="form" class="form">
+                <form action="#" id="form" class="form" enctype="multipart/form-data">
                     <div class="form-control">
                         <label for="name">Name</label>
                         <input type="text" placeholder="eg: Suraif Muhammad" id="name" value="" />
@@ -111,10 +118,25 @@
                         </div>
                         <small>Error message</small>
                     </div>
+                    <div class="form-control">
+                        <label for="gradeOptions">Grade: </label>
+                        <div class="options" id="gradeOptions">
+                            <div class="hide-option option" id="hide-gradeOption">Select the Grade</div>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <div>
+                        <label for="profile_picture">Profile Picture</label>
+                        <input type="file" id="profile_picture" name="profile_picture" accept="image/png, image/jpeg, image/jpg"> <!--Accepts only the file formats png,jpeg,jpg-->
+                        <!-- <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small> -->
+                    </div>
                     <button id="button">Update</button>
                 </form>
             </div>
         </div>
+    <script src="/resources/js/police/username.js"></script>
     <script src="../../resources/js/police/igp/updatePoliceman.js"></script>
     <script src="../../resources/js/police/igp/viewPoliceman.js"></script>
     <script src="/resources/js/login.js"></script>

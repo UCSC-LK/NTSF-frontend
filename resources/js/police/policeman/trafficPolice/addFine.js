@@ -1,3 +1,6 @@
+var latitude;
+var longitude;
+
 //Dynamically setting up the input coloumn for user_id based on offence_type
 var offence_type = sessionStorage.getItem("offence_type");
 console.log("offence_type: " + offence_type);
@@ -12,14 +15,14 @@ else if(offence_type == "vehicle"){
     document.getElementById("user_id").placeholder = "Enter Vehicle No";
     document.querySelector('label[for="user_id"]').innerHTML = "Vehicle No:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
+    document.getElementById("driven_vehicle_div").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else if(offence_type == "pedestrian"){
     document.getElementById("addFineType").innerHTML = "Add Pedestrian Fine";
     document.getElementById("user_id").placeholder = "Enter NIC";
     document.querySelector('label[for="user_id"]').innerHTML = "NIC:";
 
-    document.getElementById("driven_vehicle").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
+    document.getElementById("driven_vehicle_div").setAttribute("hidden", true); //Make the drivenVehicle input coloumn invisible
 }
 else
 {
@@ -39,6 +42,38 @@ console.log("Printing below the police_id from session storage");
 console.log("police_idSession: " + police_idSession);
 console.log("police_stationSession: " + police_stationSession);
 
+function getCoordinates() {
+    return new Promise(function(resolve, reject) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            resolve({ latitude, longitude }); // Resolve the promise with the coordinates object
+          },
+          function(error) {
+            reject(error); // Reject the promise with the error object
+          }
+        );
+      } else {
+        reject(new Error("Geolocation is not supported by this browser.")); // Reject the promise if geolocation is not supported
+      }
+    });
+  }
+  
+  // Usage
+  getCoordinates()
+    .then(function(coordinates) {
+       latitude = coordinates.latitude;
+      longitude = coordinates.longitude;
+      console.log("Latitude:", latitude);
+      console.log("Longitude:", longitude);
+    })
+    .catch(function(error) {
+      console.log("Error:", error.message);
+    });  
+
+
 form.addEventListener('submit', e => {
 	e.preventDefault();
     const footage = document.getElementById('footage');
@@ -49,59 +84,46 @@ form.addEventListener('submit', e => {
 //Input validating
 function checkInputs(footageFile) {
     
-	// trim to remove the whitespaces
+	// trim to remove the leading and trailing whitespaces
     //Enter here the code to validate offence_type
-    const user_idValue = user_id.value;
-    const offence_noValue = offence_no.value;
-    const spot_descriptionValue = spot_description.value;
+    const user_idValue = user_id.value.trim();
+    const offence_noValue = offence_no.value.trim();
+    const spot_descriptionValue = spot_description.value.trim();
+    const driven_vehicleValue = driven_vehicle.value.trim();
 
     console.log("user_idValue: " + user_idValue);
     console.log("offence_noValue: " + offence_noValue);
     console.log("spot_descriptionValue: " + spot_descriptionValue);
+    console.log("driven_vehicleValue: " + driven_vehicleValue);
 
-	const user_idValueTrim = user_idValue.trim();
-    const offence_noValueTrim = offence_noValue.trim();
-    const spot_descriptionValueTrim = spot_descriptionValue.trim();
-
-	let flagUser_id = 0;
-    let flagOffence_no = 0;
-    let flagSpot_description = 0;
+	let flagUser_id = 1; //error exists
+    let flagOffence_no = 1; //error exists
+    let flagSpot_description = 1; //error exists
+    let flagDriven_vehicle = 0; //error doesnt exists
 
     if(offence_type == "driver"){
         //user_id is license_no
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'License No cannot be blank');
             flagUser_id = 1;
         }
-        else if((user_idValueTrim.match(/^[0-9]+$/)) == null){
-            setErrorFor(user_id, 'License No should contain only numbers');
-            flagUser_id = 1;
-        }
-        else if(user_idValueTrim.length !== 7){
-            setErrorFor(user_id, 'License No should contain 7 numbers');
+        else if (!/^B\d{7}$/.test(user_idValue)) {
+            setErrorFor(user_id, 'License No should start with B and contain 7 digits');
             flagUser_id = 1;
         }
         else {
             setSuccessFor(user_id);
             flagUser_id = 0;
-        }
+        }   
     }
     else if(offence_type == "vehicle"){
         //user_id is vehicle_no
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'Vehicle No cannot be blank');
             flagUser_id = 1;
         }
-        else if((user_idValueTrim.match(/^[a-zA-Z0-9]+$/)) == null){
-            setErrorFor(user_id, 'Vehicle No should contain only letters and numbers');
-            flagUser_id = 1;
-        }
-        else if(user_idValueTrim.length < 6){
-            setErrorFor(user_id, 'Vehicle No should contain at least 6 letters and numbers');
-            flagUser_id = 1;
-        }
-        else if(user_idValueTrim.length > 7){
-            setErrorFor(user_id, 'Vehicle No should contain at most 7 letters and numbers');
+        else if((user_idValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
+            setErrorFor(user_id, 'Vehicle No Invalid');
             flagUser_id = 1;
         }
         else {
@@ -111,11 +133,11 @@ function checkInputs(footageFile) {
     }
     else if(offence_type == "pedestrian"){
         //user_id is nic
-        if(user_idValueTrim === '') {
+        if(user_idValue === '') {
             setErrorFor(user_id, 'NIC cannot be blank');
             flagUser_id = 1;
         }
-        else if((nicValidate(user_idValueTrim) == false)){
+        else if((nicValidate(user_idValue) == false)){
             setErrorFor(user_id, 'Invalid NIC');
             flagUser_id = 1;
         }
@@ -128,15 +150,31 @@ function checkInputs(footageFile) {
         console.log("Error in validating user_id based on offence_type");
     }
 
-    if(offence_noValueTrim === '') {
+    //driven_vehicle number is validated here
+    // if(driven_vehicleValue === '') {
+    //     setErrorFor(driven_vehicle, 'Driven Vehicle No cannot be blank');
+    //     flagDriven_vehicle = 1;
+    // }
+
+    // else if((driven_vehicleValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
+    //     setErrorFor(driven_vehicle, 'Driven Vehicle No Invalid');
+    //     flagDriven_vehicle = 1;
+    // }
+
+    // else {
+    //     setSuccessFor(driven_vehicle);
+    //     flagDriven_vehicle = 0;
+    // }
+
+    if(offence_noValue === '') {
         setErrorFor(offence_no, 'Offence No cannot be blank');
         flagOffence_no = 1;
     }
-    else if((offence_noValueTrim.match(/^[0-9]+$/)) == null){
+    else if((offence_noValue.match(/^[0-9]+$/)) == null){
         setErrorFor(offence_no, 'Offence No should contain only numbers');
         flagOffence_no = 1;
     }
-    else if(offence_noValueTrim.length > 3){
+    else if(offence_noValue.length > 3){
         setErrorFor(offence_no, 'Offence No must have 3 or less digits, refer to manual.');
         flagOffence_no = 1;
     }
@@ -145,19 +183,19 @@ function checkInputs(footageFile) {
         flagOffence_no = 0;
     }
 
-    if(spot_descriptionValueTrim === '') {
+    if(spot_descriptionValue === '') {
         setErrorFor(spot_description, 'Spot Description cannot be blank');
         flagSpot_description = 1;
     }
-    else if((spot_descriptionValueTrim.match(/^[a-zA-Z0-9 ]+$/)) == null){
+    else if((spot_descriptionValue.match(/^[a-zA-Z0-9 ]+$/)) == null){
         setErrorFor(spot_description, 'Spot Description should contain only letters and numbers');
         flagSpot_description = 1;
     }
-    else if(spot_descriptionValueTrim.length < 10){
+    else if(spot_descriptionValue.length < 10){
         setErrorFor(spot_description, 'Spot Description should contain at least 10 characters');
         flagSpot_description = 1;
     }
-    else if(spot_descriptionValueTrim.length > 200){
+    else if(spot_descriptionValue.length > 200){
         setErrorFor(spot_description, 'Spot Description should contain at most 200 characters');
         flagSpot_description = 1;
     }
@@ -166,10 +204,19 @@ function checkInputs(footageFile) {
         flagSpot_description = 0;
     }
 
-    if(flagUser_id === 0 && flagOffence_no === 0 && flagSpot_description === 0){
+    console.log("flagUser_id: " + flagUser_id);
+    console.log("flagOffence_no: " + flagOffence_no);
+    console.log("flagSpot_description: " + flagSpot_description);
+    console.log("flagDriven_vehicle: " + flagDriven_vehicle);
+
+    if(flagUser_id === 0 && flagDriven_vehicle === 0 && flagOffence_no === 0 && flagSpot_description === 0){
         console.log('came until js function for event listener of submit button');
         console.log(user_idValue, offence_noValue, spot_descriptionValue);
-        addFine(user_idValue, offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile);
+        // let latitude = getLatitude();
+        console.log(latitude);
+        // let longitude = getLongitude();
+        console.log(longitude);
+        addFine(user_idValue, driven_vehicleValue , offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile, latitude, longitude);
     }
     else{
         return false;
@@ -191,7 +238,7 @@ function setSuccessFor(input) {
 //Sending data to backend
 // const addFineButton = document.getElementById("addFineButton");
 
-const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, police_id, police_station, footageFile)
+const addFine = function(user_idValue, driven_vehicleValue, offence_noValue, spot_descriptionValue, police_id, police_station, footageFile, latitude, longitude)
 {
     console.log('came until js function for addFine which sends data to backend');
     
@@ -227,12 +274,17 @@ const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, p
     form_data.append("action", "addFine");
     form_data.append("offence_type", offence_type);
     form_data.append("user_id", user_idValue);
-    form_data.append("driven_vehicle", driven_vehicle);
+    form_data.append("driven_vehicle", driven_vehicleValue);
     form_data.append("offence_no", offence_noValue);
     form_data.append("spot_description", spot_descriptionValue);
     form_data.append("police_id", police_id);
     form_data.append("police_station", police_station);
     form_data.append("footage_file", footageFile); //footage file is not validated
+    form_data.append("latitude", latitude); ///not validated
+    form_data.append("longitude", longitude); //not validated   
+
+    console.log(latitude);
+    console.log(longitude);
 
     console.log(form_data.get("footageFile"));
 
@@ -271,6 +323,13 @@ function getMessage(fineAdditionStatus) {
 
 }
 
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
+
 /*Returns True if NIC is valid */
 let nicValidate = function(nicNumber)
 {
@@ -283,8 +342,8 @@ let nicValidate = function(nicNumber)
     }
     else {
         /*NIC Number is invalid */
-        return false;
         console.log("NIC is invalid in nicValidation.js!!");
+        return false;
     }
 }
 
@@ -307,8 +366,8 @@ function validation(nicNumber) {
     return result;
 }
 
-
-
-
-
-
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}

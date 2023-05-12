@@ -48,9 +48,13 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <p class="user-name" id="user_name">Suraif Muhammad</p>
+            <a href="../profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" id="profile-picture" alt="">
+            </div>
         </div>
-    
     <!-- Dashbboard cards -->
     <div class="all">
         <div class="container">
@@ -66,7 +70,7 @@
                         <i class="fa-solid fa-circle-exclamation"></i>
                         <small>Error message</small>
                     </div>
-                    <div class="form-control" id="driven_vehicle">
+                    <div class="form-control" id="driven_vehicle_div">
                         <label for="driven_vehicle">Vehicle Number</label>
                         <input type="text" placeholder="Enter the driven vehicle number" id="driven_vehicle"/>
                         <i class="fa-regular fa-circle-check"></i>
@@ -103,6 +107,7 @@
                 </form>
             </div>
         </div>
+    <script src="../../../resources/js/police/username.js"></script>
     <script src="/resources/js/police/policeman/trafficPolice/addFine.js"></script>
 </body>
 </html>

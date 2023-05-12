@@ -62,10 +62,12 @@ export const addComplaintByUserId = (
         callback(JSON.parse(responseBody));
         alert("Complaint Added Successfully");
         window.location.href = "#";
-      } else {
-        // handle error response
-        alert("Complaint Not Added");
       }
+    } else if (this.status === 401) {
+      redirectToLogin();
+    } else {
+      // handle error response
+      alert("Complaint Not Added");
     }
   };
 
