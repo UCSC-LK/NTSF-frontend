@@ -233,3 +233,28 @@ footer a, footer a:link {
 .tagline {
     margin: auto;
 }
+
+/********** Success or Error Messages **********/
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 255px;
+    height: 60px;
+    position: absolute;
+    right: -255px;
+    bottom: 5vh;
+    animation: showMessage ease-out 5s;
+}
+
+.form-control small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}

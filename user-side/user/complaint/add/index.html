@@ -9,8 +9,10 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
           href="./style.css">
-    <link rel="stylesheet"
-          href="../../../resources/css/form.css">
+    <!-- <link rel="stylesheet"
+          href="../../../resources/css/form.css"> -->
+    <!-- <link rel="stylesheet"
+          href="../../../component/smallMessage/form.css"> -->
     <link rel="stylesheet"
           href="../../../component/message/style.css">
     <link rel="stylesheet"
@@ -83,47 +85,54 @@
                 <div class="formHeader">
                     <h2>Add Complaint</h2>
                 </div>
-                <form id="complaintForm"
-                      class="form"
-                      action="#"
-                      method="post"
-                      oninput="validateComplaintForm()"
-                      onsubmit="addComplaint(); return false"
-                      enctype='multipart/form-data'>
-                    <div class="form-control">
+                <div id="form-control">
+                    <form id="complaintForm"
+                          class="form"
+                          action="#"
+                          method="post"
+                          oninput="validateComplaintForm()"
+                          onsubmit="addComplaint(); return false"
+                          enctype='multipart/form-data'>
+                        <div class="form-control">
 
-                        <label for="fineNo">Fine No</label>
-                        <input type="text"
-                               placeholder=""
-                               id="fineNo" />
-                        <!-- <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i> -->
+                            <!-- Fine No -->
+                            <label for="fineNo">Fine No</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="fineNo" />
+                            <!-- <i class="fas fa-check-circle"></i>
+                      <i class="fas fa-exclamation-circle"></i> -->
 
-                        <label for="title">Title</label>
-                        <input type="text"
-                               placeholder=""
-                               id="title" />
+                            <!-- Complaint Title -->
+                            <label for="title">Title</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="title" />
 
-                        <label for="description">Description</label>
-                        <input type="text"
-                               placeholder=""
-                               id="description" />
+                            <!-- Complaint Description -->
+                            <label for="description">Description</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="description" />
 
-                        <label for="footage">Footage Upload</label>
-                        <input type="file"
-                               id="footage"
-                               name="footage"
-                               accept="image/png, image/jpeg, image/jpg, video/mp4">
-                    </div>
-                    <button id="submit-btn"
-                            disabled>
-                        Submit
-                    </button>
-                </form>
+                            <!-- Upload Footage -->
+                            <label for="footage">Footage Upload</label>
+                            <input type="file"
+                                   id="footage"
+                                   name="footage"
+                                   accept="image/png, image/jpeg, image/jpg, video/mp4">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button id="submit-btn"
+                                disabled>
+                            Submit
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

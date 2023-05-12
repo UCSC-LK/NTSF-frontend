@@ -7,11 +7,16 @@ import {
 } from "/user-side/util/validator.js";
 import { displayMessage } from "/user-side/component/message/script.js";
 import { redirectToLogin } from "/user-side/util/navigation.js";
+import { togglePasswordVisibility } from "/user-side/component/togglePassword/script.js";
 
 // JQuery
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.getElementsByTagName("head")[0].appendChild(script);
+
+window.addEventListener("load", () => {
+  window.togglePasswordVisibility = togglePasswordVisibility;
+});
 
 /**
  * Validate the login form
