@@ -159,7 +159,7 @@ button {
 .dashboard-heading .panel .profile-username-nav {
     display: inline-block;
     position: absolute;
-    right: 20px;
+    right: 110px;
     top: -8px;
     color: white;
 }
@@ -242,6 +242,7 @@ div.scroll {
 img {
     height: 25px;
     margin: auto 10px;
+    /* border-radius: 50%; */
 }
 
 .personal-info-card .profile-username {
@@ -273,7 +274,7 @@ img {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 5%;
+    width: 100px;
     height: 100%;
     margin-left: 1%;
     margin-right: 1%;
@@ -284,7 +285,7 @@ img {
 .profile-picture {
     width: 80%;
     height: 80%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     /* background-color: blue; */
 }
 
@@ -318,6 +319,7 @@ img {
     color: #73787c;
     margin-top: 20px;
     position: relative;
+    text-align: center;
 }
 
 /* Override 'webkit-any-link' pseudo class */
