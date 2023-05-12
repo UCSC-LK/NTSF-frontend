@@ -326,7 +326,7 @@ function checkGradeFill() {
 }
 
 rankOptions.addEventListener("click", addToUIOptionsRank);
-police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad);
+police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
 gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
@@ -496,17 +496,7 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     {
         if(this.readyState === 4 && this.status === 200)
         {
-            policemanAdditionStatus = false;
-            if(addPolicemanData(this))
-            {
-                console.log("Policeman added successfully");
-                policemanAdditionStatus = true;
-            }
-            else
-            {
-                console.log("Policeman added failed");
-                policemanAdditionStatus = false;
-            }
+            policemanAdditionStatus = true;
             getMessage(policemanAdditionStatus);
         }
     }
@@ -543,14 +533,18 @@ const addPoliceman = function(name, police_id, nic, mobile_number, email,  rank,
     httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
     httpReq.send(form_data);
 
-    function addPolicemanData(httpReq)
-    {
-        let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
-        console.log(jsonAddPolicemanResponse);
-        let addPolicemanResponse = jsonAddPolicemanResponse.alert;
-        console.log(addPolicemanResponse);
-        return addPolicemanResponse;
-    }
+    //****Error */
+    // function addPolicemanData(httpReq)
+    // {
+    //     console.log(httpReq);
+
+    //     console.log(httpReq.responseText);
+    //     let jsonAddPolicemanResponse = JSON.parse(httpReq.responseText);
+    //     console.log(jsonAddPolicemanResponse);
+    //     let addPolicemanResponse = jsonAddPolicemanResponse.alert;
+    //     console.log(addPolicemanResponse);
+    //     return addPolicemanResponse;
+    // }
     
 }
 
@@ -798,15 +792,15 @@ function validation(nicNumber) {
     if (nicNumber.length === 10 && !isNaN(nicNumber.substr(0, 9)) && isNaN(nicNumber.substr(9, 1).toLowerCase()) && ['x', 'v'].includes(nicNumber.substr(9, 1).toLowerCase())) {
         result = true;
         console.log("NIC of 10 digits is valid");
-        setErrorFor(document.getElementById('nic'), 'NIC of 10 digits is valid');
+      //  setErrorFor(document.getElementById('nic'), 'NIC of 10 digits is valid');
     } else if (nicNumber.length === 12 && !isNaN(nicNumber)) {
         result = true;
-        console.log(nic,"NIC of 12 digits is valid");
-        setErrorFor(nic, 'NIC of 12 digits is valid');
+        console.log("NIC of 12 digits is valid");
+      //  setErrorFor(nic, 'NIC of 12 digits is valid');
     } else {
         result = false;
         console.log("NIC is invalid not 10 or 12");
-        setErrorFor(nic, 'NIC is invalid not 10 or 12');
+      //  setErrorFor(nic, 'NIC is invalid not 10 or 12');
     }
     return result;
 }

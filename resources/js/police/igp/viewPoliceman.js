@@ -96,7 +96,20 @@ function policemanDataHTMLoutput(name, police_id, nic, mobile_number, email, ran
     dataCell3.innerHTML = nic;
     dataCell4.innerHTML = mobile_number;
     dataCell5.innerHTML = email;
-    dataCell6.innerHTML = rank;
+    // dataCell6.innerHTML = rank;
+    if(rank === "igp")
+    {
+        dataCell6.innerHTML = "IGP";
+    }
+    else if(rank === "oic"){
+        dataCell6.innerHTML = "OIC";
+    }
+    else if(rank === "policeman"){
+        dataCell6.innerHTML = "Policeman";
+    }
+    else{
+        dataCell6.innerHTML = "Unknown";
+    }
     dataCell7.innerHTML = grade;
     dataCell8.innerHTML = police_station;
     // dataCell8.innerHTML = "<button type='button' class='btn btn-primary' onclick='editPolicemanDetails("+police_id+")'><i class='fa-regular fa-pen-to-square'></i></button>";
