@@ -321,12 +321,12 @@ function checkGradeFill() {
     else {
         let selectedGrade = gradeOptions.firstElementChild.textContent;
         console.log(selectedGrade);
-        return selectedGrade;
+        return selectedGrade;z
     }
 }
 
 rankOptions.addEventListener("click", addToUIOptionsRank);
-police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
+police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad);
 police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
 gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
