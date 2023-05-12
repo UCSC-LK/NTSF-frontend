@@ -94,11 +94,12 @@ function checkInputs(footageFile) {
     console.log("user_idValue: " + user_idValue);
     console.log("offence_noValue: " + offence_noValue);
     console.log("spot_descriptionValue: " + spot_descriptionValue);
+    console.log("driven_vehicleValue: " + driven_vehicleValue);
 
 	let flagUser_id = 1; //error exists
     let flagOffence_no = 1; //error exists
     let flagSpot_description = 1; //error exists
-    let flagDriven_vehicle = 1; //error exists
+    let flagDriven_vehicle = 0; //error doesnt exists
 
     if(offence_type == "driver"){
         //user_id is license_no
@@ -150,20 +151,20 @@ function checkInputs(footageFile) {
     }
 
     //driven_vehicle number is validated here
-    if(driven_vehicleValue === '') {
-        setErrorFor(driven_vehicle, 'Driven Vehicle No cannot be blank');
-        flagDriven_vehicle = 1;
-    }
+    // if(driven_vehicleValue === '') {
+    //     setErrorFor(driven_vehicle, 'Driven Vehicle No cannot be blank');
+    //     flagDriven_vehicle = 1;
+    // }
 
-    else if((driven_vehicleValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
-        setErrorFor(driven_vehicle, 'Driven Vehicle No Invalid');
-        flagDriven_vehicle = 1;
-    }
+    // else if((driven_vehicleValue.match(/^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})/m)) == null){
+    //     setErrorFor(driven_vehicle, 'Driven Vehicle No Invalid');
+    //     flagDriven_vehicle = 1;
+    // }
 
-    else {
-        setSuccessFor(driven_vehicle);
-        flagDriven_vehicle = 0;
-    }
+    // else {
+    //     setSuccessFor(driven_vehicle);
+    //     flagDriven_vehicle = 0;
+    // }
 
     if(offence_noValue === '') {
         setErrorFor(offence_no, 'Offence No cannot be blank');
@@ -215,7 +216,7 @@ function checkInputs(footageFile) {
         console.log(latitude);
         // let longitude = getLongitude();
         console.log(longitude);
-        addFine(user_idValue, offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile, latitude, longitude);
+        addFine(user_idValue, driven_vehicleValue , offence_noValue, spot_descriptionValue, police_idSession, police_stationSession, footageFile, latitude, longitude);
     }
     else{
         return false;
@@ -237,7 +238,7 @@ function setSuccessFor(input) {
 //Sending data to backend
 // const addFineButton = document.getElementById("addFineButton");
 
-const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, police_id, police_station, footageFile, latitude, longitude)
+const addFine = function(user_idValue, driven_vehicleValue, offence_noValue, spot_descriptionValue, police_id, police_station, footageFile, latitude, longitude)
 {
     console.log('came until js function for addFine which sends data to backend');
     
@@ -273,7 +274,7 @@ const addFine = function(user_idValue, offence_noValue, spot_descriptionValue, p
     form_data.append("action", "addFine");
     form_data.append("offence_type", offence_type);
     form_data.append("user_id", user_idValue);
-    form_data.append("driven_vehicle", driven_vehicle);
+    form_data.append("driven_vehicle", driven_vehicleValue);
     form_data.append("offence_no", offence_noValue);
     form_data.append("spot_description", spot_descriptionValue);
     form_data.append("police_id", police_id);
