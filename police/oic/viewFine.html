@@ -23,21 +23,23 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">IGP Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">OIC Dashboard</button>
+            </a>
             <div class="menu">
-                <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
+                <a href="../oic/viewPoliceman.html" >
                     <i class="fa-solid fa-person-military-rifle"></i>
-                    Policeman
+                    Police
                 </a>
-                <a href="../igp/viewPoliceStation.html">
-                    <i class="fa-solid fa-building-shield"></i>
-                    Police Station
+                <a href="../oic/fine.html">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Fine
                 </a>
-                <a href="../igp/offence.html">
+                <a href="../oic/offence.html">
                     <i class="fa-solid fa-handcuffs"></i>
                     Offence
                 </a>
-                <a href="../login.html">
+                <a href="../login.html" onclick="sessionStorage.clear()">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
@@ -50,6 +52,9 @@
             <a href="../profile.html">  
                 <p class="user-name" id="user_name"></p>
             </a>
+            <div class="profile-picture-container">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+            </div>
         </div>
     <!-- Dashbboard cards -->
     <div class="all">
@@ -92,6 +97,7 @@
         </div>
     </div>
     </div>
+    <script src="../../resources/js/police/username.js"></script>
     <script src="../../resources/js/police/oic/viewFine.js"></script>
 </body>
 </html>

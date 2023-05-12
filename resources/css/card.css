@@ -34,3 +34,9 @@ a {
     margin-top: 3.5%;
     font-size: 400%;
 }
+
+#trafficPoliceIcon, #investigationOfficerIcon, #courtOfficerIcon{
+    margin-right: 2%;
+    margin-top: 3.5%;
+    font-size: 400%;
+}

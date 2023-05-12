@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+
+    <title>National Traffic Spot Fine System</title>
 </head>
 <body>
     <div class="side-bar">
@@ -20,24 +22,26 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">OIC Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">OIC Dashboard</button>
+            </a>
             <div class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Police Station
-            </a>
-            <a href="../igp/offence.html" style="color: #14abfa;">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Logout
-            </a>
+                <a href="../oic/viewPoliceman.html" >
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Police
+                </a>
+                <a href="../oic/fine.html">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Fine
+                </a>
+                <a href="../oic/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
         </div>
     </div>
 </div>
@@ -45,27 +49,36 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <p class="user-name" id="user_name">Suraif Muhammad</p>
+            <a href="../profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+            </div>
         </div>
     <!-- Dashbboard cards -->
     <div class="all">
         <div class="container">
             <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
                 <a href="/police/oic/viewOffence.html" id="driverOffence">
                 <h2>Driver</h2>
                 </a>
             </div>
             <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
                 <a href="/police/oic/viewOffence.html" id="pedestrianOffence">
                     <h2>Pedestrian</h2>
                 </a>
             </div>
             <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
                 <a href="/police/oic/viewOffence.html" id="vehicleOffence">
                     <h2>Vehicle</h2>
                 </a>
             </div>
         </div>
+    <script src="../../resources/js/police/username.js"></script>
     <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
 </body>
 </html>
