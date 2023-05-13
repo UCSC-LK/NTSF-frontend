@@ -27,3 +27,9 @@ export function redirectToAddComplaint(fineNo) {
 export function redirectToViewComplaints() {
   window.location.href = "/user-side/user/complaint/view/index.html";
 }
+
+export function redirectToPayment(fineNo) {
+  const paymentFormURL = "/user-side/user/payment/index.html";
+  const redirectURL = `${paymentFormURL}?fineNo=${fineNo}`;
+  window.location.href = redirectURL;
+}
