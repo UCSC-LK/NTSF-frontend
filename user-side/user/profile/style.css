@@ -140,7 +140,8 @@ button {
 }
 
 .dashboard-heading .panel {
-    padding-bottom: 40px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     background-color: #12abf7;
     margin-bottom: 20px;
 }
@@ -235,17 +236,17 @@ div.scroll {
 }
 
 .img-container {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    text-align: center;
 }
 
-img {
-    height: 25px;
-    margin: auto 10px;
-    /* border-radius: 50%; */
+.img-container .img {
+    /* display: flex; */
+    /* align-items: center; */
+    border-radius: 50%;
 }
 
-.personal-info-card .profile-username {
+*/ .personal-info-card .profile-username {
     font-size: 25px;
     white-space: nowrap;
     font-weight: bold;
@@ -340,3 +341,25 @@ a:-webkit-any-link:visited {
     text-decoration: none;
     cursor: pointer;
 } */
+
+
+/* # -> Id . -> Class */
+#big-profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* img {
+    height: 25px;
+    margin: auto 10px;
+    /* border-radius: 50%; */
+/* } */

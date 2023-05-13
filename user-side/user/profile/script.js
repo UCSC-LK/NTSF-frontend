@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
     sessionStorage.getItem("name");
 
   displayImageFromSessionStorage("profilePicture", "profile-picture-container");
+  // displayImageFromSessionStorage("profilePicture", "img-container");
 
   // Getting nic from the session storage
   const nic = sessionStorage.getItem("nic");
@@ -66,6 +67,9 @@ function profileDataHTMLoutput(profileData) {
     if (profileData.people) {
       document.getElementById("profile-username").innerHTML =
         profileData.people.name;
+    } else if (profileData.people) {
+      document.getElementById("img-container").innerHTML =
+        displayImageFromSessionStorage("profilePicture", "img-container");
     }
   } else {
     // If profile data is not available
