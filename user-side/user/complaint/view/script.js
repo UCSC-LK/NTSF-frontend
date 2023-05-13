@@ -9,6 +9,8 @@ window.addEventListener("load", () => {
   document.getElementById("profile-username").innerHTML =
     sessionStorage.getItem("name");
 
+  displayImageFromSessionStorage("profilePicture", "profile-picture-container");
+
   // Getting user Id from the session storage | User Id = 107
   const userId = sessionStorage.getItem("userId");
   console.log(userId);

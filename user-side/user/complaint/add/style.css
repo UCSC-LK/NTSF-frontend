@@ -65,9 +65,7 @@ button {
 }
 
 .ntsf-logo {
-    height: 75px;
-    width: 125px;
-    margin-left: -30px;
+    height: 100px;
 }
 
 
@@ -100,6 +98,7 @@ button {
     position: relative;
     padding-right: 10px;
     top: 3px;
+    width: 50px
 }
 
 .menu .fa-solid {
@@ -107,11 +106,10 @@ button {
     padding-left: 2px;
 }
 
-/* dashboard-heading */
+/* dashboard-heading
 .dashboard-heading {
     width: 76%;
     float: right;
-    /* background: #ffffff; */
     background: #fff;
     position: relative;
     color: #73787c;
@@ -121,7 +119,6 @@ button {
 
 .dashboard-heading .all {
     margin-top: 20px;
-    /* background: #f2f2f2; */
     background: #394264;
     width: 100%;
     min-height: 100vh;
@@ -150,7 +147,7 @@ button {
     right: 20px;
     top: -8px;
     color: white;
-}
+} */
 
 /********************************************* FORM ****************************************/
 
@@ -372,38 +369,53 @@ button[disabled] {
     }
 }
 
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
-}
-
 .logo-name {
     width: 60%;
 }
 
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
 }
 
-/* .ntsf-logo new changes starts here */
-
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
     color: white;
+    background-color: #12abf7;
+    padding: 5px;
+    padding-right: 10px;
+    margin-bottom: 20px;
 }
 
-.logo-name {
-    width: 60%;
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
 }
 
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
 }
 
-/* Ends here */
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
