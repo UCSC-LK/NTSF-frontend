@@ -30,3 +30,11 @@ unpaid
 paid
 
 removed - If complaint is accepted by the investigation officer 
+
+# complaint status
+
+pending -  Default
+
+rejected
+
+accepted

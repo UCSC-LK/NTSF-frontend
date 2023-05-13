@@ -154,3 +154,97 @@ function viewLocation(complaint_no, fine_no, user_id, title, description){
     }
     
 }
+
+function acceptAppeal(complaint_no, fine_no){
+
+}
+
+function rejectAppeal(complaint_no, fine_no){
+    console.log("view Location is called");
+    let jwt = sessionStorage.getItem('jwt');
+    let user_police_id = sessionStorage.getItem('user_police_id');
+    console.log("user_police_id: " + user_police_id);
+    let user_rank = sessionStorage.getItem('rank');
+    console.log(user_rank);
+    let user_police_station = sessionStorage.getItem('user_police_station');
+    console.log(user_police_station);
+    console.log("Complaint No: " + complaint_no);
+    let httpreq = new XMLHttpRequest;
+    httpreq.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200) {
+            completeLoad(this);
+        }
+    }
+    
+    httpreq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
+    httpreq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpreq.send("action=rejectAppeal" + "&complaint_no=" + complaint_no);
+
+    function completeLoad(httpreq)
+    {
+        let jsonFineData = JSON.parse(httpreq.responseText);
+        console.log(jsonFineData);
+
+        if(jsonFineData.serverResponse === "null session" || jsonFineData.serverResponse === "Not Allowed")
+        {
+            window.location.href = "http://localhost:8080/ntsf_backend_war/login"; //Redirect to login page
+            console.log("Redirecting to login page");
+        }
+        else if(jsonFineData.serverResponse === "Allowed")
+        {
+            console.log("Allowed");
+            let jsonFineDataAlert = jsonFineData.alert; 
+            if(jsonFineDataAlert == true){
+                getMessage(true);
+                window.location.reload();
+            }
+            else{
+                getMessage(false);
+            }
+    
+        }
+        else
+        {
+            alert("Something went wrong");
+        }
+
+    }
+    
+
+}
+
+
+
+
+
+function getMessage(appealRejectionStatus) {
+    let message = document.createElement("div");
+    message.className = "message";
+
+    if (appealRejectionStatus == false) {
+        message.classList.add("danger");
+        message.textContent = "Appeal Rejection Failed";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+    else {
+        message.classList.add("success");
+        message.textContent = "Appeal Rejected Successfully";
+
+        document.body.appendChild(message);
+
+        deleteMessage(message);
+    }
+
+}
+
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+

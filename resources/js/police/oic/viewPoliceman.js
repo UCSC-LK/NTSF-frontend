@@ -176,6 +176,12 @@ function getMessage(positionUpdationStatus) {
 
 }
 
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
 
 
 function setErrorFor(input, message) {

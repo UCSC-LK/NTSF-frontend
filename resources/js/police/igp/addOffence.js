@@ -324,6 +324,11 @@ const addOffence = function(offence_no, offence_type, description, amount, demer
 
 
 
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
 
 
 

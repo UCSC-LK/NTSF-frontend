@@ -520,3 +520,10 @@ function getMessage(policestationAdditionStatus) {
 
 }
 
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
+

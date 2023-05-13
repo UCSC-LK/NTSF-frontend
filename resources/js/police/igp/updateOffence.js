@@ -377,6 +377,12 @@ function getMessage(offenceAdditionStatus) {
 
 }
 
+function deleteMessage(el) {
+    setTimeout(() => {
+        document.body.removeChild(el);
+    }, 6000);
+}
+
 
 
 

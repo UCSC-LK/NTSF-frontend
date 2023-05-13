@@ -20,8 +20,17 @@
     <link rel="icon"
           type="image/x-icon"
           href="../../resources/icons/favicon.ico">
+
+          <!--md5 Algorithm-->
+          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/js-md5/0.7.3/md5.min.js"></script> -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+        <!-- PayHere -->
+        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+
     <script type="module"
             src="./script.js"></script>
+        
 
 </head>
 
@@ -72,6 +81,9 @@
             </div>
         </div>
     </div>
+    <!-- PAyment gateway mission starting here-->
+    <button type="submit" id="payhere-payment" >PayHere Pay</button>
+    <div></div>
 </body>
 
 </html>
