@@ -13,7 +13,7 @@
 h1 {
 	text-align: center;
 	font-size: 1.8em;
-	color: grey;
+	color: #394867;
 }
 
 .container
@@ -67,17 +67,17 @@ tr
 	border-color: #bfbfbf;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	background-color: #f5f9fc;
+	background-color: #e1e4ee;
 }
 
 tr:first-child {
   border-top: none;
-  background: #9FB4C7;
+  background: #6A789A;
   color: #fff;
 }
 
 tr:nth-child(odd):not(:first-child) {
-  background-color: #ebf3f9;
+  background-color: #E3F0FF;
 }
 
 /* .rwd-table td:before {
@@ -121,6 +121,13 @@ tr:nth-child(odd):not(:first-child) {
 } */
 
 #deleteButton, #editButton, .addButton {
+	font-size: inherit;
+	background-color: transparent;
+	border: none; 
+	cursor: pointer;
+}
+
+#viewFootageButton, #viewLocationButton, #AcceptButton #RejectButton{
 	font-size: inherit;
 	background-color: transparent;
 	border: none; 

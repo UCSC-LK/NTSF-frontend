@@ -22,25 +22,24 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">Policeman Dashboard</button>
+            <a href="dashboard.html">
+                <button class="dashboard-button">Policeman Dashboard</button>
+            </a>
             <div class="menu">
-                <a href="../../police/policeman/trafficPolice/addFine.html">
-                    <i class="fa fa-dashboard"></i>
+                <a href="../../police/policeman/viewPoliceman.html">
+                    <i class="fa-solid fa-person-military-rifle"></i>
                     Policeman
                 </a>
-                <a href="../policeman/trafficPolice/viewFine.html">
-                    <i class="fa fa-book"></i>
-                    View Fines
-                </a>
-                <a href="../oic/">
-                    <i class="fa fa-book"></i>
+                <a href="../../police/policeman/viewOffence.html"> <!-- Left for later-->
+                    <i class="fa-solid fa-handcuffs"></i>
                     Offence
                 </a>
                 <br>
-                <a href="../login.html">
-                    <i class="fa fa-money"></i>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
+
             </div>
         </div>
     </div>
@@ -66,14 +65,14 @@
                 </div>
                 <div class="card" id="investigationOfficerCard">
                     <i class="fa-solid fa-user-secret fa-2xl " id="investigationOfficerIcon"></i>
-                    <a href="/police/policeman/trafficPolice/viewAppeals.html" id="investigationOfficerButton">
+                    <a href="/police/policeman/investigationOfficer/viewAppeals.html" id="investigationOfficerButton">
                         <h2>Investigation Officer</h2>
                     </a>
                 </div>
-                <div class="card" id="courtOfficerCard">
-                    <i class="fa-solid fa-scale-balanced fa-2xl" id="courtOfficerIcon"></i>
-                    <a href="/police/policeman/trafficPolice/viewFines.css" id="courtOfficerButton">
-                        <h2>Court Officer</h2>
+                <div class="card" id="courtSeargentCard">
+                    <i class="fa-solid fa-scale-balanced fa-2xl" id="courtSeargentIcon"></i>
+                    <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="courtSeargentButton">
+                        <h2>Court Seargent</h2>
                     </a>
                 </div>
             </div>

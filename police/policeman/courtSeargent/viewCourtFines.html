@@ -6,13 +6,14 @@
     <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
     <link rel="stylesheet" href="/resources/css/user-interface.css">
     <link rel="stylesheet" href="/resources/css/card.css">
+    <link rel="stylesheet" href="/resources/css/table.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
     <title>National Traffic Spot Fine System</title>
 </head>
-<body>
+<body onload="viewCourtFinesOnLoad()">
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -22,23 +23,20 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <a href="dashboard.html">
-                <button class="dashboard-button">IGP Dashboard</button>
+            <a href="../dashboard.html">
+                <button class="dashboard-button">Policeman Dashboard</button>
             </a>
             <div class="menu">
-                <a href="../igp/viewPoliceman.html" >
+                <a href="../../../police/policeman/viewPoliceman.html">
                     <i class="fa-solid fa-person-military-rifle"></i>
                     Policeman
                 </a>
-                <a href="../igp/viewPoliceStation.html">
-                    <i class="fa-solid fa-building-shield"></i>
-                    Police Station
-                </a>
-                <a href="../igp/offence.html" style="color: #14abfa;">
+                <a href="../../police/policeman/viewOffence.html"> <!-- Left for later-->
                     <i class="fa-solid fa-handcuffs"></i>
                     Offence
                 </a>
-                <a href="../login.html" onclick="sessionStorage.clear()">
+                <br>
+                <a href="../../login.html" onclick="sessionStorage.clear()">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
@@ -53,32 +51,46 @@
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" id="profile-picture" alt="">
+                <img  src="" class="profile-picture" id="profile-picture" alt="">
             </div>
-
         </div>
     <!-- Dashbboard cards -->
     <div class="all">
+
         <div class="container">
-            <div class="card">
-                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
-                <a href="/police/igp/viewOffence.html" id="driverOffence">
-                    <h2>Driver</h2> 
-                </a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
-                <a href="/police/igp/viewOffence.html" id="pedestrianOffence">
-                    <h2>Pedestrian</h2>
-                </a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
-                <a href="/police/igp/viewOffence.html" id="vehicleOffence">
-                    <h2>Vehicle</h2>
-                </a>
+            <h1 id="offenceType"></h1> <br>
+            <div class="tableSection">
+                <table class="rwd-table" id="table">
+                    <tbody>
+                      <div class="tableheading">
+                        <thead>
+                          <th>Offence No</th>
+                          <th>Description</th>
+                          <th>Amount</th>
+                          <th>Demerit Points</th>
+                          <th></th>
+                          <th></th>
+                        </thead>
+                      </div>
+                      <div id="offenceData"></div>
+                    </tbody>
+                  </table>
             </div>
         </div>
+    </div>
+
+    <!-- Model to popup Are you sure want to delete?? -->
+
+    <div id="myModel" class="model">
+        <div class="model-content">
+            <p class="model-question">Are you sure you want to delete ?</p>
+            <div class="model-options">
+                <button id="model-yes" class="model-button">Yes</button>
+                <button id="model-no" class="model-button">No</button>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="/resources/js/police/username.js"></script>
     <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
 </body>

@@ -1,6 +1,6 @@
 //Scatter graphs - myChart1
 
-const xValues1 = ["June", "July", "August", "September", "October", "November", "December", "January", "Febru"  ,"April" ,"May"];
+const xValues1 = ["June", "July", "August", "September", "October", "November", "December", "January", "February"  ,"April" ,"May"];
 const yValues1 = [70000,84000,65000,99000,57000,82000,100000,35000,47000,78000,83000, 65000, 28000];
 
 new Chart("myChart1", {
@@ -28,9 +28,9 @@ new Chart("myChart1", {
 var xValues = ["Driver", "Vehicle", "Pedestrian"];
 var yValues = [35000, 10000, 25000];
 var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
+  "#7E2B40",
+  "#4A4173",
+  "#394867",
 ];
 
 new Chart("myChart2", {
@@ -53,8 +53,8 @@ new Chart("myChart2", {
 
 //Bar Graph - myChart3
 var xValues = ["Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya"];
-var yValues = [55000, 49000, 44000, 240000, 350000, 55000, 49000, 44000, 240000, 350000, 55000, 49000, 44000, 240000, 350000, 55000, 49000, 44000, 240000, 350000, 55000, 49000, 44000, 240000, 350000, 55000, 49000, 44000, 240000, 350000];
-var barColors =  ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#800000", "#008000", "#000080", "#808000", "#800080", "#008080", "#C0C0C0", "#FFA500", "#FFC0CB", "#FF7F50", "#FF00FF", "#FF1493", "#00FF7F", "#2E8B57", "#DC143C", "#FFD700", "#1E90FF", "#BA55D3", "#ADFF2F"];
+var yValues = [55000, 49000, 48000, 270000, 250000, 55000, 49000, 48000, 240000, 350000, 55000, 49000, 44000, 340000, 350000, 55000, 42000, 44000, 240000, 350000, 65000, 49000, 44000, 14000, 350000, 55000, 49000, 44000, 240000, 350000];
+var barColors = ["#0098A7", "#394867", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#9B6C74", "#005756","#394867", "#564629", "#897656", "#773426" , "#4A4173", "#132541", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#394867", "#564629", "#897656", "#0098A7", "#897656"]
 
 new Chart("myChart3", {
   type: "bar",

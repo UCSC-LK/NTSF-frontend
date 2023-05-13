@@ -56,13 +56,15 @@ body {
 .logo-name
 {
 	width: 60%;
+	font-size: 240%;
 }
 
 .tagline {
 	height: 40%;
 	color: #9b9ea2;
 	font-weight: 300;
-	font-size: 1.2em;
+	font-size: 1.1em;
+	text-align: center;
 }
 
 .menu {
@@ -85,7 +87,7 @@ body {
 
 .menu a i {
 	font-size: 1.2em;
-	color: #14abfa;
+	color: #394867;
 	position: relative;
 	padding-right: 10px;
 	top: 3px;
@@ -122,7 +124,7 @@ body {
 }
 
 .dashboard-heading .panel {
-	background-color: #12abf7;
+	background-color: #394867;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -160,14 +162,20 @@ body {
 } */
 
 .dashboard-button {
-	background: #14abfa;
-	border: solid 6px #14abfa;
+	background: #394867;
+	border: solid 6px #394867;
 	border-radius: 5px;
 	color: #ffffff;
 	font-weight: 700;
 	font-family: "Source Sans Pro", sans-serif;
 	font-size: 1.2em;
+	cursor: pointer;
 	width: 100%;
+}
+
+.dashboard-button:hover {
+	background: #ffffff;
+	color: #394867;
 }
 
 a{

@@ -20,7 +20,8 @@
 
 .form-header {
 	border-bottom: 1px solid #f0f0f0;
-	background-color: #f7f7f7;
+	background-color: #394867;
+	color: #E3F0FF;
 	height: 15%;
 	padding: 4%; /*issue here*/
 	position: sticky;
@@ -98,8 +99,8 @@
 }
 
 .form button {
-	background-color: #12abf7;
-	border: 2px solid #12abf7;
+	background-color: #394867;
+	border: 2px solid #394867;
 	border-radius: 4px;
 	color: #fff;
 	display: block;
@@ -112,11 +113,11 @@
 }
 
 .form button:hover {
-	background-color: #0e8cd9;
+	background-color: #6A789A;
 }
 
 .form button:active {
-	background-color: #0e8cd9;
+	background-color: #6A789A;
 	transform: translateY(4px);
 }
 
@@ -147,6 +148,6 @@
 }
 
 .option:hover {
-	background-color: 12abf7;
+	background-color:#394867;
 	color: white;
 }

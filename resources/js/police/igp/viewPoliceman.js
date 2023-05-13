@@ -126,18 +126,19 @@ function deletePolicemanDetails(police_id) //Delete a policeman
     httpreq.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            policemanDeletionStatus = false;
-            if(deletePolicemanData(this))
-            {
-                console.log("Policeman deleted successfully");
-                policemanDeletionStatus = true;
-            }
-            else
-            {
-                console.log("Policeman deletion failed");
-                policemanDeletionStatus = false;
-            }
+            policemanDeletionStatus = true;
+            // if(deletePolicemanData(this))
+            // {
+            //     console.log("Policeman deleted successfully");
+            //     policemanDeletionStatus = true;
+            // }
+            // else
+            // {
+            //     console.log("Policeman deletion failed");
+            //     policemanDeletionStatus = false;
+            // }
             getMessage(policemanDeletionStatus);
+            wind
         }
     }
     

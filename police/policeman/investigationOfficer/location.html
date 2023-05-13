@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Location</title>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBZfTXgrsbyt5iElwKu47Jdd0grdRfd6bw" defer></script>
+    <style>
+        #mapCanvas {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapCanvas"></div>
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // Latitude and longitude of the selected location
+            sessionLatitude = sessionStorage.getItem("maplatitude");
+            sessionLongitude = sessionStorage.getItem("maplongitude");
+            sessionUserId = sessionStorage.getItem("mapuser_id");
+            sessionFineNo = sessionStorage.getItem("mapfine_no");
+            sessionComplaintNo = sessionStorage.getItem("mapcomplaint_no");
+            sessionTitle = sessionStorage.getItem("maptitle");
+            sessionDescription = sessionStorage.getItem("mapdescription");
+            var myLatLng = { lat: parseFloat(sessionLatitude), lng: parseFloat(sessionLongitude) };
+        
+            // The map, centered at selected location
+            const map = new google.maps.Map(document.getElementById("mapCanvas"), {
+                zoom: 12,
+                center: myLatLng
+            });
+            
+            // Info window content
+         /*   var contentString = '<div id="content">'+
+                '<h1 style="font-size:20px;">National Traffic Spot Fine System </h1>'+
+                '<div id="bodyContent">'+ 
+                    '<div style="float:left; width:20%;"><img src="info-image.jpg" width="120" height="80"/></div>' +
+                    '<div style="float:right; width:80%;margin-top: -19px;">'+
+                        '<p>Complaint No:  <b> 41</b> <br> Fine No: <b> 121 </b> <br> Title: <b> Fake Accuse for overspeed </b> <br> I have been falsely accused for breaching spped limit in highways</p>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';  */
+
+            // Create the content string with session variables
+            var contentString = '<div id="content">'+
+            '<h1 style="font-size:20px;">National Traffic Spot Fine System </h1>'+
+            '<div id="bodyContent">'+ 
+            '<div style="float:left; width:20%;"><img src="info-image.jpg" width="120" height="80"/></div>' +
+            '<div style="float:right; width:80%;margin-top: -19px;">'+
+            '<p>User ID: <b>' + sessionUserId + '</b> <br> Complaint No: <b>' + sessionComplaintNo + '</b> <br> Fine No: <b>' + sessionFineNo + '</b> <br> Title: <b>' + sessionTitle + '</b> <br> Description: <b> ' + sessionDescription + '</p>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+        
+            // Add info window
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            
+            // The marker, positioned at selected location
+            const marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Googleplex (CodexWorld)'
+            });
+        
+            // Marker click event: open info window
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        
+            // Open info window on load
+            infowindow.open(map, marker);
+        }
+        
+        window.initMap = initMap;
+        </script>
+</body>
+</html>
