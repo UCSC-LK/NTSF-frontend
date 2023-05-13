@@ -1,4 +1,4 @@
-/* Used for responsiveness */
+/* Media queries responsiveness */
 @media only screen and (max-width: 1350px) {
     .dashboard-side-panel {
         width: 90%;
@@ -57,6 +57,11 @@ button {
     margin-left: 2px;
 }
 
+.container {
+    text-align: center;
+}
+
+
 /* dashboard-side-panel */
 .logo .app-name {
     font-size: 50px;
@@ -78,9 +83,7 @@ button {
 }
 
 .ntsf-logo {
-    height: 75px;
-    width: 125px;
-    margin-left: -30px;
+    height: 100px;
 }
 
 
@@ -102,16 +105,13 @@ button {
     font-size: 1.2em;
 }
 
-/* .menu a:first-child {
-    color: #14abfa;
-} */
-
 .menu a i {
     font-size: 1.7em;
     color: #14abfa;
     position: relative;
     padding-right: 10px;
     top: 3px;
+    width: 50px;
 }
 
 .menu .fa-solid {
@@ -123,7 +123,6 @@ button {
 .dashboard-heading {
     width: 76%;
     float: right;
-    /* background: #ffffff; */
     background: #fff;
     position: relative;
     color: #73787c;
@@ -131,81 +130,44 @@ button {
     position: relative;
 }
 
-.dashboard-heading .all {
-    margin-top: 20px;
-    /* background: #f2f2f2; */
-    background: #394264;
-    width: 100%;
-    min-height: 100vh;
-}
-
 .dashboard-heading .panel {
-    padding-bottom: 5px;
-    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
     background-color: #12abf7;
+    padding: 5px;
+    padding-right: 10px;
     margin-bottom: 20px;
-}
-
-.dashboard-heading .panel i {
-    border-radius: 50%;
-    background: #f4f4f4;
-    padding: 8px;
-    border: solid 2px;
-    position: relative;
-    left: 20px;
-    cursor: pointer;
-    background-color: #12abf7;
 }
 
 .dashboard-heading .panel .profile-username-nav {
     display: inline-block;
-    position: absolute;
-    right: 110px;
-    top: -8px;
     color: white;
+    text-decoration: none;
 }
 
-.container {
-    text-align: center;
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
 }
 
 
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
-}
-
-.logo-name {
-    width: 60%;
-}
-
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* .ntsf-logo new changes starts here */
-
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
-}
-
-.logo-name {
-    width: 60%;
-}
-
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Ends here */
-
+/* scroll enabled div */
 div.scroll {
     background-color: #fff;
     width: 73%;
@@ -217,6 +179,8 @@ div.scroll {
     padding: 20px;
 }
 
+
+/* data display cards */
 .profile-data-card {
     display: inline-block;
     box-sizing: border-box;
@@ -240,16 +204,21 @@ div.scroll {
     text-align: center;
 }
 
-.img-container .img {
-    /* display: flex; */
-    /* align-items: center; */
+.profile-username-nav .img-container .img {
     border-radius: 50%;
 }
 
-*/ .personal-info-card .profile-username {
+.personal-info-card .profile-username {
     font-size: 25px;
     white-space: nowrap;
     font-weight: bold;
+}
+
+.personal-info-card .img-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .info-field {
@@ -267,99 +236,3 @@ div.scroll {
 .profile-data-row {
     display: flex;
 }
-
-/**********Profile Picture**********/
-
-.profile-picture-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100%;
-    margin-left: 1%;
-    margin-right: 1%;
-    /* background-color: red; */
-
-}
-
-.profile-picture {
-    width: 80%;
-    height: 80%;
-    /* border-radius: 50%; */
-    /* background-color: blue; */
-}
-
-/**********After Adding Profile Picture**********/
-/* .dashboard-heading {
-    width: 80%;
-    background: #ffffff;
-    color: #73787c;
-    margin-top: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-} */
-
-.dashboard-heading .panel {
-    background-color: #12abf7;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    height: 8%;
-    color: white;
-}
-
-.dashboard-heading {
-    width: 76%;
-    float: right;
-    background: #ffffff;
-    background: #fff;
-    position: relative;
-    color: #73787c;
-    margin-top: 20px;
-    position: relative;
-    text-align: center;
-}
-
-/* Override 'webkit-any-link' pseudo class */
-/* a:-webkit-any-link {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a:-webkit-any-link:hover {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a:-webkit-any-link:visited {
-    color: darkblue;
-    text-decoration: none;
-    cursor: pointer;
-} */
-
-
-/* # -> Id . -> Class */
-#big-profile-picture {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* img {
-    height: 25px;
-    margin: auto 10px;
-    /* border-radius: 50%; */
-/* } */

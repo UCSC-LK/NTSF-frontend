@@ -67,13 +67,14 @@ function profileDataHTMLoutput(profileData) {
     if (profileData.people) {
       document.getElementById("profile-username").innerHTML =
         profileData.people.name;
-    } else if (profileData.people) {
-      document.getElementById("img-container").innerHTML =
-        displayImageFromSessionStorage("profilePicture", "img-container");
+      displayImageFromSessionStorage(
+        "profilePicture",
+        "personal-info-card-img"
+      );
+    } else {
+      // If profile data is not available
+      document.getElementById("profile-data-container").remove();
     }
-  } else {
-    // If profile data is not available
-    document.getElementById("profile-data-container").remove();
   }
 }
 

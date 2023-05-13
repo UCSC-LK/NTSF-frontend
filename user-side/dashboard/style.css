@@ -66,9 +66,7 @@ button {
 }
 
 .ntsf-logo {
-    height: 75px;
-    width: 125px;
-    margin-left: -30px;
+    height: 100px;
 }
 
 
@@ -100,6 +98,7 @@ button {
     position: relative;
     padding-right: 10px;
     top: 3px;
+    width: 50px;
 }
 
 .menu .fa-solid {
@@ -108,7 +107,7 @@ button {
 }
 
 /* dashboard-heading */
-.dashboard-heading {
+/* .dashboard-heading {
     width: 76%;
     float: right;
     background: #ffffff;
@@ -150,8 +149,6 @@ button {
     color: white;
 }
 
-/* .ntsf-logo new changes starts here */
-
 .ntsf-logo {
     height: 50%;
     width: 30%;
@@ -166,7 +163,7 @@ button {
     height: 30%;
     display: flex;
     flex-direction: column;
-}
+} */
 
 /* Ends here */
 
@@ -236,4 +233,51 @@ button {
     padding: 20px 8%;
     margin: 5px auto;
     background: #ffffff;
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+    background-color: #12abf7;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
 }

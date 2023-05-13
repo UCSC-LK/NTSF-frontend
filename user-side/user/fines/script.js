@@ -18,6 +18,8 @@ window.addEventListener("load", () => {
   document.getElementById("profile-username").innerHTML =
     sessionStorage.getItem("name");
 
+  displayImageFromSessionStorage("profilePicture", "profile-picture-container");
+
   // Getting nic from the session storage
   const nic = sessionStorage.getItem("nic");
   console.log(nic);

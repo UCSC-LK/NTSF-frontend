@@ -50,6 +50,11 @@ button {
     margin-left: 2px;
 }
 
+.ntsf-logo {
+    height: 100px;
+}
+
+
 /* dashboard-side-panel */
 .logo .app-name {
     font-size: 50px;
@@ -69,13 +74,6 @@ button {
     padding: 0px 2%;
     float: left;
 }
-
-.ntsf-logo {
-    height: 75px;
-    width: 125px;
-    margin-left: -30px;
-}
-
 
 /* side-panel menu */
 .menu {
@@ -99,86 +97,19 @@ button {
     color: #14abfa;
 }
 
-/* .menu a:nth-child(4) {
-    color: #14abfa;
-} */
-
 .menu a i {
     font-size: 1.7em;
     color: #14abfa;
     position: relative;
     padding-right: 10px;
     top: 3px;
+    width: 50px;
 }
 
 .menu .fa-solid {
     top: 6px;
     padding-left: 2px;
 }
-
-/* dashboard-heading */
-.dashboard-heading {
-    width: 76%;
-    float: right;
-    background: #ffffff;
-    position: relative;
-    color: #73787c;
-    margin-top: 20px;
-    position: relative;
-}
-
-.dashboard-heading .all {
-    margin-top: 20px;
-    background: #f2f2f2;
-    width: 100%;
-    min-height: 100vh;
-}
-
-.dashboard-heading .panel {
-    padding-bottom: 40px;
-    background-color: #12abf7;
-    margin-bottom: 20px;
-}
-
-.dashboard-heading .panel i {
-    border-radius: 50%;
-    background: #f4f4f4;
-    padding: 8px;
-    border: solid 2px;
-    position: relative;
-    left: 20px;
-    cursor: pointer;
-    background-color: #12abf7;
-}
-
-.dashboard-heading .panel .profile-username {
-    display: inline-block;
-    position: absolute;
-    right: 20px;
-    top: -8px;
-    color: white;
-}
-
-/* .ntsf-logo new changes starts here */
-
-.ntsf-logo {
-    height: 50%;
-    width: 30%;
-    color: white;
-}
-
-.logo-name {
-    width: 60%;
-}
-
-.ntsf-logo {
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Ends here */
-
 
 /* TABLE HEADING */
 .tableheading {
@@ -316,4 +247,51 @@ th {
     .fines-table td {
         padding: 1em !important;
     }
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+    background-color: #12abf7;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
 }
