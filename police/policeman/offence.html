@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
     <link rel="stylesheet" href="/resources/css/user-interface.css">
-    <link rel="stylesheet" href="/resources/css/table.css">
-    <link rel="stylesheet" href="/resources/css/message.css">
-    <link rel="stylesheet" href="/resources/css/delete.css">
-    <link rel="stylesheet" href="/resources/css/police/dropdown.css">
+    <link rel="stylesheet" href="/resources/css/card.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
     <title>National Traffic Spot Fine System</title>
 </head>
-<body onload="loadPolicemanDetails()">
+<body>
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -49,38 +46,37 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <a href="profile.html">  
+            <a href="../profile.html">  
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+                <img  src="../../resources/images/sample.png" class="profile-picture" id="profile-picture" alt="">
             </div>
+
         </div>
     <!-- Dashbboard cards -->
     <div class="all">
-        <a></a>
         <div class="container">
-            <h1>Policeman Information</h1>
-            <div class="tableSection">
-                <table class="rwd-table" id="table">
-                    <tbody>
-                      <div class="tableheading">
-                        <thead>
-                          <th>Name</th>
-                          <th>Police_ID</th>
-                          <th>NIC</th>
-                          <th>Mobile Number</th>
-                          <th>Email</th>
-                          <th>Position</th>
-                        </thead>
-                      </div>
-                      <div id="policemanData"></div>
-                    </tbody>
-                  </table>
-                </div>
+            <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
+                <a href="/police/policeman/viewOffence.html" id="driverOffence">
+                    <h2>Driver</h2> 
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
+                <a href="/police/policeman/viewOffence.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
+                <a href="/police/policeman/viewOffence.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
             </div>
         </div>
-        <script src="../../resources/js/police/username.js"></script>
-    <script src="../../resources/js/police/policeman/viewPoliceman.js"></script>
+    <script src="/resources/js/police/username.js"></script>
+    <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
 </body>
 </html>
