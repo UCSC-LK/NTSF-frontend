@@ -9,13 +9,22 @@ import { redirectToLogin } from "/user-side/util/navigation.js";
  * @param {*} callback
  */
 export const getComplaintByUserId = (userId, callback) => {
+  // Create a request
   const httpRequest = new XMLHttpRequest();
+  // Attach a callback function to handle state change
   httpRequest.onreadystatechange = function () {
+    // Request has been completed
     if (this.readyState === 4) {
+      // this.responseText:
+      // Retrieves the response data from the server as a string
       const responseBody = this.responseText;
       console.log(responseBody);
+      // Successful response
       if (this.status === 200) {
+        // JSON.parse(responseBody):
+        // Converts the response data from a string to a JavaScript object
         callback(JSON.parse(responseBody));
+        // Unauthorized response
       } else if (this.status === 401) {
         redirectToLogin();
       }
@@ -24,13 +33,18 @@ export const getComplaintByUserId = (userId, callback) => {
 
   const queryString = `user_id=${userId}`;
 
+  // user_id and its value appended to the end of the URL
+  //  (true) indicates that the request should be made asynchronously
   httpRequest.open("GET", `${HOST_NAME}/complaint?${queryString}`, true);
   httpRequest.setRequestHeader(
     "Content-type",
     "application/x-www-form-urlencoded"
   );
+  // Attach authorization header
   if (attachAuthorizationHeader(httpRequest)) {
+    // Send the request
     httpRequest.send();
+    // Return true if the request has been sent successfully
     return true;
   }
   return false;
