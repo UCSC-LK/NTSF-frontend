@@ -42,6 +42,34 @@ console.log("Printing below the police_id from session storage");
 console.log("police_idSession: " + police_idSession);
 console.log("police_stationSession: " + police_stationSession);
 
+
+document.getElementById('user_id').addEventListener('blur', function(){
+    console.log("user_id blur event");
+    let user_idValue = user_id.value.trim();
+    if(user_idValue !== ''){
+        if(offence_type == "driver")
+        {
+            checkUser_IDasLicenseNo(user_idValue);
+            console.log("user_idValue: " + user_idValue);
+
+        }
+        else if(offence_type == "vehicle")
+        {
+            checkUser_IDasVehicleNo(user_idValue);
+            console.log("user_idValue: " + user_idValue);
+
+        }
+        else if(offence_type == "pedestrian")
+        {
+            checkUser_IDasNIC(user_idValue);
+            console.log("user_idValue: " + user_idValue);
+
+        }
+    }
+});
+
+
+
 function getCoordinates() {
     return new Promise(function(resolve, reject) {
       if (navigator.geolocation) {
@@ -370,4 +398,143 @@ function deleteMessage(el) {
     setTimeout(() => {
         document.body.removeChild(el);
     }, 6000);
+}
+
+
+const checkUser_IDasLicenseNo = function(license_no) //returns true if duplicate data exists
+{
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkUser_IDasLicenseNoData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpReq.send("action=checkUser_IDasLicenseNo" + "&license_no=" + license_no);
+
+    function checkUser_IDasLicenseNoData(httpReq)
+    {
+        console.log("checkUser_IDasLicenseNoData");
+        let jsonCheckUser_IDasLicenseNoResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckUser_IDasLicenseNoResponse);
+        let jsonCheckUser_IDasLicenseNoResponseAlert = jsonCheckUser_IDasLicenseNoResponse.alert;
+        console.log(jsonCheckUser_IDasLicenseNoResponseAlert);
+
+        if(jsonCheckUser_IDasLicenseNoResponseAlert == false)
+        {
+            console.log("License NO doesnt exist");
+            setErrorFor(document.getElementById('user_id'), 'License No does not exist');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
+}
+
+const checkUser_IDasNIC = function(nic) //returns true if duplicate data exists
+{
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkUser_IDasNICData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpReq.send("action=checkUser_IDasNIC" + "&nic=" + nic);
+
+    function checkUser_IDasNICData(httpReq)
+    {
+        console.log("checkUser_IDasNICData");
+        let jsonCheckUser_IDasNICResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckUser_IDasNICResponse);
+        let jsonCheckUser_IDasNICResponseAlert = jsonCheckUser_IDasNICResponse.alert;
+        console.log(jsonCheckUser_IDasNICResponseAlert);
+
+        if(jsonCheckUser_IDasNICResponseAlert == false)
+        {
+            console.log("NIC doesnt exist");
+            setErrorFor(document.getElementById('user_id'), 'NIC does not exist');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
+}
+
+const checkUser_IDasVehicleNo = function(vehicle_no) //returns true if duplicate data exists
+{
+    let httpReq = new XMLHttpRequest();
+
+    httpReq.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status === 200)
+        {
+            if(checkVehicleNoData(this))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    httpReq.open("POST", "http://localhost:8080/ntsf_backend_war/policeman", true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpReq.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('jwt'));
+    httpReq.send("action=checkUser_IDasVehicleNo" + "&vehicle_no=" + vehicle_no);
+
+    function checkVehicleNoData(httpReq)
+    {
+        console.log("checkVehicleNoData");
+        let jsonCheckVehicleNoResponse = JSON.parse(httpReq.responseText);
+        console.log(jsonCheckVehicleNoResponse);
+        let jsonCheckVehicleNoResponseAlert = jsonCheckVehicleNoResponse.alert;
+        console.log(jsonCheckVehicleNoResponseAlert);
+
+        if(jsonCheckVehicleNoResponseAlert == false)
+        {
+            console.log("Vehicle No doesnt exist");
+            setErrorFor(document.getElementById('user_id'), 'Vehicle No does not exist');
+            return true; //returns true if duplicate entry exists
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
 }

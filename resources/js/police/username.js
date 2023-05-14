@@ -6,6 +6,8 @@
  // Getting the profile picture
 
  function loadProfilePictureInDashboard(){
+    user_police_id = sessionStorage.getItem('user_police_id');
+    console.log(user_police_id);
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8080/ntsf_backend_war/policeman', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
