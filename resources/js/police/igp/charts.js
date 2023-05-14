@@ -1,7 +1,5 @@
-//Scatter graphs - myChart1
-
-const xValues1 = ["June", "July", "August", "September", "October", "November", "December", "January", "February"  ,"April" ,"May"];
-const yValues1 = [70000,84000,65000,99000,57000,82000,100000,35000,47000,78000,83000, 65000, 28000];
+const xValues1 = ["June", "July", "August", "September", "October", "November", "December", "January", "February", "April", "May"];
+const yValues1 = [70000, 84000, 65000, 99000, 57000, 82000, 100000, 35000, 47000, 78000, 83000, 65000, 28000];
 
 new Chart("myChart1", {
   type: "line",
@@ -16,9 +14,21 @@ new Chart("myChart1", {
     }]
   },
   options: {
-    legend: {display: false},
+    legend: { display: false },
     scales: {
-      yAxes: [{ticks: {min: 0, max:120000}}],
+      yAxes: [{
+        ticks: { min: 0, max: 120000 },
+        scaleLabel: {
+          display: true,
+          labelString: 'Fine Amount'
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Month'
+        }
+      }]
     }
   }
 });
@@ -53,8 +63,8 @@ new Chart("myChart2", {
 
 //Bar Graph - myChart3
 var xValues = ["Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya"];
-var yValues = [55000, 49000, 48000, 270000, 250000, 55000, 49000, 48000, 240000, 350000, 55000, 49000, 44000, 340000, 350000, 55000, 42000, 44000, 240000, 350000, 65000, 49000, 44000, 14000, 350000, 55000, 49000, 44000, 240000, 350000];
-var barColors = ["#0098A7", "#394867", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#9B6C74", "#005756","#394867", "#564629", "#897656", "#773426" , "#4A4173", "#132541", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#394867", "#564629", "#897656", "#0098A7", "#897656"]
+var yValues = [22000, 25000, 30000, 19000, 28000, 16000, 34000, 37000, 24000, 35000, 21000, 33000, 29000, 18000, 31000, 27000, 23000, 19000, 32000, 22000, 36000, 25000, 27000, 23000, 30000];
+var barColors = ["#0098A7", "#394867", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#9B6C74", "#005756","#394867", "#564629", "#897656", "#773426" , "#4A4173", "#132541", "#0B6F92", "#756691", "#9675A3", "#6A789A", "#A5ABBD", "#394867", "#564629", "#897656", "#0098A7", "#897656"];
 
 new Chart("myChart3", {
   type: "bar",

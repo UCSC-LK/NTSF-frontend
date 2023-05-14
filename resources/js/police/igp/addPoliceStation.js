@@ -193,7 +193,44 @@ function checkProvinceFill() {
     else {
         let selectedProvince = provinceOptions.firstElementChild.textContent;
         console.log(selectedProvince);
-        return selectedProvince;
+      
+        switch (selectedProvince) {
+            case "Central Province":
+            districtOptionList = ["Kandy", "Matale", "Nuwara Eliya"];
+            break;
+            case "Eastern Province":
+            districtOptionList = ["Ampara", "Batticaloa", "Trincomalee"];
+            break;
+            case "Northern Province":
+            districtOptionList = ["Jaffna", "Kilinochchi", "Mannar", "Mullaitivu", "Vavuniya"];
+            break;
+            case "North Central Province":
+            districtOptionList = ["Anuradhapura", "Polonnaruwa"];
+            break;
+            case "North Western Province":
+            districtOptionList = ["Kurunegala", "Puttalam"];
+            break;
+            case "Sabaragamuwa Province":
+            districtOptionList = ["Kegalle", "Ratnapura"];
+            break;
+            case "Southern Province":
+            districtOptionList = ["Galle", "Hambantota", "Matara"];
+            break;
+            case "Uva Province":
+            districtOptionList = ["Badulla", "Monaragala"];
+            break;
+            case "Western Province":
+            districtOptionList = ["Colombo", "Gampaha", "Kalutara"];
+            break;
+            default:
+            districtOptionList = [];
+            break;
+
+        }
+  
+  // Print the filtered district options
+    console.log(districtOptionList);
+    return selectedProvince;
     }
 }
 
