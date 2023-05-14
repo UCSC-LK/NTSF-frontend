@@ -8,17 +8,9 @@
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
 
     <title>National Traffic Spot Fine System</title>
-
-    <style>
-        #your-role {
-            margin-right: 52%;
-            color: #E3F0FF ;
-        }
-
-    </style>
 </head>
 <body>
     <div class="side-bar">
@@ -31,7 +23,7 @@
         </div>
         <div class="side-bar-list">
             <a href="dashboard.html">
-                <button class="dashboard-button">Policeman Dashboard</button>
+                <button class="dashboard-button">Court Seargent Dashboard</button>
             </a>
             <div class="menu">
                 <a href="../../police/policeman/viewPoliceman.html">
@@ -48,46 +40,43 @@
                     Logout
                 </a>
 
-            </div>
         </div>
     </div>
+</div>
     
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
-        
         <div class="panel">
-            <h2 id="your-role" ></h2>
-            <a href="../profile.html">  
+            <a href="profile.html">  
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="../../resources/images/sample.png" class="profile-picture" id="profile-picture" alt="">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
             </div>
         </div>
     <!-- Dashbboard cards -->
-        <div class="all">
-            <div class="container">
-                <div class="card" id="trafficPoliceCard">
-                    <i class="fa-solid fa-traffic-light fa-2xl" id="trafficPoliceIcon"></i>
-                    <a href="/police/policeman/trafficPolice/Fine.html" id="trafficPoliceButton">
-                    <h2>Traffic Police</h2>
-                    </a>
-                </div>
-                <div class="card" id="investigationOfficerCard">
-                    <i class="fa-solid fa-user-secret fa-2xl " id="investigationOfficerIcon"></i>
-                    <a href="/police/policeman/investigationOfficer/viewAppeals.html" id="investigationOfficerButton">
-                        <h2>Investigation Officer</h2>
-                    </a>
-                </div>
-                <div class="card" id="courtSeargentCard">
-                    <i class="fa-solid fa-scale-balanced fa-2xl" id="courtSeargentIcon"></i>
-                    <a href="/police/policeman/courtSeargent/courtFines.html" id="courtSeargentButton">
-                        <h2>Court Seargent</h2>
-                    </a>
-                </div>
+    <div class="all">
+        <div class="container">
+            <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="driverOffence">
+                <h2>Driver</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
             </div>
         </div>
-    <script src="../../resources/js/police/username.js"></script>
-    <script src="../../resources/js/police/policeman/dashboard.js"></script>
+    <script src="../../../resources/js/police/username.js"></script>
+    <script src="/resources/js/police/policeman/courtSeargent/courtFines.js"></script>
 </body>
 </html>

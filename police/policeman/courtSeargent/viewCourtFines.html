@@ -24,7 +24,7 @@
         </div>
         <div class="side-bar-list">
             <a href="../dashboard.html">
-                <button class="dashboard-button">Policeman Dashboard</button>
+                <button class="dashboard-button">Court Seargent Dashboard</button>
             </a>
             <div class="menu">
                 <a href="../../../police/policeman/viewPoliceman.html">
@@ -64,34 +64,31 @@
                     <tbody>
                       <div class="tableheading">
                         <thead>
+                         <th>Fine No</th>
                           <th>Offence No</th>
                           <th>Description</th>
+                          <th>Spot Description</th>
+                          <th>NIC</th>
+                          <th id="license_no_th">License Number</th>
+                          <th id="vehicle_no_th">Vehicle Number</th>
+                          <th id="driven_vehicle_no_th">Driven Vehicle Number</th>
+                          <th>Imposed By</th>
+                          <th>Imposed Date & Time</th>
+                          <th>Due Date & Time</th>
                           <th>Amount</th>
-                          <th>Demerit Points</th>
                           <th></th>
                           <th></th>
                         </thead>
                       </div>
-                      <div id="offenceData"></div>
+                      <div id="courtFineData"></div>
                     </tbody>
                   </table>
             </div>
         </div>
     </div>
 
-    <!-- Model to popup Are you sure want to delete?? -->
-
-    <div id="myModel" class="model">
-        <div class="model-content">
-            <p class="model-question">Are you sure you want to delete ?</p>
-            <div class="model-options">
-                <button id="model-yes" class="model-button">Yes</button>
-                <button id="model-no" class="model-button">No</button>
-            </div>
-        </div>
-    </div>
 </div>
     <script src="/resources/js/police/username.js"></script>
-    <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
+    <script src="/resources/js/police/policeman/courtSeargent/courtFine.js"></script>
 </body>
 </html>
