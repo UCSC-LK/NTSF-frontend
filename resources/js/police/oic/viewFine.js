@@ -150,8 +150,8 @@ function fetchFineDetails(payment_status, offence_type){
                     var latitude = jsonFineData.List[i].latitude;
                     var longitude = jsonFineData.List[i].longitude;
 
-                    dataCell11.innerHTML = "<button type='button' id='viewLocationButton' onclick='viewLocatio ("+latitude+", "+longitude+")'><i class='fa-solid fa-map-location-dot'></i></button>";
-
+                    dataCell11.innerHTML = "<button type='button' id='viewLocationButton' onclick='viewLocation("+latitude+", "+longitude+")'><i class='fa-solid fa-map-location-dot'></i></button>";
+                    dataCell12.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-photo-film'</i></button>";
 
                 }
             }

@@ -50,7 +50,7 @@ else if (user_position == 'courtSeargent'){
     document.getElementById("investigationOfficerCard").style.pointerEvents = "none";
     document.getElementById("trafficPoliceCard").style.pointerEvents = "none";
     document.getElementById("trafficPoliceButton").style.cursor = "not-allowed";
-    document.getElementById("courtSeargentButton").style.cursor = "not-allowed";
+    document.getElementById("investigationOfficerButton").style.cursor = "not-allowed";
 
 }
 
