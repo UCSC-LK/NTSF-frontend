@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="/resources/css/message.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+
+    <title>National Traffic Spot Fine System</title>
 </head>
 <body>
     <div class="side-bar">
@@ -20,27 +22,27 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <button class="dashboard-button">Policeman Dashboard</button>
+            <a href="../dashboard.html">
+                <button class="dashboard-button">Policeman Dashboard</button>
+            </a>
             <div class="menu">
-            <a href="../igp/viewPoliceman.html">
-                <i class="fa fa-dashboard"></i>
-                Policeman
-            </a>
-            <br>
-            <a href="../../policeman/trafficPolice/viewFine.html">
-                <i class="fa fa-book"></i>
-                View Fine
-            </a>
-            <br>
-            <a href="../igp/viewPoliceStation.html">
-                <i class="fa fa-book"></i>
-                Offence
-            </a>
-            <br>
-            <a href="../login.html">
-                <i class="fa fa-money"></i>
-                Return
-            </a>
+                <a href="../../../police/policeman/viewPoliceman.html">
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="viewFine.html">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Fine
+                </a>
+                <a href="../../police/policeman/viewOffence.html"> <!-- Left for later-->
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <br>
+                <a href="../../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
         </div>
     </div>
 </div>

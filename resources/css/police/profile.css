@@ -23,6 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
     /* background-color: green; */
 }
 
@@ -62,7 +63,7 @@ tr
 	border-color: #bfbfbf;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	background-color: #f5f9fc;
+  background-color: #e1e4ee;
 }
 
 tr:first-child {
@@ -70,5 +71,5 @@ tr:first-child {
 }
 
 tr:nth-child(odd){
-  background-color: #ebf3f9;
+  background-color: #E3F0FF;
 }

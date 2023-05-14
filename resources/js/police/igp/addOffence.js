@@ -312,6 +312,10 @@ const addOffence = function(offence_no, offence_type, description, amount, demer
     {
         let jsonAddOffenceResponse = JSON.parse(httpReq.responseText);
         console.log(jsonAddOffenceResponse);
+        let addOffenceStatus = jsonAddOffenceResponse.status;
+        console.log(addOffenceStatus);
+        return addOffenceStatus;
+
     }
     
 }

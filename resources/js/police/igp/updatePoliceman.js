@@ -81,6 +81,16 @@ console.log("police_idSession: " + police_idSession);
 let rankOptions = document.getElementById("rankOptions");
 let rankOptionList = ["OIC", "Policeman"];
 
+let gradeOptions = document.getElementById("gradeOptions");
+gradeOptionList = ["Inspector General of Police (IGP)", "Senior Deputy Inspector General of police (SDIG)",
+                     "Deputy Inspector General of police (DIG)", "Senior Superintendent of police (SSP)",
+                        "Superintendent of police (SP)", "Assistant Superintendent of police (ASP)",
+                            "Chief Inspector of police (CI)", "Inspector of police (IP)", "Sub Inspector of police (SI)",
+                                "Senior Superintendent of police (SSP)", "Police Sergeant Class 1 (PS)", 
+                                    "Police Sergeant Class 2 (PS)", "Police Constable Class 1 (PC)", "Police Constable Class 2 (PC)", 
+                                        "Police Constable Class 3 (PC)", "Police Constable Class 4 (PC)"];
+
+
 const police_stationOptions = document.getElementById('police_stationOptions');
 // let police_stationOptionList = ["Dehiwala", "Wellewatte", "Bambalapitya"];
 let police_stationOptionList = [];
@@ -388,7 +398,7 @@ function checkGradeFill() {
 
 rankOptions.addEventListener("click", addToUIOptionsRank);
 police_stationOptions.addEventListener("click", loadPoliceStationOptionsListOnLoad());
-police_stationOptions.addEventListener("click", addToUIOptionspolice_station());
+police_stationOptions.addEventListener("click", addToUIOptionspolice_station);
 gradeOptions.addEventListener("click", addToUIOptionsGrade);
 
 

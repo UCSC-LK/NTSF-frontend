@@ -19,3 +19,14 @@
 1. Email of IGP(System Admin): igp.slpolice@gmail.com => Mail sent when server is down
 2. Email of system: ntsf.slpolice@gmail.com 
 3. Email of others: Any as of now 
+
+
+# payment_status
+
+expired 
+
+unpaid 
+
+paid
+
+removed - If complaint is accepted by the investigation officer 
