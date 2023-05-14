@@ -96,6 +96,7 @@ function createTable(finesDataArray) {
 
   headers.forEach((headerText) => {
     const headerCell = document.createElement("th");
+    headerCell.classList.add("table-header");
     headerCell.textContent = headerText;
     headerRow.appendChild(headerCell);
   });
@@ -149,7 +150,7 @@ function createTable(finesDataArray) {
                * Add button "Add Complaint" to each UNPAID row
                */
               const addButton = displayButton(
-                "Add Complaint",
+                "Add",
                 "addButton",
                 () => {
                   if (fineNo) redirectToAddComplaint(fineNo);
@@ -166,15 +167,12 @@ function createTable(finesDataArray) {
             } else if (paymentStatus === "paid") {
               row.classList.add("paid-row");
               paidRows.push(row);
+
+              const emptyCell = row.insertCell();
+              emptyCell.textContent = " "; // Add any desired content or styling to the empty cell
             }
           } else {
             cell.textContent = cellData;
-
-            // Add empty cell for the complaint column
-            if (index === 8) {
-              const emptyCell = row.insertCell();
-              emptyCell.textContent = ""; // Add any desired content or styling to the empty cell
-            }
           }
         });
 
