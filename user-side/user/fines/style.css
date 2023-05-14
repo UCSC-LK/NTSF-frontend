@@ -25,6 +25,7 @@ body {
     width: 100%;
     margin: 0;
     height: auto;
+    position: fixed;
 }
 
 h1 {
@@ -48,6 +49,7 @@ button {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.2em;
     margin-left: 6px;
+    cursor: pointer;
 }
 
 .clear {
