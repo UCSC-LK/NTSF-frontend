@@ -90,7 +90,8 @@ function createTable(finesDataArray) {
     "Amount",
     "Demerit Points",
     "Payment Status",
-    "Action",
+    "Pay",
+    "Complaint",
   ];
 
   headers.forEach((headerText) => {
@@ -143,12 +144,11 @@ function createTable(finesDataArray) {
                 },
                 fineNo // Pass the fine number as a parameter to the onClick function
               );
-              cell.appendChild(paymentStatusButton);
 
               /**
                * Add button "Add Complaint" to each UNPAID row
                */
-              const button = displayButton(
+              const addButton = displayButton(
                 "Add Complaint",
                 "addButton",
                 () => {
@@ -156,20 +156,25 @@ function createTable(finesDataArray) {
                 },
                 fineNo // Pass the fine number as a parameter to the onClick function
               );
-              row.appendChild(
-                button
-              ); /*************** PAID CONDITION ***************/
+
+              cell.appendChild(paymentStatusButton);
+
+              const addButtonCell = row.insertCell();
+              addButtonCell.appendChild(addButton);
+
+              /*************** PAID CONDITION ***************/
             } else if (paymentStatus === "paid") {
               row.classList.add("paid-row");
               paidRows.push(row);
             }
           } else {
             cell.textContent = cellData;
-          }
 
-          // Add the fine number as a data attribute to the row
-          if (index === 0) {
-            row.dataset.fineNo = cellData;
+            // Add empty cell for the complaint column
+            if (index === 8) {
+              const emptyCell = row.insertCell();
+              emptyCell.textContent = ""; // Add any desired content or styling to the empty cell
+            }
           }
         });
 
