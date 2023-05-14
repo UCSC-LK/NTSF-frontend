@@ -75,6 +75,11 @@ function displayFines(finesDataArray, headingText, tableId) {
   }
 }
 
+/**
+ * Create table
+ * @param {*} finesDataArray 
+ * @returns 
+ */
 function createTable(finesDataArray) {
   const table = document.createElement("table");
 
@@ -94,8 +99,11 @@ function createTable(finesDataArray) {
     "Complaint",
   ];
 
+  // Create table header cells
   headers.forEach((headerText) => {
+    // Create table header cell
     const headerCell = document.createElement("th");
+    // Add CSS class to the header cell
     headerCell.classList.add("table-header");
     headerCell.textContent = headerText;
     headerRow.appendChild(headerCell);
