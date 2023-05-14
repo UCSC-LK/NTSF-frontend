@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
 
   displayImageFromSessionStorage("profilePicture", "profile-picture-container");
 
-  // Getting user Id from the session storage | User Id = 107
+  // Getting user Id from the session storage | User Id = 1
   const userId = sessionStorage.getItem("userId");
   console.log(userId);
 
