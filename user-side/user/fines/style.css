@@ -11,19 +11,27 @@
     .blok i {
         display: none;
     }
+
+    div.scroll {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        margin: auto 10px !important;
+    }
 }
 
 body {
     font-family: "Lato", sans-serif;
     height: 100%;
     width: 100%;
-    position: fixed;
+    margin: 0;
+    height: auto;
 }
 
 h1 {
     font-size: 25px;
     color: gray;
     text-align: center;
+    margin-top: 0;
 }
 
 h2, h3, h4 {
@@ -123,15 +131,19 @@ table {
     height: 80%;
 }
 
+/**********/
+.table-header {
+    text-align: center;
+}
+
 .tableSection {
     justify-content: space-around;
-    position: sticky;
-    top: 0;
-    overflow-y: auto;
-    /* VIEW FINES EKE YATA PRASHNE */
-    height: 600px;
-    overflow-x: auto;
+    overflow: auto;
 }
+
+
+
+
 
 thead {
     position: sticky;
@@ -294,4 +306,16 @@ th {
     width: 80%;
     height: 80%;
     border-radius: 50%;
+}
+
+/*SCROLL ENABLE ONLY FOR RELEVANT DIV*/
+div.scroll {
+    background-color: #fff;
+    width: 73%;
+    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    padding-left: 20px;
+    padding: 20px;
 }

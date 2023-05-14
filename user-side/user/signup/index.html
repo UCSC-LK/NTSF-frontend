@@ -33,88 +33,90 @@
 </head>
 
 <body>
-      <div class="header">
-            <div class="ntsflogo">
-                  <img src="../../../resources/images/logo_NTSF.png"
-                       alt="ntsflogo">
+      <div class="body-container">
+            <div class="header">
+                  <div class="ntsf-logo-wrapper">
+                        <img src="../../../resources/images/logo_NTSF.png"
+                             alt="ntsflogo">
+                  </div>
+                  <div class="title">
+                        <h2>
+                              <b>National Traffic Spot Fine System</b>
+                        </h2>
+                  </div>
+
+                  <a href="../../common/profile/index.html">
+                  </a>
             </div>
-            <div class="title">
-                  <h2>
-                        <b>National Traffic Spot Fine System</b>
-                  </h2>
-            </div>
-
-            <a href="../../common/profile/index.html">
-            </a>
-      </div>
 
 
-      <div class="wrapper">
-            <form id="signup-form"
-                  class="sign-up"
-                  oninput="validateSignUpForm()"
-                  onsubmit="submitSignup(); return false">
+            <div class="wrapper">
+                  <form id="signup-form"
+                        class="sign-up"
+                        oninput="validateSignUpForm()"
+                        onsubmit="submitSignup(); return false">
 
-                  <p class="title">Sign Up</p>
+                        <p class="title">Sign Up</p>
 
-                  <div class="form-control">
-                        <!-- NIC -->
-                        <input type="text"
-                               id="nic"
-                               placeholder="NIC"
-                               autofocus />
-                        <i class="fa fa-user"></i>
+                        <div class="form-control">
+                              <!-- NIC -->
+                              <input type="text"
+                                     id="nic"
+                                     placeholder="NIC"
+                                     autofocus />
+                              <i class="fa fa-user"></i>
 
-                        <!-- Email -->
-                        <input type="text"
-                               id="email"
-                               placeholder="Email"
-                               autofocus />
-                        <i class="fa fa-envelope"
-                           aria-hidden="true"></i>
+                              <!-- Email -->
+                              <input type="text"
+                                     id="email"
+                                     placeholder="Email"
+                                     autofocus />
+                              <i class="fa fa-envelope"
+                                 aria-hidden="true"></i>
 
-                        <!-- Mobile No -->
-                        <input type="text"
-                               id="mobile-no"
-                               placeholder="Mobile No"
-                               autofocus />
-                        <i class="fa fa-mobile"
-                           aria-hidden="true"></i>
+                              <!-- Mobile No -->
+                              <input type="text"
+                                     id="mobile-no"
+                                     placeholder="Mobile No"
+                                     autofocus />
+                              <i class="fa fa-mobile"
+                                 aria-hidden="true"></i>
 
-                        <!-- Password -->
-                        <div id="password-container">
+                              <!-- Password -->
+                              <div id="password-container">
+                                    <input type="password"
+                                           id="password"
+                                           placeholder="Password"
+                                           autofocus />
+                                    <i class="fa fa-key"
+                                       aria-hidden="true"></i>
+
+                                    <!-- Toggle Password -->
+                                    <span id="toggleEye-SignUp"
+                                          onclick="togglePasswordVisibility()">
+                                          <i class="fas fa-eye"></i>
+                                    </span>
+                              </div>
+
+                              <!-- Re Enter Password -->
                               <input type="password"
-                                     id="password"
-                                     placeholder="Password"
+                                     id="re-password"
+                                     placeholder="Re Enter Password"
                                      autofocus />
                               <i class="fa fa-key"
                                  aria-hidden="true"></i>
-
-                              <!-- Toggle Password -->
-                              <span id="toggleEye-SignUp"
-                                    onclick="togglePasswordVisibility()">
-                                    <i class="fas fa-eye"></i>
-                              </span>
                         </div>
 
-                        <!-- Re Enter Password -->
-                        <input type="password"
-                               id="re-password"
-                               placeholder="Re Enter Password"
-                               autofocus />
-                        <i class="fa fa-key"
-                           aria-hidden="true"></i>
-                  </div>
+                        <a href="#">Forgot your password?</a><br><br>
+                        <a href="../../user/login/index.html">Login</a>
 
-                  <a href="#">Forgot your password?</a><br><br>
-                  <a href="../../user/login/index.html">Login</a>
-
-                  <button id="submit-btn"
-                          disabled>
-                        <i class="spinner"></i>
-                        <span class="state">Sign Up</span>
-                  </button>
-            </form>
+                        <button id="submit-btn"
+                                disabled>
+                              <i class="spinner"></i>
+                              <span class="state">Sign Up</span>
+                        </button>
+                  </form>
+            </div>
       </div>
 </body>
 
