@@ -216,6 +216,34 @@ function rejectAppeal(complaint_no, fine_no){
 }
 
 
+function viewFootage(){
+    window.open("footage.html");
+
+
+    // console.log("viewFootage is called");
+    // var videoUrl = "D:\project\NTSF-frontend\resources\images\footage\15.mp4"; // Replace with the actual video URL
+    // var videoName = "15.mp4"; // Replace with the desired filename for the downloaded video
+    // var link = document.createElement("a");
+    // link.href = videoUrl;
+    // link.download = videoName;
+    // link.click();
+
+    // var videoUrl = "D:\project\NTSF-frontend\resources\images\footage\15.mp4"; // Replace with the actual video URL
+    //         var videoName = "15.mp4"; // Replace with the desired filename for the downloaded video
+
+    //         fetch(videoUrl)
+    //             .then(response => response.blob())
+    //             .then(blob => {
+    //                 var url = window.URL.createObjectURL(blob);
+    //                 var link = document.createElement("a");
+    //                 link.href = url;
+    //                 link.download = videoName;
+    //                 link.click();
+    //             });
+        
+
+}
+
 
 
 
