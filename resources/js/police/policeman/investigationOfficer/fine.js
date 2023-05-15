@@ -1,32 +1,5 @@
 
-function loadUnpaidFineDetails(){
-    console.log("Unpaid Fine Details was called");
-    var offence_type = sessionStorage.getItem("offence_type");
-    console.log("offence_type: " + offence_type);
-    var payment_status = "unpaid";
-    fetchFineDetails(payment_status, offence_type);
-
-}
-
-function loadPaidFineDetails(){
-    console.log("Paid Fine Details was called");
-    var offence_type = sessionStorage.getItem("offence_type");
-    console.log("offence_type: " + offence_type);
-    var payment_status = "paid";
-    fetchFineDetails(payment_status, offence_type);
-
-}
-
-function loadExpiredFineDetails(){
-    console.log("Expired Fine Details was called");
-    var offence_type = sessionStorage.getItem("offence_type");
-    console.log("offence_type: " + offence_type);
-    var payment_status = "expired";
-    fetchFineDetails(payment_status, offence_type);
-
-}
-
-function fetchFineDetails(payment_status, offence_type){
+function fetchFineDetails(){
     var table = document.getElementById("table");
     console.log("I was called onload");
     console.log("Printing session storage values");
@@ -38,6 +11,14 @@ function fetchFineDetails(payment_status, offence_type){
     console.log(user_rank);
     user_police_station = sessionStorage.getItem('user_police_station');
     console.log(user_police_station);
+
+
+    console.log("Unpaid Fine Details was called");
+    var offence_type = sessionStorage.getItem("offence_type");
+    console.log("offence_type: " + offence_type);
+    var payment_status = "unpaid";
+  
+    
 
     let httpreq = new XMLHttpRequest;
     httpreq.onreadystatechange = function()
@@ -93,7 +74,6 @@ function fetchFineDetails(payment_status, offence_type){
                     var dataCell10 = dataRow.insertCell(9);
                     var dataCell11 = dataRow.insertCell(10);
                     var dataCell12 = dataRow.insertCell(11);
-                    var dataCell13 = dataRow.insertCell(12);
 
                     dataCell1.innerHTML = jsonFineData.List[i].fine_no;
                     dataCell2.innerHTML = jsonFineData.List[i].offence_no;
@@ -110,10 +90,8 @@ function fetchFineDetails(payment_status, offence_type){
                     var latitude = jsonFineData.List[i].latitude;
                     var longitude = jsonFineData.List[i].longitude;
 
-                    dataCell12.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-photo-film'</i></button>";
+                    dataCell12.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-credit-card'></i></button>";
 
-
-                    dataCell13.innerHTML = "<button type='button' id='viewLocationButton' onclick='viewLocation ("+latitude+", "+longitude+")'><i class='fa-solid fa-map-location-dot'></i></button>";
 
                 } 
 
@@ -138,7 +116,7 @@ function fetchFineDetails(payment_status, offence_type){
                     var dataCell9 = dataRow.insertCell(8);
                     var dataCell10 = dataRow.insertCell(9);
                     var dataCell11 = dataRow.insertCell(10);
-                    var dataCell12 = dataRow.insertCell(11);
+    
 
                     dataCell1.innerHTML = jsonFineData.List[i].fine_no;
                     dataCell2.innerHTML = jsonFineData.List[i].offence_no;
@@ -155,8 +133,8 @@ function fetchFineDetails(payment_status, offence_type){
                     var latitude = jsonFineData.List[i].latitude;
                     var longitude = jsonFineData.List[i].longitude;
 
-                    dataCell11.innerHTML = "<button type='button' id='viewLocationButton' onclick='viewLocation("+latitude+", "+longitude+")'><i class='fa-solid fa-map-location-dot'></i></button>";
-                    dataCell12.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-photo-film'</i></button>";
+                    dataCell11.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-credit-card'></i></button>";
+
 
                 }
             }
@@ -183,7 +161,6 @@ function fetchFineDetails(payment_status, offence_type){
                     var dataCell8 = dataRow.insertCell(7);
                     var dataCell9 = dataRow.insertCell(8);
                     var dataCell10 = dataRow.insertCell(9);
-                    var dataCell11 = dataRow.insertCell(10);
 
                     dataCell1.innerHTML = jsonFineData.List[i].fine_no;
                     dataCell2.innerHTML = jsonFineData.List[i].offence_no;
@@ -198,8 +175,7 @@ function fetchFineDetails(payment_status, offence_type){
                     var latitude = jsonFineData.List[i].latitude;
                     var longitude = jsonFineData.List[i].longitude;
 
-                    dataCell10.innerHTML = "<button type='button' id='viewLocationButton' onclick='viewLocatio ("+latitude+", "+longitude+")'><i class='fa-solid fa-map-location-dot'></i></button>";
-                    dataCell12.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-photo-film'</i></button>";
+                    dataCell10.innerHTML = "<button type='button' id='viewFootageButton' onclick='viewFootage("+latitude+", "+longitude+")'><i class='fa-solid fa-credit-card'></i></button>";
 
                 }
             }

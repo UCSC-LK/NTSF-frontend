@@ -11,11 +11,9 @@
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBZfTXgrsbyt5iElwKu47Jdd0grdRfd6bw" defer></script> -->
     <title>National Traffic Spot Fine System</title>
-
 </head>
-<body onload="viewAppealsOnLoad()">
+<body onload="fetchFineDetails()">
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -33,7 +31,7 @@
                     <i class="fa-solid fa-person-military-rifle"></i>
                     Policeman
                 </a>
-                      <a href="../../../police/policeman/investigationOfficer/selectfinetype.html">
+                <a href="../../../police/policeman/investigationOfficer/selectfinetype.html">
                     <i class="fa-solid fa-credit-card"></i>
                                         Fine Payment
                 </a>
@@ -61,16 +59,40 @@
             </div>
         </div>
     <!-- Dashbboard cards -->
+    <div class="all">
 
+        <div class="container">
+            <h1 id="offenceType"></h1> <br>
+            <div class="tableSection">
+                <table class="rwd-table" id="table">
+                    <tbody>
+                      <div class="tableheading">
+                        <thead>
+                         <th>Fine No</th>
+                          <th>Offence No</th>
+                          <th>Description</th>
+                          <th>Spot Description</th>
+                          <th>NIC</th>
+                          <th id="license_no_th">License Number</th>
+                          <th id="vehicle_no_th">Vehicle Number</th>
+                          <th id="driven_vehicle_no_th">Driven Vehicle Number</th>
+                          <th>Imposed By</th>
+                          <th>Imposed Date & Time</th>
+                          <th>Due Date & Time</th>
+                          <th>Amount</th>
+                          <th></th>
+
+                        </thead>
+                      </div>
+                      <div id="fineData"></div>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
 
 </div>
     <script src="/resources/js/police/username.js"></script>
-    <script src="/resources/js/police/policeman/investigationOfficer/viewAppeals.js"></script>
+    <script src="/resources/js/police/policeman/investigationOfficer/fine.js"></script>
 </body>
 </html>
-
-
-
-
-
-    </div>

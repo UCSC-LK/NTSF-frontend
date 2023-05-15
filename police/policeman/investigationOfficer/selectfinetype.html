@@ -3,19 +3,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
     <link rel="stylesheet" href="/resources/css/user-interface.css">
     <link rel="stylesheet" href="/resources/css/card.css">
-    <link rel="stylesheet" href="/resources/css/table.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
     <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBZfTXgrsbyt5iElwKu47Jdd0grdRfd6bw" defer></script> -->
-    <title>National Traffic Spot Fine System</title>
 
+    <title>National Traffic Spot Fine System</title>
 </head>
-<body onload="viewAppealsOnLoad()">
+<body>
     <div class="side-bar">
         <div class="side-bar-logo">
             <div class="logo-container">
@@ -25,7 +22,7 @@
             <p class="tagline">National Traffic Spot Fine System</p>
         </div>
         <div class="side-bar-list">
-            <a href="../dashboard.html">
+            <a href="dashboard.html">
                 <button class="dashboard-button">Investigation Officer Dashboard</button>
             </a>
             <div class="menu">
@@ -33,9 +30,8 @@
                     <i class="fa-solid fa-person-military-rifle"></i>
                     Policeman
                 </a>
-                      <a href="../../../police/policeman/investigationOfficer/selectfinetype.html">
-                    <i class="fa-solid fa-credit-card"></i>
-                                        Fine Payment
+                <a href="../../../police/policeman/investigationOfficer/selectfinetype.html">
+                    <i class="fa-solid fa-credit-card"></i>                    Fine Payment
                 </a>
                 <a href="../../police/policeman/viewOffence.html"> <!-- Left for later-->
                     <i class="fa-solid fa-handcuffs"></i>
@@ -53,24 +49,36 @@
     <!-- Dashboard heading -->
     <div class="dashboard-heading">
         <div class="panel">
-            <a href="../profile.html">  
+            <a href="profile.html">  
                 <p class="user-name" id="user_name"></p>
             </a>
             <div class="profile-picture-container">
-                <img  src="" class="profile-picture" id="profile-picture" alt="">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
             </div>
         </div>
     <!-- Dashbboard cards -->
-
-
-</div>
-    <script src="/resources/js/police/username.js"></script>
-    <script src="/resources/js/police/policeman/investigationOfficer/viewAppeals.js"></script>
+    <div class="all">
+        <div class="container">
+            <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
+                <a href="/police/policeman/investigationOfficer/fine.html" id="driverOffence">
+                <h2>Driver</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
+                <a href="/police/policeman/investigationOfficer/fine.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
+                <a href="/police/policeman/investigationOfficer/fine.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
+            </div>
+        </div>
+    <script src="../../resources/js/police/username.js"></script>
+    <script src="/resources/js/police/policeman/trafficPolice/Offence.js"></script>
 </body>
 </html>
-
-
-
-
-
-    </div>
