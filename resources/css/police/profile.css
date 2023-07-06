@@ -1,0 +1,75 @@
+.profilePictureContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* background-color: red; */
+    align-items: center;
+}
+
+.profilePicture{
+    width: 15%;
+    height: 80%;
+    border-radius: 50%;
+    /* background-color: blue; */
+}
+
+.nameContainer{
+    margin-left: 5%;
+    width: 30%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    /* background-color: green; */
+}
+
+.informationContainer{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+
+/****INFORMATION TABLE***/
+
+table
+{
+	margin: auto;
+	width: 70%;
+	height: 80%;
+	border-collapse: collapse;
+	color: #333;
+	border-radius: .4em;
+	overflow: hidden;
+
+}
+
+td{
+	text-align: left;
+	padding: .5em 1em;
+	padding: 1em !important;
+}
+
+tr
+{
+	border-color: #bfbfbf;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+  background-color: #e1e4ee;
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+tr:nth-child(odd){
+  background-color: #E3F0FF;
+}

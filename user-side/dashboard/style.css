@@ -1,0 +1,284 @@
+@media only screen and (max-width: 800px) {
+    .dashboard-side-panel {
+        width: 90%;
+        display: none;
+    }
+
+    .dashboard-heading {
+        width: 100%;
+    }
+
+    .blok i {
+        display: none;
+    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+h1 {
+    font-size: 25px;
+    color: gray;
+    text-align: center;
+}
+
+button {
+    background: #14abfa;
+    border: solid 6px #14abfa;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.2em;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    margin-left: 2px;
+}
+
+/* dashboard-side-panel */
+.logo .app-name {
+    font-size: 50px;
+}
+
+.tagline {
+    color: #9b9ea2;
+    font-weight: bold;
+    padding: 0px 5px;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+.dashboard-side-panel {
+    width: 20%;
+    height: 100vh;
+    padding: 0px 2%;
+    float: left;
+}
+
+.ntsf-logo {
+    height: 100px;
+}
+
+
+/* side-panel menu */
+.menu {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0px;
+    margin-left: 8px;
+}
+
+.menu a {
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+    margin: 15px 0px;
+    float: left;
+    display: block;
+    font-size: 1.2em;
+}
+
+/* .menu a:nth-child(4) {
+    color: #14abfa;
+} */
+
+.menu a i {
+    font-size: 1.7em;
+    color: #14abfa;
+    position: relative;
+    padding-right: 10px;
+    top: 3px;
+    width: 50px;
+}
+
+.menu .fa-solid {
+    top: 6px;
+    padding-left: 2px;
+}
+
+/* dashboard-heading */
+/* .dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #ffffff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .all {
+    margin-top: 20px;
+    background: #f2f2f2;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.dashboard-heading .panel {
+    padding-bottom: 40px;
+    background-color: #12abf7;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel i {
+    border-radius: 50%;
+    background: #f4f4f4;
+    padding: 8px;
+    border: solid 2px;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+    background-color: #12abf7;
+}
+
+.dashboard-heading .panel .profile-username {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: -8px;
+    color: white;
+}
+
+.ntsf-logo {
+    height: 50%;
+    width: 30%;
+    color: white;
+}
+
+.logo-name {
+    width: 60%;
+}
+
+.ntsf-logo {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* Ends here */
+
+/* .dashboard-heading .all {
+    background: #f2f2f2;
+    width: 100%;
+    min-height: 100vh;
+} */
+
+.all .starter-stats .blok {
+    background: #ffffff;
+    width: 30%;
+    float: left;
+    margin: 20px 1.5%;
+    font-size: 1.1em;
+    font-family: "Source Sans Pro", sans-serif;
+    position: relative;
+}
+
+/*************** Block ***************/
+.blok i {
+    border-radius: 50%;
+    background: #12abf7;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    margin-left: 20px;
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.blok .kl {
+    background: #978ded;
+}
+
+.blok .pl {
+    background: #facaee;
+}
+
+.blok .no {
+    display: inline-block;
+}
+
+.blok .no p:first-child {
+    font-weight: 700;
+    /* font-size: 0.8em; */
+    font-size: 20px;
+    position: relative;
+    top: 8px;
+}
+
+.blok .no p:nth-child(2) {
+    position: relative;
+    top: -10px;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.clear {
+    clear: both;
+}
+
+.gains {
+    width: 80%;
+    padding: 20px 8%;
+    margin: 5px auto;
+    background: #ffffff;
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+    background-color: #12abf7;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}

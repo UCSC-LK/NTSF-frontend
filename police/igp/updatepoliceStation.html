@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/form.css">
+    <link rel="stylesheet" href="/resources/css/message.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+    <title>National Traffic Spot Fine System</title>
+</head>
+<body onload="fetchPoliceStationDetails()">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
+            <div class="menu">
+                <a href="../igp/viewPoliceman.html" >
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="../igp/viewPoliceStation.html" style="color: #14abfa;">
+                    <i class="fa-solid fa-building-shield"></i>
+                    Police Station
+                </a>
+                <a href="../igp/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="" id="profile-picture">
+            </div>
+
+        </div>
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="container">
+            <h2 class="form-header">Update Police Station</h2>
+                    <form action="#" id="form" class="form">
+                        <div class="form-control">
+                            <label for="branch_name">Branch Name</label>
+                            <input type="text" placeholder="eg: Nugegoda" id="branch_name"  value="" readonly/>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="address">Address</label>
+                            <input type="text" placeholder="eg: 11, High level Road" id="address" value="" />
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="districtOptions">District</label>
+                            <div class="options" id="districtOptions">
+                                <div class="hide-option option" id="hide-districtOption">Select the district</div>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="provinceOptions">Province</label>
+                            <div class="options" id="provinceOptions">
+                                <div class="hide-option option" id="hide-provinceOption">Select the Province</div>
+                                <i class="fa-regular fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                            </div>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="contact_number">Telephone Number</label>
+                            <input type="text" placeholder="eg: 0112737922" id="contact_number" value="" />
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <label for="email">E-mail</label>
+                            <input type="email" placeholder="eg: suraifcoc16@gmail.com" id="email" value=""/>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small>Error message</small>
+                        </div> 
+                        <button id="button">Update</button>
+                    </form>
+                </div>
+            </div>
+    <script src="/resources/js/police/username.js"></script>
+    <script src="/resources/js/police/igp/updatePoliceStation.js"></script>
+</body>
+</html>

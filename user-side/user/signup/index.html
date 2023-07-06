@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet"
+            href="./style.css">
+      <!-- <link rel="stylesheet"
+          href="../login/style.css"> -->
+      <link rel="stylesheet"
+            href="../../component/message/style.css">
+      <link rel="stylesheet"
+            href="../../component/togglePassword/style.css">
+      <!-- <link rel="stylesheet"
+            href="../../component/smallMessage/form.css"> -->
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet"
+            href="../../resources/icons/fontAwesome/envelope-solid.svg">
+      <title>NTSF</title>
+      <title>User Sign Up</title>
+      <link rel="icon"
+            type="image/x-icon"
+            href="../../resources/icons/favicon.ico">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script type="module"
+              src="./script.js"></script>
+</head>
+
+<body>
+      <div class="body-container">
+            <div class="header">
+                  <div class="ntsf-logo-wrapper">
+                        <img src="../../../resources/images/logo_NTSF.png"
+                             alt="ntsflogo">
+                  </div>
+                  <div class="title">
+                        <h2>
+                              <b>National Traffic Spot Fine System</b>
+                        </h2>
+                  </div>
+
+                  <a href="../../common/profile/index.html">
+                  </a>
+            </div>
+
+
+            <div class="wrapper">
+                  <form id="signup-form"
+                        class="sign-up"
+                        oninput="validateSignUpForm()"
+                        onsubmit="submitSignup(); return false">
+
+                        <p class="title">Sign Up</p>
+
+                        <div class="form-control">
+                              <!-- NIC -->
+                              <input type="text"
+                                     id="nic"
+                                     placeholder="NIC"
+                                     autofocus />
+                              <i class="fa fa-user"></i>
+
+                              <!-- Email -->
+                              <input type="text"
+                                     id="email"
+                                     placeholder="Email"
+                                     autofocus />
+                              <i class="fa fa-envelope"
+                                 aria-hidden="true"></i>
+
+                              <!-- Mobile No -->
+                              <input type="text"
+                                     id="mobile-no"
+                                     placeholder="Mobile No"
+                                     autofocus />
+                              <i class="fa fa-mobile"
+                                 aria-hidden="true"></i>
+
+                              <!-- Password -->
+                              <div id="password-container">
+                                    <input type="password"
+                                           id="password"
+                                           placeholder="Password"
+                                           autofocus />
+                                    <i class="fa fa-key"
+                                       aria-hidden="true"></i>
+
+                                    <!-- Toggle Password -->
+                                    <span id="toggleEye-SignUp"
+                                          onclick="togglePasswordVisibility()">
+                                          <i class="fas fa-eye"></i>
+                                    </span>
+                              </div>
+
+                              <!-- Re Enter Password -->
+                              <input type="password"
+                                     id="re-password"
+                                     placeholder="Re Enter Password"
+                                     autofocus />
+                              <i class="fa fa-key"
+                                 aria-hidden="true"></i>
+                        </div>
+
+                        <a href="#">Forgot your password?</a><br><br>
+                        <a href="../../user/login/index.html">Login</a>
+
+                        <button id="submit-btn"
+                                disabled>
+                              <i class="spinner"></i>
+                              <span class="state">Sign Up</span>
+                        </button>
+                  </form>
+            </div>
+      </div>
+</body>
+
+</html>

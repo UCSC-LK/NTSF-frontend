@@ -1,0 +1,55 @@
+/*CSS for model to ask are you sure want to delete??*/
+.model {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  }  
+
+.model-content {
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+	background-color: #fefefe;
+	margin-top: 15%;
+	margin-left: 47.5%; 
+	margin-right: 27.5% ;
+    margin-bottom: 65%;
+	padding: 1.5%;
+	border: 1px solid #888;
+	width: 25%;
+	height: 20%;
+  }
+  
+.model-question{
+	font-size: 1.3rem;
+	font-weight: 700;
+	font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
+  }
+
+
+.model-options{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+  }
+  
+.model-button
+{
+	background: #14abfa;
+	border: solid 6px #14abfa;
+	width: 30%;
+	border-radius: 5px;
+	color: #ffffff;
+	font-weight: 700;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1rem;
+}
+

@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/card.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+
+    <title>National Traffic Spot Fine System</title>
+</head>
+<body>
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <a href="dashboard.html">
+                <button class="dashboard-button">Court Seargent Dashboard</button>
+            </a>
+            <div class="menu">
+                <a href="../../police/policeman/viewPoliceman.html">
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="../../police/policeman/viewOffence.html"> <!-- Left for later-->
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <br>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+
+        </div>
+    </div>
+</div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+            </div>
+        </div>
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="container">
+            <div class="card">
+                <i class="fa-solid fa-motorcycle fa-2xl" id="driverIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="driverOffence">
+                <h2>Driver</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-person-walking fa-2xl" id="pedestrianIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="pedestrianOffence">
+                    <h2>Pedestrian</h2>
+                </a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck fa-2xl" id="vehicleIcon"></i>
+                <a href="/police/policeman/courtSeargent/viewCourtFines.html" id="vehicleOffence">
+                    <h2>Vehicle</h2>
+                </a>
+            </div>
+        </div>
+    <script src="../../../resources/js/police/username.js"></script>
+    <script src="/resources/js/police/policeman/courtSeargent/courtFines.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+.message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 255px;
+	height: 60px;
+	position: absolute;
+	right: -255px;
+	bottom: 5vh;
+	animation: showMessage ease-out 5s;
+}
+
+.message.success {
+	/* background-color: rgb(184, 255, 112); */
+	background-color: #14abfa;
+}
+
+.message.failure {
+	background-color: crimson;
+	color: white;
+}
+
+@keyframes showMessage {
+	0%, 100% {
+		right: -255px
+	}
+
+	10% {
+		right: 0
+	}
+
+	90% {
+		right: 0;
+	}
+}

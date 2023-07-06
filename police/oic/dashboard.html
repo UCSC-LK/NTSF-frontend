@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/police/igp/dashboard.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>National Traffic Spot Fine System</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+</head>
+<body onload="loadDashboardDetails()">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <a href="dashboard.html">
+                <button class="dashboard-button">OIC Dashboard</button>
+            </a>
+            <div class="menu">
+                <a href="../oic/viewPoliceman.html" >
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Police
+                </a>
+                <a href="../oic/fine.html">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Fine
+                </a>
+                <a href="../oic/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+            </div>
+        </div>
+    <!-- Dashbboard cards -->
+        <div class="dashboard-all-wrapper">
+            <div class="dashboard-all">
+                <div class="dashboard-cards" id="cards-one">
+                    <div class="dashboard-card" id="card-one">
+                        <div class="card-align">
+                            <i class="fa-solid fa-traffic-light" id="trafficPoliceIcon"></i>
+                            <h3>Traffic Police Officers</h2>
+                        </div>
+                        <br>
+                        <div>
+                           <p>Sachith Senarathne</p>
+                           <p>Nihal Kariyavasam</p>
+                           <p>Nimal Perera</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" id="card-two">
+                        <div class="card-align">
+                            <i class="fa-solid fa-user-secret " id="investigationOfficerIcon"></i>
+                            <h3>Investigation Officer</h2>
+                        </div>
+                        <br>
+                        <div>
+                          <p>Suresh Perera</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" id="card-three">
+                        <div class="card-align">
+                            <i class="fa-solid fa-scale-balanced fa-2xl" id="courtOfficerIcon"></i>
+                            <h3>Court Officer</h2>
+                        </div>
+                        <br>
+                        <div>
+                            <p>Sarath Rajapakse</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-cards" id="cards-two">
+                    <div class="dashboard-card" id="card-four">
+                        <div class="card-align">
+                            <i class="fa-solid fa-cash-register"></i>
+                            <h3>Total Fine </h2>
+                        </div>
+                        <p>May</p><br>
+                        <div>
+                            <h1 id="totalFine">Rs. 25000</h1>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" id="card-five">
+                        <div class="card-align">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                            <h3>Total Fine Collected </h2>
+                        </div>
+                        <p>May</p><br>
+                        <div>
+                            <h1 id="collectedFine">Rs. 12000</h1>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" id="card-six">
+                        <div class="card-align">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <h3>Total Fine Due </h2>
+                        </div>
+                        <p>May</p><br>
+                        <div>
+                            <h1 id="dueFine">Rs. 13000</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="graphs" id="graphs-one">
+                    <div class="graph" id="graph-one" >
+                        <canvas id="myChart1" ></canvas>
+                    </div>
+                    <div class="graph" id="graph-two">
+                        <canvas id="myChart2" ></canvas>
+                    </div>
+                </div>
+                <div class="graphs" id="graphs-three">
+                    <canvas id="myChart3" ></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../../resources/js/police/oic/dashboard.js"></script>
+    <script src="../../resources/js/police/username.js"></script>
+    <script src="../../resources/js/police/igp/charts.js"></script>
+
+
+</body>
+</html>

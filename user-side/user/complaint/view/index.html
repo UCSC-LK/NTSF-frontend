@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet"
+          href="./main.css"> -->
+    <link rel="stylesheet"
+          href="./style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600">
+
+    <title>View Complaints</title>
+    <link rel="icon"
+          type="image/x-icon"
+          href="../../../resources/icons/favicon.ico">
+    <script type="module"
+            src="./script.js"></script>
+
+</head>
+
+<body>
+    <!-- REPEATING -->
+    <!-- Dashboard side panel -->
+    <div class="dashboard-side-panel">
+        <div class="logo">
+            <img src="/resources/images/logo_NTSF.png"
+                 alt="NTSF logo"
+                 class="ntsf-logo">
+            <p class="logo"><b class="app-name">NTSF</b></p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <a href="/user-side/dashboard/index.html">
+            <button class="main">User Dashboard</button></a>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../../fines/index.html">
+                <i class="fa-solid fa-file-invoice"></i>
+                Fine
+            </a>
+            </br>
+            <!-- <a href="../../complaint/add/index.html">
+                <i class="fa-solid fa-plus"></i>
+                Add Complaint
+            </a> -->
+            <a href="../../complaint/view/index.html">
+                <i class="fa-solid fa-layer-group"></i>
+                Complaint
+            </a>
+            <a href="../../login/index.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="/user-side/user/profile/index.html"
+               class="profile-username-nav"
+               id="profile-username">
+            </a>
+            <div class="profile-picture-container"
+                 id="profile-picture-container">
+            </div>
+        </div>
+    </div>
+    <!-- REPEATING -->
+
+    <!-- Fines table -->
+    <div class="container">
+        <h1>Complaint Details</h1>
+        <div class="tableSection">
+            <table class="fines-table"
+                   id="table">
+                <tbody>
+                    <div class="tableheading">
+                        <thead>
+                            <th id="complaintNo">Complaint No</th>
+                            <th id="fineNo">Fine No</th>
+                            <th id="title">Title</th>
+                            <th id="description">Description</th>
+                        </thead>
+                    </div>
+                    <div id="complaintData"></div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

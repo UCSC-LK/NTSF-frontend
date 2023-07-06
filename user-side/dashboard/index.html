@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet"
+            href="./style.css">
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+      <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600">
+
+      <title>User Dashboard</title>
+      <link rel="icon"
+            type="image/x-icon"
+            href="../resources/icons/favicon.ico">
+      <script type="module"
+              src="./script.js"></script>
+
+</head>
+
+<body>
+      <!-- REPEATING -->
+      <!-- Dashboard side panel -->
+      <div class="dashboard-side-panel">
+            <div class="logo">
+                  <img src="/resources/images/logo_NTSF.png"
+                       alt="NTSF logo"
+                       class="ntsf-logo">
+                  <p class="logo"><b class="app-name">NTSF</b></p>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+            <a href="./index.html">
+                  <button class="main">User Dashboard</button></a>
+            <div class="clear"></div>
+            <ul class="menu">
+                  <ul class="menu">
+                        <a href="../user/fines/index.html">
+                              <i class="fa-solid fa-file-invoice"></i>
+                              Fine
+                        </a>
+                        </br>
+                        <a href="../user/complaint/view/index.html">
+                              <i class="fa-solid fa-layer-group"></i>
+                              Complaint
+                        </a>
+                        <a href="../user/login/index.html">
+                              <i class="fa-solid fa-right-from-bracket"></i>
+                              Logout
+                        </a>
+                  </ul>
+      </div>
+
+      <!-- Dashboard heading -->
+      <div class="dashboard-heading">
+            <div class="panel">
+                  <a href="../user/profile/index.html"
+                     class="profile-username-nav"
+                     id="profile-username">
+                  </a>
+                  <div class="profile-picture-container"
+                       id="profile-picture-container">
+                  </div>
+            </div>
+
+            <div class="all">
+                  <div class="container">
+                        <h1>User Dashboard</h1>
+                  </div>
+                  <div class="starter-stats">
+                        <div class="blok">
+                              <i class="fa fa-money"></i>
+                              <div class="no">
+                                    <p>Max Point Limit</p>
+                                    <p id="max-point-limit">12</p>
+                              </div>
+                        </div>
+
+                        <div class="blok">
+                              <i class="fa fa-money kl"></i>
+                              <div class="no">
+                                    <p>Min Point Limit</p>
+                                    <p id="min-point-limit">0</p>
+                              </div>
+                        </div>
+
+                        <div class="blok">
+                              <i class="fa fa-money pl"></i>
+                              <div class="no">
+                                    <p>Initial Points</p>
+                                    <p id="initial-points">12</p>
+                              </div>
+                        </div>
+
+                        <div class="blok">
+                              <i class="fa fa-money"></i>
+                              <div class="no">
+                                    <p>Current Points</p>
+                                    <p id="current-points"></p>
+                              </div>
+                        </div>
+
+                        <div class="blok">
+                              <i class="fa fa-money kl"></i>
+                              <div class="no">
+                                    <p>Total Reduced Points</p>
+                                    <p id="total-reduced-points"></p>
+                              </div>
+                        </div>
+
+                        <div class="blok">
+                              <i class="fa fa-money pl"></i>
+                              <div class="no">
+                                    <p>Max Recovery Date</p>
+                                    <p id="max-recovery-date"></p>
+                              </div>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="gains">
+                              <canvas id="myChart"></canvas>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</body>
+
+</html>

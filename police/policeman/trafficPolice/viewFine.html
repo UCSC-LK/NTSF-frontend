@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/table.css">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+</head>
+<body onload="loadComplaintsDetails()">
+    <div class="DashBoardOption">
+        <div class="logo">
+            <div class="dashboto-logo">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+            </div>
+            <h2 class="logo"><b>NTSF</b></h2>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <button class="main">Traffic Police Dashboard</button>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../../policeman/viewPoliceman.html">
+                <i class="fa fa-dashboard"></i>
+                Policeman
+            </a>
+            <a href="../../policeman/trafficPolice/viewFine.html">
+                <i class="fa fa-book"></i>
+                View Fine
+            </a>
+            <a href="../oic/">
+                <i class="fa fa-book"></i>
+                Offence
+            </a>
+            <br>
+            <a href="../login.html">
+                <i class="fa fa-money"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <div ng-app="app" ng-controller="coin">
+                <p class="btc-price">Suraif Muhammad</p>
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="container">
+            <div class="cardContainer">
+                <div class="card">
+                  <a href="/viewDriverFine.html">
+                    <h2>Driver Fines</h2>
+                  </a>
+                </div>
+                <div class="card">
+                    <a href="/viewPedestrianFine.html">
+                        <h2>Pedestrian Fines</h2>
+                </div>
+                <div class="card">
+                    <a href="/viewVehicleFine.html">
+                        <h2>Vehicle Fines</h2>
+                </div>
+              </div>
+        </div>
+    </div>
+    <script src="../../../resources/js/police/policeman/investigationOfficer/viewComplaints.js"></script>
+</body>
+</html>

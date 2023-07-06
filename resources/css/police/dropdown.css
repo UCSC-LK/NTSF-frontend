@@ -1,0 +1,64 @@
+/* style the dropdown options */
+/* select[name=positionOptions] option[value=notAssigned] {
+    background-color: red;
+  }
+select[name=positionOptions] option[value=trafficPolice] {
+background-color: green;
+}
+select[name=positionOptions] option[value=investigationOfficer] {
+background-color: orange;
+}
+select[name=positionOptions] option[value=courtSeargent] {
+background-color: grey;
+} */
+
+select[name=positionOptions] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+
+  }
+
+/* 
+.redOption {
+  background-color: red;
+}
+
+.greenOption {
+  background-color: green;
+}
+
+.orangeOption {
+  background-color: orange;
+}
+
+.greyOption {
+  background-color: grey;
+} */
+
+/* style the selected dropdown NOT WORKING
+select[name=positionOptions] option[value=notAssigned]:checked {
+    background-color: red;
+
+}
+
+select[name=positionOptions] option[value=trafficPolice]:checked {
+    background-color: green;
+
+}
+
+select[name=positionOptions] option[value=investigationOfficer]:checked {
+    background-color: orange;
+
+}
+
+select[name=positionOptions] option[value=courtSeargent]:checked {
+    background-color: grey;
+
+}
+   */
+
+
+

@@ -1,0 +1,422 @@
+@media only screen and (max-width: 800px) {
+    .dashboard-side-panel {
+        width: 90%;
+        display: none;
+    }
+
+    .dashboard-heading {
+        width: 100%;
+    }
+
+    .blok i {
+        display: none;
+    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+h1 {
+    font-size: 25px;
+    color: gray;
+}
+
+button {
+    background: #14abfa;
+    border: solid 6px #14abfa;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.2em;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    margin-left: 2px;
+}
+
+/* dashboard-side-panel */
+.logo .app-name {
+    font-size: 50px;
+}
+
+.tagline {
+    color: #9b9ea2;
+    font-weight: bold;
+    padding: 0px 5px;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+.dashboard-side-panel {
+    width: 20%;
+    height: 100vh;
+    padding: 0px 2%;
+    float: left;
+}
+
+.ntsf-logo {
+    height: 100px;
+}
+
+
+/* side-panel menu */
+.menu {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0px;
+    margin-left: 8px;
+}
+
+.menu a {
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+    margin: 15px 0px;
+    float: left;
+    display: block;
+    font-size: 1.2em;
+}
+
+.menu a:nth-child(3) {
+    color: #14abfa;
+}
+
+
+.menu a i {
+    font-size: 1.7em;
+    color: #14abfa;
+    position: relative;
+    padding-right: 10px;
+    top: 3px;
+    width: 50px
+}
+
+.menu .fa-solid {
+    top: 6px;
+    padding-left: 2px;
+}
+
+/* dashboard-heading
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .all {
+    margin-top: 20px;
+    background: #394264;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.dashboard-heading .panel {
+    padding-bottom: 40px;
+    background-color: #12abf7;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel i {
+    border-radius: 50%;
+    background: #f4f4f4;
+    padding: 8px;
+    border: solid 2px;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+    background-color: #12abf7;
+}
+
+.dashboard-heading .panel .profile-username {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: -8px;
+    color: white;
+} */
+
+/********************************************* FORM ****************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+.formbody {
+    background-color: #edebeb;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 500px;
+    max-width: 100%;
+    margin-top: -50px;
+    height: 500px;
+    text-align: left;
+    margin-left: 650px;
+    margin-top: 100px;
+}
+
+.formHeader {
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #9b9ea2;
+    padding: 20px 40px;
+    position: sticky;
+    font-family: "Ubuntu", sans-serif;
+    color: #fff;
+    position: center;
+    font-size: 12px;
+}
+
+.formHeader h2 {
+    margin: 0;
+    position: sticky;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+.form-control.success input {
+    border-color: #2ecc71;
+}
+
+.form-control.error input {
+    border-color: #e74c3c;
+}
+
+.form-control i {
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.form button {
+    background-color: #12abf7;
+    border: 2px solid #12abf7;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+@keyframes showMessage {
+    0%, 100% {
+        right: -255px
+    }
+
+    10% {
+        right: 0
+    }
+
+    90% {
+        right: 0;
+    }
+}
+
+/* CSS for add complaint form */
+
+.cancel-button {
+    background: #B2BEB5;
+    border: solid 0.5px #B2BEB5;
+    /* border-radius: 3px; */
+    color: #1f253d;
+    font-weight: 700;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    margin-left: 6px;
+}
+
+.submit-btn {
+    background: #12abf7;
+    border: solid 0.5px #12abf7;
+    /* border-radius: 3px; */
+    color: #1f253d;
+    font-weight: 700;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    margin-left: 6px;
+}
+
+/* Complaint input validation */
+.form input.invalid:focus {
+    color: #444;
+    border-color: #ff0000;
+    border-left-width: 35px;
+}
+
+/* Complaint form disable button */
+.form button:disabled,
+button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#formHeader {
+    font-family: "Ubuntu", sans-serif;
+    color: #1f253d;
+}
+
+@media screen and (max-width: 601px) {
+    .fines-table tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .fines-table tr:hover:not(:first-child) {
+        background-color: #d8e7f3;
+    }
+
+    .fines-table td:before {
+        display: none;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .fines-table th:first-child,
+    .fines-table td:first-child {
+        padding-left: 0;
+    }
+
+    .fines-table th:last-child,
+    .fines-table td:last-child {
+        padding-right: 0;
+    }
+
+    .fines-table th,
+    .fines-table td {
+        padding: 1em !important;
+    }
+}
+
+.logo-name {
+    width: 60%;
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+    background-color: #12abf7;
+    padding: 5px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}

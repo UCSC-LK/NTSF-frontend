@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/table.css">
+    <link rel="stylesheet" href="/resources/css/viewFine.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>National Traffic Spot Fine System</title>
+    <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+
+</head>
+<body onload="loadUnpaidFineDetails(  )">
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <a href="dashboard.html">
+                <button class="dashboard-button">OIC Dashboard</button>
+            </a>
+            <div class="menu">
+                <a href="../oic/viewPoliceman.html" >
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Police
+                </a>
+                <a href="../oic/fine.html">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Fine
+                </a>
+                <a href="../oic/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="" class="profile-picture" alt="" id="profile-picture";">
+            </div>
+        </div>
+    <!-- Dashbboard cards -->
+    <div class="all">
+        <div class="status-stripe">
+            <button class="status-button" id="unpaidButton " onclick="loadUnpaidFineDetails()">Unpaid</button>
+            <button class="status-button" id="expiredButton" onclick="loadExpiredFineDetails()">Expired</button>
+            <button class="status-button" id="paidButton" onclick="loadPaidFineDetails()">Paid</button>
+        </div>
+        <div class="container">
+            <h1>Policeman Information</h1>
+            <div class="tableSection">
+                <br>
+                <!--View Unpaid fines and Expired Fines only-->
+                <table class="rwd-table" id="table">
+                    <tbody>
+                      <div class="tableheading">
+                        <thead>
+                          <th>Fine No</th>
+                          <th>Offence No</th>
+                          <th>Offence Description</th>
+                          <th>Spot Description</th>
+                          <th>NIC Number</th>
+                          <th id="license_no_th">License Number</th>
+                          <th id="vehicle_no_th">Vehicle Number</th>
+                          <th id="driven_vehicle_no_th">Driven Vehicle Number</th>
+                          <th>Imposed By</th>
+                          <th>Imposed Date & Time</th>
+                          <th>Due Date & Time</th>
+                          <th>Amount</th>
+                          <th></th> <!--View Footage-->
+                          <th></th> <!--View Location-->
+                        </thead>
+                      </div>
+                      <div id="fineData"></div>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../../resources/js/police/username.js"></script>
+    <script src="../../resources/js/police/oic/viewFine.js"></script>
+</body>
+</html>

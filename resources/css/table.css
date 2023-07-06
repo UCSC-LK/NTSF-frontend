@@ -1,0 +1,170 @@
+/*CSS for add Button*/
+.buttonSection{
+	display: flex;
+	justify-content: flex-end;
+	height: 10%;
+	margin-right: 2%;
+	margin-top: 1%;
+}
+
+/*CSS for table*/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+h1 {
+	text-align: center;
+	font-size: 1.8em;
+	color: #394867;
+}
+
+.container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 74%; /*Adjust the horizontal scroll bar height*/
+}
+
+
+.tableSection
+{
+	overflow-y: auto;
+	height: 100%;
+}
+.tableheading
+{
+	width: 100%;
+}
+
+table
+{
+	margin: auto;
+	width: 90%;
+	height: 80%;
+	border-collapse: collapse;
+	color: #333;
+	border-radius: .4em;
+	overflow: hidden;
+
+}
+
+th
+{
+	position: sticky;
+	top: 0;
+	text-align: left;
+	padding: .5em 1em;
+	padding: 1em !important; /*DELETE LATER*/
+}
+
+td{
+	text-align: left;
+	padding: .5em 1em;
+	padding: 1em !important;
+}
+
+tr
+{
+	border-color: #bfbfbf;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background-color: #e1e4ee;
+}
+
+tr:first-child {
+  border-top: none;
+  background: #6A789A;
+  color: #fff;
+}
+
+tr:nth-child(odd):not(:first-child) {
+  background-color: #E3F0FF;
+}
+
+/* .rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+} */
+
+
+/* @media screen and (max-width: 601px) {
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+  .rwd-table td:before {
+    display: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
+} */
+
+#deleteButton, #editButton, .addButton {
+	font-size: inherit;
+	background-color: transparent;
+	border: none; 
+	cursor: pointer;
+}
+
+#viewFootageButton, #viewLocationButton, #AcceptButton #RejectButton{
+	font-size: inherit;
+	background-color: transparent;
+	border: none; 
+	cursor: pointer;
+}
+
+.fa-person-circle-plus{
+	font-size: 3.5rem;
+}
+
+/*CSS for search input button*/
+
+.filters-section{
+	margin-top: 2%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.dropdown-filters{
+	margin-right: 2%;;
+}
+
+#myDropdown {
+	width: 100%;
+	height: 50%;
+
+}
+
+
+#myInput {
+	background-image: url('../images/search.png');
+	background-size: 6%;
+	background-position: 4% 40%;
+	background-repeat: no-repeat;
+	width: 25%;
+	font-size: 100%;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-right: 5%;
+  }

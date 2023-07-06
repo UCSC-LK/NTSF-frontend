@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../resources/images/logo_NTSF.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/css/user-interface.css">
+    <link rel="stylesheet" href="/resources/css/form.css">
+    <link rel="stylesheet" href="/resources/css/message.css">
+    <link rel="stylesheet" href="../../resources/css/police/igp/addPoliceman.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/251590f28b.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <script src="https://kit.fontawesome.com/251590f28b.js" crossorigin="anonymous"></script>
+    <title>National Traffic Spot Fine System</title>
+</head>
+<body>
+    <div class="side-bar">
+        <div class="side-bar-logo">
+            <div class="logo-container">
+                <img src="/resources/images/logo_NTSF.png" alt="NTSF logo" class="ntsflogo">
+                <h2 class="logo-name"><b>NTSF</b></h2>
+            </div>
+            <p class="tagline">National Traffic Spot Fine System</p>
+        </div>
+        <div class="side-bar-list">
+            <a href="dashboard.html">
+                <button class="dashboard-button">IGP Dashboard</button>
+            </a>
+            <div class="menu">
+                <a href="../igp/viewPoliceman.html" style="color: #14abfa;">
+                    <i class="fa-solid fa-person-military-rifle"></i>
+                    Policeman
+                </a>
+                <a href="../igp/viewPoliceStation.html">
+                    <i class="fa-solid fa-building-shield"></i>
+                    Police Station
+                </a>
+                <a href="../igp/offence.html">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    Offence
+                </a>
+                <a href="../login.html" onclick="sessionStorage.clear()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="profile.html">  
+                <p class="user-name" id="user_name"></p>
+            </a>
+            <div class="profile-picture-container">
+                <img  src="../../resources/images/sample.png" class="profile-picture" alt="" id="profile-picture">
+            </div>
+        </div>
+    
+    <!-- Dashbboard cards -->
+        <div class="all">
+            <div class="container">
+                <h2 class="form-header">Add Policeman</h2>
+                <form action="#" id="form" class="form"  enctype="multipart/form-data">
+                    <div class="form-control">
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="eg: Suraif Muhammad" id="name" />
+                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="police_id">Police_ID</label>
+                        <input type="text" placeholder="eg: 7109827" id="police_id" />
+                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="nic">NIC</label>
+                        <input type="text" placeholder="eg: 200019292837" id="nic" />
+                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="mobile_number">Mobile Number</label>
+                        <input type="text" placeholder="eg: 0766093011" id="mobile_number" />
+                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">E-mail</label>
+                        <input type="email" placeholder="eg: suraifcoc16@gmail.com" id="email" />
+                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="rankOptions">Rank</label>
+                        <div class="options" id="rankOptions">
+                            <div class="hide-option option" id="hide-rankOption">Select the rank</div>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="police_stationOptions">Police Station</label>
+                        <div class="options" id="police_stationOptions">
+                            <div class="hide-option option" id="hide-police_stationOption">Select the Police Station</div>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="gradeOptions">Grade: </label>
+                        <div class="options" id="gradeOptions">
+                            <div class="hide-option option" id="hide-gradeOption">Select the Grade</div>
+                        </div>
+                        <small>Error message</small>
+                    </div>
+                    <div>
+                        <label for="profile_picture">Profile Picture</label>
+                        <input type="file" id="profile_picture" name="profile_picture" accept="image/png, image/jpeg, image/jpg"> <!--Accepts only the file formats png,jpeg,jpg-->
+                        <!-- <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small>Error message</small> -->
+                    </div>
+                    <button id="button">Submit</button>
+                </form>
+            </div>
+        </div>
+    <script src="../../resources/js/police/igp/addPoliceman.js"></script>
+    <script src="/resources/js/police/username.js"></script>
+</body>
+</html>

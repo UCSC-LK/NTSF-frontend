@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./style.css">
+    <!-- <link rel="stylesheet"
+          href="../../../resources/css/form.css"> -->
+    <!-- <link rel="stylesheet"
+          href="../../../component/smallMessage/form.css"> -->
+    <link rel="stylesheet"
+          href="../../../component/message/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,600">
+
+    <title>Add Complaint</title>
+    <link rel="icon"
+          type="image/x-icon"
+          href="../../../resources/icons/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script type="module"
+            src="./script-new.js"></script> -->
+    <script type="module"
+            src="./script.js"></script>
+
+</head>
+
+<body>
+    <!-- REPEATING -->
+    <!-- Dashboard side panel -->
+    <div class="dashboard-side-panel">
+        <div class="logo">
+            <img src="/resources/images/logo_NTSF.png"
+                 alt="NTSF logo"
+                 class="ntsf-logo">
+            <p class="logo"><b class="app-name">NTSF</b></p>
+        </div>
+        <p class="tagline">National Traffic Spot Fine System</p>
+        <a href="/user-side/dashboard/index.html">
+            <button class="main">User Dashboard</button></a>
+        <div class="clear"></div>
+        <ul class="menu">
+            <a href="../../fines/index.html">
+                <i class="fa-solid fa-file-invoice"></i>
+                Fine
+            </a>
+            </br>
+            <!-- <a href="../../complaint/add/index.html">
+                <i class="fa-solid fa-plus"></i>
+                Add Complaint
+            </a> -->
+            <a href="../../complaint/view/index.html">
+                <i class="fa-solid fa-layer-group"></i>
+                Complaint
+            </a>
+            <a href="../../login/index.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </ul>
+    </div>
+
+    <!-- Dashboard heading -->
+    <div class="dashboard-heading">
+        <div class="panel">
+            <a href="../../profile/index.html"
+               class="profile-username-nav"
+               id="profile-username">
+            </a>
+            <div class="profile-picture-container"
+                 id="profile-picture-container">
+            </div>
+        </div>
+    </div>
+    <!-- REPEATING -->
+
+    <!-- Complaint form -->
+    <div class="all">
+        <div class="formBody">
+            <div class="container">
+                <div class="formHeader">
+                    <h2>Add Complaint</h2>
+                </div>
+                <div id="form-control">
+                    <form id="complaintForm"
+                          class="form"
+                          action="#"
+                          method="post"
+                          oninput="validateComplaintForm()"
+                          onsubmit="addComplaint(); return false"
+                          enctype='multipart/form-data'>
+                        <div class="form-control">
+
+                            <!-- Fine No -->
+                            <label for="fineNo">Fine No</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="fineNo" />
+                            <!-- <i class="fas fa-check-circle"></i>
+                      <i class="fas fa-exclamation-circle"></i> -->
+
+                            <!-- Complaint Title -->
+                            <label for="title">Title</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="title" />
+
+                            <!-- Complaint Description -->
+                            <label for="description">Description</label>
+                            <input type="text"
+                                   placeholder=""
+                                   id="description" />
+
+                            <!-- Upload Footage -->
+                            <label for="footage">Footage Upload</label>
+                            <input type="file"
+                                   id="footage"
+                                   name="footage"
+                                   accept="image/png, image/jpeg, image/jpg, video/mp4">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button id="submit-btn"
+                                disabled>
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

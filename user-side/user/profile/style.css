@@ -1,0 +1,239 @@
+/* Media queries responsiveness */
+@media only screen and (max-width: 1350px) {
+    .dashboard-side-panel {
+        width: 90%;
+        display: none;
+    }
+
+    .dashboard-heading {
+        width: 100%;
+    }
+
+    .blok i {
+        display: none;
+    }
+
+    div.scroll {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        margin: auto 10px !important;
+    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+h1 {
+    font-size: 25px;
+    color: gray;
+}
+
+h2 {
+    font-size: 20px;
+    color: black;
+    margin-top: 0;
+}
+
+button {
+    background: #14abfa;
+    border: solid 6px #14abfa;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.2em;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    margin-left: 2px;
+}
+
+.container {
+    text-align: center;
+}
+
+
+/* dashboard-side-panel */
+.logo .app-name {
+    font-size: 50px;
+}
+
+.tagline {
+    color: #9b9ea2;
+    font-weight: bold;
+    padding: 0px 5px;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+.dashboard-side-panel {
+    width: 20%;
+    height: 100vh;
+    padding: 0px 2%;
+    float: left;
+}
+
+.ntsf-logo {
+    height: 100px;
+}
+
+
+/* side-panel menu */
+.menu {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0px;
+    margin-left: 8px;
+}
+
+.menu a {
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+    margin: 15px 0px;
+    float: left;
+    display: block;
+    font-size: 1.2em;
+}
+
+.menu a i {
+    font-size: 1.7em;
+    color: #14abfa;
+    position: relative;
+    padding-right: 10px;
+    top: 3px;
+    width: 50px;
+}
+
+.menu .fa-solid {
+    top: 6px;
+    padding-left: 2px;
+}
+
+/* dashboard-heading */
+.dashboard-heading {
+    width: 76%;
+    float: right;
+    background: #fff;
+    position: relative;
+    color: #73787c;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dashboard-heading .panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 8%;
+    color: white;
+    background-color: #12abf7;
+    padding: 5px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .panel .profile-username-nav {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-heading .panel .profile-username-nav:hover {
+    text-decoration: underline;
+}
+
+/* profile-picture */
+.profile-picture-container {
+    width: 50px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.profile-picture-container img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+
+/*  enabled div */
+div.scroll {
+    background-color: #fff;
+    width: 73%;
+    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    padding-left: 20px;
+    padding: 20px;
+}
+
+
+/* data display cards */
+.profile-data-card {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 48%;
+    vertical-align: top;
+    transition: 0.3s ease-in-out;
+    font-size: 16px;
+    margin: 10px 4px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .07), 0 2px 2px rgba(0, 0, 0, .01), 0 4px 4px rgba(0, 0, 0, .02), 0 10px 8px rgba(0, 0, 0, .03), 0 15px 15px rgba(0, 0, 0, .03), 0 30px 30px rgba(0, 0, 0, .04), 0 70px 65px rgba(0, 0, 0, .05);
+}
+
+.profile-data-card:hover {
+    box-shadow: 0 0 0 1.2px rgba(53, 72, 91, .04), 0 2px 2px rgba(0, 0, 0, 0), 0 4px 4px rgba(0, 0, 0, .01), 0 10px 8px rgba(0, 0, 0, .02), 0 15px 15px rgba(0, 0, 0, .02), 0 30px 30px rgba(0, 0, 0, .02), 0 70px 65px rgba(0, 0, 0, .03);
+}
+
+.img-container {
+    width: 100%;
+    text-align: center;
+}
+
+.profile-username-nav .img-container .img {
+    border-radius: 50%;
+}
+
+.personal-info-card .profile-username {
+    font-size: 25px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.personal-info-card .img-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info-field {
+    display: block;
+    margin: 10px 0px;
+}
+
+.info-field-label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    padding: 10px auto;
+}
+
+.profile-data-row {
+    display: flex;
+}
